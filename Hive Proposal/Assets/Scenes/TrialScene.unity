@@ -935,6 +935,7 @@ MonoBehaviour:
   PlayerCamera: {fileID: 3969204}
   PickupTarget: {fileID: 1067807667}
   PickupRange: 10
+  rotationSpeed: 100
 --- !u!1 &1627737406
 GameObject:
   m_ObjectHideFlags: 0
