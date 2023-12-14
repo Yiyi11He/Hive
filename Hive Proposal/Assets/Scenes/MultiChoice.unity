@@ -398,8 +398,8 @@ MonoBehaviour:
   - {fileID: 1734111360}
   - {fileID: 1322858798}
   - {fileID: 165040064}
-  currentQuestion: 0
-  QuestionTxt: {fileID: 0}
+  QuestionTxt: {fileID: 303151051}
+  answer1: {fileID: 1342402282}
 --- !u!4 &154431260
 Transform:
   m_ObjectHideFlags: 0
@@ -450,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 154431259}
+  label: {fileID: 1365861175}
 --- !u!114 &165040066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,6 +1127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 154431259}
+  label: {fileID: 1884668626}
 --- !u!114 &1322858801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,6 +1292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 154431259}
+  label: {fileID: 0}
 --- !u!114 &1342402283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1784,6 +1787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCorrect: 0
   quizManager: {fileID: 154431259}
+  label: {fileID: 65320641}
 --- !u!114 &1734111363
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,55 +1,109 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-//using TMPro;
-
 
 public class QuizManager : MonoBehaviour
 {
     public List<QuestionAnswers> QnA;
-    public GameObject[] options;
-    public int currentQuestion;
+    public List<AnswerScript> options;
+    public TMP_Text QuestionTxt;
+    public AnswerScript answer1;
 
-    public Text QuestionTxt;
-    //public TextMeshPro QuestionTxt;
+    private int currentQuestion;
 
     private void Start()
     {
-        generateQuestion();
-        
+        GenerateQuestion();
     }
 
-    public void correct()
+    public void Correct()
     {
         QnA.RemoveAt(currentQuestion);
-        generateQuestion();
-
+        GenerateQuestion();
     }
 
     void SetAnswers()
     {
-        for (int i = 0; i < options.Length; i++)
+        for (int i = 0; i < options.Count; i++)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i];
-            //options[i].transform.GetChild(0).GetComponent<TMPro.TextMeshPro>().text = QnA[currentQuestion].Answers[i];
+            options[i].isCorrect = false;
 
-            if (QnA[currentQuestion].CorrectAnswer == i+1)
+            //if (options[i].label != null)
+            //{
+            //    options[i].label.text = QnA[currentQuestion].Answers[i];
+            //}
+
+            if (QnA[currentQuestion].CorrectAnswer == i + 1)
             {
-                options[i].GetComponent <AnswerScript>().isCorrect = true;
+                options[i].isCorrect = true;
             }
-        
         }
     }
 
-    void generateQuestion()
+    void GenerateQuestion()
     {
         currentQuestion = Random.Range(0, QnA.Count);
 
         QuestionTxt.text = QnA[currentQuestion].Question;
         SetAnswers();
-
-        
     }
 }
+
+
+//    private void Start()
+//    {
+//        generateQuestion();
+
+//    }
+
+//    public void correct()
+//    {
+//        QnA.RemoveAt(currentQuestion);
+//        generateQuestion();
+
+//    }
+
+//    //void SetAnswers()
+//    //{
+//    //    for (int i = 0; i < options.Length; i++)
+//    //    {
+//    //        options[i].isCorrect = false;
+//    //        options[i].label.text = QnA[currentQuestion].Answers[i];
+
+//    //        //options[i].transform.GetChild(0).GetComponent<TMPro.TextMeshPro>().text = QnA[currentQuestion].Answers[i];
+
+//    //        if (QnA[currentQuestion].CorrectAnswer == i + 1)
+//    //        {
+//    //            options[i].GetComponent<AnswerScript>().isCorrect = true;
+//    //        }
+
+//    //    }
+//    //}
+
+//    void SetAnswers()
+//    {
+//        for (int i = 0; i < options.Length; i++)
+//        {
+//            options[i].isCorrect = false;
+
+//            // Check if the label is not null before updating text
+//            if (options[i].label != null)
+//            {
+//                options[i].label.text = QnA[currentQuestion].Answers[i];
+//            }
+
+//            if (QnA[currentQuestion].CorrectAnswer == i + 1)
+//            {
+//                options[i].isCorrect = true;
+//            }
+//        }
+//    }
+
+//    void generateQuestion()
+//    {
+//        currentQuestion = Random.Range(0, QnA.Count);
+
+//        QuestionTxt.text = QnA[currentQuestion].Question;
+//        SetAnswers();
+//    }
+//}

@@ -14,11 +14,10 @@ public class PhysicsPickup : MonoBehaviour
     private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
     private int LayerNumber; //layer index
 
-    //Reference to script which includes mouse movement of player (looking around)
     public MouseLook mouseLookScript;
-    //we want to disable the player looking around when rotating the object
-    //example below 
-    //MouseLookScript mouseLookScript;
+
+    const float rotateSpeed = 100;
+
     void Start()
     {
         LayerNumber = LayerMask.NameToLayer("CameraHold"); //if your holdLayer is named differently make sure to change this ""
@@ -51,7 +50,17 @@ public class PhysicsPickup : MonoBehaviour
                     DropObject();
                 }
             }
+
+            if (heldObj != null)
+            {
+                MoveObject(); //keep object position at holdPos
+                RotateObject();
+
+            }
+        
         }
+
+        RotateObject();
     }
     void PickUpObject(GameObject pickUpObj)
     {
@@ -64,7 +73,7 @@ public class PhysicsPickup : MonoBehaviour
             heldObj.layer = LayerNumber; //change the object layer to the holdLayer
             //make sure object doesnt collide with player, it can cause weird bugs
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
-            mouseLookScript.enabled = false;
+            //mouseLookScript.enabled = false;
         }
     }
     void DropObject()
@@ -75,7 +84,7 @@ public class PhysicsPickup : MonoBehaviour
         heldObjRb.isKinematic = false;
         heldObj.transform.parent = null; //unparent object
         heldObj = null; //undefine game object
-        mouseLookScript.enabled = true;
+        //mouseLookScript.enabled = true;
     }
     void MoveObject()
     {
@@ -84,15 +93,23 @@ public class PhysicsPickup : MonoBehaviour
     }
     void RotateObject()
     {
+
+        if (Input.GetKeyDown(KeyCode.R))
+            MouseLook.single.lookEnabled = false;
+        if (Input.GetKeyUp(KeyCode.R))
+            MouseLook.single.lookEnabled = true;
+
+
         if (Input.GetKey(KeyCode.R)) // Hold R key to rotate
         {
             canDrop = false; // Make sure throwing can't occur during rotating
 
             // Rotate the object depending on mouse X-Y Axis
-            float XaxisRotation = Input.GetAxis("Mouse X") * rotationSensitivity;
-            float YaxisRotation = Input.GetAxis("Mouse Y") * rotationSensitivity;
-            heldObj.transform.Rotate(Vector3.down, XaxisRotation);
-            heldObj.transform.Rotate(Vector3.right, YaxisRotation);
+            float mouseX = -Input.GetAxis("Mouse X") * rotationSensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * rotationSensitivity;
+
+            heldObj.transform.Rotate(Vector3.up, mouseX * rotateSpeed * Time.deltaTime, Space.World);
+            heldObj.transform.Rotate(Vector3.right, mouseY * rotateSpeed * Time.deltaTime, Space.World);
         }
         else
         {
@@ -100,7 +117,7 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
-    void StopClipping() //function only called when dropping/throwing
+    void StopClipping() //function only called when dropping
     {
         var clipRange = Vector3.Distance(heldObj.transform.position, transform.position); //distance from holdPos to the camera
         //have to use RaycastAll as object blocks raycast in center screen
