@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class chair : MonoBehaviour
+public class Chair : MonoBehaviour
 {
     public GameObject playerStanding, playerSitting, intText, standText;
-    public bool interactable, sitting;
+    public bool interactable;
+    public bool sitting;
 
     void OnTriggerStay(Collider other)
     {
