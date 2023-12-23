@@ -1,0 +1,329 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.13f1 (5f90a5ebde0f) revision 6262949'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'en' Physical Memory: 32581 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.13f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+51974
+Successfully changed project path to: C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [6056] Host "[IP] 192.168.31.89 [Port] 0 [Flags] 2 [Guid] 4132618272 [EditorId] 4132618272 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-H8S36H5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [6056] Host "[IP] 192.168.31.89 [Port] 0 [Flags] 2 [Guid] 4132618272 [EditorId] 4132618272 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-H8S36H5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 7.76 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.13f1 (5f90a5ebde0f)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 (ID=0x2216)
+    Vendor:   NVIDIA
+    VRAM:     10067 MB
+    Driver:   31.0.15.4584
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56008
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.007318 seconds.
+- Loaded All Assemblies, in  0.245 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.167 seconds
+Domain Reload Profiling: 411ms
+	BeginReloadAssembly (73ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (98ms)
+		LoadAssemblies (72ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (96ms)
+			TypeCache.Refresh (95ms)
+				TypeCache.ScanAssembly (85ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (167ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (128ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (85ms)
+			ProcessInitializeOnLoadMethodAttributes (31ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.467 seconds
+Refreshing native plugins compatible for Editor in 2.59 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.531 seconds
+Domain Reload Profiling: 996ms
+	BeginReloadAssembly (101ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (13ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (302ms)
+		LoadAssemblies (230ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (132ms)
+			TypeCache.Refresh (110ms)
+				TypeCache.ScanAssembly (99ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (532ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (425ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (51ms)
+			ProcessInitializeOnLoadAttributes (320ms)
+			ProcessInitializeOnLoadMethodAttributes (41ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 2.50 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4871 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 69 unused Assets / (0.8 MB). Loaded Objects now: 5326.
+Memory consumption went from 191.1 MB to 190.3 MB.
+Total: 2.814200 ms (FindLiveObjects: 0.208900 ms CreateObjectMapping: 0.108100 ms MarkObjects: 2.238100 ms  DeleteObjects: 0.257800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 377676.045190 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready
+  artifactKey: Guid(5684ec4a645fab543bb2aae63f9d0255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready using Guid(5684ec4a645fab543bb2aae63f9d0255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c93de84908df1dd48beea4174f71b33') in 0.001759 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.053390 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Cabinet1.prefab
+  artifactKey: Guid(08d164588375dbe429244ec7fb756aa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Cabinet1.prefab using Guid(08d164588375dbe429244ec7fb756aa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7517393b8a99570c1e53f593f85bc78a') in 0.076186 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 70
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 2.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6 unused Assets / (0.7 MB). Loaded Objects now: 5335.
+Memory consumption went from 99.3 MB to 98.6 MB.
+Total: 2.775900 ms (FindLiveObjects: 0.259700 ms CreateObjectMapping: 0.135800 ms MarkObjects: 2.180000 ms  DeleteObjects: 0.199300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 94.456767 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers
+  artifactKey: Guid(757d84f7c826c584d86c30ce1c80cf93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers using Guid(757d84f7c826c584d86c30ce1c80cf93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f372811bc37820f641d5ad99444d92f') in 0.003517 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.083321 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet1-D1.prefab
+  artifactKey: Guid(ea471cbf55783f64bb9eff22c02f45bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet1-D1.prefab using Guid(ea471cbf55783f64bb9eff22c02f45bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2985461896bb0d9ae12a622067fdaba') in 0.014114 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.004424 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet1-D5.prefab
+  artifactKey: Guid(e4c5b57f1658c1148936781faf76268c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet1-D5.prefab using Guid(e4c5b57f1658c1148936781faf76268c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cea363e868705c8a1958d9491b5a0f0') in 0.013468 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet2-D3.prefab
+  artifactKey: Guid(18885d429affbd7498082ba10490547b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet2-D3.prefab using Guid(18885d429affbd7498082ba10490547b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7665e5c5881fd6164ef1106d888435e7') in 0.013142 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet4-D1.prefab
+  artifactKey: Guid(902ef18349ddcd74698ed3f3ee8708ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet4-D1.prefab using Guid(902ef18349ddcd74698ed3f3ee8708ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6db8020b40ef55848f7c6234dec8211a') in 0.010382 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/CornerCabinet1-D1.prefab
+  artifactKey: Guid(be5779ced24e1094fae5cd20525d5146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/CornerCabinet1-D1.prefab using Guid(be5779ced24e1094fae5cd20525d5146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04003d2bb167f1a3d3841928413204fa') in 0.017730 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/CornerCabinet2-D2.prefab
+  artifactKey: Guid(c265ba17646d2d6408903a7d27d2748f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/CornerCabinet2-D2.prefab using Guid(c265ba17646d2d6408903a7d27d2748f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cb15d59e10157a1d6f7ae8e2607118c') in 0.025022 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/CornerCabinet1-D2.prefab
+  artifactKey: Guid(37a7052d8941bbc4f8e792f8a575e55d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/CornerCabinet1-D2.prefab using Guid(37a7052d8941bbc4f8e792f8a575e55d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e51c14a3ad47e0457ac1d94b5d730ee') in 0.010874 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet3-D3.prefab
+  artifactKey: Guid(8c3e1acdb2e8dfb4e9c113e1471de030) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet3-D3.prefab using Guid(8c3e1acdb2e8dfb4e9c113e1471de030) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e4f1714e37d27e426e2c100812c4818') in 0.013398 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet3-D1.prefab
+  artifactKey: Guid(b6f24bbb037bb9d4e91a7c24757b35ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet3-D1.prefab using Guid(b6f24bbb037bb9d4e91a7c24757b35ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c6f3fcebab92e2e14f4b3c5b5279270') in 0.018025 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet4-D2.prefab
+  artifactKey: Guid(fcd68d297500b7049ab376e5a1ddaaa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Prefabs/Animation Ready/Drawers/Cabinet4-D2.prefab using Guid(fcd68d297500b7049ab376e5a1ddaaa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2d8d679e6b15ff56f04976002f47ffb') in 0.011204 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 11.450001 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Models/Cabinet2.fbx
+  artifactKey: Guid(3d3a9b7ee2f038a4ba751b8c798247e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Models/Cabinet2.fbx using Guid(3d3a9b7ee2f038a4ba751b8c798247e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd916f04033284f1483db7e45402f7dea') in 0.041210 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Trial 1/Assets/Drawer/KitchenCabinets/Models/CornerCabinet2.fbx
+  artifactKey: Guid(f73c4d92ecffb1742a089d669e5fe798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Drawer/KitchenCabinets/Models/CornerCabinet2.fbx using Guid(f73c4d92ecffb1742a089d669e5fe798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3a26a9b3ed97fbb4f1d743fba7bea08') in 0.016126 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
