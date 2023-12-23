@@ -9,15 +9,45 @@ C:\Program Files\Unity\Hub\Editor\2022.3.13f1\Editor\Unity.exe
 -batchMode
 -noUpm
 -name
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
+AssetImportWorker3
+========
+AssetImportWorker6
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+-projectPath
+D:/me game/Hive/Hive Proposal
+-logFile
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
+Logs/AssetImportWorker3.log
+-srvPort
+61830
+Successfully changed project path to: D:/me game/Hive/Hive Proposal
+D:/me game/Hive/Hive Proposal
+========
+Logs/AssetImportWorker6.log
+-srvPort
+62864
+Successfully changed project path to: C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
 AssetImportWorker3
 -projectPath
 D:/me game/Hive/Hive Proposal
 -logFile
 Logs/AssetImportWorker3.log
 -srvPort
+<<<<<<< HEAD
+62864
+Successfully changed project path to: C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+=======
 61830
 Successfully changed project path to: D:/me game/Hive/Hive Proposal
 D:/me game/Hive/Hive Proposal
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+>>>>>>> Stashed changes
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -49,12 +79,36 @@ D:/me game/Hive/Hive Proposal
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
+=======
+<<<<<<< HEAD
+Player connection [24776] Host "[IP] 192.168.31.89 [Port] 0 [Flags] 2 [Guid] 3468622028 [EditorId] 3468622028 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-H8S36H5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [24776] Host "[IP] 192.168.31.89 [Port] 0 [Flags] 2 [Guid] 3468622028 [EditorId] 3468622028 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-H8S36H5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 8.10 ms, found 3 plugins.
+=======
+>>>>>>> Stashed changes
 Player connection [31092] Host "[IP] 10.130.133.165 [Port] 0 [Flags] 2 [Guid] 461113563 [EditorId] 461113563 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AM5JJNT) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
 Player connection [31092] Host "[IP] 10.130.133.165 [Port] 0 [Flags] 2 [Guid] 461113563 [EditorId] 461113563 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-AM5JJNT) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
 Refreshing native plugins compatible for Editor in 60.88 ms, found 3 plugins.
+<<<<<<< Updated upstream
+========
+Player connection [15900] Host "[IP] 192.168.31.89 [Port] 0 [Flags] 2 [Guid] 167713330 [EditorId] 167713330 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-H8S36H5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [15900] Host "[IP] 192.168.31.89 [Port] 0 [Flags] 2 [Guid] 167713330 [EditorId] 167713330 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-H8S36H5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 7.40 ms, found 3 plugins.
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+>>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.13f1 (5f90a5ebde0f)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/Resources/UnitySubsystems
@@ -70,22 +124,87 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56580
+========
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56708
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
 Registered in 0.007568 seconds.
 - Loaded All Assemblies, in  0.662 seconds
+========
+Registered in 0.007441 seconds.
+- Loaded All Assemblies, in  0.245 seconds
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
 - Finished resetting the current domain, in  0.186 seconds
 Domain Reload Profiling: 847ms
 	BeginReloadAssembly (83ms)
+========
+- Finished resetting the current domain, in  0.166 seconds
+Domain Reload Profiling: 410ms
+	BeginReloadAssembly (74ms)
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
+<<<<<<< HEAD
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56160
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56580
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+<<<<<<< HEAD
+Registered in 0.007558 seconds.
+- Loaded All Assemblies, in  0.250 seconds
+=======
+Registered in 0.007568 seconds.
+- Loaded All Assemblies, in  0.662 seconds
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+<<<<<<< HEAD
+- Finished resetting the current domain, in  0.173 seconds
+Domain Reload Profiling: 421ms
+	BeginReloadAssembly (76ms)
+=======
+- Finished resetting the current domain, in  0.186 seconds
+Domain Reload Profiling: 847ms
+	BeginReloadAssembly (83ms)
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+>>>>>>> Stashed changes
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
+=======
+<<<<<<< HEAD
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (97ms)
+		LoadAssemblies (74ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (96ms)
+			TypeCache.Refresh (95ms)
+				TypeCache.ScanAssembly (85ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (173ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (133ms)
+=======
+>>>>>>> Stashed changes
 	RebuildCommonClasses (137ms)
 	RebuildNativeTypeToScriptingClass (8ms)
 	initialDomainReloadingComplete (50ms)
@@ -95,19 +214,54 @@ Domain Reload Profiling: 847ms
 		AnalyzeDomain (381ms)
 			TypeCache.Refresh (380ms)
 				TypeCache.ScanAssembly (370ms)
+<<<<<<< Updated upstream
+========
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (97ms)
+		LoadAssemblies (73ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (95ms)
+			TypeCache.Refresh (94ms)
+				TypeCache.ScanAssembly (85ms)
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
+>>>>>>> Stashed changes
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
 	FinalizeReload (186ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
 		SetupLoadedEditorAssemblies (144ms)
+========
+		SetupLoadedEditorAssemblies (128ms)
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
+		SetupLoadedEditorAssemblies (144ms)
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+>>>>>>> Stashed changes
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (7ms)
 			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
+<<<<<<< Updated upstream
 			BeforeProcessingInitializeOnLoad (2ms)
 			ProcessInitializeOnLoadAttributes (90ms)
 			ProcessInitializeOnLoadMethodAttributes (40ms)
+=======
+<<<<<<< HEAD
+			BeforeProcessingInitializeOnLoad (1ms)
+			ProcessInitializeOnLoadAttributes (84ms)
+			ProcessInitializeOnLoadMethodAttributes (36ms)
+=======
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (90ms)
+			ProcessInitializeOnLoadMethodAttributes (40ms)
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+>>>>>>> Stashed changes
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -115,21 +269,76 @@ Domain Reload Profiling: 847ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
 - Loaded All Assemblies, in  0.503 seconds
 Refreshing native plugins compatible for Editor in 1.78 ms, found 3 plugins.
+========
+- Loaded All Assemblies, in  0.459 seconds
+Refreshing native plugins compatible for Editor in 2.61 ms, found 3 plugins.
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
+<<<<<<< HEAD
+- Loaded All Assemblies, in  0.462 seconds
+Refreshing native plugins compatible for Editor in 2.75 ms, found 3 plugins.
+=======
+- Loaded All Assemblies, in  0.503 seconds
+Refreshing native plugins compatible for Editor in 1.78 ms, found 3 plugins.
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+>>>>>>> Stashed changes
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
 - Finished resetting the current domain, in  0.585 seconds
 Domain Reload Profiling: 1087ms
 	BeginReloadAssembly (114ms)
+========
+- Finished resetting the current domain, in  0.539 seconds
+Domain Reload Profiling: 995ms
+	BeginReloadAssembly (107ms)
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
+<<<<<<< HEAD
+- Finished resetting the current domain, in  0.567 seconds
+Domain Reload Profiling: 1026ms
+	BeginReloadAssembly (102ms)
+=======
+- Finished resetting the current domain, in  0.585 seconds
+Domain Reload Profiling: 1087ms
+	BeginReloadAssembly (114ms)
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+>>>>>>> Stashed changes
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (4ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
+=======
+<<<<<<< HEAD
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (295ms)
+		LoadAssemblies (225ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (131ms)
+			TypeCache.Refresh (110ms)
+				TypeCache.ScanAssembly (99ms)
+			ScanForSourceGeneratedMonoScriptInfo (13ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (568ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (463ms)
+=======
+>>>>>>> Stashed changes
 		CreateAndSetChildDomain (19ms)
 	RebuildCommonClasses (26ms)
 	RebuildNativeTypeToScriptingClass (8ms)
@@ -146,10 +355,52 @@ Domain Reload Profiling: 1087ms
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
 		SetupLoadedEditorAssemblies (472ms)
+<<<<<<< Updated upstream
+========
+		CreateAndSetChildDomain (15ms)
+	RebuildCommonClasses (25ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (286ms)
+		LoadAssemblies (213ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (136ms)
+			TypeCache.Refresh (113ms)
+				TypeCache.ScanAssembly (101ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (539ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (435ms)
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+>>>>>>> Stashed changes
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (5ms)
 			SetLoadedEditorAssemblies (2ms)
 			RefreshPlugins (0ms)
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
+=======
+<<<<<<< HEAD
+			BeforeProcessingInitializeOnLoad (55ms)
+			ProcessInitializeOnLoadAttributes (349ms)
+			ProcessInitializeOnLoadMethodAttributes (45ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 3.84 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4871 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 69 unused Assets / (0.8 MB). Loaded Objects now: 5325.
+Memory consumption went from 190.7 MB to 189.9 MB.
+Total: 3.549800 ms (FindLiveObjects: 0.270700 ms CreateObjectMapping: 0.127000 ms MarkObjects: 2.756300 ms  DeleteObjects: 0.394400 ms)
+=======
+>>>>>>> Stashed changes
 			BeforeProcessingInitializeOnLoad (56ms)
 			ProcessInitializeOnLoadAttributes (357ms)
 			ProcessInitializeOnLoadMethodAttributes (42ms)
@@ -164,6 +415,26 @@ Unloading 4872 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 69 unused Assets / (0.8 MB). Loaded Objects now: 5326.
 Memory consumption went from 190.7 MB to 189.9 MB.
 Total: 5.131400 ms (FindLiveObjects: 0.359400 ms CreateObjectMapping: 0.150200 ms MarkObjects: 4.108700 ms  DeleteObjects: 0.511600 ms)
+<<<<<<< Updated upstream
+========
+			BeforeProcessingInitializeOnLoad (62ms)
+			ProcessInitializeOnLoadAttributes (321ms)
+			ProcessInitializeOnLoadMethodAttributes (39ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 2.52 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4871 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 69 unused Assets / (0.8 MB). Loaded Objects now: 5326.
+Memory consumption went from 191.0 MB to 190.2 MB.
+Total: 2.714900 ms (FindLiveObjects: 0.200100 ms CreateObjectMapping: 0.112700 ms MarkObjects: 2.145300 ms  DeleteObjects: 0.254000 ms)
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
+>>>>>>> 37ae91e95d077df89c46cb7a5e4ac73a9febb35d
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -175,9 +446,32 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/Clock.cs: ae54694a95f512b845365a4c1e190c7b -> 8767b7664d185e4649921d4656ddee49
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Hive Proposal/Logs/AssetImportWorker3-prev.log
+========
+========================================================================
+Received Import Request.
+  Time since last request: 370325.710777 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_BaseColor.exr
+  artifactKey: Guid(23a2b3849826a4b4fb5c9cba6e262cd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_BaseColor.exr using Guid(23a2b3849826a4b4fb5c9cba6e262cd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad565b9bbb46c2db6618b239b08576f5') in 0.079982 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_Metallic.exr
+  artifactKey: Guid(f447411b1558cb847b378c654c7fff51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_Metallic.exr using Guid(f447411b1558cb847b378c654c7fff51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ce6deb27526597a74d3bde71b0fe984') in 0.032362 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+>>>>>>>> Stashed changes:Hive Proposal/Logs/AssetImportWorker6-prev.log
+=======
+>>>>>>> Stashed changes
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
 AssetImportWorker is now disconnected from the server

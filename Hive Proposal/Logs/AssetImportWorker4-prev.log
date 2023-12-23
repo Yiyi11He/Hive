@@ -1,0 +1,352 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.13f1 (5f90a5ebde0f) revision 6262949'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'en' Physical Memory: 32581 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.13f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+62864
+Successfully changed project path to: C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [24160] Host "[IP] 192.168.31.89 [Port] 0 [Flags] 2 [Guid] 2138965788 [EditorId] 2138965788 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-H8S36H5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [24160] Host "[IP] 192.168.31.89 [Port] 0 [Flags] 2 [Guid] 2138965788 [EditorId] 2138965788 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-H8S36H5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 8.04 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.13f1 (5f90a5ebde0f)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Yiyi PC/Documents/Hive Game Project/Hive/Hive Proposal/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 (ID=0x2216)
+    Vendor:   NVIDIA
+    VRAM:     10067 MB
+    Driver:   31.0.15.4584
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56728
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.007357 seconds.
+- Loaded All Assemblies, in  0.248 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.174 seconds
+Domain Reload Profiling: 420ms
+	BeginReloadAssembly (75ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (97ms)
+		LoadAssemblies (74ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (95ms)
+			TypeCache.Refresh (94ms)
+				TypeCache.ScanAssembly (85ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (174ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (134ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (1ms)
+			ProcessInitializeOnLoadAttributes (86ms)
+			ProcessInitializeOnLoadMethodAttributes (36ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.463 seconds
+Refreshing native plugins compatible for Editor in 2.73 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.567 seconds
+Domain Reload Profiling: 1028ms
+	BeginReloadAssembly (104ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (14ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (295ms)
+		LoadAssemblies (226ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (132ms)
+			TypeCache.Refresh (112ms)
+				TypeCache.ScanAssembly (101ms)
+			ScanForSourceGeneratedMonoScriptInfo (13ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (567ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (461ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (55ms)
+			ProcessInitializeOnLoadAttributes (347ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 3.56 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4871 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 69 unused Assets / (0.8 MB). Loaded Objects now: 5325.
+Memory consumption went from 190.7 MB to 189.9 MB.
+Total: 2.824700 ms (FindLiveObjects: 0.244700 ms CreateObjectMapping: 0.130500 ms MarkObjects: 2.155800 ms  DeleteObjects: 0.292400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/Clock.cs: ae54694a95f512b845365a4c1e190c7b -> 8767b7664d185e4649921d4656ddee49
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 359633.883227 seconds.
+  path: Assets/Trial 1/Drawer/KitchenCabinets/Scenes/Demo.unity
+  artifactKey: Guid(69c7196b2295f5d4ea57ab7967ca8fe3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Drawer/KitchenCabinets/Scenes/Demo.unity using Guid(69c7196b2295f5d4ea57ab7967ca8fe3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '264f0a298569080648824ca34a573629') in 0.001933 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 6450.255972 seconds.
+  path: Assets/Trial 1/Drawer/KitchenCabinets/Textures/Texture8x8.png
+  artifactKey: Guid(fae7ec4946a82a349a6264e123f4bd0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Drawer/KitchenCabinets/Textures/Texture8x8.png using Guid(fae7ec4946a82a349a6264e123f4bd0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd11ea2a278c309b9ddd1b83e72b014b4') in 0.059421 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 36.499387 seconds.
+  path: Assets/Scenes/TrialScene.unity
+  artifactKey: Guid(fd835b98697e829469a9af581abd79eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TrialScene.unity using Guid(fd835b98697e829469a9af581abd79eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4db0237dc5dd7d0ee9e581ed401feaf5') in 0.000533 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 40.698130 seconds.
+  path: Assets/Trial 1/Assets/Clock/Prefabs/Clock.prefab
+  artifactKey: Guid(4073f41b7d930f94d9470df64ec12b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Clock/Prefabs/Clock.prefab using Guid(4073f41b7d930f94d9470df64ec12b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8df3e4649091002478efdc4fb1439a2') in 0.081879 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 41
+========================================================================
+Received Import Request.
+  Time since last request: 32.963152 seconds.
+  path: Assets/Trial 1/Assets/Clock/Scripts/Clock.cs
+  artifactKey: Guid(2cc9866e43e6cb94aae3334c5fc896cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/Clock/Scripts/Clock.cs using Guid(2cc9866e43e6cb94aae3334c5fc896cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84256ee082d6ca672905feb481e74462') in 0.000544 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 3360.881811 seconds.
+  path: Assets/UniversalRenderPipelineGlobalSettings.asset
+  artifactKey: Guid(2268009a9b4214845aba6fe8b0e6c90c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UniversalRenderPipelineGlobalSettings.asset using Guid(2268009a9b4214845aba6fe8b0e6c90c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3084dace10d0a4fb2a8d6d6274b52e3') in 0.002556 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 350.427124 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat
+  artifactKey: Guid(c52d25e1b8d4b7a4f8382d5800f34cc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat using Guid(c52d25e1b8d4b7a4f8382d5800f34cc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bf20ecac4d6328d7e84267eb215731f') in 0.000459 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 7.680768 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/Seat.mat
+  artifactKey: Guid(3dd59852e506f5e43a29cc03c94e2dd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/Seat.mat using Guid(3dd59852e506f5e43a29cc03c94e2dd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '759193b033a0ebdf6f6de15f57a87f64') in 0.033071 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 12.778187 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/seat_AmbientOcclusion.exr
+  artifactKey: Guid(9cd748b64cea59e48af2a3c4ee1b72fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/seat_AmbientOcclusion.exr using Guid(9cd748b64cea59e48af2a3c4ee1b72fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a159038c2f9aa370009cf8e71a6ca07') in 0.064152 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/seat_Normal.exr
+  artifactKey: Guid(69365d881c5673b409809fc494402b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/seat_Normal.exr using Guid(69365d881c5673b409809fc494402b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a41dc4c69f7b963deb9c0ae4dcc27e8') in 0.034308 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 47.890224 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/seat_Normal.exr
+  artifactKey: Guid(69365d881c5673b409809fc494402b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/seat_Normal.exr using Guid(69365d881c5673b409809fc494402b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bad8719b180afcd178f8db393ba0c454') in 0.018194 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 182.738360 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack.mat
+  artifactKey: Guid(6ae2c8c7a4c999a4fa37c13c33f23a1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack.mat using Guid(6ae2c8c7a4c999a4fa37c13c33f23a1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd62d7bd15faee5962b6c8707a030493d') in 0.031324 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 8.645960 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack_AmbientOcclusion.exr
+  artifactKey: Guid(9ff3d9c96d7e9a449819adc81b319a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack_AmbientOcclusion.exr using Guid(9ff3d9c96d7e9a449819adc81b319a03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b642e38e68c1d6a64986ee04225c8ee3') in 0.068022 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack_Metallic.exr
+  artifactKey: Guid(a3a0a2e68087c0b4faec3b28087bc92b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack_Metallic.exr using Guid(a3a0a2e68087c0b4faec3b28087bc92b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b81b2c93f6bdac728fb141b2215d9a6') in 0.032393 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack_Normal.exr
+  artifactKey: Guid(adab5801adb8244418d9710a0d08718c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack_Normal.exr using Guid(adab5801adb8244418d9710a0d08718c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8ef0a61b3de2596254994adc23e9426') in 0.016602 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 14.973032 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack_Normal.exr
+  artifactKey: Guid(adab5801adb8244418d9710a0d08718c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/SeatBack_Normal.exr using Guid(adab5801adb8244418d9710a0d08718c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '590a02e09bc08f81a88b404556df25f6') in 0.017346 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 136.753590 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/SeatMetal.mat
+  artifactKey: Guid(d6e59edebd4aafc41af3a0e73db01a77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/SeatMetal.mat using Guid(d6e59edebd4aafc41af3a0e73db01a77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e99ed9c17d5166af27e3abe1bf6f54b') in 0.025811 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 8.041158 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_AmbientOcclusion.exr
+  artifactKey: Guid(d760985e10990a04e89caf56ec2a5532) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_AmbientOcclusion.exr using Guid(d760985e10990a04e89caf56ec2a5532) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3340290eb7790ff3b0707a028dcd820d') in 0.058830 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_Normal.exr
+  artifactKey: Guid(56b744c88eee7324c9dabfc4dd263300) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_Normal.exr using Guid(56b744c88eee7324c9dabfc4dd263300) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02e8ed5a413716fe0344a7d72655a7bf') in 0.019625 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_Height.exr
+  artifactKey: Guid(acc0abca2baf5904c98c41f6a887913f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_Height.exr using Guid(acc0abca2baf5904c98c41f6a887913f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34e168a52e70ab2549e103edb8badb58') in 0.022434 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 37.543217 seconds.
+  path: Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_Normal.exr
+  artifactKey: Guid(56b744c88eee7324c9dabfc4dd263300) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Trial 1/Assets/workStationMaterial/Seat/metal bits_Normal.exr using Guid(56b744c88eee7324c9dabfc4dd263300) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08bf619cf4bef709ccb988f2301c02f0') in 0.020112 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
