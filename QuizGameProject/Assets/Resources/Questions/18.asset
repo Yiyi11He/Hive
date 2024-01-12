@@ -17,15 +17,21 @@ MonoBehaviour:
   _answers:
   - _info: 'Vancomycin '
     _isCorrect: 1
+    _height: 0
   - _info: 'Gentamicin '
     _isCorrect: 0
+    _height: 0
   - _info: 'Clindamycin '
     _isCorrect: 0
+    _height: 0
   - _info: 'Azithromycin '
     _isCorrect: 0
+    _height: 0
   - _info: 'Doxycycline '
     _isCorrect: 0
+    _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
+  _answerHeight: 125

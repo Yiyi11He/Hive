@@ -17,15 +17,21 @@ MonoBehaviour:
   _answers:
   - _info: 'Amoxicillin '
     _isCorrect: 0
+    _height: 0
   - _info: 'Vancomycin '
     _isCorrect: 1
+    _height: 0
   - _info: 'Flucloxacillin '
     _isCorrect: 0
+    _height: 0
   - _info: 'Cefaclor '
     _isCorrect: 0
+    _height: 0
   - _info: 'Roxithromycin '
     _isCorrect: 0
+    _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
+  _answerHeight: 125

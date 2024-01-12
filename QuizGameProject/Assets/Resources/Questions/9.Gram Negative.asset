@@ -16,15 +16,21 @@ MonoBehaviour:
   _answers:
   - _info: 'Listeria monocytogenes  '
     _isCorrect: 0
+    _height: 0
   - _info: 'Pseudomonas aeruginosa  '
     _isCorrect: 1
+    _height: 0
   - _info: 'Clostridium perfringens '
     _isCorrect: 0
+    _height: 0
   - _info: 'Staphylococcus aureus  '
     _isCorrect: 0
+    _height: 0
   - _info: 'Streptococcus pyogenes '
     _isCorrect: 0
+    _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
+  _answerHeight: 125

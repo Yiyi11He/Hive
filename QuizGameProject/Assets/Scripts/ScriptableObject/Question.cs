@@ -10,6 +10,9 @@ public struct Answer
 
     [SerializeField] private bool _isCorrect;
     public bool IsCorrect { get { return _isCorrect; } }
+
+    [SerializeField] private float _height;
+    public float Height { get { return _height; } }
 }
 [CreateAssetMenu(fileName = "New Question", menuName = "Quiz/new Question")]
 public class Question : ScriptableObject {
@@ -35,6 +38,9 @@ public class Question : ScriptableObject {
 
     [SerializeField] private    int         _addScore       = 10;
     public                      int         AddScore        { get { return _addScore; } }
+
+    [SerializeField] private int _answerHeight = 85;
+    public int AnswerHeight { get { return _answerHeight; } }
 
     /// <summary>
     /// Function that is called to collect and return correct answers indexes.

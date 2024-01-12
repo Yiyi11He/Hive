@@ -17,15 +17,21 @@ MonoBehaviour:
   _answers:
   - _info: 'Nausea '
     _isCorrect: 0
+    _height: 0
   - _info: 'Diarrhoea '
     _isCorrect: 0
+    _height: 0
   - _info: 'Clostridioides difficile associated disease '
     _isCorrect: 1
+    _height: 0
   - _info: 'Candidiasis '
     _isCorrect: 0
+    _height: 0
   - _info: 'Pain and inflammation at the injection site (for injectable penicillins) '
     _isCorrect: 0
+    _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
+  _answerHeight: 125

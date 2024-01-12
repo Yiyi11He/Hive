@@ -13,6 +13,7 @@ public class Question_Editor : Editor {
     SerializedProperty  timerProp               = null;
     SerializedProperty  answerTypeProp          = null;
     SerializedProperty  addScoreProp            = null;
+    SerializedProperty  answerHeightProp        = null;
 
     SerializedProperty  arraySizeProp
     {
@@ -38,6 +39,7 @@ public class Question_Editor : Editor {
         timerProp           = serializedObject.FindProperty("_timer");
         answerTypeProp      = serializedObject.FindProperty("_answerType");
         addScoreProp        = serializedObject.FindProperty("_addScore");
+        answerHeightProp = serializedObject.FindProperty("_answerHeight");
         #endregion
 
         #region Get Values
@@ -88,6 +90,8 @@ public class Question_Editor : Editor {
                 }
             }
             addScoreProp.intValue = EditorGUILayout.IntSlider(new GUIContent("Add Score"), addScoreProp.intValue, 0, 100);
+
+            answerHeightProp.intValue = EditorGUILayout.IntField(new GUIContent("Answer Height"), answerHeightProp.intValue);
         }
         GUILayout.Space(7.5f);
         GUILayout.Label("Answers", EditorStyles.miniLabel);

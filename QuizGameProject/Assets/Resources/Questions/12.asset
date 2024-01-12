@@ -17,15 +17,21 @@ MonoBehaviour:
   _answers:
   - _info: 'Flucloxacillin  '
     _isCorrect: 1
+    _height: 0
   - _info: 'Amoxicillin '
     _isCorrect: 0
+    _height: 0
   - _info: 'Benzylpenicillin  '
     _isCorrect: 0
+    _height: 0
   - _info: 'Ampicillin  '
     _isCorrect: 0
+    _height: 0
   - _info: 'Benzathine penicillin '
     _isCorrect: 0
+    _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
+  _answerHeight: 125

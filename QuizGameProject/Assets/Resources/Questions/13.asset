@@ -16,15 +16,21 @@ MonoBehaviour:
   _answers:
   - _info: 'Gentamicin '
     _isCorrect: 0
+    _height: 0
   - _info: 'Tobramycin  '
     _isCorrect: 0
+    _height: 0
   - _info: 'Amikacin '
     _isCorrect: 0
+    _height: 0
   - _info: 'Clindamycin '
     _isCorrect: 1
+    _height: 0
   - _info: 'Streptomycin '
     _isCorrect: 0
+    _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
+  _answerHeight: 125

@@ -40,11 +40,17 @@ public class AnswerData : MonoBehaviour {
     /// <summary>
     /// Function that is called to update the answer data.
     /// </summary>
-    public void UpdateData (string info, int index)
+    public void UpdateData (string info, int index, float height)
     {
         infoTextObject.text = info;
         _answerIndex = index;
+        Rect.sizeDelta = new Vector2()
+        {
+            x = Rect.sizeDelta.x,
+            y = height
+        };
     }
+
     /// <summary>
     /// Function that is called to reset values back to default.
     /// </summary>

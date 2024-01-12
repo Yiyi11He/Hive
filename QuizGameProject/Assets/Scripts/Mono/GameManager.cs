@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
     private             IEnumerator         IE_WaitTillNextRound    = null;
     private             IEnumerator         IE_StartTimer           = null;
 
-    private             int                 timeTakenForQuestion;
+    private             int                 timeRemainingForQuestion;
 
     private             bool                IsFinished
     {
@@ -155,7 +155,8 @@ public class GameManager : MonoBehaviour {
         bool isCorrect = CheckAnswers();
         FinishedQuestions.Add(currentQuestion);
 
-        UpdateScore((isCorrect) ? Questions[currentQuestion].AddScore : -Questions[currentQuestion].AddScore);
+        UpdateScore(timeRemainingForQuestion);
+        //UpdateScore((isCorrect) ? Questions[currentQuestion].AddScore : -Questions[currentQuestion].AddScore);
 
         if (IsFinished)
         {
@@ -170,7 +171,7 @@ public class GameManager : MonoBehaviour {
 
         if (events.DisplayResolutionScreen != null)
         {
-            events.DisplayResolutionScreen(type, Questions[currentQuestion].AddScore);
+            events.DisplayResolutionScreen(type, timeRemainingForQuestion);
         }
 
         AudioManager.Instance.PlaySound((isCorrect) ? "CorrectSFX" : "IncorrectSFX");
@@ -212,14 +213,14 @@ public class GameManager : MonoBehaviour {
     {
         var totalTime = Questions[currentQuestion].Timer;
         var timeLeft = totalTime;
-        timeTakenForQuestion = 0;
+        timeRemainingForQuestion = totalTime;
 
         timerText.color = timerDefaultColor;
 
         while (timeLeft > 0)
         {
             timeLeft--;
-            timeTakenForQuestion++;
+            timeRemainingForQuestion--;
 
             // Update the timer UI
             timerText.text = timeLeft.ToString();
@@ -327,11 +328,6 @@ public class GameManager : MonoBehaviour {
     {
         if (CheckAnswers())
         {
-            // Multiply score if time taken is less than 120 seconds
-            if (timeTakenForQuestion < 120)
-            {
-                add *= 2; // Or any other multiplier you wish to use
-            }
             events.CurrentFinalScore += add;
         }
         else

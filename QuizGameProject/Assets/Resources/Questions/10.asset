@@ -18,20 +18,26 @@ MonoBehaviour:
   - _info: 'Inhibits protein synthesis by irreversibly binding to the 30S ribosomal
       subunit; has a concentration-dependent bactericidal effect.  '
     _isCorrect: 0
+    _height: 0
   - _info: 'Interferes with bacterial cell wall synthesis by inhibiting transpeptidase
       enzymes that catalyse crosslinking of peptidoglycan, thereby leading to cell
       lysis and death.  '
     _isCorrect: 1
+    _height: 0
   - _info: 'Binds to the 50S subunit of bacterial ribosomes and suppresses protein
       synthesis  '
     _isCorrect: 0
+    _height: 0
   - _info: 'Inhibits cell wall synthesis by binding to the D-ala-D-ala side chain
       of the precursor pentapeptide, preventing transglycosylation '
     _isCorrect: 0
+    _height: 0
   - _info: 'Competitively inhibits bacterial folate synthesis essential for bacterial
       growth '
     _isCorrect: 0
+    _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
+  _answerHeight: 125

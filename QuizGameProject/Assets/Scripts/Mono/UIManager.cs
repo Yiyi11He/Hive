@@ -164,7 +164,7 @@ public class UIManager : MonoBehaviour {
             case ResolutionScreenType.Incorrect:
                 uIElements.ResolutionBG.color = parameters.IncorrectBGColor;
                 uIElements.ResolutionStateInfoText.text = "WRONG!";
-                uIElements.ResolutionScoreText.text = "-" + score;
+                uIElements.ResolutionScoreText.text = "+0";
                 break;
             case ResolutionScreenType.Finish:
                 uIElements.ResolutionBG.color = parameters.FinalBGColor;
@@ -204,7 +204,7 @@ public class UIManager : MonoBehaviour {
         for (int i = 0; i < question.Answers.Length; i++)
         {
             AnswerData newAnswer = (AnswerData)Instantiate(answerPrefab, uIElements.AnswersContentArea);
-            newAnswer.UpdateData(question.Answers[i].Info, i);
+            newAnswer.UpdateData(question.Answers[i].Info, i, question.AnswerHeight);
 
             newAnswer.Rect.anchoredPosition = new Vector2(0, offset);
 

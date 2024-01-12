@@ -17,15 +17,21 @@ MonoBehaviour:
   _answers:
   - _info: 'Haemophilus influenzae, Pseudomonas aeruginosa and Streptococcus pneumonia '
     _isCorrect: 0
+    _height: 0
   - _info: 'Pseudomonas aeruginosa, Staphylococcus aureus and Streptococcus pneumonia '
     _isCorrect: 0
+    _height: 0
   - _info: 'Staphylococcus aureus, Clostridium perfringens and Bacteroides fragilis '
     _isCorrect: 0
+    _height: 0
   - _info: 'Haemophilus influenzae, Staphylococcus aureus, and Pseudomonas aeruginosa '
     _isCorrect: 0
+    _height: 0
   - _info: 'Haemophilus influenzae, Streptococcus pneumonia and Clostridium perfringens  '
     _isCorrect: 1
+    _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
+  _answerHeight: 125

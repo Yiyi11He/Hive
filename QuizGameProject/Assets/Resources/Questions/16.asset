@@ -12,22 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1e3773ddaa9ce48835846fb8e11c7f, type: 3}
   m_Name: 16
   m_EditorClassIdentifier: 
-  _info: 'A 23-year old female with a severe respiratory tract infection due to Pseudomonas
-    aeruginosa is hospitalised. The patient reports a history of allergic reaction
-    to ampicillin. Which ONE (1) of the following antibiotics would be the best choice
-    of treatment for her infection? '
+  _info: '<size=25>A 23-year old female with a severe respiratory tract infection
+    due to Pseudomonas aeruginosa is hospitalised. The patient reports a history
+    of allergic reaction to ampicillin. Which ONE (1) of the following antibiotics
+    would be the best choice of treatment for her infection? '
   _answers:
   - _info: 'Azithromycin  '
     _isCorrect: 0
+    _height: 0
   - _info: 'Aztreonam  '
     _isCorrect: 1
+    _height: 0
   - _info: 'Flucloxacillin  '
     _isCorrect: 0
+    _height: 0
   - _info: 'Cefaclor '
     _isCorrect: 0
+    _height: 0
   - _info: 'Cefotaxime '
     _isCorrect: 0
+    _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
+  _answerHeight: 125
