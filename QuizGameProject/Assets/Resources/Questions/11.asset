@@ -12,22 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1e3773ddaa9ce48835846fb8e11c7f, type: 3}
   m_Name: 11
   m_EditorClassIdentifier: 
-  _info: "Which ONE (1) of the following statements regarding the spectrum of amoxicillin
-    is CORRECT?  \r\n\r\nThe spectrum of activity of amoxicillin includes: "
+  _info: "<size=45>Which ONE (1) of the following statements regarding the spectrum
+    of amoxicillin is CORRECT?  \r\nThe spectrum of activity of amoxicillin includes:
+    \r\n"
   _answers:
-  - _info: 'Haemophilus influenzae, Pseudomonas aeruginosa and Streptococcus pneumonia '
+  - _info: <i>Haemophilus influenzae, Pseudomonas aeruginosa and Streptococcus pneumonia
+      </i>
     _isCorrect: 0
     _height: 0
-  - _info: 'Pseudomonas aeruginosa, Staphylococcus aureus and Streptococcus pneumonia '
+  - _info: <i>Pseudomonas aeruginosa, Staphylococcus aureus and Streptococcus pneumonia
+      </i>
     _isCorrect: 0
     _height: 0
-  - _info: 'Staphylococcus aureus, Clostridium perfringens and Bacteroides fragilis '
+  - _info: <i>Staphylococcus aureus, Clostridium perfringens and Bacteroides fragilis
+      </i>
     _isCorrect: 0
     _height: 0
-  - _info: 'Haemophilus influenzae, Staphylococcus aureus, and Pseudomonas aeruginosa '
+  - _info: <i>Haemophilus influenzae, Staphylococcus aureus, and Pseudomonas aeruginosa
+      </i>
     _isCorrect: 0
     _height: 0
-  - _info: 'Haemophilus influenzae, Streptococcus pneumonia and Clostridium perfringens  '
+  - _info: <i>Haemophilus influenzae, Streptococcus pneumonia and Clostridium perfringens 
+      </i>
     _isCorrect: 1
     _height: 0
   _useTimer: 1

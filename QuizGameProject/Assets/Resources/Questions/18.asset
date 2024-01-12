@@ -34,4 +34,4 @@ MonoBehaviour:
   _timer: 120
   _answerType: 1
   _addScore: 10
-  _answerHeight: 125
+  _answerHeight: 90

@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _info: 'Which ONE (1) of the bacteria below is a Gram negative bacterium? '
   _answers:
-  - _info: 'Listeria monocytogenes  '
+  - _info: <i>Listeria monocytogenes</i>
     _isCorrect: 0
     _height: 0
-  - _info: 'Pseudomonas aeruginosa  '
+  - _info: <i>Pseudomonas aeruginosa</i>
     _isCorrect: 1
     _height: 0
-  - _info: 'Clostridium perfringens '
+  - _info: <i>Clostridium perfringens</i>
     _isCorrect: 0
     _height: 0
-  - _info: 'Staphylococcus aureus  '
+  - _info: '<i>Staphylococcus aureus</i> '
     _isCorrect: 0
     _height: 0
-  - _info: 'Streptococcus pyogenes '
+  - _info: <i>Streptococcus pyogenes</i>
     _isCorrect: 0
     _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
-  _answerHeight: 125
+  _answerHeight: 90

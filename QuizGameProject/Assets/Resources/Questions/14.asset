@@ -21,7 +21,7 @@ MonoBehaviour:
   - _info: 'Diarrhoea '
     _isCorrect: 0
     _height: 0
-  - _info: 'Clostridioides difficile associated disease '
+  - _info: '<i>Clostridioides difficile </i>associated disease '
     _isCorrect: 1
     _height: 0
   - _info: 'Candidiasis '

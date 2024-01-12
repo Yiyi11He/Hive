@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1e3773ddaa9ce48835846fb8e11c7f, type: 3}
   m_Name: 16
   m_EditorClassIdentifier: 
-  _info: '<size=25>A 23-year old female with a severe respiratory tract infection
-    due to Pseudomonas aeruginosa is hospitalised. The patient reports a history
+  _info: '<size=35>A 23-year old female with a severe respiratory tract infection
+    due to <i>Pseudomonas aeruginosa</i> is hospitalised. The patient reports a history
     of allergic reaction to ampicillin. Which ONE (1) of the following antibiotics
     would be the best choice of treatment for her infection? '
   _answers:
@@ -36,4 +36,4 @@ MonoBehaviour:
   _timer: 120
   _answerType: 1
   _addScore: 10
-  _answerHeight: 125
+  _answerHeight: 90

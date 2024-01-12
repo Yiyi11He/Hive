@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1e3773ddaa9ce48835846fb8e11c7f, type: 3}
   m_Name: 17
   m_EditorClassIdentifier: 
-  _info: ' Which ONE (1) of the following antibiotics has a spectrum of activity
-    that include methicillin resistant Staphylococcus aureus? '
+  _info: Which ONE (1) of the following antibiotics has a spectrum of activity that
+    include methicillin resistant <i>Staphylococcus aureus</i>?
   _answers:
   - _info: 'Amoxicillin '
     _isCorrect: 0
@@ -34,4 +34,4 @@ MonoBehaviour:
   _timer: 120
   _answerType: 1
   _addScore: 10
-  _answerHeight: 125
+  _answerHeight: 90
