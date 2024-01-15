@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour {
     public              Question[]          Questions               { get { return _questions; } }
 
     [SerializeField]    GameEvents          events                  = null;
+    [SerializeField] string QuestionResourceFolder = null;
+    [SerializeField] bool IsFirstQuiz = false;
+    [SerializeField] ResultsData ResultsData = null;
 
     [SerializeField]    Animator            timerAnimtor            = null;
     [SerializeField]    TextMeshProUGUI     timerText               = null;
@@ -161,6 +164,19 @@ public class GameManager : MonoBehaviour {
         if (IsFinished)
         {
             SetHighscore();
+
+            var finalScore = events.CurrentFinalScore;
+
+            if (IsFirstQuiz)
+            {
+                ResultsData.SetPreQuizScore(finalScore);
+            }
+            else
+            {
+                ResultsData.SetPostQuizScore(finalScore);
+                ResultsData.Record();
+                ResultsData.Clear();
+            }
         }
 
         var type 
@@ -287,7 +303,7 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     void LoadQuestions()
     {
-        Object[] objs = Resources.LoadAll("Questions", typeof(Question));
+        Object[] objs = Resources.LoadAll(QuestionResourceFolder, typeof(Question));
         _questions = new Question[objs.Length];
         for (int i = 0; i < objs.Length; i++)
         {

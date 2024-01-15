@@ -42,12 +42,16 @@ public class AnswerData : MonoBehaviour {
     /// </summary>
     public void UpdateData (string info, int index, float height)
     {
+        Canvas.ForceUpdateCanvases();
+
+        float margin = 20f;
+
         infoTextObject.text = info;
         _answerIndex = index;
         Rect.sizeDelta = new Vector2()
         {
             x = Rect.sizeDelta.x,
-            y = height
+            y = infoTextObject.preferredHeight + margin
         };
     }
 

@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 613484221}
   - component: {fileID: 613484220}
   - component: {fileID: 613484219}
+  - component: {fileID: 613484222}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -548,6 +549,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 613484222}
+        m_TargetAssemblyTypeName: RecordStudentNumber, Assembly-CSharp
+        m_MethodName: Record
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &613484220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +599,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613484217}
   m_CullTransparentMesh: 1
+--- !u!114 &613484222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613484217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45a02ab30905c4499a821b94fdc49a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resultsData: {fileID: 11400000, guid: 464bea36286a6354bbd96c0294880ec3, type: 2}
+  textField: {fileID: 2009829445}
 --- !u!1 &798673716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,9 +1068,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 82b276ad6c0929b4f839bc212de8a4a6, type: 2}
-  m_sharedMaterial: {fileID: 8687583841532181953, guid: 82b276ad6c0929b4f839bc212de8a4a6,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1197,9 +1223,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Enter Here:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 82b276ad6c0929b4f839bc212de8a4a6, type: 2}
-  m_sharedMaterial: {fileID: 8687583841532181953, guid: 82b276ad6c0929b4f839bc212de8a4a6,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

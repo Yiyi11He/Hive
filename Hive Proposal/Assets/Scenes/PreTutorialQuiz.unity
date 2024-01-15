@@ -1603,6 +1603,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events: {fileID: 11400000, guid: 8e0c26d6986631643bcc9fe8626c36ae, type: 2}
+  QuestionResourceFolder: PreTutorialQuestions
+  IsFirstQuiz: 1
+  ResultsData: {fileID: 11400000, guid: 464bea36286a6354bbd96c0294880ec3, type: 2}
   timerAnimtor: {fileID: 1704503191}
   timerText: {fileID: 2092137027}
   timerHalfWayOutColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
