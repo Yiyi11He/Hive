@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1e3773ddaa9ce48835846fb8e11c7f, type: 3}
+  m_Name: 20
+  m_EditorClassIdentifier: 
+  _info: Which ONE (1) of the following best describes the mechanism of action of
+    vancomycin?
+  _answers:
+  - _info: 'Inhibits protein synthesis by irreversibly binding to the 30S ribosomal
+      subunit; has a concentration-dependent bactericidal effect.  '
+    _isCorrect: 0
+    _height: 0
+  - _info: 'Interferes with bacterial cell wall synthesis by inhibiting transpeptidase
+      enzymes that catalyse crosslinking of peptidoglycan, thereby leading to cell
+      lysis and death.  '
+    _isCorrect: 0
+    _height: 0
+  - _info: 'Binds to the 50S subunit of bacterial ribosomes and suppresses protein
+      synthesis  '
+    _isCorrect: 0
+    _height: 0
+  - _info: 'Inhibits cell wall synthesis by binding to the D-ala-D-ala side chain
+      of the precursor pentapeptide, preventing transglycosylation '
+    _isCorrect: 1
+    _height: 0
+  - _info: 'Competitively inhibits bacterial folate synthesis essential for bacterial
+      growth '
+    _isCorrect: 0
+    _height: 0
+  _useTimer: 1
+  _timer: 120
+  _answerType: 1
+  _addScore: 10
+  _answerHeight: 135
