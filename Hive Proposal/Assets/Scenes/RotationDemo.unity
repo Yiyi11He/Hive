@@ -409,7 +409,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716190127}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 28ba3001b3047d24ebbc0a91fbfa3109, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 2300f795580307c4b8804588ce14e334, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -427,7 +427,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: https://curtin.sharepoint.com/sites/HIVE2023GamifyInfectionTherapy/_layouts/15/stream.aspx?id=%2Fsites%2FHIVE2023GamifyInfectionTherapy%2FShared%20Documents%2FGeneral%2FSimulation%20Video%2FDiabetic%20Foot%20Infection%20Full%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
