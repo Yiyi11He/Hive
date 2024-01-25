@@ -37,17 +37,17 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateInput();
-        UpdateLook();
+        if (lookEnabled)
+        {
+            UpdateInput();
+            UpdateLook();
+        }
     }
 
     void UpdateInput()
     {
-        if(lookEnabled)
-        {
-            mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        }
+        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
     }
 
     void UpdateLook()

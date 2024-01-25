@@ -5,6 +5,7 @@ using UnityEngine;
 public class PhysicsPickup : MonoBehaviour
 {
     public GameObject player;
+    public CharacterController characterController;
     public Transform holdPos;
     //if you copy from below this point, you are legally required to like the video
     public float pickUpRange = 5f; //how far the player can pickup the object from
@@ -18,6 +19,8 @@ public class PhysicsPickup : MonoBehaviour
 
     const float rotateSpeed = 100;
 
+    private Ray debugRay = new Ray();
+
     void Start()
     {
         LayerNumber = LayerMask.NameToLayer("CameraHold"); //if your holdLayer is named differently make sure to change this ""
@@ -26,19 +29,25 @@ public class PhysicsPickup : MonoBehaviour
     }
     void Update()
     {
+        Debug.DrawRay(debugRay.origin, debugRay.direction);
+
         if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
         {
             if (heldObj == null) //if currently not holding anything
             {
-                //perform raycast to check if player is looking at object within pickuprange
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+                debugRay = new Ray(transform.position, transform.forward * pickUpRange);
+
+                float sphereCastRadius = 0.1f;
+
+                RaycastHit[] hits = Physics.SphereCastAll(transform.position, sphereCastRadius, transform.forward, pickUpRange);
+                foreach (var hit in hits)
                 {
                     //make sure pickup tag is attached
                     if (hit.transform.gameObject.tag == "PickUp")
                     {
                         //pass in object hit into the PickUpObject function
                         PickUpObject(hit.transform.gameObject);
+                        break;
                     }
                 }
             }
@@ -70,6 +79,7 @@ public class PhysicsPickup : MonoBehaviour
             heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
             heldObjRb.isKinematic = true;
             heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
+            heldObjRb.transform.localPosition = Vector3.zero;
             heldObj.layer = LayerNumber; //change the object layer to the holdLayer
             //make sure object doesnt collide with player, it can cause weird bugs
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
@@ -84,20 +94,25 @@ public class PhysicsPickup : MonoBehaviour
         heldObjRb.isKinematic = false;
         heldObj.transform.parent = null; //unparent object
         heldObj = null; //undefine game object
-        //mouseLookScript.enabled = true;
+                        //mouseLookScript.enabled = true;
+
     }
     void MoveObject()
     {
         //keep object position the same as the holdPosition position
-        heldObj.transform.position = holdPos.transform.position;
+        //heldObj.transform.position = holdPos.transform.position;
     }
     void RotateObject()
     {
-
+        /*
         if (Input.GetKeyDown(KeyCode.R))
             MouseLook.single.lookEnabled = false;
         if (Input.GetKeyUp(KeyCode.R))
             MouseLook.single.lookEnabled = true;
+        */
+
+        MouseLook.single.lookEnabled = !Input.GetKey(KeyCode.R);
+
 
 
         if (Input.GetKey(KeyCode.R)) // Hold R key to rotate
@@ -108,8 +123,8 @@ public class PhysicsPickup : MonoBehaviour
             float mouseX = -Input.GetAxis("Mouse X") * rotationSensitivity;
             float mouseY = Input.GetAxis("Mouse Y") * rotationSensitivity;
 
-            heldObj.transform.Rotate(Vector3.up, mouseX * rotateSpeed * Time.deltaTime, Space.World);
-            heldObj.transform.Rotate(Vector3.right, mouseY * rotateSpeed * Time.deltaTime, Space.World);
+            heldObj.transform.Rotate(transform.up, mouseX * rotateSpeed * Time.deltaTime, Space.World);
+            heldObj.transform.Rotate(transform.right, mouseY * rotateSpeed * Time.deltaTime, Space.World);
         }
         else
         {

@@ -10,7 +10,6 @@ public class RotationSitting : MonoBehaviour
     public Transform camerA;
     public Transform computer;
     public Transform charts;
-    public GameObject SwitchView;
 
     public Transform currentTarget;
     public float rotationSpeed;
@@ -33,14 +32,5 @@ public class RotationSitting : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(currentTarget.position - camerA.position);
 
         camerA.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-        if (chair.sitting == true)
-        {
-            SwitchView.SetActive(true);
-        }
-        else if (chair.sitting == false)
-        {
-            SwitchView.SetActive(false);
-        }
     }
 }

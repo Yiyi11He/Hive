@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Chair : MonoBehaviour
 {
-    public GameObject playerStanding, playerSitting, intText, standText;
-    public bool interactable;
+    public GameObject playerStanding, playerSitting, intText, standText, switchView;
     public bool sitting;
+
+    private bool interactable = false;
 
     void OnTriggerStay(Collider other)
     {
@@ -36,6 +37,7 @@ public class Chair : MonoBehaviour
                 sitting = true;
                 playerStanding.SetActive(false);
                 interactable = false;
+                switchView.SetActive(true);
             }
         }
         if (sitting == true)
@@ -46,6 +48,7 @@ public class Chair : MonoBehaviour
                 standText.SetActive(false);
                 playerStanding.SetActive(true);
                 sitting = false;
+                switchView.SetActive(false);
             }
         }
     }
