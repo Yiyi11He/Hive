@@ -21,12 +21,22 @@ public class PhysicsPickup : MonoBehaviour
 
     private Ray debugRay = new Ray();
 
+    public Transform pickupFollow;
+
     void Start()
     {
         LayerNumber = LayerMask.NameToLayer("CameraHold"); //if your holdLayer is named differently make sure to change this ""
 
         mouseLookScript = player.GetComponent<MouseLook>();
+        pickupFollow.parent = null;
     }
+
+    private void FixedUpdate()
+    {
+        pickupFollow.position = holdPos.position;
+        pickupFollow.rotation = holdPos.rotation;
+    }
+
     void Update()
     {
         Debug.DrawRay(debugRay.origin, debugRay.direction);
@@ -78,7 +88,7 @@ public class PhysicsPickup : MonoBehaviour
             heldObj = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
             heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
             heldObjRb.isKinematic = true;
-            heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
+            heldObjRb.transform.parent = pickupFollow.transform; //parent object to holdposition
             heldObjRb.transform.localPosition = Vector3.zero;
             heldObj.layer = LayerNumber; //change the object layer to the holdLayer
             //make sure object doesnt collide with player, it can cause weird bugs
