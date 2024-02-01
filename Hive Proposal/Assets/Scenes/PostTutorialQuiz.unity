@@ -335,7 +335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter The Game
+  m_text: Finish the game?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee269fa4cad37af4abde03e6205f595e, type: 2}
   m_sharedMaterial: {fileID: 21641202490330990, guid: ee269fa4cad37af4abde03e6205f595e,
@@ -363,8 +363,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 85
-  m_fontSizeBase: 85
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1859,6 +1859,7 @@ GameObject:
   - component: {fileID: 1127992082}
   - component: {fileID: 1127992081}
   - component: {fileID: 1127992080}
+  - component: {fileID: 1127992083}
   m_Layer: 5
   m_Name: Button_[NextScene]
   m_TagString: Untagged
@@ -1930,9 +1931,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 849180835}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 1127992083}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1980,6 +1981,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127992078}
   m_CullTransparentMesh: 0
+--- !u!114 &1127992083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127992078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1016734affe3b34cb8e93757dec72af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1189528028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,7 +2195,7 @@ MonoBehaviour:
   - name: GameMusic
     clip: {fileID: 8300000, guid: cfe9fca0ee76313448d06090d6bef4f2, type: 3}
     parameters:
-      Volume: 0.2
+      Volume: 0.125
       Pitch: 1
       Loop: 1
     Source: {fileID: 0}
