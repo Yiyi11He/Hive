@@ -1,0 +1,28 @@
+﻿title: StartLine
+tags:
+position: 0,0
+---
+Dr.Barton: Just to remind you that I am doing a work-based assessment on you for this week
+
+Dr.Barton: I will be asking a few questions to test your knowledge.
+Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct.
+Dr.Barton: I hope you are well prepared. First question!
+Dr.Barton: Pick one from the pictures.
+
+<<jump Swabs>>
+===
+title: Swabs
+tags: 
+position: 254,0
+---
+Dr.Barton: What tests should we do on the swabs?
+
+Dr.Barton: Pick the ones that the hospital lab will be doing.​
+-> Culture​
+-> Sensitivity testing ​
+-> Polymerase chain reaction​
+-> Gram staining – Nowadays it is done via a Microbial identification system​
+-> Rapid antigen test​
+-> Microscopy​
+
+===

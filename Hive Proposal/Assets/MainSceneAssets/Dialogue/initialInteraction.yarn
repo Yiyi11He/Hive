@@ -1,0 +1,181 @@
+﻿title: initialInteration
+tags:
+position: 141,-1138
+---
+<<declare $player_score = 0 as Number>>
+Dr.Barton: Follow me and let’s see this patient together.
+//video plays
+//swabs and video stop at 4:20
+
+Dr.Barton: What do you think about the wound?​
+
+
+<<jump Multichoice>>
+===
+title: Multichoice
+position: 430,-615
+---
+Dr.Barton: Pick all the ones that describe the wound
+
+
+<<declare $Infected = false>>
+<<declare $Erythema  = false>>
+<<declare $Swelling  = false>>
+<<declare $Ulcer  = false>>
+<<declare $Diabetic  = false>>
+<<declare $Plantar = false>>
+<<declare $Venous  = false>>
+<<declare $Arterial = false>>
+<<declare $Purple = false>>
+<<declare $Pus = false>>
+
+-> Infected
+    <<SelectInfected>>
+-> Erythema
+    <<SelectErythema>>
+-> Swelling
+    <<SelectSwelling>>
+-> Ulcer
+    <<SelectUlcer>>
+-> Diabetic
+    <<SelectDiabetic>>
+-> Plantar
+    <<SelectPlantar>>
+-> Venous
+    <<SelectVenous>>
+-> Arterial
+    <<SelectArterial>>
+-> Purple
+    <<SelectPurple>>
+-> Pus
+    <<SelectPus>>
+
+---
+<<command Infected>>
+<<set $Infected to true>>
+
+<<command Erythema>>
+<<set $Erythema to true>>
+
+<<command Swelling>>
+<<set $Swelling to true>>
+
+<<command Ulcer>>
+<<set $Ulcer to true>>
+
+<<command Diabetic>>
+<<set $Diabetic to true>>
+
+<<command SelectPlantar>>
+<<set $Plantar to true>>
+
+<<command SelectVenous>>
+<<set $Venous to true>>
+
+<<command SelectArterial>>
+<<set $Arterial to true>>
+
+<<command SelectPurple>>
+<<set $Purple to true>>
+
+<<command SelectPus>>
+<<set $Pus to true>>
+
+<<jump PictureQuestion>>
+
+===
+title: PictureQuestion
+tags:
+position: 145,-980
+---
+Dr.Barton: Just to remind you that I am doing a work-based assessment on you for this week
+Dr.Barton: I will be asking a few questions to test your knowledge.
+Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct.
+Dr.Barton: I hope you are well prepared. First question!
+Dr.Barton: What kind of swabs are needed?
+Dr.Barton: Pick one from the pictures.
+
+<<jump PicturePick >>
+
+===
+title: PicturePick
+position: 187,-823
+---
+
+
+
+<<jump SwabsMultiQuestion >>
+===
+title: SwabsMultiQuestion
+tags: 
+position: 176,-658
+---
+Dr.Barton: What tests should we do on the swabs?
+
+<<declare $response_a = false>>
+<<declare $response_b = false>>
+
+Dr.Barton: Pick the ones that the hospital lab will be doing.​
+
+<<jump SwabsAnswer>>
+
+===
+title: SwabsAnswer
+position: -1,-479
+---
+
+
+-> Culture​ - {$response_a}
+    <<jump Response_A>>
+-> Sensitivity testing - {$response_b}
+    <<jump Response_B>>
+-> Submit responses
+    <<jump SubmitResponses>>
+
+
+===
+
+title: Node
+position: -113,-100
+---
+Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct.
+===
+title: Node1
+position: -113,31
+---
+Dr.Barton: I hope you are well prepared. First question
+
+===
+title: Response_A
+position: 365,-536
+---
+
+<<set $response_a = !$response_a>>
+<<jump SwabsAnswer>>
+
+===
+title: Response_B
+position: 362,-384
+---
+
+<<set $response_b = !$response_b>>
+<<jump SwabsAnswer>>
+
+===
+title: SubmitResponses
+position: 256,-210
+---
+
+Dr Barton: Here are your results:
+
+<<declare $score = 0>>
+<<if $response_a == true>>
+    <<set $score = $score + 1>>
+<<endif>>
+<<if $response_b == true>>
+    <<set $score = $score + 1>>
+<<endif>>
+
+Dr Barton: Your score is {$score}
+
+===

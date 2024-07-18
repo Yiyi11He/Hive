@@ -12,25 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1e3773ddaa9ce48835846fb8e11c7f, type: 3}
   m_Name: 19
   m_EditorClassIdentifier: 
-  _info: 'Which ONE (1) of the bacteria below is a Gram positive bacterium? '
+  _info: Which <b>ONE (1)</b> of the following antibiotics is indicated for mild
+    cellulitis suspected to be caused by <i>Staphylococcus aureus</i> or <i>Streptococcus
+    pyogenes</i>?
   _answers:
-  - _info: <i>E. coli  </i>
-    _isCorrect: 0
-    _height: 0
-  - _info: <i>Pseudomonas aeruginosa  </i>
-    _isCorrect: 0
-    _height: 0
-  - _info: <i>Clostridium perfringens </i>
+  - _info: 'Flucloxacillin  '
     _isCorrect: 1
     _height: 0
-  - _info: <i>Bacteroides fragilis </i>
+  - _info: 'Amoxicillin '
     _isCorrect: 0
     _height: 0
-  - _info: <i>Haemophilus influenza  <i>
+  - _info: 'Benzylpenicillin  '
+    _isCorrect: 0
+    _height: 0
+  - _info: 'Ampicillin '
     _isCorrect: 0
     _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
-  _answerHeight: 85
+  _answerHeight: 100

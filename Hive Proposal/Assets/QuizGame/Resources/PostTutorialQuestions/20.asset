@@ -12,32 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1e3773ddaa9ce48835846fb8e11c7f, type: 3}
   m_Name: 20
   m_EditorClassIdentifier: 
-  _info: Which ONE (1) of the following best describes the mechanism of action of
-    vancomycin?
+  _info: '<size=28>A 47-year old male with a severe respiratory tract infection due
+    to <i>Pseudomonas aeruginosa</i> is hospitalised. The patient reports a history
+    of allergic reaction to ampicillin in the form of a rash. Which ONE (1) of the
+    following antibiotics would be the best choice of treatment for his infection? '
   _answers:
-  - _info: 'Inhibits protein synthesis by irreversibly binding to the 30S ribosomal
-      subunit; has a concentration-dependent bactericidal effect.  '
+  - _info: 'Clindamycin '
     _isCorrect: 0
     _height: 0
-  - _info: 'Interferes with bacterial cell wall synthesis by inhibiting transpeptidase
-      enzymes that catalyse crosslinking of peptidoglycan, thereby leading to cell
-      lysis and death.  '
+  - _info: 'Vancomycin '
     _isCorrect: 0
     _height: 0
-  - _info: 'Binds to the 50S subunit of bacterial ribosomes and suppresses protein
-      synthesis  '
-    _isCorrect: 0
-    _height: 0
-  - _info: 'Inhibits cell wall synthesis by binding to the D-ala-D-ala side chain
-      of the precursor pentapeptide, preventing transglycosylation '
+  - _info: 'Tobramycin '
     _isCorrect: 1
     _height: 0
-  - _info: 'Competitively inhibits bacterial folate synthesis essential for bacterial
-      growth '
+  - _info: 'Cefaclor '
     _isCorrect: 0
     _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
-  _answerHeight: 135
+  _answerHeight: 100

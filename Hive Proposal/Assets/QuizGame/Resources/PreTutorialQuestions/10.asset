@@ -12,32 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1e3773ddaa9ce48835846fb8e11c7f, type: 3}
   m_Name: 10
   m_EditorClassIdentifier: 
-  _info: 'Which ONE (1) of the following best describes the mechanism of action of
-    amoxicillin? '
+  _info: Which <b>ONE (1)</b> of the following is a narrow spectrum antibiotic with
+    activity against Gram positive bacteria only?
   _answers:
-  - _info: 'Inhibits protein synthesis by irreversibly binding to the 30S ribosomal
-      subunit; has a concentration-dependent bactericidal effect.  '
-    _isCorrect: 0
-    _height: 0
-  - _info: 'Interferes with bacterial cell wall synthesis by inhibiting transpeptidase
-      enzymes that catalyse crosslinking of peptidoglycan, thereby leading to cell
-      lysis and death.  '
+  - _info: 'Vancomycin '
     _isCorrect: 1
     _height: 0
-  - _info: 'Binds to the 50S subunit of bacterial ribosomes and suppresses protein
-      synthesis  '
+  - _info: 'Gentamicin '
     _isCorrect: 0
     _height: 0
-  - _info: 'Inhibits cell wall synthesis by binding to the D-ala-D-ala side chain
-      of the precursor pentapeptide, preventing transglycosylation '
+  - _info: 'Clindamycin '
     _isCorrect: 0
     _height: 0
-  - _info: 'Competitively inhibits bacterial folate synthesis essential for bacterial
-      growth '
+  - _info: 'Doxycycline '
     _isCorrect: 0
     _height: 0
   _useTimer: 1
   _timer: 120
   _answerType: 1
   _addScore: 10
-  _answerHeight: 175
+  _answerHeight: 90
