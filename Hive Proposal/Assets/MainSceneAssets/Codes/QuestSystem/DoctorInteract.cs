@@ -12,7 +12,7 @@ public class DoctorInteract : MonoBehaviour
     private LayerMask useLayers;
     [SerializeField]
     public GameObject dialogueUI;
-    public DialogueRunner dialogueRunner; 
+    public DialogueRunner dialogueRunner;
     public GameObject intText;
     private bool interactable = false;
     private bool interacting = false;
@@ -54,9 +54,16 @@ public class DoctorInteract : MonoBehaviour
     {
         if (interactable && !interacting)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            // Raycast to check if the camera is pointing at the doctor
+            Ray ray = new Ray(playerMainCamera.transform.position, playerMainCamera.transform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, maxUseDistance, useLayers))
             {
-                StartInteraction();
+                if (hit.collider.gameObject == gameObject && Input.GetKeyDown(KeyCode.E))
+                {
+                    StartInteraction();
+                }
             }
         }
     }
