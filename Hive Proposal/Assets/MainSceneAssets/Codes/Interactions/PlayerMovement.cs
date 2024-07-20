@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.81f;
 
-
+    public Quest quest;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;

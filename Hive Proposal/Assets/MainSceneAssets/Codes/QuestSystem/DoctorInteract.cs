@@ -54,16 +54,9 @@ public class DoctorInteract : MonoBehaviour
     {
         if (interactable && !interacting)
         {
-            // Raycast to check if the camera is pointing at the doctor
-            Ray ray = new Ray(playerMainCamera.transform.position, playerMainCamera.transform.forward);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, maxUseDistance, useLayers))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (hit.collider.gameObject == gameObject && Input.GetKeyDown(KeyCode.E))
-                {
-                    StartInteraction();
-                }
+                StartInteraction();
             }
         }
     }

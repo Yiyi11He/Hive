@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Yarn.Unity;
+using TMPro;
 
 public class Scores : MonoBehaviour
 {
     private InMemoryVariableStorage variableStorage;
-    public Text scoreText;
+    public TMP_Text scoreText;
 
     void Start()
     {
