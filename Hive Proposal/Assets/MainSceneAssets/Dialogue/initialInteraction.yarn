@@ -1,22 +1,13 @@
-﻿title: initialInteration
+﻿title: initialInteraction
 tags:
-position: 141,-1138
+position: -65,-1588
 ---
-<<declare $player_score = 0 as Number>>
+<<declare $player_score = 0>>
 Dr.Barton: Follow me and let’s see this patient together.
 //video plays
 //swabs and video stop at 4:20
 
 Dr.Barton: What do you think about the wound?​
-
-
-<<jump Multichoice>>
-===
-title: Multichoice
-position: 430,-615
----
-Dr.Barton: Pick all the ones that describe the wound
-
 
 <<declare $Infected = false>>
 <<declare $Erythema  = false>>
@@ -29,64 +20,151 @@ Dr.Barton: Pick all the ones that describe the wound
 <<declare $Purple = false>>
 <<declare $Pus = false>>
 
--> Infected
-    <<SelectInfected>>
--> Erythema
-    <<SelectErythema>>
--> Swelling
-    <<SelectSwelling>>
--> Ulcer
-    <<SelectUlcer>>
--> Diabetic
-    <<SelectDiabetic>>
--> Plantar
-    <<SelectPlantar>>
--> Venous
-    <<SelectVenous>>
--> Arterial
-    <<SelectArterial>>
--> Purple
-    <<SelectPurple>>
--> Pus
-    <<SelectPus>>
+Dr.Barton: Pick all the ones that describe the wound
 
+<<jump Multichoice>>
+===
+title: Multichoice
+position: 250,-1468
 ---
-<<command Infected>>
-<<set $Infected to true>>
 
-<<command Erythema>>
-<<set $Erythema to true>>
+-> Infected - {$Infected}
+    <<jump SelectInfected>>
+-> Erythema - {$Erythema}
+    <<jump SelectErythema>>
+-> Swelling - {$Swelling}
+    <<jump SelectSwelling>>
+-> Ulcer - {$Ulcer}
+    <<jump SelectUlcer>>
+-> Diabetic - {$Diabetic}
+    <<jump SelectDiabetic>>
+-> Plantar - {$Plantar}
+    <<jump SelectPlantar>>
+-> Venous - {$Venous}
+    <<jump SelectVenous>>
+-> Arterial - {$Arterial}
+    <<jump SelectArterial>>
+-> Purple - {$Purple}
+    <<jump SelectPurple>>
+-> Pus - {$Pus}
+    <<jump SelectPus>>
+-> Submit Responses
+    <<jump MultichoiceEnd>>
 
-<<command Swelling>>
-<<set $Swelling to true>>
+===
+title: SelectInfected
+Position:0,0
+position: 524,-835
+---
+<<set $Infected to !$Infected>>
+<<jump Multichoice>>
 
-<<command Ulcer>>
-<<set $Ulcer to true>>
 
-<<command Diabetic>>
-<<set $Diabetic to true>>
+===
+title: SelectErythema
+position: 521,-967
+---
+<<set $Erythema to !$Erythema>>
+<<jump Multichoice>>
 
-<<command SelectPlantar>>
-<<set $Plantar to true>>
 
-<<command SelectVenous>>
-<<set $Venous to true>>
+===
+title: SelectSwelling
+position: 525,-1234
+---
+<<set $Swelling to !$Swelling>>
+<<jump Multichoice>>
 
-<<command SelectArterial>>
-<<set $Arterial to true>>
 
-<<command SelectPurple>>
-<<set $Purple to true>>
+===
+title: SelectUlcer
+position: 519,-1100
+---
+<<set $Ulcer to !$Ulcer>>
+<<jump Multichoice>>
 
-<<command SelectPus>>
-<<set $Pus to true>>
+===
+title: SelectDiabetic
+position: 529,-1371
+---
+<<set $Diabetic to !$Diabetic>>
+<<jump Multichoice>>
 
+
+===
+title: SelectPlantar
+position: 524,-1636
+---
+<<set $Plantar to !$Plantar>>
+<<jump Multichoice>>
+
+
+===
+title: SelectVenous
+position: 525,-697
+---
+<<set $Venous to !$Venous>>
+<<jump Multichoice>>
+
+===
+title: SelectArterial
+position: 534,-1509
+---
+<<set $Arterial to !$Arterial>>
+<<jump Multichoice>>
+
+===
+title: SelectPurple
+position: 525,-1894
+---
+<<set $Purple to !$Purple>>
+<<jump Multichoice>>
+
+===
+title: SelectPus
+position: 525,-1766
+---
+<<set $Pus to !$Pus>>
+<<jump Multichoice>>
+
+===
+title:MultichoiceEnd
+position: 248,-1306
+---
+<<if $Infected == true>>
+    <<set $player_score +=  1>>
+<<endif>>
+<<if $Erythema == true>>
+    <<set $player_score +=  1>>
+<<endif>>
+<<if $Ulcer == true>>
+    <<set $player_score += 1>>
+<<endif>>
+<<if $Diabetic == true>>
+    <<set $player_score +=  1>>
+<<endif>>
+<<if $Plantar == true>>
+    <<set $player_score +=  1>>
+<<endif>>
+<<if $Purple == true>>
+    <<set $player_score +=  1>>
+<<endif>>
+
+<<add_score $player_score>>
+
+<<if $player_score == 6>>
+    Dr.Barton: Well done!
+<<else>>
+    Dr.Barton: You have missed certain things.
+<<endif>>
 <<jump PictureQuestion>>
+
+
 
 ===
 title: PictureQuestion
 tags:
-position: 145,-980
+position: 273,-958
 ---
 Dr.Barton: Just to remind you that I am doing a work-based assessment on you for this week
 Dr.Barton: I will be asking a few questions to test your knowledge.
@@ -99,7 +177,7 @@ Dr.Barton: Pick one from the pictures.
 
 ===
 title: PicturePick
-position: 187,-823
+position: -8,-842
 ---
 
 
@@ -108,12 +186,19 @@ position: 187,-823
 ===
 title: SwabsMultiQuestion
 tags: 
-position: 176,-658
+position: -177,-697
 ---
 Dr.Barton: What tests should we do on the swabs?
 
-<<declare $response_a = false>>
-<<declare $response_b = false>>
+
+
+
+<<declare $Culture​ = false>>
+<<declare $Sensitivity = false>>
+<<declare $Polymerase = false>>
+<<declare $Gram = false>>
+<<declare $Rapid = false>>
+<<declare $Microscopy = false>>
 
 Dr.Barton: Pick the ones that the hospital lab will be doing.​
 
@@ -121,61 +206,128 @@ Dr.Barton: Pick the ones that the hospital lab will be doing.​
 
 ===
 title: SwabsAnswer
-position: -1,-479
+position: -252,-541
 ---
 
-
--> Culture​ - {$response_a}
-    <<jump Response_A>>
--> Sensitivity testing - {$response_b}
-    <<jump Response_B>>
+-> Culture​ - {$Culture​}
+    <<jump CultureResponse​>>
+-> Sensitivity testing - {$Sensitivity}
+    <<jump SensitivityResponse>>
+-> Polymerase chain reaction​ - {$Polymerase}
+    <<jump PolymeraseResponse>>
+-> Gram staining – Nowadays it is done via a Microbial identification system​ - {$Gram}
+    <<jump GramResponse>>
+-> Rapid antigen test​ - {$Rapid}
+    <<jump RapidResponse>>
+-> Microscopy - {$Microscopy}
+    <<jump MicroscopyResponse>>
 -> Submit responses
     <<jump SubmitResponses>>
 
 
-===
-
-title: Node
-position: -113,-100
----
-Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct.
-===
-title: Node1
-position: -113,31
----
-Dr.Barton: I hope you are well prepared. First question
 
 ===
-title: Response_A
-position: 365,-536
+title: CultureResponse
+position: -532,-153
 ---
 
-<<set $response_a = !$response_a>>
+<<set $Culture​ = !$Culture​>>
 <<jump SwabsAnswer>>
 
 ===
-title: Response_B
-position: 362,-384
+title: SensitivityResponse
+position: -531,-838
 ---
 
-<<set $response_b = !$response_b>>
+<<set $Sensitivity = !$Sensitivity>>
 <<jump SwabsAnswer>>
 
 ===
 title: SubmitResponses
-position: 256,-210
+position: -149,-399
 ---
 
-Dr Barton: Here are your results:
+Dr.Barton: Here are your results:
 
-<<declare $score = 0>>
-<<if $response_a == true>>
-    <<set $score = $score + 1>>
+<<set $player_score = 0>>
+<<if $Culture​ == true>>
+    <<set $player_score = $player_score + 1>>
 <<endif>>
-<<if $response_b == true>>
-    <<set $score = $score + 1>>
+<<if $Sensitivity == true>>
+    <<set $player_score = $player_score + 1>>
 <<endif>>
 
-Dr Barton: Your score is {$score}
+Dr.Barton: Your player_score is {$player_score}
 
+
+
+<<declare $fullBlood = false>>
+<<declare $Electrolytes​ = false>>
+
+
+Dr.Barton: I am thinking of more tests. What other tests should we do?
+<<jump tests>>
+
+===
+title: PolymeraseResponse
+position: -530,-427
+---
+<<set $Polymerase = !$Polymerase>>
+<<jump SwabsAnswer>>
+===
+
+title: GramResponse
+position: -536,-19
+---
+<<set $Gram = !$Gram>>
+<<jump SwabsAnswer>>
+===
+
+title: RapidResponse
+position: -529,-288
+---
+<<set $Rapid = !$Rapid>>
+<<jump SwabsAnswer>>
+===
+
+title: MicroscopyResponse
+position: -530,-710
+---
+<<set $Microscopy = !$Rapid>>
+<<jump SwabsAnswer>>
+===
+
+title: tests
+position: -140,-242
+---
+-> Full blood count​ - {$fullBlood}
+<<jump fullBloodResponse>>
+
+-> Electrolytes, urea and creatinine​ - {$Electrolytes}
+<<jump Electrolytes>>
+-> Calcium, magnesium, phosphate​
+
+-> Liver function test​
+
+-> Blood cultures- if there is fever​
+
+-> HbA1C​
+
+-> Iron levels​
+
+-> Folate and B12 levels​
+
+-> CRP​
+
+-> ESR​
+
+Thyroid function tests​
+
+Xray of the foot​
+
+Ultrasound of the foot​
+
+CT of the foot​
+
+MRI of the foot
 ===

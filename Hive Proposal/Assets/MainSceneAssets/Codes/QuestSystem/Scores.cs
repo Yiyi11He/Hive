@@ -18,12 +18,14 @@ public class Scores : MonoBehaviour
 
         UpdateScoreDisplay();
 
-        // Register command
+        // Register command handler for "add_score"
         FindObjectOfType<DialogueRunner>().AddCommandHandler<float>("add_score", AddPlayerScore);
     }
 
+    [YarnCommand ("add_score")]
     public void AddPlayerScore(float amount)
     {
+        Debug.Log("Adding Current Score");
         float currentScore = 0f;
         variableStorage.TryGetValue("$player_score", out currentScore);
         currentScore += amount;

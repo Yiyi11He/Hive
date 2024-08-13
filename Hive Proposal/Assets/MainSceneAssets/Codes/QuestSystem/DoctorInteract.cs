@@ -14,6 +14,7 @@ public class DoctorInteract : MonoBehaviour
     public GameObject dialogueUI;
     public DialogueRunner dialogueRunner;
     public GameObject intText;
+    public GameObject doctorObject;
     private bool interactable = false;
     private bool interacting = false;
 
@@ -32,32 +33,42 @@ public class DoctorInteract : MonoBehaviour
         dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueComplete);
     }
 
-    void OnTriggerStay(Collider other)
+    void Update()
     {
-        if (other.CompareTag("MainCamera"))
+        if (!interacting)
         {
-            intText.SetActive(true);
-            interactable = true;
+            CheckForInteraction();
+        }
+
+        if (interactable && !interacting && Input.GetKeyDown(KeyCode.E))
+        {
+            StartInteraction();
         }
     }
-
-    void OnTriggerExit(Collider other)
+    private void CheckForInteraction()
     {
-        if (other.CompareTag("MainCamera"))
+        // Cast a ray from the camera's position forward
+        Ray ray = new Ray(playerMainCamera.transform.position, playerMainCamera.transform.forward);
+        RaycastHit hit;
+
+        // Check if the ray hits an object within the maxUseDistance and if that object is the doctor
+        if (Physics.Raycast(ray, out hit, maxUseDistance, useLayers))
+        {
+            if (hit.collider.gameObject == doctorObject)
+            {
+                intText.SetActive(true);
+                interactable = true;
+            }
+            else
+            {
+                intText.SetActive(false);
+                interactable = false;
+            }
+        }
+        else
         {
             intText.SetActive(false);
             interactable = false;
-        }
-    }
-
-    void Update()
-    {
-        if (interactable && !interacting)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                StartInteraction();
-            }
         }
     }
 
@@ -69,7 +80,7 @@ public class DoctorInteract : MonoBehaviour
         dialogueUI.SetActive(true);
         interacting = true;
 
-        dialogueRunner.StartDialogue("initialInteration");
+        dialogueRunner.StartDialogue("initialInteraction");
     }
 
     private void OnDialogueComplete()

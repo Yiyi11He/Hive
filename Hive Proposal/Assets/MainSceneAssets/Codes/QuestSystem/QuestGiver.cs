@@ -25,4 +25,9 @@ public class QuestGiver : MonoBehaviour
         ScoreText.text = quest.Score.ToString();
         player.quest = quest;
     }
+
+    public void QuestComplete()
+    {
+        questWindow.SetActive(false);
+    }
 }
