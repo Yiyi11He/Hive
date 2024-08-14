@@ -620,6 +620,71 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 15414997}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &23524688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 23524689}
+  - component: {fileID: 23524690}
+  m_Layer: 0
+  m_Name: Reflection Probe SurgicalRoom (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &23524689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23524688}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.54, y: 0, z: -5.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1735755892}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!215 &23524690
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23524688}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 20, y: 10, z: 20}
+  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
 --- !u!1001 &39014080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13175,7 +13240,7 @@ Transform:
   m_GameObject: {fileID: 794654695}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.233999, y: -0.48683518, z: 5.4417024}
+  m_LocalPosition: {x: 16.425, y: -0.48683518, z: 5.4417024}
   m_LocalScale: {x: 0.20278254, y: 0.20278254, z: 0.20278254}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18311,7 +18376,7 @@ GameObject:
   - component: {fileID: 1145837438}
   - component: {fileID: 1145837442}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: ScoreCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21883,7 +21948,7 @@ Transform:
   m_GameObject: {fileID: 1417234813}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.929, y: -0.48683518, z: 5.4417024}
+  m_LocalPosition: {x: 16.12, y: -0.48683518, z: 5.4417024}
   m_LocalScale: {x: 0.20278254, y: 0.20278254, z: 0.20278254}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22581,7 +22646,7 @@ Transform:
   m_GameObject: {fileID: 1445580033}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.9930494, z: -0, w: -0.11769903}
-  m_LocalPosition: {x: 4.47, y: 0.79, z: 2.46}
+  m_LocalPosition: {x: 4.833, y: 0.79, z: 0.952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26333,6 +26398,7 @@ Transform:
   - {fileID: 861523615}
   - {fileID: 1598772830}
   - {fileID: 1016291070}
+  - {fileID: 23524689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1750662132 stripped
@@ -28105,16 +28171,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c7996e11c45df4e83f63f826ac8abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest:
-    isActive: 0
-    title: Start the Video
-    description: Find your workdesk and initiate the video.
+  quests:
+  - isActive: 0
+    title: MyFirst Quest
+    description: QuestText
     Score: 5
   player: {fileID: 1445580036}
-  questWindow: {fileID: 0}
-  TitleText: {fileID: 0}
-  DescriptionText: {fileID: 0}
-  ScoreText: {fileID: 0}
+  questWindow: {fileID: 14377923}
+  TitleText: {fileID: 1404713375}
+  DescriptionText: {fileID: 814231592}
+  ScoreText: {fileID: 1285407945}
 --- !u!4 &1888210412
 Transform:
   m_ObjectHideFlags: 0
@@ -29343,7 +29409,7 @@ Transform:
   m_GameObject: {fileID: 1971463019}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.929, y: -0.9528352, z: 5.4417024}
+  m_LocalPosition: {x: 16.12, y: -0.9528352, z: 5.4417024}
   m_LocalScale: {x: 0.49088, y: 0.49088, z: 0.49088}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29521,7 +29587,7 @@ Transform:
   m_GameObject: {fileID: 1977430237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.77, y: 0.97, z: 9.84}
+  m_LocalPosition: {x: 2.72, y: 0.97, z: 9.84}
   m_LocalScale: {x: 7.6963, y: 5.737841, z: 0.06692305}
   m_ConstrainProportionsScale: 0
   m_Children: []

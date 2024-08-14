@@ -3,6 +3,7 @@ tags:
 position: -65,-1588
 ---
 <<declare $player_score = 0>>
+<<open_quest QuestGiver 0>>
 Dr.Barton: Follow me and let’s see this patient together.
 //video plays
 //swabs and video stop at 4:20
@@ -132,25 +133,23 @@ title:MultichoiceEnd
 position: 248,-1306
 ---
 <<if $Infected == true>>
-    <<set $player_score +=  1>>
+    <<add_score ScoreCanvas>>
 <<endif>>
 <<if $Erythema == true>>
-    <<set $player_score +=  1>>
+    <<add_score ScoreCanvas>>
 <<endif>>
 <<if $Ulcer == true>>
-    <<set $player_score += 1>>
+    <<add_score ScoreCanvas>>
 <<endif>>
 <<if $Diabetic == true>>
-    <<set $player_score +=  1>>
+    <<add_score ScoreCanvas>>
 <<endif>>
 <<if $Plantar == true>>
-    <<set $player_score +=  1>>
+    <<add_score ScoreCanvas>>
 <<endif>>
 <<if $Purple == true>>
-    <<set $player_score +=  1>>
+    <<add_score ScoreCanvas>>
 <<endif>>
-
-<<add_score $player_score>>
 
 <<if $player_score == 6>>
     Dr.Barton: Well done!
@@ -206,11 +205,11 @@ Dr.Barton: Pick the ones that the hospital lab will be doing.​
 
 ===
 title: SwabsAnswer
-position: -252,-541
+position: -283,-558
 ---
 
 -> Culture​ - {$Culture​}
-    <<jump CultureResponse​>>
+    <<jump CultureResponse>>
 -> Sensitivity testing - {$Sensitivity}
     <<jump SensitivityResponse>>
 -> Polymerase chain reaction​ - {$Polymerase}
@@ -236,7 +235,7 @@ position: -532,-153
 
 ===
 title: SensitivityResponse
-position: -531,-838
+position: -543,-836
 ---
 
 <<set $Sensitivity = !$Sensitivity>>
@@ -244,16 +243,18 @@ position: -531,-838
 
 ===
 title: SubmitResponses
-position: -149,-399
+position: -142,-387
 ---
 
 Dr.Barton: Here are your results:
 
-<<set $player_score = 0>>
 <<if $Culture​ == true>>
     <<set $player_score = $player_score + 1>>
 <<endif>>
 <<if $Sensitivity == true>>
+    <<set $player_score = $player_score + 1>>
+<<endif>>
+<<if $Gram == true>>
     <<set $player_score = $player_score + 1>>
 <<endif>>
 
@@ -291,20 +292,21 @@ position: -529,-288
 ===
 
 title: MicroscopyResponse
-position: -530,-710
+position: -547,-674
 ---
-<<set $Microscopy = !$Rapid>>
+<<set $Microscopy = !$Microscopy>>
 <<jump SwabsAnswer>>
 ===
 
 title: tests
-position: -140,-242
+position: -128,-232
 ---
 -> Full blood count​ - {$fullBlood}
 <<jump fullBloodResponse>>
 
--> Electrolytes, urea and creatinine​ - {$Electrolytes}
+-> Electrolytes, urea and creatinine​ - //{$Electrolytes}
 <<jump Electrolytes>>
+
 -> Calcium, magnesium, phosphate​
 
 -> Liver function test​
