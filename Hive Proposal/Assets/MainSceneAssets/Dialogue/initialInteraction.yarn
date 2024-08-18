@@ -138,6 +138,9 @@ position: 248,-1306
 <<if $Erythema == true>>
     <<add_score ScoreCanvas>>
 <<endif>>
+// <<if $Swelling == true>>
+//     <<add_score -ScoreCanvas>>  Can't call command add_score, because -ScoreCanvas doesn't have the correct component
+// <<endif>>
 <<if $Ulcer == true>>
     <<add_score ScoreCanvas>>
 <<endif>>
@@ -185,7 +188,7 @@ position: -8,-842
 ===
 title: SwabsMultiQuestion
 tags: 
-position: -177,-697
+position: -211,-720
 ---
 Dr.Barton: What tests should we do on the swabs?
 
@@ -205,7 +208,7 @@ Dr.Barton: Pick the ones that the hospital lab will be doing.​
 
 ===
 title: SwabsAnswer
-position: -283,-558
+position: -227,-539
 ---
 
 -> Culture​ - {$Culture​}
@@ -243,7 +246,7 @@ position: -543,-836
 
 ===
 title: SubmitResponses
-position: -142,-387
+position: -138,-372
 ---
 
 Dr.Barton: Here are your results:
@@ -261,12 +264,19 @@ Dr.Barton: Here are your results:
 Dr.Barton: Your player_score is {$player_score}
 
 
+Dr.Barton: I am thinking of more tests. What other tests should we do?
 
 <<declare $fullBlood = false>>
 <<declare $Electrolytes​ = false>>
+<<declare $Calsium​ = false>>
+<<declare $liver​ = false>>
+<<declare $bloodcul​ = false>>
+<<declare $Hb​ = false>>
+<<declare $Iron​ = false>>
+<<declare $Folate​ = false>>
+<<declare $CRP​ = false>>
+<<declare $ESR​ = false>>
 
-
-Dr.Barton: I am thinking of more tests. What other tests should we do?
 <<jump tests>>
 
 ===
@@ -299,29 +309,37 @@ position: -547,-674
 ===
 
 title: tests
-position: -128,-232
+position: -139,-183
 ---
 -> Full blood count​ - {$fullBlood}
 <<jump fullBloodResponse>>
 
--> Electrolytes, urea and creatinine​ - //{$Electrolytes}
-<<jump Electrolytes>>
+-> Electrolytes, urea and creatinine​ - {$Electrolytes​}
+<<jump Electrolytes1>>
 
--> Calcium, magnesium, phosphate​
+-> Calcium, magnesium, phosphate​ - {$Calcium​}
+<<jump Calcium1>>
 
--> Liver function test​
+-> Liver function test​ - {$liver​}
+<<jump liver1>>
 
--> Blood cultures- if there is fever​
+-> Blood cultures- if there is fever​ - {$bloodcul​}
+<<jump bloodCul>>
 
--> HbA1C​
+-> HbA1C​ - {$Hb​}
+<<jump HbA>>
 
--> Iron levels​
+-> Iron levels​ -{$Iron​}
+<<jump IronL>>
 
--> Folate and B12 levels​
+-> Folate and B12 levels​ - {$Folate​}
+<<jump FolateB>>
 
--> CRP​
+-> CRP​ - {$CRP​}
+<<jump CRP1>>
 
--> ESR​
+-> ESR​ - {$ESR​}
+<<jump ESR1>>
 
 Thyroid function tests​
 
@@ -332,4 +350,64 @@ Ultrasound of the foot​
 CT of the foot​
 
 MRI of the foot
+===
+title: fullBloodResponse
+position: 218,-315
+---
+<<set $fullBlood = !$fullBlood>>
+<<jump tests>>
+===
+title: Electrolytes1
+position: 218,-442
+---
+<<set $Electrolytes​ = !$Electrolytes​>>
+<<jump tests>>
+===
+title: Calcium1
+position: 219,106
+---
+<<set $Calcium​​​​ = !$Calcium​>>
+<<jump tests>>
+===
+title: liver1
+position: 218,-29
+---
+<<set $liver​= !$liver​>>
+<<jump tests>>
+===
+title: bloodCul
+position: 215,-173
+---
+<<set $bloodcul​= !$bloodcul​>>
+<<jump tests>>
+===
+title: HbA
+position: 219,243
+---
+<<set $Hb​= !$Hb​>>
+<<jump tests>>
+===
+title: IronL
+position: 270,-38
+---
+<<set $Iron​= !$Iron​>>
+<<jump tests>>
+===
+title: FolateB
+position: 495,-187
+---
+<<set $Folate​ = !$Folate​>>
+<<jump tests>>
+===
+title: CRP1
+position: 505,-177
+---
+<<set $CRP​ = !$CRP​>>
+<<jump tests>>
+===
+title: ESR1
+position: 515,-167
+---
+<<set $ESR​ = !$ESR​>>
+<<jump tests>>
 ===

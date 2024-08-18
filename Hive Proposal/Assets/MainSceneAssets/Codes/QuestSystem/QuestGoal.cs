@@ -6,15 +6,13 @@ using UnityEngine;
 public class QuestGoal
 {
     public GoalType goalType;
-
     public GameObject RequiredAction;
     public int CurrentAction;
-
 }
 
 public enum GoalType
 {
     MonitorInteract,
     DoctorInteract
-    //potential SwabInteract
+    // Potential SwabInteract
 }

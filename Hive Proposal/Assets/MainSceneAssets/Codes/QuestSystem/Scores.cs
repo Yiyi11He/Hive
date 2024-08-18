@@ -13,13 +13,7 @@ public class Scores : MonoBehaviour
     void Start()
     {
         variableStorage = FindObjectOfType<InMemoryVariableStorage>();
-
-
-
         UpdateScoreDisplay();
-
-        // Register command handler for "add_score"
-        //FindObjectOfType<DialogueRunner>().AddCommandHandler<float>("add_score", AddPlayerScore);
     }
 
     [YarnCommand ("add_score")]
@@ -28,7 +22,7 @@ public class Scores : MonoBehaviour
         Debug.Log($"Adding Current Score");
         float currentScore = 0f;
         variableStorage.TryGetValue("$player_score", out currentScore);
-        currentScore += 1;
+        currentScore += 1; //(amount? reference from YarnSpinner)
         variableStorage.SetValue("$player_score", currentScore);
         UpdateScoreDisplay();
     }
