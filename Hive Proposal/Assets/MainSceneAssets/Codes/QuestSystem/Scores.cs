@@ -17,12 +17,12 @@ public class Scores : MonoBehaviour
     }
 
     [YarnCommand ("add_score")]
-    public void AddPlayerScore()
+    public void AddPlayerScore(int scoreToAdd)
     {
         Debug.Log($"Adding Current Score");
         float currentScore = 0f;
         variableStorage.TryGetValue("$player_score", out currentScore);
-        currentScore += 1; //(amount? reference from YarnSpinner)
+        currentScore += scoreToAdd; //(amount? reference from YarnSpinner)
         variableStorage.SetValue("$player_score", currentScore);
         UpdateScoreDisplay();
     }

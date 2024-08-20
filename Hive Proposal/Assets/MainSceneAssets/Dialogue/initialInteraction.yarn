@@ -133,25 +133,34 @@ title:MultichoiceEnd
 position: 248,-1306
 ---
 <<if $Infected == true>>
-    <<add_score ScoreCanvas>>
+    <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Erythema == true>>
-    <<add_score ScoreCanvas>>
+    <<add_score ScoreCanvas 1>>
 <<endif>>
-// <<if $Swelling == true>>
-//     <<add_score -ScoreCanvas>>  Can't call command add_score, because -ScoreCanvas doesn't have the correct component
-// <<endif>>
+<<if $Swelling == true>>
+     <<add_score ScoreCanvas -1>>
+<<endif>>
 <<if $Ulcer == true>>
-    <<add_score ScoreCanvas>>
+    <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Diabetic == true>>
-    <<add_score ScoreCanvas>>
+    <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Plantar == true>>
-    <<add_score ScoreCanvas>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Venous == true>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+<<if $Arterial == true>>
+    <<add_score ScoreCanvas -1>>
 <<endif>>
 <<if $Purple == true>>
-    <<add_score ScoreCanvas>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Pus == true>>
+    <<add_score ScoreCanvas -1>>
 <<endif>>
 
 <<if $player_score == 6>>
@@ -252,16 +261,25 @@ position: -138,-372
 Dr.Barton: Here are your results:
 
 <<if $Culture​ == true>>
-    <<set $player_score = $player_score + 1>>
+    <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Sensitivity == true>>
-    <<set $player_score = $player_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Polymerase == true>>
+    <<add_score ScoreCanvas -1>>
 <<endif>>
 <<if $Gram == true>>
-    <<set $player_score = $player_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Rapid​ == true>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+<<if $Microscopy​ == true>>
+    <<add_score ScoreCanvas -1>>
 <<endif>>
 
-Dr.Barton: Your player_score is {$player_score}
+Dr.Barton: Your player_score is #{add_score}
 
 
 Dr.Barton: I am thinking of more tests. What other tests should we do?
@@ -276,6 +294,12 @@ Dr.Barton: I am thinking of more tests. What other tests should we do?
 <<declare $Folate​ = false>>
 <<declare $CRP​ = false>>
 <<declare $ESR​ = false>>
+<<declare $Thyroid = false>>
+<<declare $X_ray = false>>
+<<declare $UltrasoundF = false>>
+<<declare $CTFoot = false>>
+<<declare $MRIFoot = false>>
+
 
 <<jump tests>>
 
@@ -341,15 +365,20 @@ position: -139,-183
 -> ESR​ - {$ESR​}
 <<jump ESR1>>
 
-Thyroid function tests​
+-> Thyroid function tests​ - {$Thyroid}
+<<jump ThyFunction>>
 
-Xray of the foot​
+-> Xray of the foot​ - {$X_ray}
+<<jump XrayF>>
 
-Ultrasound of the foot​
+-> Ultrasound of the foot​ - {$UltrasoundF}
+<<jump UltrasoundFoot>>
 
-CT of the foot​
+-> CT of the foot​ - {$CTFoot}
+<<jump CTF>>
 
-MRI of the foot
+-> MRI of the foot - {$MRIFoot}
+<<jump MRIF>>
 ===
 title: fullBloodResponse
 position: 218,-315
@@ -409,5 +438,35 @@ title: ESR1
 position: 515,-167
 ---
 <<set $ESR​ = !$ESR​>>
+<<jump tests>>
+===
+title: ThyFunction
+position: 218,389
+---
+<<set $Thyroid​ = !$Thyroid​>>
+<<jump tests>>
+===
+title: XrayF
+position: 215,532
+---
+<<set $X_ray​ = !$X_ray​​>>
+<<jump tests>>
+===
+title: UltrasoundFoot
+position: 212,678
+---
+<<set $UltrasoundF = !$UltrasoundF>>
+<<jump tests>>
+===
+title: CTF
+position: 210,815
+---
+<<set $CTFoot = !$CTFoot>>
+<<jump tests>>
+===
+title: MRIF
+position: 216,958
+---
+<<set $MRIFoot = !$MRIFoot>>
 <<jump tests>>
 ===
