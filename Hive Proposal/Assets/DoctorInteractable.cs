@@ -12,21 +12,17 @@ public class DoctorInteractable : MonoBehaviour
     public GameObject dialogueUI;
     public DialogueRunner dialogueRunner;
     private bool interacting = false;
-    private void Awake()
+    public void OnInteraction()
     {
+        dialogueRunner.StartDialogue("Video1");
+
+        // codetodo
+        Debug.Log("Doctor interaction");
         playerMainCamera.SetActive(false);
         doctorCamera.SetActive(true);
         dialogueUI.SetActive(true);
         interacting = true;
-
         dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
-    }
-    public void OnInteraction()
-    {
-        dialogueRunner.StartDialogue("initialInteraction");
-
-        // codetodo
-        Debug.Log("Doctor interaction");
     }
 
 

@@ -1,4 +1,4 @@
-﻿title: initialInteraction
+﻿title: Video1
 tags:
 position: -65,-1588
 ---
@@ -279,8 +279,6 @@ Dr.Barton: Here are your results:
     <<add_score ScoreCanvas -1>>
 <<endif>>
 
-Dr.Barton: Your player_score is #{add_score}
-
 
 Dr.Barton: I am thinking of more tests. What other tests should we do?
 
@@ -294,7 +292,7 @@ Dr.Barton: I am thinking of more tests. What other tests should we do?
 <<declare $Folate​ = false>>
 <<declare $CRP​ = false>>
 <<declare $ESR​ = false>>
-<<declare $Thyroid = false>>
+<<declare $Thyroid1 = false>>
 <<declare $X_ray = false>>
 <<declare $UltrasoundF = false>>
 <<declare $CTFoot = false>>
@@ -365,7 +363,7 @@ position: -139,-183
 -> ESR​ - {$ESR​}
 <<jump ESR1>>
 
--> Thyroid function tests​ - {$Thyroid}
+-> Thyroid function tests​ - {$Thyroid1}
 <<jump ThyFunction>>
 
 -> Xray of the foot​ - {$X_ray}
@@ -443,7 +441,7 @@ position: 515,-167
 title: ThyFunction
 position: 218,389
 ---
-<<set $Thyroid​ = !$Thyroid​>>
+<<set $Thyroid1​ = !$Thyroid1​>>
 <<jump tests>>
 ===
 title: XrayF
