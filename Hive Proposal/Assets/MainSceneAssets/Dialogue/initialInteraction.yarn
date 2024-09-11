@@ -2,8 +2,8 @@
 tags:
 position: -65,-1588
 ---
-<<declare $player_score = 0>>
-<<open_quest QuestGiver 0>>
+<<declare $current_quiz_score = 0>>
+<<open_quest QuestGiver 1>>
 Dr.Barton: Follow me and let’s see this patient together.
 //video plays
 //swabs and video stop at 4:20
@@ -133,37 +133,47 @@ title:MultichoiceEnd
 position: 248,-1306
 ---
 <<if $Infected == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Erythema == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Swelling == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
      <<add_score ScoreCanvas -1>>
 <<endif>>
 <<if $Ulcer == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Diabetic == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Plantar == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Venous == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreCanvas -1>>
 <<endif>>
 <<if $Arterial == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreCanvas -1>>
 <<endif>>
 <<if $Purple == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Pus == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreCanvas -1>>
 <<endif>>
 
-<<if $player_score == 6>>
+<<if $current_quiz_score == 6>>
     Dr.Barton: Well done!
 <<else>>
     Dr.Barton: You have missed certain things.
@@ -260,25 +270,38 @@ position: -138,-372
 
 Dr.Barton: Here are your results:
 
+<<set $current_quiz_score = 0>>
+
 <<if $Culture​ == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Sensitivity == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Polymerase == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreCanvas -1>>
 <<endif>>
 <<if $Gram == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreCanvas 1>>
 <<endif>>
 <<if $Rapid​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreCanvas -1>>
 <<endif>>
 <<if $Microscopy​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreCanvas -1>>
 <<endif>>
 
+<<if $current_quiz_score == 3>>
+    Dr.Barton: Well done!
+<<else>>
+    Dr.Barton: You have missed certain things.
+<<endif>>
 
 Dr.Barton: I am thinking of more tests. What other tests should we do?
 
@@ -331,52 +354,40 @@ position: -547,-674
 ===
 
 title: tests
-position: -139,-183
+position: -170,-168
 ---
 -> Full blood count​ - {$fullBlood}
-<<jump fullBloodResponse>>
-
+    <<jump fullBloodResponse>>
 -> Electrolytes, urea and creatinine​ - {$Electrolytes​}
-<<jump Electrolytes1>>
-
+    <<jump Electrolytes1>>
 -> Calcium, magnesium, phosphate​ - {$Calcium​}
-<<jump Calcium1>>
-
+    <<jump Calcium1>>
 -> Liver function test​ - {$liver​}
-<<jump liver1>>
-
+    <<jump liver1>>
 -> Blood cultures- if there is fever​ - {$bloodcul​}
-<<jump bloodCul>>
-
+    <<jump bloodCul>>
 -> HbA1C​ - {$Hb​}
-<<jump HbA>>
-
+    <<jump HbA>>
 -> Iron levels​ -{$Iron​}
-<<jump IronL>>
-
+    <<jump IronL>>
 -> Folate and B12 levels​ - {$Folate​}
-<<jump FolateB>>
-
+    <<jump FolateB>>
 -> CRP​ - {$CRP​}
-<<jump CRP1>>
-
+    <<jump CRP1>>
 -> ESR​ - {$ESR​}
-<<jump ESR1>>
-
+    <<jump ESR1>>
 -> Thyroid function tests​ - {$Thyroid1}
-<<jump ThyFunction>>
-
+    <<jump ThyFunction>>
 -> Xray of the foot​ - {$X_ray}
-<<jump XrayF>>
-
+    <<jump XrayF>>
 -> Ultrasound of the foot​ - {$UltrasoundF}
-<<jump UltrasoundFoot>>
-
+    <<jump UltrasoundFoot>>
 -> CT of the foot​ - {$CTFoot}
-<<jump CTF>>
-
+    <<jump CTF>>
 -> MRI of the foot - {$MRIFoot}
-<<jump MRIF>>
+    <<jump MRIF>>
+-> Submit responses
+    <<jump SubmitTestResponses>>
 ===
 title: fullBloodResponse
 position: 218,-315
@@ -427,13 +438,13 @@ position: 495,-187
 <<jump tests>>
 ===
 title: CRP1
-position: 505,-177
+position: 500,-352
 ---
 <<set $CRP​ = !$CRP​>>
 <<jump tests>>
 ===
 title: ESR1
-position: 515,-167
+position: 529,-3
 ---
 <<set $ESR​ = !$ESR​>>
 <<jump tests>>
@@ -441,7 +452,7 @@ position: 515,-167
 title: ThyFunction
 position: 218,389
 ---
-<<set $Thyroid1​ = !$Thyroid1​>>
+<<set $Thyroid1​ = $Thyroid1>>
 <<jump tests>>
 ===
 title: XrayF
@@ -467,4 +478,23 @@ position: 216,958
 ---
 <<set $MRIFoot = !$MRIFoot>>
 <<jump tests>>
+===
+title: SubmitTestResponses
+position: -284,165
+---
+
+Dr Barton: Insert dialogue Here
+Also add scores
+
+<<set $current_quiz_score = 0>>
+// add them all up again
+
+<<if $current_quiz_score == 3>>
+    Dr.Barton: Well done!
+<<else>>
+    Dr.Barton: You have missed certain things.
+<<endif>>
+
+<<open_quest QuestGiver 2>>
+
 ===

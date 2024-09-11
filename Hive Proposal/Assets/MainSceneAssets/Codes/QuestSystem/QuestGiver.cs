@@ -17,6 +17,11 @@ public class QuestGiver : MonoBehaviour
     public TMP_Text DescriptionText;
     public TMP_Text ScoreText;
 
+    private void Awake()
+    {
+        OpenQuestByIndex(0);
+    }
+
     [YarnCommand("open_quest")]
     public void OpenQuestByIndex(int questIndex)
     {

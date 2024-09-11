@@ -7,6 +7,8 @@ using TMPro;
 
 public class Scores : MonoBehaviour
 {
+    public int Score { get; private set; }
+
     private InMemoryVariableStorage variableStorage;
     public TMP_Text scoreText;
 
@@ -19,18 +21,12 @@ public class Scores : MonoBehaviour
     [YarnCommand ("add_score")]
     public void AddPlayerScore(int scoreToAdd)
     {
-        Debug.Log($"Adding Current Score");
-        float currentScore = 0f;
-        variableStorage.TryGetValue("$player_score", out currentScore);
-        currentScore += scoreToAdd; //(amount? reference from YarnSpinner)
-        variableStorage.SetValue("$player_score", currentScore);
+        Score += scoreToAdd;
         UpdateScoreDisplay();
     }
 
     private void UpdateScoreDisplay()
     {
-        float currentScore = 0f;
-        variableStorage.TryGetValue("$player_score", out currentScore);
-        scoreText.text = $"Score: {currentScore}";
+        scoreText.text = $"Score: {Score}";
     }
 }
