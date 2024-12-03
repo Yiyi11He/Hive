@@ -1,13 +1,5 @@
 {
   "dependencies": {
-    "com.soupday.cc3_unity_tools": {
-      "version": "file:C:/Users/Yiyi PC/Desktop/cc_unity_tools_URP-1.6.3.URP17",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.render-pipelines.universal": "12.0.0"
-      }
-    },
     "com.unity.burst": {
       "version": "1.8.9",
       "depth": 1,
@@ -15,13 +7,6 @@
       "dependencies": {
         "com.unity.mathematics": "1.2.1"
       },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.collab-proxy": {
-      "version": "2.2.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
