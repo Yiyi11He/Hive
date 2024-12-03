@@ -10,13 +10,8 @@ public class VideoPlayerDetect: MonoBehaviour
 
     public VideoPlayer player;
 
-    private void Awake()
-    {
-        // For dev only
-        PlayVideo(player.clip);
-    }
 
-    public void PlayVideo (VideoClip clip)
+    public void PlayVideo(VideoClip clip)
     {
         player.clip = clip;
         player.Play();

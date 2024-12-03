@@ -571,7 +571,7 @@ position: -281,351
 Dr Barton: What treatment should we start for the patient?
 -> Oral Flucloxacillin 500mg QDS​ - {$Flucloxacillin5​}
     <<jump Flucloxacillin4>>
--> Oral Cephalexin 500mg QDS​ - {$Cephalexin5​}
+-> Oral Cephalexin 500mg QDS​ - {$Cephalexin5}
     <<jump Cephalexin1>>
 -> Oral Clindamycin 450mg TDS​ - {$Clindamycin4​}
     <<jump Clindamycin1>>
@@ -598,6 +598,8 @@ Dr Barton: Insert dialogue Here
 <<else>>
     Dr.Barton: You have missed certain things.
 <<endif>>
+<<open_quest QuestGiver 5>>
+<
 ===
 title: Flucloxacillin4
 position: -966,146
