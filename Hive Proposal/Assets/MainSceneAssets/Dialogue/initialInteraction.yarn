@@ -198,7 +198,7 @@ Dr.Barton: Pick one from the pictures.
 
 ===
 title: PicturePick
-position: -8,-842
+position: 8,-849
 ---
 
 
@@ -307,7 +307,7 @@ Dr.Barton: I am thinking of more tests. What other tests should we do?
 
 <<declare $fullBlood = false>>
 <<declare $Electrolytes​ = false>>
-<<declare $Calsium​ = false>>
+<<declare $Calsium1​ = false>>
 <<declare $liver​ = false>>
 <<declare $bloodcul​ = false>>
 <<declare $Hb​ = false>>
@@ -354,13 +354,13 @@ position: -547,-674
 ===
 
 title: tests
-position: -170,-168
+position: -182,-184
 ---
 -> Full blood count​ - {$fullBlood}
     <<jump fullBloodResponse>>
 -> Electrolytes, urea and creatinine​ - {$Electrolytes​}
     <<jump Electrolytes1>>
--> Calcium, magnesium, phosphate​ - {$Calcium​}
+-> Calcium, magnesium, phosphate​ - {$Calcium1​}
     <<jump Calcium1>>
 -> Liver function test​ - {$liver​}
     <<jump liver1>>
@@ -404,7 +404,7 @@ position: 218,-442
 title: Calcium1
 position: 219,106
 ---
-<<set $Calcium​​​​ = !$Calcium​>>
+<<set $Calcium1​​​​ = !$Calcium1​>>
 <<jump tests>>
 ===
 title: liver1
@@ -426,25 +426,25 @@ position: 219,243
 <<jump tests>>
 ===
 title: IronL
-position: 270,-38
+position: 460,111
 ---
 <<set $Iron​= !$Iron​>>
 <<jump tests>>
 ===
 title: FolateB
-position: 495,-187
+position: 446,-190
 ---
 <<set $Folate​ = !$Folate​>>
 <<jump tests>>
 ===
 title: CRP1
-position: 500,-352
+position: 451,-355
 ---
 <<set $CRP​ = !$CRP​>>
 <<jump tests>>
 ===
 title: ESR1
-position: 529,-3
+position: 454,-47
 ---
 <<set $ESR​ = !$ESR​>>
 <<jump tests>>
@@ -484,17 +484,161 @@ position: -284,165
 ---
 
 Dr Barton: Insert dialogue Here
-Also add scores
 
 <<set $current_quiz_score = 0>>
-// add them all up again
+
+<<if $fullBlood​ == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Electrolytes == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Calcium1​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+<<if $liver == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $bloodcul​ == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Hb​ == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Iron​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+<<if $Folate​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+<<if $CRP​ == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $ESR​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+<<if $Thyroid1​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+<<if $X_ray​ == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $UltrasoundF​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+<<if $CTFoot​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+<<if $MRIFoot​ == true>>
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreCanvas -1>>
+<<endif>>
+
+<<if $current_quiz_score == 7>>
+    Dr.Barton: Well done!
+<<else>>
+    Dr.Barton: You have missed certain things.
+<<endif>>
+
+<<declare $Flucloxacillin5​ = false>>
+<<declare $Cephalexin5 = false>>
+<<declare $Clindamycin4​  = false>>
+<<declare $Trimethoprim1 = false>>
+<<declare $Flucloxacillin2  = false>>
+<<declare $Cefazolin1 = false>>
+<<declare $Vancomycin1 = false>>
+
+<<jump Treatment>>
+===
+title: Treatment
+position: -281,351
+---
+
+Dr Barton: What treatment should we start for the patient?
+-> Oral Flucloxacillin 500mg QDS​ - {$Flucloxacillin5​}
+    <<jump Flucloxacillin4>>
+-> Oral Cephalexin 500mg QDS​ - {$Cephalexin5​}
+    <<jump Cephalexin1>>
+-> Oral Clindamycin 450mg TDS​ - {$Clindamycin4​}
+    <<jump Clindamycin1>>
+-> Oral Trimethoprim/Sulfamethoxazole 160/800mg BD​​ - {$Trimethoprim1}
+    <<jump Trimethoprim0>>
+-> IV Flucloxacillin 2000mg QDS​ - {$Flucloxacillin2}
+    <<jump Flucloxacillin1>>
+-> IV Cefazolin 2g TDS​ - {$Cefazolin1}
+    <<jump Cefazolin2>>
+-> IV Vancomycin 1500mg BD - {$Vancomycin1}
+    <<jump Vancomycin2>>
+-> Submit responses
+    <<jump SubmitTreatmentResponses>>
+===
+
+title: SubmitTreatmentResponses
+position: -285,536
+---
+Dr Barton: Insert dialogue Here
+<<set $current_quiz_score = 0>>
 
 <<if $current_quiz_score == 3>>
     Dr.Barton: Well done!
 <<else>>
     Dr.Barton: You have missed certain things.
 <<endif>>
+===
+title: Flucloxacillin4
+position: -966,146
+---
+<<set $Flucloxacillin5 = !$Flucloxacillin5>>
+<<jump Treatment>>
+===
+title: Cephalexin1
+position: -969,301
+---
+<<set $Cephalexin5 = !$Cephalexin5>>
+<<jump Treatment>>
+===
+title: Clindamycin1
+position: -963,446
+---
+<<set $Clindamycin5 = !$Clindamycin5>>
+<<jump Treatment>>
+===
+title: Trimethoprim0
+position: -961,587
+---
+<<set $Trimethoprim1 = !$Trimethoprim1>>
+<<jump Treatment>>
+===
+title: Flucloxacillin1
+position: -951,738
+---
+<<set $Flucloxacillin2 = !$Flucloxacillin2>>
+<<jump Treatment>>
+===
+title: Cefazolin2
+position: -948,876
+---
+<<set $Cefazolin1 = !$Cefazolin1>>
+<<jump Treatment>>
 
-<<open_quest QuestGiver 2>>
-
+===
+title: Vancomycin2
+position: -951,1022
+---
+<<set $Vancomycin1 = !$Vancomycin1>>
+<<jump Treatment>>
 ===

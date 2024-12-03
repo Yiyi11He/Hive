@@ -12,6 +12,7 @@ public class QuestGoal
 
 public enum GoalType
 {
+    ChairInteract,
     MonitorInteract,
     DoctorInteract
     // Potential SwabInteract
