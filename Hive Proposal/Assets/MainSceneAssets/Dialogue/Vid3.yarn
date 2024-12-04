@@ -1,0 +1,64 @@
+﻿title: Vid3
+tags:
+position: -33,-92
+---
+
+<<open_quest QuestGiver 10>>
+Dr.Barton: Have you check the results?
+-> Yes
+    Dr.Barton: Go look at the tutorial video now.
+    <<stop>>
+
+    //this should be done via doctor interactable code
+    <<jump LabResult_day1>>
+-> No
+    Dr.Barton: Hmm, you do not seem to follow instructions.
+    Dr.Barton: That is a -1 for professionalism. Check the results on the computer and look at the patient notes just outside the room.​
+    <<stop>>
+===
+title: LabResult_day1
+position: -36,98
+---
+//number slider? or enter value between a number
+//students need to answer all of these, use jump for each option (create node - link number).
+Dr.Barton: What are the results showing?
+-> HbA1C levels- what number?
+-> White cell count levels- What number?
+-> CRP- what number?
+-> Blood glucose levels- Latest number?​
+
+<<jump SeeIn2Days>>
+===
+title: SeeIn2Days
+position: -35,251
+---
+Dr.Barton: We will see the patient together again in 2 days​.
+Dr.Barton: Could you repeat the blood tests again and send them off.​
+Dr.Barton: Review the results before we see the patient okay?
+-> I will review the results.
+    Dr.Barton: Thanks. See you tomorrow.
+    <<stop>>
+-> That depends on when i come to the hospital.
+    Dr.Barton: Well, come early then. See you tomorrow.
+    <<stop>>
+-> I think that is the intern’s job.
+    Dr.Barton: I see. What is your name again?
+        -> [Name] //also minus points in game (how much?)
+            <<add_score ScoreCanvas -1>>
+            Dr.Barton: Thanks , I will note it down as a red flag for professionalism.
+            <<stop>>
+===
+title: Day1Afternoon
+position: -29,404
+---
+//Quote this from Dictionary again. Students need to check results before reaching this node, or they can keep engaging this conversation.
+Dr.Barton: I am thinking of starting insulin. What dose should we start?
+-> Insulin gluisine- what number?​ //use jumps and submits
+-> Insulin glargine- what number?​
+
+Dr.Barton: What should we do about her diabetic medications?
+-> Continue with current dose​
+-> Reduce the doses for both gliclazide and metformin​
+-> Stop Gliclazide and continue with metformin​
+-> Stop both medications​
+===

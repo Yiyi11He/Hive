@@ -2,12 +2,12 @@
 tags:
 position: 0,0
 ---
-Dr.Barton: Just to remind you that I am doing a work-based assessment on you for this week
+Dr.Barton: Just to remind you that I am doing a work-based assessment on you for this week #line:0981311 
 
-Dr.Barton: I will be asking a few questions to test your knowledge.
-Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct.
-Dr.Barton: I hope you are well prepared. First question!
-Dr.Barton: Pick one from the pictures.
+Dr.Barton: I will be asking a few questions to test your knowledge. #line:0e22e28 
+Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct. #line:0d7d0e2 
+Dr.Barton: I hope you are well prepared. First question! #line:0a0c5ce 
+Dr.Barton: Pick one from the pictures. #line:0120396 
 
 <<jump Swabs>>
 ===
@@ -15,14 +15,14 @@ title: Swabs
 tags: 
 position: 254,0
 ---
-Dr.Barton: What tests should we do on the swabs?
+Dr.Barton: What tests should we do on the swabs? #line:041dd03 
 
-Dr.Barton: Pick the ones that the hospital lab will be doing.​
--> Culture​
--> Sensitivity testing ​
--> Polymerase chain reaction​
--> Gram staining – Nowadays it is done via a Microbial identification system​
--> Rapid antigen test​
--> Microscopy​
+Dr.Barton: Pick the ones that the hospital lab will be doing.​ #line:0b0834d 
+-> Culture​ #line:01f95cb 
+-> Sensitivity testing ​ #line:023cf4b 
+-> Polymerase chain reaction​ #line:06264e9 
+-> Gram staining – Nowadays it is done via a Microbial identification system​ #line:0d2017b 
+-> Rapid antigen test​ #line:08b4593 
+-> Microscopy​ #line:0478ec1 
 
 ===

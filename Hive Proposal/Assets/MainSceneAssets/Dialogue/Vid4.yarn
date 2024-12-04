@@ -1,0 +1,21 @@
+﻿title: Day3
+position: 112,198
+---
+//afterVid4
+Dr.Barton: Have you check the results?​
+-> No
+    Dr.Barton: I am starting to think if you want to be here.​
+    <<stop>>
+-> Yes
+    <<jump ResultsDay3>>
+===
+title: ResultsDay3
+position: 108,328
+---
+Dr.Barton: What are the results showing?​
+
+//should this be a multiselect or just dr barton talking, grabing inputs under each.
+-> Xray //select and words (gas under ulcer but no signs osteomyelitis)
+-> Culture //(mixed bacteria, E coli, bacteroides fragilis, clostridium perfringens, pseudomonas aeruginosa​)
+-> White cell count and CRP (what number)
+===

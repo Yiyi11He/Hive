@@ -1,14 +1,24 @@
 ﻿title: Video1
 tags:
-position: -65,-1588
+position: -175,-1673
 ---
 <<declare $current_quiz_score = 0>>
-<<open_quest QuestGiver 1>>
-Dr.Barton: Follow me and let’s see this patient together.
+<<open_quest QuestGiver 0>>
+Dr.Barton: Follow me and let’s see this patient together. 
+Dr.Barton: On your own desk.
 //video plays
 //swabs and video stop at 4:20
 
-Dr.Barton: What do you think about the wound?​
+//this is to stop conversation with doctor.
+<<complete_quest QuestGiver 0>>
+<<stop>>
+===
+title: afterVideo1
+tags:
+position: -5,-1533
+---
+<<open_quest QuestGiver 2>>
+Dr.Barton: What do you think about the wound?​ 
 
 <<declare $Infected = false>>
 <<declare $Erythema  = false>>
@@ -21,7 +31,7 @@ Dr.Barton: What do you think about the wound?​
 <<declare $Purple = false>>
 <<declare $Pus = false>>
 
-Dr.Barton: Pick all the ones that describe the wound
+Dr.Barton: Pick all the ones that describe the wound 
 
 <<jump Multichoice>>
 ===
@@ -29,27 +39,27 @@ title: Multichoice
 position: 250,-1468
 ---
 
--> Infected - {$Infected}
+-> Infected - {$Infected}  
     <<jump SelectInfected>>
--> Erythema - {$Erythema}
+-> Erythema - {$Erythema} 
     <<jump SelectErythema>>
--> Swelling - {$Swelling}
+-> Swelling - {$Swelling} 
     <<jump SelectSwelling>>
--> Ulcer - {$Ulcer}
+-> Ulcer - {$Ulcer} 
     <<jump SelectUlcer>>
--> Diabetic - {$Diabetic}
+-> Diabetic - {$Diabetic} 
     <<jump SelectDiabetic>>
--> Plantar - {$Plantar}
+-> Plantar - {$Plantar} 
     <<jump SelectPlantar>>
--> Venous - {$Venous}
+-> Venous - {$Venous} 
     <<jump SelectVenous>>
 -> Arterial - {$Arterial}
     <<jump SelectArterial>>
--> Purple - {$Purple}
+-> Purple - {$Purple}  
     <<jump SelectPurple>>
 -> Pus - {$Pus}
     <<jump SelectPus>>
--> Submit Responses
+-> Submit Responses 
     <<jump MultichoiceEnd>>
 
 ===
@@ -174,7 +184,7 @@ position: 248,-1306
 <<endif>>
 
 <<if $current_quiz_score == 6>>
-    Dr.Barton: Well done!
+    Dr.Barton: Well done! 
 <<else>>
     Dr.Barton: You have missed certain things.
 <<endif>>
@@ -187,12 +197,12 @@ title: PictureQuestion
 tags:
 position: 273,-958
 ---
-Dr.Barton: Just to remind you that I am doing a work-based assessment on you for this week
-Dr.Barton: I will be asking a few questions to test your knowledge.
-Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct.
-Dr.Barton: I hope you are well prepared. First question!
+Dr.Barton: Just to remind you that I am doing a work-based assessment on you for this week 
+Dr.Barton: I will be asking a few questions to test your knowledge. 
+Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct.  
+Dr.Barton: I hope you are well prepared. First question! 
 Dr.Barton: What kind of swabs are needed?
-Dr.Barton: Pick one from the pictures.
+Dr.Barton: Pick one from the pictures. 
 
 <<jump PicturePick >>
 
@@ -209,7 +219,7 @@ title: SwabsMultiQuestion
 tags: 
 position: -211,-720
 ---
-Dr.Barton: What tests should we do on the swabs?
+Dr.Barton: What tests should we do on the swabs? 
 
 
 
@@ -221,7 +231,7 @@ Dr.Barton: What tests should we do on the swabs?
 <<declare $Rapid = false>>
 <<declare $Microscopy = false>>
 
-Dr.Barton: Pick the ones that the hospital lab will be doing.​
+Dr.Barton: Pick the ones that the hospital lab will be doing.​ 
 
 <<jump SwabsAnswer>>
 
@@ -230,7 +240,7 @@ title: SwabsAnswer
 position: -227,-539
 ---
 
--> Culture​ - {$Culture​}
+-> Culture​ - {$Culture​} 
     <<jump CultureResponse>>
 -> Sensitivity testing - {$Sensitivity}
     <<jump SensitivityResponse>>
@@ -242,7 +252,7 @@ position: -227,-539
     <<jump RapidResponse>>
 -> Microscopy - {$Microscopy}
     <<jump MicroscopyResponse>>
--> Submit responses
+-> Submit responses 
     <<jump SubmitResponses>>
 
 
@@ -298,12 +308,12 @@ Dr.Barton: Here are your results:
 <<endif>>
 
 <<if $current_quiz_score == 3>>
-    Dr.Barton: Well done!
+    Dr.Barton: Well done! 
 <<else>>
     Dr.Barton: You have missed certain things.
 <<endif>>
 
-Dr.Barton: I am thinking of more tests. What other tests should we do?
+Dr.Barton: I am thinking of more tests. What other tests should we do? 
 
 <<declare $fullBlood = false>>
 <<declare $Electrolytes​ = false>>
@@ -356,37 +366,37 @@ position: -547,-674
 title: tests
 position: -182,-184
 ---
--> Full blood count​ - {$fullBlood}
+-> Full blood count​ - {$fullBlood} 
     <<jump fullBloodResponse>>
--> Electrolytes, urea and creatinine​ - {$Electrolytes​}
+-> Electrolytes, urea and creatinine​ - {$Electrolytes​} 
     <<jump Electrolytes1>>
--> Calcium, magnesium, phosphate​ - {$Calcium1​}
+-> Calcium, magnesium, phosphate​ - {$Calcium1​} 
     <<jump Calcium1>>
--> Liver function test​ - {$liver​}
+-> Liver function test​ - {$liver​}  
     <<jump liver1>>
--> Blood cultures- if there is fever​ - {$bloodcul​}
+-> Blood cultures- if there is fever​ - {$bloodcul​}  
     <<jump bloodCul>>
--> HbA1C​ - {$Hb​}
+-> HbA1C​ - {$Hb​} 
     <<jump HbA>>
--> Iron levels​ -{$Iron​}
+-> Iron levels​ -{$Iron​} 
     <<jump IronL>>
--> Folate and B12 levels​ - {$Folate​}
+-> Folate and B12 levels​ - {$Folate​}  
     <<jump FolateB>>
--> CRP​ - {$CRP​}
+-> CRP​ - {$CRP​} 
     <<jump CRP1>>
--> ESR​ - {$ESR​}
+-> ESR​ - {$ESR​} 
     <<jump ESR1>>
--> Thyroid function tests​ - {$Thyroid1}
+-> Thyroid function tests​ - {$Thyroid1} 
     <<jump ThyFunction>>
 -> Xray of the foot​ - {$X_ray}
     <<jump XrayF>>
--> Ultrasound of the foot​ - {$UltrasoundF}
+-> Ultrasound of the foot​ - {$UltrasoundF} 
     <<jump UltrasoundFoot>>
--> CT of the foot​ - {$CTFoot}
+-> CT of the foot​ - {$CTFoot}  
     <<jump CTF>>
--> MRI of the foot - {$MRIFoot}
+-> MRI of the foot - {$MRIFoot} 
     <<jump MRIF>>
--> Submit responses
+-> Submit responses 
     <<jump SubmitTestResponses>>
 ===
 title: fullBloodResponse
@@ -483,7 +493,7 @@ title: SubmitTestResponses
 position: -284,165
 ---
 
-Dr Barton: Insert dialogue Here
+Dr Barton: Insert dialogue Here 
 
 <<set $current_quiz_score = 0>>
 
@@ -554,7 +564,7 @@ Dr Barton: Insert dialogue Here
     Dr.Barton: You have missed certain things.
 <<endif>>
 
-<<declare $Flucloxacillin5​ = false>>
+<<declare $Flu5​ = false>>
 <<declare $Cephalexin5 = false>>
 <<declare $Clindamycin4​  = false>>
 <<declare $Trimethoprim1 = false>>
@@ -568,43 +578,80 @@ title: Treatment
 position: -281,351
 ---
 
-Dr Barton: What treatment should we start for the patient?
--> Oral Flucloxacillin 500mg QDS​ - {$Flucloxacillin5​}
+Dr Barton: What treatment should we start for the patient? 
+-> Oral Flucloxacillin 500mg QDS​ - {$Flu5​} 
     <<jump Flucloxacillin4>>
--> Oral Cephalexin 500mg QDS​ - {$Cephalexin5}
+-> Oral Cephalexin 500mg QDS​ - {$Cephalexin5} 
     <<jump Cephalexin1>>
--> Oral Clindamycin 450mg TDS​ - {$Clindamycin4​}
+-> Oral Clindamycin 450mg TDS​ - {$Clindamycin4​} 
     <<jump Clindamycin1>>
--> Oral Trimethoprim/Sulfamethoxazole 160/800mg BD​​ - {$Trimethoprim1}
+-> Oral Trimethoprim/Sulfamethoxazole 160/800mg BD​​ - {$Trimethoprim1} 
     <<jump Trimethoprim0>>
--> IV Flucloxacillin 2000mg QDS​ - {$Flucloxacillin2}
+-> IV Flucloxacillin 2000mg QDS​ - {$Flucloxacillin2}  
     <<jump Flucloxacillin1>>
--> IV Cefazolin 2g TDS​ - {$Cefazolin1}
+-> IV Cefazolin 2g TDS​ - {$Cefazolin1}  
     <<jump Cefazolin2>>
--> IV Vancomycin 1500mg BD - {$Vancomycin1}
+-> IV Vancomycin 1500mg BD - {$Vancomycin1}  
     <<jump Vancomycin2>>
--> Submit responses
+-> Submit responses 
     <<jump SubmitTreatmentResponses>>
 ===
 
 title: SubmitTreatmentResponses
 position: -285,536
 ---
-Dr Barton: Insert dialogue Here
+Dr Barton: Insert dialogue Here 
 <<set $current_quiz_score = 0>>
 
-<<if $current_quiz_score == 3>>
-    Dr.Barton: Well done!
-<<else>>
-    Dr.Barton: You have missed certain things.
+
+//Add scores when slides are updated
+<<if $Flu5 == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
 <<endif>>
-<<open_quest QuestGiver 5>>
-<
+
+<<if $Cephalexin5 == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+
+<<if $Clindamycin4 == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Trimethoprim1 == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Flucloxacillin2 == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Cefazolin1 == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+<<if $Vancomycin1 == true>>
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreCanvas 1>>
+<<endif>>
+
+
+
+
+<<if $current_quiz_score == 3>>
+    Dr.Barton: Well done! 
+<<else>>
+    Dr.Barton: You have missed certain things. 
+<<endif>>
+
+<<complete_quest QuestGiver 0>>
+<<stop>>
 ===
 title: Flucloxacillin4
 position: -966,146
 ---
-<<set $Flucloxacillin5 = !$Flucloxacillin5>>
+<<set $Flu5 = !$Flu5>>
 <<jump Treatment>>
 ===
 title: Cephalexin1
@@ -616,7 +663,7 @@ position: -969,301
 title: Clindamycin1
 position: -963,446
 ---
-<<set $Clindamycin5 = !$Clindamycin5>>
+<<set $Clindamycin4 = !$Clindamycin4>>
 <<jump Treatment>>
 ===
 title: Trimethoprim0

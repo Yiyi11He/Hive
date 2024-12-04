@@ -8481,6 +8481,7 @@ MonoBehaviour:
   doctorCamera: {fileID: 715425366}
   dialogueUI: {fileID: 1234152264}
   dialogueRunner: {fileID: 1771453204}
+  questGiver: {fileID: 1888210411}
 --- !u!114 &363750187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21796,6 +21797,16 @@ PrefabInstance:
       propertyPath: startAutomatically
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3739197626111815070, guid: 7f29e5f7ffdea4a6793cefb278b61f0c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739197626111815070, guid: 7f29e5f7ffdea4a6793cefb278b61f0c,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4540255442126730747, guid: 7f29e5f7ffdea4a6793cefb278b61f0c,
         type: 3}
       propertyPath: m_IsActive
@@ -22048,14 +22059,19 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2129501539296635924, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7084386685998634907, guid: 7f29e5f7ffdea4a6793cefb278b61f0c,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 358130288}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4540255442126730747, guid: 7f29e5f7ffdea4a6793cefb278b61f0c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1936990143}
   m_SourcePrefab: {fileID: 100100000, guid: 7f29e5f7ffdea4a6793cefb278b61f0c, type: 3}
 --- !u!1001 &1143046069
 PrefabInstance:
@@ -35148,13 +35164,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests:
   - isActive: 1
-    title: Where am I going?
-    description: Find your seat at the office, interact with chair to seat down
-    Score: 2
+    title: Find the Doctor
+    description: Dr Barton would like to deliver you some tasks
+    Score: 5
   - isActive: 1
     title: Play the video
     description: Watch the tutorials carefully
     Score: 5
+  - isActive: 1
+    title: Where am I going?
+    description: Find your seat at the office, interact with chair to seat down
+    Score: 2
   - isActive: 1
     title: Find Dr Barton
     description: Dr Barton is waiting for you at the office
@@ -35167,7 +35187,12 @@ MonoBehaviour:
     title: Play the video 2
     description: Watch the next part of the video
     Score: 5
+  - isActive: 1
+    title: Tasks
+    description: Dr Barton would like to deliver you some tasks
+    Score: 5
   player: {fileID: 1445580036}
+  scoreManager: {fileID: 1145837442}
   questWindow: {fileID: 14377923}
   TitleText: {fileID: 1404713375}
   DescriptionText: {fileID: 814231592}
@@ -35880,6 +35905,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933159690}
   m_Mesh: {fileID: -5967019597052008966, guid: daa24b13538ec8a40a0d32b5418a4584, type: 3}
+--- !u!1 &1936990139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4540255442126730747, guid: 7f29e5f7ffdea4a6793cefb278b61f0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1118255470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1936990143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936990139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &1955229159
 GameObject:
   m_ObjectHideFlags: 0
@@ -37775,7 +37847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 325, y: -197.5}
+  m_AnchoredPosition: {x: 325, y: -1012}
   m_SizeDelta: {x: 5380, y: 395}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2024843848

@@ -1,7 +1,9 @@
 {
   "projectFileVersion": 2,
   "sourceFiles": [
-    "**/*.yarn"
+    "Vid1.yarn",
+    "Vid2.yarn",
+    "Vid3.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"
