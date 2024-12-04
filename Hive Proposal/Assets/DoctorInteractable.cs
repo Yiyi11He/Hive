@@ -20,7 +20,7 @@ public class DoctorInteractable : MonoBehaviour
     {
         //update this after completing seat interact.
         { 0, "Video1" },
-        { 3, "afterVideo1" },
+        { 2, "afterVideo1" },
         { 10, "Vid2" },
         { 11, "Vid3"},
         { 17, "Day1Afternoon"},//this quest is actually continued from last one, find an way to avoid opening another quest.
@@ -45,10 +45,6 @@ public class DoctorInteractable : MonoBehaviour
 
             interacting = true;
             dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
-        }
-        else
-        {
-            Debug.LogWarning($"No dialogue found for quest index: {currentQuestNumber}");
         }
     }
 

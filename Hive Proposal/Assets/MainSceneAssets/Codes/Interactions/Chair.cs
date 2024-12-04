@@ -9,6 +9,9 @@ public class Chair : MonoBehaviour
 
     private bool interactable = false;
 
+    //player actions trigger quest goals
+    //questGiver.UpdateQuestProgress(GoalType.ChairInteract);
+
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("MainCamera"))

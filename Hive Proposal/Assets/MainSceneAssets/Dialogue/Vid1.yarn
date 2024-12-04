@@ -144,43 +144,43 @@ position: 248,-1306
 ---
 <<if $Infected == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Erythema == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Swelling == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-     <<add_score ScoreCanvas -1>>
+     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $Ulcer == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Diabetic == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Plantar == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Venous == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $Arterial == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $Purple == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Pus == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $current_quiz_score == 6>>
@@ -284,27 +284,27 @@ Dr.Barton: Here are your results:
 
 <<if $Culture​ == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Sensitivity == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Polymerase == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $Gram == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Rapid​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $Microscopy​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $current_quiz_score == 3>>
@@ -499,63 +499,63 @@ Dr Barton: Insert dialogue Here
 
 <<if $fullBlood​ == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Electrolytes == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Calcium1​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $liver == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $bloodcul​ == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Hb​ == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Iron​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $Folate​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $CRP​ == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $ESR​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $Thyroid1​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $X_ray​ == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $UltrasoundF​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $CTFoot​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $MRIFoot​ == true>>
     <<set $current_quiz_score = $current_quiz_score - 1>>
-    <<add_score ScoreCanvas -1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $current_quiz_score == 7>>
@@ -607,33 +607,33 @@ Dr Barton: Insert dialogue Here
 //Add scores when slides are updated
 <<if $Flu5 == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 
 <<if $Cephalexin5 == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 
 <<if $Clindamycin4 == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Trimethoprim1 == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Flucloxacillin2 == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Cefazolin1 == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Vancomycin1 == true>>
     <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreCanvas 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 
 
@@ -645,7 +645,7 @@ Dr Barton: Insert dialogue Here
     Dr.Barton: You have missed certain things. 
 <<endif>>
 
-<<complete_quest QuestGiver 0>>
+<<complete_quest QuestGiver 2>>
 <<stop>>
 ===
 title: Flucloxacillin4

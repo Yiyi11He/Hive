@@ -12,7 +12,7 @@ public class PlayPause : MonoBehaviour
         public int requiredQuestIndex; // The quest index needed to unlock this video
     }
 
-    [SerializeField] public List<VideoQuestMapping> videoQuestMappings; 
+    [SerializeField] public List<VideoQuestMapping> videoQuestMappings;
     public GameObject canvasElement;
     public RectTransform videoTransform;
 
@@ -20,65 +20,64 @@ public class PlayPause : MonoBehaviour
     private bool isPlaying = false;
     private bool isCanvasEnabled = false;
 
-    public QuestGiver questGiver; 
-    public GameObject playPauseButton; 
+    public QuestGiver questGiver;
+    public GameObject playPauseButton;
 
-    private int activeQuestIndex = -1; 
-
-    void Start()
+    private void Start()
     {
-        UpdateVideoState(); 
+        if (questGiver != null)
+        {
+            questGiver.OnQuestIndexChanged.AddListener(UpdateVideoState);
+            UpdateVideoState(questGiver.GetCurrentQuestIndex());
+        }
     }
+
 
     void Update()
     {
-        UpdateVideoState(); 
-        
-        if (Input.GetKeyDown(KeyCode.BackQuote)) // Backtick key
+      
+        if (Input.GetKeyDown(KeyCode.BackQuote)) //key `
         {
             SkipToEnd();
         }
     }
 
-    private void UpdateVideoState()
+    private void UpdateVideoState(int currentQuestIndex)
     {
-        if (questGiver != null && questGiver.player.quest != null)
+        Debug.Log($"Current Quest Index in UpdateVideoState: {currentQuestIndex}");
+
+        bool foundMatchingQuest = false;
+
+        foreach (var mapping in videoQuestMappings)
         {
-            int currentQuestIndex = questGiver.quests.IndexOf(questGiver.player.quest);
+            Debug.Log($"Checking Mapping: Required Index {mapping.requiredQuestIndex}, Current Index {currentQuestIndex}");
 
-            // Only update video state if the quest index changes
-            if (currentQuestIndex != activeQuestIndex)
+            if (currentQuestIndex == mapping.requiredQuestIndex)
             {
-                activeQuestIndex = currentQuestIndex;
-
-                foreach (var mapping in videoQuestMappings)
-                {
-                    if (currentQuestIndex == mapping.requiredQuestIndex)
-                    {
-                        mapping.videoPlayer.SetActive(true); // Enable the matching video
-                        playPauseButton.SetActive(true); // Enable play/pause button
-                    }
-                    else
-                    {
-                        mapping.videoPlayer.SetActive(false); // Disable non-matching videos
-                    }
-                }
-
-                // Disable play/pause button if no matching quest is found
-                if (currentQuestIndex < 0 || currentQuestIndex >= videoQuestMappings.Count)
-                {
-                    playPauseButton.SetActive(false);
-                }
+                Debug.Log($"Match Found! Activating Video Player for Quest Index {currentQuestIndex}");
+                mapping.videoPlayer.SetActive(true);
+                playPauseButton.SetActive(true);
+                foundMatchingQuest = true;
             }
+            else
+            {
+                mapping.videoPlayer.SetActive(false);
+            }
+        }
+
+        if (!foundMatchingQuest)
+        {
+            Debug.LogWarning($"No matching video found for quest index: {currentQuestIndex}");
+            playPauseButton.SetActive(false);
         }
     }
 
-    void OnMouseDown()
+
+    private void OnMouseDown()
     {
-        
-        if (questGiver != null && questGiver.player.quest != null)
+        if (questGiver != null)
         {
-            int currentQuestIndex = questGiver.quests.IndexOf(questGiver.player.quest);
+            int currentQuestIndex = questGiver.GetCurrentQuestIndex(); // Use GetCurrentQuestIndex()
 
             foreach (var mapping in videoQuestMappings)
             {
@@ -128,11 +127,9 @@ public class PlayPause : MonoBehaviour
 
         if (activeVideoPlayer != null)
         {
-            // Skip to the last frame and start playing
             activeVideoPlayer.time = activeVideoPlayer.clip.length - 0.1f;
             activeVideoPlayer.Play();
 
-            // Attach an event to check when the video finishes
             activeVideoPlayer.loopPointReached += OnVideoEnd;
         }
     }
@@ -146,6 +143,11 @@ public class PlayPause : MonoBehaviour
         EnableCanvas(false);
 
         Debug.Log($"Video {videoPlayer.clip.name} has ended. Resetting state.");
+        if (questGiver != null)
+        {
+            Debug.Log("Calling QuestComplete from OnVideoEnd");
+            questGiver.QuestComplete();
+        }
     }
 
     public void ToggleCanvas()

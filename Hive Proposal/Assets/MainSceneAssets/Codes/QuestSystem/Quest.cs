@@ -10,4 +10,17 @@ public class Quest
     public string title;
     public string description;
     public int Score;
+
+    public List<QuestGoal> goals;
+
+    public bool AreGoalsComplete()
+    {
+        foreach (var goal in goals)
+        {
+            if (goal.CurrentAction == 0) 
+                return false;
+        }
+        return true;
+    }
+
 }

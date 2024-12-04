@@ -7,8 +7,7 @@ public class PhysicsPickup : MonoBehaviour
     public GameObject player;
     public CharacterController characterController;
     public Transform holdPos;
-    //if you copy from below this point, you are legally required to like the video
-    public float pickUpRange = 5f; //how far the player can pickup the object from
+        public float pickUpRange = 5f; //how far the player can pickup the object from
     private float rotationSensitivity = 1f; //how fast/slow the object is rotated in relation to mouse movement
     private GameObject heldObj; //object which we pick up
     private Rigidbody heldObjRb; //rigidbody of object we pick up

@@ -5190,7 +5190,7 @@ GameObject:
   - component: {fileID: 222945117}
   - component: {fileID: 222945119}
   - component: {fileID: 222945120}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: AvoidLayerClipping(Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9304,8 +9304,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3539992575
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.8235294}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9322,14 +9322,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 41.43
+  m_fontSizeBase: 41.43
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -17995,12 +17995,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &869022511 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2753718018764665327, guid: 7f29e5f7ffdea4a6793cefb278b61f0c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1118255470}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &882306843
 GameObject:
   m_ObjectHideFlags: 0
@@ -18039,6 +18033,7 @@ MonoBehaviour:
     title: 
     description: 
     Score: 0
+    goals: []
   groundCheck: {fileID: 1627737407}
   groundDistance: 0
   groundMask:
@@ -28006,7 +28001,6 @@ GameObject:
   - component: {fileID: 1445580036}
   - component: {fileID: 1445580037}
   - component: {fileID: 1445580038}
-  - component: {fileID: 1445580039}
   - component: {fileID: 1445580040}
   m_Layer: 3
   m_Name: FirstPersonPlayer
@@ -28079,6 +28073,7 @@ MonoBehaviour:
     title: 
     description: 
     Score: 0
+    goals: []
   groundCheck: {fileID: 1627737407}
   groundDistance: 0.4
   groundMask:
@@ -28141,28 +28136,6 @@ MonoBehaviour:
       m_Action: Use
       m_Flags: 0
     m_Flags: 0
---- !u!114 &1445580039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445580033}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcb404a9e1a15f24ca546f963c77aa68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMainCamera: {fileID: 3969201}
-  doctorCamera: {fileID: 715425366}
-  maxUseDistance: 5
-  useLayers:
-    serializedVersion: 2
-    m_Bits: 4096
-  dialogueUI: {fileID: 869022511}
-  dialogueRunner: {fileID: 1771453204}
-  intText: {fileID: 1234152264}
-  doctorObject: {fileID: 1410955817}
 --- !u!114 &1445580040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28186,7 +28159,15 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 84589dcb-e2cc-45d2-bfd1-d3af714b5c67
-      m_Path: <Keyboard>/h
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+    - m_Name: 
+      m_Id: a45d70c1-7ce0-40ca-aca3-033253597d50
+      m_Path: 
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -28199,6 +28180,8 @@ MonoBehaviour:
     m_Bits: 4096
   interactable: {fileID: 0}
   hitObject: {fileID: 0}
+  highlightColorInner: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  highlightColorOuter: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1446544598
 GameObject:
   m_ObjectHideFlags: 0
@@ -29765,17 +29748,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoQuestMappings:
   - videoPlayer: {fileID: 996950279}
-    requiredQuestIndex: 0
+    requiredQuestIndex: 1
   - videoPlayer: {fileID: 1991048156}
-    requiredQuestIndex: 6
+    requiredQuestIndex: 5
   - videoPlayer: {fileID: 6613954}
-    requiredQuestIndex: 9
+    requiredQuestIndex: 5
   - videoPlayer: {fileID: 998213135}
-    requiredQuestIndex: 12
+    requiredQuestIndex: 5
   - videoPlayer: {fileID: 1770291511}
-    requiredQuestIndex: 15
+    requiredQuestIndex: 5
   - videoPlayer: {fileID: 214916652}
-    requiredQuestIndex: 17
+    requiredQuestIndex: 5
   canvasElement: {fileID: 1253888384}
   videoTransform: {fileID: 1253888385}
   zoomDuration: 0.5
@@ -33480,7 +33463,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1118255470}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869022511}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
@@ -35166,37 +35149,53 @@ MonoBehaviour:
   - isActive: 1
     title: Find the Doctor
     description: Dr Barton would like to deliver you some tasks
-    Score: 5
+    Score: 1
+    goals:
+    - goalType: 2
+      RequiredAction: {fileID: 363750183}
+      CurrentAction: 0
   - isActive: 1
     title: Play the video
     description: Watch the tutorials carefully
     Score: 5
+    goals:
+    - goalType: 1
+      RequiredAction: {fileID: 1490725426}
+      CurrentAction: 0
   - isActive: 1
     title: Where am I going?
     description: Find your seat at the office, interact with chair to seat down
     Score: 2
+    goals: []
   - isActive: 1
     title: Find Dr Barton
     description: Dr Barton is waiting for you at the office
     Score: 1
+    goals: []
   - isActive: 1
     title: Talk to Dr Barton
     description: Answer all of his questions and you will be rewarded
     Score: 1
+    goals: []
   - isActive: 1
     title: Play the video 2
     description: Watch the next part of the video
     Score: 5
+    goals: []
   - isActive: 1
     title: Tasks
     description: Dr Barton would like to deliver you some tasks
     Score: 5
+    goals: []
   player: {fileID: 1445580036}
   scoreManager: {fileID: 1145837442}
   questWindow: {fileID: 14377923}
   TitleText: {fileID: 1404713375}
   DescriptionText: {fileID: 814231592}
   ScoreText: {fileID: 1285407945}
+  OnQuestIndexChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1888210412
 Transform:
   m_ObjectHideFlags: 0

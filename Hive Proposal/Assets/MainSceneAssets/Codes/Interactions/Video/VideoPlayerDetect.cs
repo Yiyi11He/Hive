@@ -18,12 +18,24 @@ public class VideoPlayerDetect: MonoBehaviour
         StartCoroutine(PlayRoutine());
     }
 
+    //private IEnumerator PlayRoutine()
+    //{
+    //    while (player.isPlaying)
+    //        yield return null;
+
+    //    Debug.Log("Video play complete");
+    //    OnVideoPlayComplete?.Invoke();
+    //}
     private IEnumerator PlayRoutine()
     {
+        Debug.Log("PlayRoutine started");
         while (player.isPlaying)
+        {
             yield return null;
+        }
 
-        Debug.Log("Video play complete");
+        Debug.Log("Video playback complete, invoking OnVideoPlayComplete event");
         OnVideoPlayComplete?.Invoke();
     }
+
 }
