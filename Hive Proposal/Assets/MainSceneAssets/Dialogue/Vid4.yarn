@@ -1,7 +1,8 @@
-﻿title: Day3
+title: Day3
 position: 112,198
 ---
 //afterVid4
+<<open_quest QuestGiver #>>
 Dr.Barton: Have you check the results?​
 -> No
     Dr.Barton: I am starting to think if you want to be here.​
@@ -12,10 +13,93 @@ Dr.Barton: Have you check the results?​
 title: ResultsDay3
 position: 108,328
 ---
+//set selections here to appear - dissapear.
+//if all responses are submitted, then jump AntibioticsDay3
+
 Dr.Barton: What are the results showing?​
 
-//should this be a multiselect or just dr barton talking, grabing inputs under each.
+<<ask_responses_xray Day3Test>>
+Dr.Barton: What are the results showing for the x-ray data?​
+<<evaluate_responses_xray Day3Test>>
+
+//or just dr barton talking, grabing inputs under each.
 -> Xray //select and words (gas under ulcer but no signs osteomyelitis)
+    <<jump XrayDay3>>
 -> Culture //(mixed bacteria, E coli, bacteroides fragilis, clostridium perfringens, pseudomonas aeruginosa​)
+    <<jump CultureDay3>>
 -> White cell count and CRP //(what number)
+    <<jump WCCDay3>>
+===
+title: XrayDay3
+position: 439,547
+---
+//Insert words here
+
+-> Submit responses
+    //kill option in ResultsDay3
+    <<jump ResultsDay3>>
+
+===
+title: CultureDay3
+position: 433,407
+---
+//Insert words here
+
+-> Submit responses
+    //kill option in ResultsDay3
+    <<jump ResultsDay3>>
+===
+title: WCCDay3
+position: 429,265
+---
+//Insert number here
+
+-> Submit responses
+    //kill option in ResultsDay3
+    <<jump ResultsDay3>>
+===
+title: AntibioticsDay3
+position: 102,711
+---
+Dr.Barton: What antibiotics should we change to?​
+
+-> Clindamycin​
+
+-> Vancomycin​
+
+-> Piperacillin with tazobactam​
+
+-> Carbapenem​
+
+-> Ceftriaxone with metronidazole​
+
+-> I do not think we need to change the antibiotics​
+    <<stop>>
+-> Submit responses
+    <<jump PreTeaching>>
+
+//queue video 5 after this
+===
+title: PreTeaching
+position: 102,869
+---
+<<open_quest QuestGiver>>
+//assign inside DoctorInteractable
+Dr.Barton: Could you do the blood tests again please and send them off.
+//set Quest + bloods
+Dr.Barton: I know you have to go back to campus for teaching, come back and see me after the teaching.
+//after Quest allow player Transition ->respawn
+//the transition includes following messages? or :
+// Patient still here​
+
+// Check through the notes​
+
+// Patient has not been doing well​
+
+// Temp borderline, pulse borderline. CRP slightly up, wound not healing. Patient not doing well​
+===
+title: Day14Questions
+position: 100,1018
+---
+
 ===

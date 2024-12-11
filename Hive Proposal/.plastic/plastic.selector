@@ -1,4 +1,0 @@
-repository "Hive Proposal@Yiyi_HE@cloud"
-  path "/"
-    br "/main"
-    co "/main"

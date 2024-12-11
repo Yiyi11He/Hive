@@ -3,7 +3,7 @@ tags:
 position: -33,-92
 ---
 
-<<open_quest QuestGiver 10>>
+<<open_quest QuestGiver #>>
 Dr.Barton: Have you check the results?
 -> Yes
     Dr.Barton: Go look at the tutorial video now.
@@ -21,7 +21,7 @@ position: -36,98
 ---
 //number slider? or enter value between a number
 //students need to answer all of these, use jump for each option (create node - link number).
-Dr.Barton: What are the results showing?
+Dr.Barton: What are the results showing? //add text entries
 -> HbA1C levels- what number?
 -> White cell count levels- What number?
 -> CRP- what number?

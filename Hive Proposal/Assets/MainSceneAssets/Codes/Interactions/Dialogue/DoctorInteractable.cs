@@ -18,9 +18,8 @@ public class DoctorInteractable : MonoBehaviour
 
     private Dictionary<int, string> questDialogueMapping = new Dictionary<int, string>()
     {
-        //update this after completing seat interact.
         { 0, "Video1" },
-        { 2, "afterVideo1" },
+        { 3, "afterVideo1" },
         { 10, "Vid2" },
         { 11, "Vid3"},
         { 17, "Day1Afternoon"},//this quest is actually continued from last one, find an way to avoid opening another quest.

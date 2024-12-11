@@ -11,6 +11,9 @@ public class Pause : MonoBehaviour
 
     public PlayPause playPauseScript;
 
+    private CursorLockMode _cachedLockState;
+    private bool _cachedVisibleState;
+
     void Start()
     {
         PauseMenu.SetActive(false);
@@ -51,8 +54,8 @@ public class Pause : MonoBehaviour
         }
 
         // Re-enable cursor movement
-        Cursor.lockState = CursorLockMode.Locked; 
-        Cursor.visible = false; 
+        Cursor.lockState = _cachedLockState;
+        Cursor.visible = _cachedVisibleState;
     }
 
     void PauseGame()
@@ -74,6 +77,9 @@ public class Pause : MonoBehaviour
         }
 
         // Show the cursor
+        _cachedVisibleState = Cursor.visible;
+        _cachedLockState = Cursor.lockState;
+
         Cursor.lockState = CursorLockMode.None; 
         Cursor.visible = true; 
     }

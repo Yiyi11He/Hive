@@ -6,6 +6,7 @@ public class Chair : MonoBehaviour
 {
     public GameObject playerStanding, playerSitting, intText, standText, switchView;
     public bool sitting;
+    public QuestGiver questGiver;
 
     private bool interactable = false;
 
@@ -20,6 +21,7 @@ public class Chair : MonoBehaviour
             interactable = true;
         }
     }
+
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("MainCamera"))
@@ -28,31 +30,50 @@ public class Chair : MonoBehaviour
             interactable = false;
         }
     }
+
     void Update()
     {
         if (interactable == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                intText.SetActive(false);
-                standText.SetActive(true);
-                playerSitting.SetActive(true);
-                sitting = true;
-                playerStanding.SetActive(false);
-                interactable = false;
-                switchView.SetActive(true);
+                SitDown();
             }
         }
+
         if (sitting == true)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                playerSitting.SetActive(false);
-                standText.SetActive(false);
-                playerStanding.SetActive(true);
-                sitting = false;
-                switchView.SetActive(false);
+                StandUp();
             }
         }
+    }
+
+    private void SitDown()
+    {
+        intText.SetActive(false);
+        standText.SetActive(true);
+        playerSitting.SetActive(true);
+        sitting = true;
+        playerStanding.SetActive(false);
+        interactable = false;
+        switchView.SetActive(true);
+
+        // Trigger quest progress if the QuestGiver is available
+        if (questGiver != null)
+        {
+            Debug.Log($"Current Quest Index: {questGiver.GetCurrentQuestIndex()}");
+            questGiver.UpdateQuestProgress(GoalType.ChairInteract);
+        }
+    }
+
+    private void StandUp()
+    {
+        playerSitting.SetActive(false);
+        standText.SetActive(false);
+        playerStanding.SetActive(true);
+        sitting = false;
+        switchView.SetActive(false);
     }
 }
