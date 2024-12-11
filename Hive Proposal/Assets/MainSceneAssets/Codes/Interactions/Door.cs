@@ -1,7 +1,5 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Door : MonoBehaviour
 {
@@ -9,17 +7,10 @@ public class Door : MonoBehaviour
 
     [SerializeField] private bool IsRotatingDoor = true;
     [SerializeField] private float speed = 1.0f;
+
     [Header("Rotation Configs")]
     [SerializeField] private float RotationAmount = 90f;
     [SerializeField] private float ForwardDirection = 0;
-
-    [SerializeField] private TextMeshPro FrontText;
-    [SerializeField] private TextMeshPro BackText;
-    [SerializeField] private Transform Camera;
-    [SerializeField] private float MaxUseDistance = 5f;
-    [SerializeField] private LayerMask UseLayers;
-
-    [SerializeField] private InputAction useAction;
 
     private Vector3 StartRotation;
     private Vector3 Forward;
@@ -29,28 +20,9 @@ public class Door : MonoBehaviour
     {
         StartRotation = transform.rotation.eulerAngles;
         Forward = transform.forward;
-
-        useAction.performed += OnUseAction;
-        useAction.Enable();
     }
 
-    private void OnUseAction(InputAction.CallbackContext context)
-    {
-        CheckForInteraction();
-    }
-
-    private void CheckForInteraction()
-    {
-        if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, MaxUseDistance, UseLayers))
-        {
-            if (hit.collider == this.GetComponent<Collider>())
-            {
-                Interact();
-            }
-        }
-    }
-
-    public void Interact()
+    public void Interact(Transform playerTransform)
     {
         if (IsOpen)
         {
@@ -58,19 +30,10 @@ public class Door : MonoBehaviour
         }
         else
         {
-            Open(Camera.position);
+            Open(playerTransform.position);
         }
     }
 
-    public void ShowText(bool show)
-    {
-        string text = IsOpen ? "Close \"E\"" : "Open \"E\"";
-        if (FrontText != null) FrontText.text = text;
-        if (BackText != null) BackText.text = text;
-
-        if (FrontText != null) FrontText.gameObject.SetActive(show);
-        if (BackText != null) BackText.gameObject.SetActive(show);
-    }
 
     public void Open(Vector3 userPosition)
     {
@@ -113,6 +76,8 @@ public class Door : MonoBehaviour
             yield return null;
             time += Time.deltaTime * speed;
         }
+
+        transform.rotation = endRotation; // Ensure precise rotation
     }
 
     public void Close()

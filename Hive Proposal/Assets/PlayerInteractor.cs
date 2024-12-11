@@ -44,6 +44,7 @@ public class PlayerInteractor : MonoBehaviour
         interactable = null;
         if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out RaycastHit hitInfo, maxRange, layerMask))
         {
+            Debug.Log($"Hit: {hitInfo.collider.name}");
             hitObject = hitInfo.collider.gameObject;
             interactable = hitInfo.collider.GetComponentInParent<PlayerInteractable>();
 
@@ -63,6 +64,7 @@ public class PlayerInteractor : MonoBehaviour
         }
         else if (previousHover != null)
         {
+            Debug.Log("Raycast missed.");
             DisableUI(previousHover);
             previousHover = null;
         }
@@ -70,8 +72,17 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnInteractAction(InputAction.CallbackContext context)
     {
-        interactable?.OnInteraction?.Invoke();
+        if (interactable != null && interactable.GetComponent<Door>() != null)
+        {
+            Door door = interactable.GetComponent<Door>();
+            door.Interact(transform); // Pass the player's transform
+        }
+        else
+        {
+            interactable?.OnInteraction?.Invoke();
+        }
     }
+
 
     private void EnableUI(GameObject obj)
     {

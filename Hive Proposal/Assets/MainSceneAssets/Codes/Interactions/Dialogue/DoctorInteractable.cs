@@ -4,27 +4,34 @@ using UnityEngine;
 using Yarn;
 using Yarn.Unity;
 
-
 public class DoctorInteractable : MonoBehaviour
 {
     public GameObject playerMainCamera;
     public GameObject doctorCamera;
-    public GameObject dialogueUI;
     public DialogueRunner dialogueRunner;
     public QuestGiver questGiver;
 
     private bool interacting = false;
-
 
     private Dictionary<int, string> questDialogueMapping = new Dictionary<int, string>()
     {
         { 0, "Video1" },
         { 3, "afterVideo1" },
         { 10, "Vid2" },
-        { 11, "Vid3"},
-        { 17, "Day1Afternoon"},//this quest is actually continued from last one, find an way to avoid opening another quest.
+        { 11, "Vid3" },
+        { 17, "Day1Afternoon" }, // This quest is actually continued from the last one, find a way to avoid opening another quest.
         { 21, "Day3" }
     };
+
+    private void Awake()
+    {
+        var playerInteractable = GetComponent<PlayerInteractable>();
+        //if (playerInteractable != null && playerInteractable.UIObject == null)
+        //{
+        //    playerInteractable.UIObject = GameObject.Find("Interaction(E)"); // Adjust the name accordingly
+        //}
+    }
+
     public void OnInteraction()
     {
         // Sync currentQuestNumber with the QuestGiver's current index
@@ -37,10 +44,9 @@ public class DoctorInteractable : MonoBehaviour
 
             Debug.Log($"Starting dialogue node: {dialogueNode}");
 
-            // Switch to the doctor's camera and enable the dialogue UI
+            // Switch to the doctor's camera
             playerMainCamera.SetActive(false);
             doctorCamera.SetActive(true);
-            dialogueUI.SetActive(true);
 
             interacting = true;
             dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
@@ -65,9 +71,9 @@ public class DoctorInteractable : MonoBehaviour
     {
         playerMainCamera.SetActive(true);
         doctorCamera.SetActive(false);
-        dialogueUI.SetActive(false);
         interacting = false;
     }
+
     private int GetCurrentQuestIndex()
     {
         return questGiver.GetCurrentQuestIndex();
