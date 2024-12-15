@@ -9,4 +9,6 @@ Dr Barton: Get the blood tests done and send them off to the labs
 Dr Barton: Review the results tomorrow and we will see the patient together in the wards.
 Dr Barton: I will ask you questions about the patient. 
 Dr Barton: Remember, you are being assessed! 
+<<complete_quest QuestGiver 5>>
+<<stop>>
 ===

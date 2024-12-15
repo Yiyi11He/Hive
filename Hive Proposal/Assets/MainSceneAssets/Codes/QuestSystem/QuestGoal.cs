@@ -15,5 +15,6 @@ public enum GoalType
     ChairInteract,
     MonitorInteract,
     DoctorInteract,
-    SwabInteract
+    SwabInteract,
+    SwabSubmit
 }

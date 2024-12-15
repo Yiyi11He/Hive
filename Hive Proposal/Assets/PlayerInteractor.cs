@@ -1,7 +1,8 @@
- using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,8 @@ public class PlayerInteractor : MonoBehaviour
     private Vector3 lastPosition;
     private Quaternion lastRotation;
     private GameObject previousHover;
+
+    private bool isInteracting = false;
 
 
     private void Awake()
@@ -57,7 +60,6 @@ public class PlayerInteractor : MonoBehaviour
                 }
 
                 Debug.Log($"ENABLE: {hitObject.name}");
-
                 EnableUI(hitObject);
                 previousHover = hitObject;
             }
@@ -69,17 +71,37 @@ public class PlayerInteractor : MonoBehaviour
             previousHover = null;
         }
     }
+    //added code:
+    private IEnumerator EndInteraction()
+    {
+        // Wait for a short delay to ensure the interaction is complete
+        yield return new WaitForSeconds(0.1f);
+        isInteracting = false;
+    }
 
     private void OnInteractAction(InputAction.CallbackContext context)
     {
-        if (interactable != null && interactable.GetComponent<Door>() != null)
+        if (interactable != null)
         {
-            Door door = interactable.GetComponent<Door>();
-            door.Interact(transform); // Pass the player's transform
-        }
-        else
-        {
-            interactable?.OnInteraction?.Invoke();
+            // Disable the UI and raycasting during interaction
+            if (interactable.UIObject != null)
+            {
+                interactable.UIObject.SetActive(false);
+            }
+
+            isInteracting = true; // Disable raycasting
+
+            if (interactable.GetComponent<Door>() != null)
+            {
+                Door door = interactable.GetComponent<Door>();
+                door.Interact(transform); // Pass the player's transform
+            }
+            else
+            {
+                interactable?.OnInteraction?.Invoke();
+            }
+
+            StartCoroutine(EndInteraction()); // Re-enable raycasting after the interaction ends
         }
     }
 

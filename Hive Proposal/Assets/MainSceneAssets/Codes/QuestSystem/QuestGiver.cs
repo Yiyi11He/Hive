@@ -25,30 +25,6 @@ public class QuestGiver : MonoBehaviour
     private int currentQuestIndex = 0;
 
 
-
-    //updating everyframe to check quest number
-    //private void Update()
-    //{
-    //    MonitorQuestProgress();
-    //}
-
-    //private void MonitorQuestProgress()
-    //{
-    //    // Continuously log the current quest index
-    //    Debug.Log($"Monitoring Current Quest Index: {currentQuestIndex}");
-
-    //    // Check if the current quest is active and incomplete
-    //    if (currentQuestIndex >= 0 && currentQuestIndex < quests.Count)
-    //    {
-    //        Quest currentQuest = quests[currentQuestIndex];
-    //        if (currentQuest != null && currentQuest.isActive && currentQuest.AreGoalsComplete())
-    //        {
-    //            Debug.Log($"Quest {currentQuestIndex} is ready to be completed!");
-    //            QuestComplete(); 
-    //        }
-    //    }
-    //}
-
     private void Awake()
     {
         OnQuestIndexChanged = new UnityEvent<int>();

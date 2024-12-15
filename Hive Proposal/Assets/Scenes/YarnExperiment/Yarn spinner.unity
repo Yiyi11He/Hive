@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 401203422}
   - component: {fileID: 401203421}
   - component: {fileID: 401203420}
+  - component: {fileID: 401203425}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -638,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df90085c9c1fd848a8f8868ed9c7d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetName: SwabsMultiQuestion
+  imageChoiceLayer: {fileID: 0}
 --- !u!114 &401203421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,6 +727,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &401203425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401203419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549020f0625dc194b8cc4a26dc670601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetName: Panel
 --- !u!1 &740011456
 GameObject:
   m_ObjectHideFlags: 0

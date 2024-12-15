@@ -11,13 +11,17 @@ public class DoctorInteractable : MonoBehaviour
     public DialogueRunner dialogueRunner;
     public QuestGiver questGiver;
 
+    public GameObject questUI;
+    public ImageChoice imageChoice;
+
     private bool interacting = false;
 
     private Dictionary<int, string> questDialogueMapping = new Dictionary<int, string>()
     {
         { 0, "Video1" },
+        //{ 0, "PictureQuestion" },
         { 3, "afterVideo1" },
-        { 10, "Vid2" },
+        { 5, "Vid2" },
         { 11, "Vid3" },
         { 17, "Day1Afternoon" }, // This quest is actually continued from the last one, find a way to avoid opening another quest.
         { 21, "Day3" }
@@ -26,10 +30,7 @@ public class DoctorInteractable : MonoBehaviour
     private void Awake()
     {
         var playerInteractable = GetComponent<PlayerInteractable>();
-        //if (playerInteractable != null && playerInteractable.UIObject == null)
-        //{
-        //    playerInteractable.UIObject = GameObject.Find("Interaction(E)"); // Adjust the name accordingly
-        //}
+
     }
 
     public void OnInteraction()
@@ -48,6 +49,8 @@ public class DoctorInteractable : MonoBehaviour
             playerMainCamera.SetActive(false);
             doctorCamera.SetActive(true);
 
+            questUI.SetActive(false);
+
             interacting = true;
             dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
         }
@@ -62,6 +65,13 @@ public class DoctorInteractable : MonoBehaviour
     {
         Debug.Log("Dialogue complete.");
         EndInteraction();
+        questUI.SetActive(true);
+
+        // Call HideImageChoices to hide the image choices panel
+        if (imageChoice != null)
+        {
+            imageChoice.HideImageChoices();
+        }
 
         // Disable further interactions for this quest
         this.enabled = false;
@@ -72,6 +82,7 @@ public class DoctorInteractable : MonoBehaviour
         playerMainCamera.SetActive(true);
         doctorCamera.SetActive(false);
         interacting = false;
+        questUI.SetActive(true);
     }
 
     private int GetCurrentQuestIndex()

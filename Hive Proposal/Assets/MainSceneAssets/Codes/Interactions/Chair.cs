@@ -5,13 +5,11 @@ using UnityEngine;
 public class Chair : MonoBehaviour
 {
     public GameObject playerStanding, playerSitting, intText, standText, switchView;
+    public Camera targetCamera; // The camera to activate when sitting down
     public bool sitting;
     public QuestGiver questGiver;
 
     private bool interactable = false;
-
-    //player actions trigger quest goals
-    //questGiver.UpdateQuestProgress(GoalType.ChairInteract);
 
     void OnTriggerStay(Collider other)
     {
@@ -33,7 +31,7 @@ public class Chair : MonoBehaviour
 
     void Update()
     {
-        if (interactable == true)
+        if (interactable)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -41,7 +39,7 @@ public class Chair : MonoBehaviour
             }
         }
 
-        if (sitting == true)
+        if (sitting)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -60,6 +58,12 @@ public class Chair : MonoBehaviour
         interactable = false;
         switchView.SetActive(true);
 
+        // Activate the target camera
+        if (targetCamera != null)
+        {
+            targetCamera.gameObject.SetActive(true);
+        }
+
         // Trigger quest progress if the QuestGiver is available
         if (questGiver != null)
         {
@@ -75,5 +79,11 @@ public class Chair : MonoBehaviour
         playerStanding.SetActive(true);
         sitting = false;
         switchView.SetActive(false);
+
+        // Deactivate the target camera when standing up
+        if (targetCamera != null)
+        {
+            targetCamera.gameObject.SetActive(false);
+        }
     }
 }
