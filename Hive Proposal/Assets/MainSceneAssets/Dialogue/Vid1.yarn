@@ -205,12 +205,11 @@ title: PictureQuestion
 tags:
 position: 260,-1017
 ---
-<<open_quest QuestGiver 0>>
-// Dr.Barton: Just to remind you that I am doing a work-based assessment on you for this week,
-// Dr.Barton: I will be asking a few questions to test your knowledge. 
-// Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct.  
-// Dr.Barton: I hope you are well prepared. First question! 
-// Dr.Barton: What kind of swabs are needed?
+Dr.Barton: Just to remind you that I am doing a work-based assessment on you for this week,
+Dr.Barton: I will be asking a few questions to test your knowledge. 
+Dr.Barton: You will get points for each question you answer correctly. The total amount of points will depend on how many correct answers you get correct.  
+Dr.Barton: I hope you are well prepared. First question! 
+Dr.Barton: What kind of swabs are needed?
 Dr.Barton: Pick one from the pictures. 
 
 
@@ -225,7 +224,7 @@ Dr.Barton: Pick one from the pictures.
 title: PicturePick
 position: 250,-853
 ---
-<<show_image_choices>>
+<<show_image_choices "Dialogue System">>
 
 
 // -> Swab 1 - {$Swab1}
@@ -308,7 +307,7 @@ position: 252,-707
 <<else>>
     Dr.Barton: Update your knowlegde in swabs please.
 <<endif>>
-<<complete_quest QuestGiver 0>>
+
 <<stop>>
 
 //connect this node with 

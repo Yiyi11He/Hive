@@ -12,20 +12,16 @@ public class ImageChoice : MonoBehaviour
 
     private bool[] selections;
 
-    void Start()
+    void Initialise()
     {
-        selections = new bool[choiceButtons.Count - 1];
+        choicePanel.SetActive(true);
+        selections = new bool[choiceButtons.Count];
 
-        for (int i = 0; i < choiceButtons.Count - 1; i++)
-        {
-            int index = i;
-            choiceButtons[i].onClick.AddListener(() => ToggleSelection(index));
-        }
-
-        choiceButtons[choiceButtons.Count - 1].onClick.AddListener(SubmitChoices);
+        // TODO: Add submit button
+        // choiceButtons[choiceButtons.Count].onClick.AddListener(SubmitChoices);
     }
 
-    private void ToggleSelection(int index)
+    public void ToggleSelection(int index)
     {
         selections[index] = !selections[index];
 
@@ -50,6 +46,8 @@ public class ImageChoice : MonoBehaviour
     [YarnCommand("show_image_choices")]
     public void ShowImageChoice()
     {
+        Initialise();
+
         choicePanel.SetActive(true);
         ResetChoices();
     }
