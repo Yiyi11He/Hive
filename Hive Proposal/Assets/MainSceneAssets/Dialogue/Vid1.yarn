@@ -566,7 +566,7 @@ position: 416,89
 title: ThyFunction
 position: 180,525
 ---
-<<set $Thy1 = $Thy1>>
+<<set $Thy1 = !$Thy1>>
 <<jump tests>>
 ===
 title: XrayF
