@@ -197,8 +197,8 @@ position: 254,-1318
     Dr.Barton: There are a few additional indicators describing the wound that you might have missed.
 <<endif>>
 
-<<jump SwabsMultiQuestion>>
-//<<jump PictureQuestion>>
+
+<<jump PictureQuestion>>
 
 ===
 title: PictureQuestion
@@ -217,61 +217,9 @@ Dr.Barton: Pick one from the pictures.
 <<declare $Swab2 = false>>
 <<declare $Swab3 = false>>
 <<declare $Swab4 = false>>
-
-<<jump PicturePick>>
-
-===
-title: PicturePick
-position: 250,-853
----
 <<show_image_choices "Dialogue System">>
+<<stop>>
 
-
-// -> Swab 1 - {$Swab1}
-// //selecting the UI button?
-//     <<jump SwabChoice1>>
-// -> Swab 2 - {$Swab2}
-//     <<jump SwabChoice2>>
-// -> Swab 3 - {$Swab3}
-//     <<jump SwabChoice3>>
-// -> Swab 4 - {$Swab4}
-//     <<jump SwabChoice4>>
--> Submit
-    <<jump SubmitSwab>>
-
-
-===
-title: SwabChoice1
-position: -24,-1157
----
-<<set $Swab1 to !$Swab1>>
-<<jump PicturePick>>
-===
-title: SwabChoice2
-position: -23,-1027
----
-<<set $Swab2 to !$Swab2>>
-<<jump PicturePick>>
-===
-
-title: SwabChoice3
-position: -23,-900
----
-<<set $Swab3 to !$Swab3>>
-<<jump PicturePick>>
-===
-
-title: SwabChoice4
-position: -24,-768
----
-<<set $Swab4 to !$Swab4>>
-<<jump PicturePick>>
-===
-title: SubmitSwab
-position: -20,-629
----
-
-<<jump PictureResults>>
 ===
 title: PictureResults
 position: 252,-707
@@ -308,9 +256,6 @@ position: 252,-707
     Dr.Barton: Update your knowlegde in swabs please.
 <<endif>>
 
-<<stop>>
-
-//connect this node with 
 <<jump SwabsMultiQuestion>>
 ===
 
@@ -320,8 +265,6 @@ tags:
 position: -121,-304
 ---
 Dr.Barton: What tests should we do on the swabs? 
-
-
 
 
 <<declare $Culture​ = false>>

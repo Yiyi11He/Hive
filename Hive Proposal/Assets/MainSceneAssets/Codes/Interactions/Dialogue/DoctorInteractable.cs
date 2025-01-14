@@ -19,7 +19,6 @@ public class DoctorInteractable : MonoBehaviour
     private Dictionary<int, string> questDialogueMapping = new Dictionary<int, string>()
     {
         { 0, "Video1" },
-        //{ 0, "PictureQuestion" },
         { 3, "afterVideo1" },
         { 5, "Vid2" },
         { 11, "Vid3" },
