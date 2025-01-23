@@ -16,5 +16,6 @@ public enum GoalType
     MonitorInteract,
     DoctorInteract,
     SwabInteract,
-    SwabSubmit
+    SwabSubmit,
+    DoorInteract
 }
