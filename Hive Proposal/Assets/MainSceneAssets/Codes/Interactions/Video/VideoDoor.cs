@@ -5,19 +5,6 @@ using UnityEngine.Video;
 
 public class VideoDoor : MonoBehaviour
 {
-    public bool IsOpen = false;
-
-    [SerializeField] private bool IsRotatingDoor = true;
-    [SerializeField] private float speed = 1.0f;
-
-    [Header("Rotation Configs")]
-    [SerializeField] private float RotationAmount = 90f;
-    [SerializeField] private float ForwardDirection = 0;
-
-    private Vector3 StartRotation;
-    private Vector3 Forward;
-    private Coroutine AnimationCoroutine;
-
     [System.Serializable]
     public class VideoQuestMapping
     {
@@ -36,20 +23,30 @@ public class VideoDoor : MonoBehaviour
     private bool isPlayerNearby = false;
     private bool isPlaying = false;
 
-    private void Awake()
+
+    private void Start()
     {
-        StartRotation = transform.rotation.eulerAngles;
-        Forward = transform.forward;
+        if (questGiver != null)
+        {
+            Debug.Log("Subscribing to QuestGiver OnQuestIndexChanged.");
+            questGiver.OnQuestIndexChanged.AddListener(OnQuestIndexChanged);
+        }
+        else
+        {
+            Debug.LogError("QuestGiver reference is missing in VideoDoor.");
+        }
+    }
+
+    private void OnQuestIndexChanged(int questIndex)
+    {
+        Debug.Log($"VideoDoor received quest index update: {questIndex}");
+        // Perform any additional logic here if necessary
     }
 
     private void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // Player presses E to interact
         {
-            // Always open the door
-            Interact();
-
-            // Check for video playback
             int currentQuestIndex = questGiver.GetCurrentQuestIndex();
             VideoQuestMapping mapping = FindMappingForQuest(currentQuestIndex);
 
@@ -143,94 +140,5 @@ public class VideoDoor : MonoBehaviour
         {
             questGiver.QuestComplete();
         }
-    }
-
-    public void Interact()
-    {
-        if (IsOpen)
-        {
-            Close();
-        }
-        else
-        {
-            Open(transform.position);
-        }
-    }
-
-    public void Open(Vector3 userPosition)
-    {
-        if (!IsOpen)
-        {
-            if (AnimationCoroutine != null)
-            {
-                StopCoroutine(AnimationCoroutine);
-            }
-
-            if (IsRotatingDoor)
-            {
-                float dot = Vector3.Dot(Forward, (userPosition - transform.position).normalized);
-                AnimationCoroutine = StartCoroutine(DoRotationOpen(dot));
-            }
-        }
-    }
-
-    private IEnumerator DoRotationOpen(float forwardAmount)
-    {
-        Quaternion startRotation = transform.rotation;
-        Quaternion endRotation;
-
-        if (forwardAmount >= ForwardDirection)
-        {
-            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y + RotationAmount, 0));
-        }
-        else
-        {
-            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y - RotationAmount, 0));
-        }
-
-        IsOpen = true;
-
-        float time = 0;
-        while (time < 1)
-        {
-            transform.rotation = Quaternion.Slerp(startRotation, endRotation, time);
-            yield return null;
-            time += Time.deltaTime * speed;
-        }
-
-        transform.rotation = endRotation;
-    }
-
-    public void Close()
-    {
-        if (IsOpen)
-        {
-            if (AnimationCoroutine != null)
-            {
-                StopCoroutine(AnimationCoroutine);
-            }
-
-            if (IsRotatingDoor)
-            {
-                AnimationCoroutine = StartCoroutine(DoRotationClose());
-            }
-        }
-    }
-
-    private IEnumerator DoRotationClose()
-    {
-        Quaternion startRotation = transform.rotation;
-        Quaternion endRotation = Quaternion.Euler(StartRotation);
-        IsOpen = false;
-
-        float time = 0;
-        while (time < 1)
-        {
-            transform.rotation = Quaternion.Slerp(startRotation, endRotation, time);
-            yield return null;
-            time += Time.deltaTime * speed;
-        }
-
-        transform.rotation = endRotation;
     }
 }

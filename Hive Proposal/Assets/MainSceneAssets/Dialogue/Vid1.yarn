@@ -5,7 +5,7 @@ position: -175,-1673
 <<declare $current_quiz_score = 0>>
 <<open_quest QuestGiver 0>>
 Dr.Barton: Follow me and let’s see this patient together. 
-Dr.Barton: On your own desk.
+Dr.Barton: Please find the Patient room.
 //video plays
 //swabs and video stop at 4:20
 
