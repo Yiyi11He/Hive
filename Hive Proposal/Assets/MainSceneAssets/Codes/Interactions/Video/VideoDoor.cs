@@ -15,7 +15,7 @@ public class VideoDoor : MonoBehaviour
     [Header("Video Configs")]
     [SerializeField] public List<VideoQuestMapping> videoQuestMappings; // Multiple mappings for quest indices
     public GameObject canvasElement;       // Canvas for the video
-    public RectTransform videoTransform;   // RectTransform for zoom effect
+    public RectTransform videoTransform;   // Zoom Effect
     public float zoomDuration = 0.5f;
 
     public QuestGiver questGiver;          // Reference to the quest system
@@ -55,21 +55,29 @@ public class VideoDoor : MonoBehaviour
                 Debug.Log($"Found matching mapping for quest index {currentQuestIndex}. Playing video...");
                 PlayVideo(mapping);
             }
+            else
+            {
+                Debug.LogError("Could not find video mapping");
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log("TESTING");
+
+        if (other.CompareTag("MainCamera"))
         {
+            Debug.Log("Video Door Entered");
             isPlayerNearby = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("MainCamera"))
         {
+            Debug.Log("Video Door Exited");
             isPlayerNearby = false;
         }
     }

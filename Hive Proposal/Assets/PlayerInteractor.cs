@@ -46,7 +46,7 @@ public class PlayerInteractor : MonoBehaviour
         interactable = null;
         if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out RaycastHit hitInfo, maxRange, layerMask))
         {
-            Debug.Log($"Hit: {hitInfo.collider.name}");
+            //Debug.Log($"Hit: {hitInfo.collider.name}");
             hitObject = hitInfo.collider.gameObject;
             interactable = hitInfo.collider.GetComponentInParent<PlayerInteractable>();
 

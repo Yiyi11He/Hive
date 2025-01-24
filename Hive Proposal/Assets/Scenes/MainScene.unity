@@ -1728,7 +1728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pneumaticTubeManager: {fileID: 3969211}
   questGiver: {fileID: 1888210411}
-  requiredQuestIndices: 0700000009000000
+  requiredQuestIndices: 0600000008000000
 --- !u!114 &61114884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19019,7 +19019,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quest Description, should be a long lengthy text teaching pleayers what
+  m_text: Quest Description, should be a long lengthy text teaching players what
     to do.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 95ceed32069b2dc4ab7ab011311b9079, type: 2}
@@ -19613,7 +19613,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6458574066385386863}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63ea89be56472644ca021adbf3f59b50, type: 3}
   m_Name: 
@@ -38815,15 +38815,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests:
   - isActive: 1
-    title: Sign off
-    description: You've completed all tasks for today, you are free to leave the
-      hospital
-    Score: 1
-    goals:
-    - goalType: 6
-      RequiredAction: {fileID: 741042964}
-      CurrentAction: 0
-  - isActive: 1
     title: Find the Doctor
     description: Dr Barton would like to deliver you some tasks
     Score: 1
@@ -38880,6 +38871,15 @@ MonoBehaviour:
     description: Give the Pneumatic tube for the lab to analyse
     Score: 5
     goals: []
+  - isActive: 1
+    title: Sign off
+    description: You've completed all tasks for today, you are free to leave the
+      hospital
+    Score: 1
+    goals:
+    - goalType: 6
+      RequiredAction: {fileID: 741042964}
+      CurrentAction: 0
   player: {fileID: 1445580036}
   scoreManager: {fileID: 1145837442}
   questWindow: {fileID: 14377923}
@@ -44635,6 +44635,7 @@ GameObject:
   - component: {fileID: 834045995}
   - component: {fileID: 834045998}
   - component: {fileID: 6982196757597792796}
+  - component: {fileID: 6982196757597792797}
   m_Layer: 11
   m_Name: PatientDoor
   m_TagString: Untagged
@@ -44825,6 +44826,33 @@ MonoBehaviour:
   speed: 1
   RotationAmount: 90
   ForwardDirection: 0
+--- !u!54 &6982196757597792797
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458574066385386863}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6995292707697405021
 GameObject:
   m_ObjectHideFlags: 0
