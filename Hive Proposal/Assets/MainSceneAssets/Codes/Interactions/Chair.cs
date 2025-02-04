@@ -1,15 +1,35 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Chair : MonoBehaviour
 {
-    public GameObject playerStanding, playerSitting, intText, standText, switchView;
+    [Header("Player Objects")]
+    public GameObject playerStanding;
+    public GameObject playerSitting;
+    public GameObject intText;
+    public GameObject standText;
+    public GameObject switchView;
+
+    [Header("Camera Settings")]
     public Camera targetCamera; // The camera to activate when sitting down
-    public bool sitting;
+    public float targetFOV = 40f; // Desired field of view when sitting
+    public float zoomSpeed = 1f;  // Speed of the zoom transition
+
+    [Header("Quest System")]
     public QuestGiver questGiver;
 
+    public bool sitting;
     private bool interactable = false;
+    private float defaultFOV;
+    private Coroutine zoomCoroutine;
+
+    void Start()
+    {
+        if (targetCamera != null)
+        {
+            defaultFOV = targetCamera.fieldOfView; // Store the default FOV
+        }
+    }
 
     void OnTriggerStay(Collider other)
     {
@@ -31,20 +51,14 @@ public class Chair : MonoBehaviour
 
     void Update()
     {
-        if (interactable)
+        if (interactable && Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                SitDown();
-            }
+            SitDown();
         }
 
-        if (sitting)
+        if (sitting && Input.GetKeyDown(KeyCode.Q))
         {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                StandUp();
-            }
+            StandUp();
         }
     }
 
@@ -53,18 +67,20 @@ public class Chair : MonoBehaviour
         intText.SetActive(false);
         standText.SetActive(true);
         playerSitting.SetActive(true);
-        sitting = true;
         playerStanding.SetActive(false);
-        interactable = false;
         switchView.SetActive(true);
+        sitting = true;
+        interactable = false;
 
-        // Activate the target camera
         if (targetCamera != null)
         {
             targetCamera.gameObject.SetActive(true);
+
+            // Start zoom effect
+            if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
+            zoomCoroutine = StartCoroutine(SmoothZoom(targetFOV));
         }
 
-        // Trigger quest progress if the QuestGiver is available
         if (questGiver != null)
         {
             Debug.Log($"Current Quest Index: {questGiver.GetCurrentQuestIndex()}");
@@ -77,13 +93,29 @@ public class Chair : MonoBehaviour
         playerSitting.SetActive(false);
         standText.SetActive(false);
         playerStanding.SetActive(true);
-        sitting = false;
         switchView.SetActive(false);
+        sitting = false;
 
-        // Deactivate the target camera when standing up
         if (targetCamera != null)
         {
-            targetCamera.gameObject.SetActive(false);
+            // Start reverse zoom effect
+            if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
+            zoomCoroutine = StartCoroutine(SmoothZoom(defaultFOV));
         }
+    }
+
+    private IEnumerator SmoothZoom(float targetFOV)
+    {
+        float startFOV = targetCamera.fieldOfView;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < zoomSpeed)
+        {
+            targetCamera.fieldOfView = Mathf.Lerp(startFOV, targetFOV, elapsedTime / zoomSpeed);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        targetCamera.fieldOfView = targetFOV;
     }
 }

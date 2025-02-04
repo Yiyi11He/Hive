@@ -44,17 +44,31 @@ public class PlayerInteractor : MonoBehaviour
     private void PerformRaycast()
     {
         interactable = null;
+
         if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out RaycastHit hitInfo, maxRange, layerMask))
         {
-            //Debug.Log($"Hit: {hitInfo.collider.name}");
             hitObject = hitInfo.collider.gameObject;
             interactable = hitInfo.collider.GetComponentInParent<PlayerInteractable>();
+
+            // Ensure we get the correct chart controller
+            PatientRoomFolder folder = hitObject.GetComponent<PatientRoomFolder>();
+            if (folder != null)
+            {
+                Debug.Log($"Raycast hit: {hitObject.name}");
+                folder.OnHover();
+            }
 
             if (hitObject != previousHover)
             {
                 if (previousHover != null)
                 {
                     Debug.Log($"DISABLE: {previousHover.name}");
+                    PatientRoomFolder previousFolder = previousHover.GetComponent<PatientRoomFolder>();
+                    if (previousFolder != null)
+                    {
+                        previousFolder.OnLookAway();
+                    }
+
                     DisableUI(previousHover);
                 }
 
@@ -66,10 +80,20 @@ public class PlayerInteractor : MonoBehaviour
         else if (previousHover != null)
         {
             Debug.Log("Raycast missed.");
+
+            PatientRoomFolder previousFolder = previousHover.GetComponent<PatientRoomFolder>();
+            if (previousFolder != null)
+            {
+                previousFolder.OnLookAway();
+            }
+
             DisableUI(previousHover);
             previousHover = null;
         }
     }
+
+
+
     //added code:
     private IEnumerator EndInteraction()
     {
