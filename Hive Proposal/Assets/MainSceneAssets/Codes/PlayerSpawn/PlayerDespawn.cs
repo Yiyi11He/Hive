@@ -39,6 +39,12 @@ public class PlayerDespawn : MonoBehaviour
                 Debug.Log($"Interaction denied. Current quest index: {currentQuestIndex}, required: {requiredQuestIndex}");
             }
         }
+
+        // Check if the final UI element is active and enable the mouse
+        if (finalUIElement != null && finalUIElement.activeSelf)
+        {
+            EnableMouse();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -109,5 +115,12 @@ public class PlayerDespawn : MonoBehaviour
             finalUIElement.SetActive(true);
             Debug.Log("Final UI element enabled.");
         }
+    }
+
+    private void EnableMouse()
+    {
+        Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+        Cursor.visible = true;                 // Make the cursor visible
+        Debug.Log("Mouse cursor unlocked and visible.");
     }
 }

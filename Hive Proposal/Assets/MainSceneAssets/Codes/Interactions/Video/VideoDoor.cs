@@ -23,7 +23,6 @@ public class VideoDoor : MonoBehaviour
     private bool isPlayerNearby = false;
     private bool isPlaying = false;
 
-
     private void Start()
     {
         if (questGiver != null)
@@ -40,7 +39,6 @@ public class VideoDoor : MonoBehaviour
     private void OnQuestIndexChanged(int questIndex)
     {
         Debug.Log($"VideoDoor received quest index update: {questIndex}");
-        // Perform any additional logic here if necessary
     }
 
     private void Update()
@@ -60,12 +58,16 @@ public class VideoDoor : MonoBehaviour
                 Debug.LogError("Could not find video mapping");
             }
         }
+
+        // Skip to the last second for debugging when the backtick key is pressed
+        if (Input.GetKeyDown(KeyCode.BackQuote)) // Key `
+        {
+            SkipToEnd();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("TESTING");
-
         if (other.CompareTag("MainCamera"))
         {
             Debug.Log("Video Door Entered");
@@ -137,6 +139,11 @@ public class VideoDoor : MonoBehaviour
     private IEnumerator WaitForVideoToEnd(VideoPlayer videoPlayer)
     {
         Debug.Log("Waiting for video to finish...");
+
+        // Wait until the video starts playing
+        yield return new WaitUntil(() => videoPlayer.isPlaying);
+
+        // Wait until the video is no longer playing
         yield return new WaitUntil(() => !videoPlayer.isPlaying);
 
         Debug.Log("Video finished playing. Disabling video player and canvas.");
@@ -148,5 +155,22 @@ public class VideoDoor : MonoBehaviour
         {
             questGiver.QuestComplete();
         }
+    }
+
+    // Debugging method to skip the video to its last second
+    private void SkipToEnd()
+    {
+        foreach (var mapping in videoQuestMappings)
+        {
+            VideoPlayer videoPlayer = mapping.videoPlayer.GetComponent<VideoPlayer>();
+            if (videoPlayer != null && videoPlayer.isPlaying)
+            {
+                videoPlayer.time = videoPlayer.length - 1; // Skip to the last second
+                Debug.Log("Skipped to the last second of the video.");
+                return;
+            }
+        }
+
+        Debug.LogWarning("No video is currently playing to skip.");
     }
 }

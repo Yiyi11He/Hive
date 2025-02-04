@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Reflection;
 using Yarn.Unity;
-using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class QuestGiver : MonoBehaviour
 {
+    [Header("Debugging Tools")]
+    [SerializeField] private bool debugMode = false;  // Toggle debug mode on/off
+    [SerializeField] private int debugQuestIndex = 0; // Index to set as zero for debugging
+
     public List<Quest> quests;
 
     public PlayerMovement player;
@@ -25,17 +27,25 @@ public class QuestGiver : MonoBehaviour
     private int currentQuestIndex = 0;
 
 
+
     private void Awake()
     {
         OnQuestIndexChanged = new UnityEvent<int>();
         OpenQuestByIndex(0);
     }
 
+    private void Update()
+    {
+        if (debugMode)
+        {
+            DebugSetQuestToZero();
+        }
+    }
+
     public int GetCurrentQuestIndex()
     {
         return currentQuestIndex;
     }
-
 
     [YarnCommand("open_quest")]
     public void OpenQuestByIndex(int questIndex)
@@ -46,10 +56,8 @@ public class QuestGiver : MonoBehaviour
         Debug.Log($"Opening quest {questIndex}");
         OpenQuest(quests[questIndex]);
 
-        //added code to get current quest index
         OnQuestIndexChanged.Invoke(currentQuestIndex);
     }
-
 
     public void OpenQuest(Quest quest)
     {
@@ -91,7 +99,6 @@ public class QuestGiver : MonoBehaviour
         }
     }
 
-
     [YarnCommand("complete_quest")]
     public void CompleteQuestByIndex(int questIndex)
     {
@@ -100,7 +107,6 @@ public class QuestGiver : MonoBehaviour
         currentQuestIndex = questIndex;
         QuestComplete();
     }
-
 
     public void OnDialogueComplete()
     {
@@ -117,17 +123,56 @@ public class QuestGiver : MonoBehaviour
         {
             if (goal.goalType == goalType)
             {
-                goal.CurrentAction++; 
+                goal.CurrentAction++;
                 Debug.Log($"Updated quest goal: {goalType}, Progress: {goal.CurrentAction}");
 
-                // Check if all goals are now complete
                 if (currentQuest.AreGoalsComplete())
                 {
-                    QuestComplete(); 
+                    QuestComplete();
                 }
                 break;
             }
         }
     }
 
+    // Debugging Functionality
+    public void SetQuestToIndexZero(int questIndex)
+    {
+        if (questIndex < 0 || questIndex >= quests.Count)
+        {
+            Debug.LogError($"Invalid quest index: {questIndex}");
+            return;
+        }
+
+        // Move the selected quest to index 0
+        Quest selectedQuest = quests[questIndex];
+        quests.RemoveAt(questIndex);
+        quests.Insert(0, selectedQuest);
+
+        Debug.Log($"Quest \"{selectedQuest.title}\" has been moved to index 0.");
+        OpenQuestByIndex(0); // Update the quest to reflect the change
+    }
+
+    private void DebugSetQuestToZero()
+    {
+        Debug.Log("Debug mode active: Setting quest to index 0.");
+
+        // Hide the quest window to prevent conflicts
+        if (questWindow != null)
+        {
+            questWindow.SetActive(false);
+        }
+
+        // Set the specified quest to index 0
+        SetQuestToIndexZero(debugQuestIndex);
+
+        // Disable debug mode after execution
+        debugMode = false;
+
+        // Reactivate the quest window
+        if (questWindow != null)
+        {
+            questWindow.SetActive(true);
+        }
+    }
 }
