@@ -9,7 +9,7 @@ public class Pause : MonoBehaviour
 
     public MonoBehaviour playerController; 
 
-    public PlayPause playPauseScript;
+    public VideoDoor VideoDoor;
 
     private CursorLockMode _cachedLockState;
     private bool _cachedVisibleState;
@@ -47,7 +47,12 @@ public class Pause : MonoBehaviour
             playerController.enabled = true;
         }
 
-        VideoPlayer activeVideoPlayer = playPauseScript.GetActiveVideoPlayer();
+        if (VideoDoor != null)
+        {
+            VideoDoor.enabled = true; // Ensure VideoDoor is re-enabled when resuming
+        }
+
+        VideoPlayer activeVideoPlayer = VideoDoor.GetActiveVideoPlayer();
         if (activeVideoPlayer != null && activeVideoPlayer.isPaused)
         {
             activeVideoPlayer.Play();
@@ -57,6 +62,7 @@ public class Pause : MonoBehaviour
         Cursor.lockState = _cachedLockState;
         Cursor.visible = _cachedVisibleState;
     }
+
 
     void PauseGame()
     {
@@ -70,7 +76,13 @@ public class Pause : MonoBehaviour
             playerController.enabled = false;
         }
 
-        VideoPlayer activeVideoPlayer = playPauseScript.GetActiveVideoPlayer();
+        // Ensure VideoDoor remains active and functional
+        if (VideoDoor != null)
+        {
+            VideoDoor.enabled = true;  // Make sure the VideoDoor script still runs
+        }
+
+        VideoPlayer activeVideoPlayer = VideoDoor.GetActiveVideoPlayer();
         if (activeVideoPlayer != null && activeVideoPlayer.isPlaying)
         {
             activeVideoPlayer.Pause();
@@ -79,8 +91,8 @@ public class Pause : MonoBehaviour
         // Show the cursor
         _cachedVisibleState = Cursor.visible;
         _cachedLockState = Cursor.lockState;
-
-        Cursor.lockState = CursorLockMode.None; 
-        Cursor.visible = true; 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
+
 }
