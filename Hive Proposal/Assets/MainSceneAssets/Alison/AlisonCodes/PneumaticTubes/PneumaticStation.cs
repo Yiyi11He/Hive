@@ -5,7 +5,8 @@ public class PneumaticStation : MonoBehaviour
 {
     [Header("References")]
     public PneumaticTube pneumaticTubeManager; 
-    public QuestGiver questGiver;              
+    public QuestGiver questGiver;
+    public ParticleSystem confettiParticleSystem;
 
     [Header("Quest Requirements")]
     public List<int> requiredQuestIndices;
@@ -19,15 +20,14 @@ public class PneumaticStation : MonoBehaviour
         {
             CompleteQuest();
         }
-        else
-        {
-            Debug.Log("Conditions not met: Either the quest index does not match or you don't have the pneumatic tube.");
-        }
     }
 
     private void CompleteQuest()
     {
-        Debug.Log("Pneumatic Tube detected. Completing the quest.");
+        if (confettiParticleSystem != null)
+        {
+            confettiParticleSystem.Play();
+        }
 
         // Use the pneumatic tube
         pneumaticTubeManager.UseTube();

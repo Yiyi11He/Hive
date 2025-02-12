@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,7 +57,7 @@ public class VideoDoor : MonoBehaviour
 
         if (!isPaused && isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // Player presses E to interact
         {
-            int currentQuestIndex = questGiver.GetCurrentQuestIndex(); // Always fetch from QuestGiver
+            int currentQuestIndex = questGiver.GetCurrentQuestIndex();
             VideoQuestMapping mapping = FindMappingForQuest(currentQuestIndex);
 
             if (mapping != null)
@@ -125,7 +126,7 @@ public class VideoDoor : MonoBehaviour
             return;
         }
 
-        videoPlayer.gameObject.SetActive(true);
+        videoTransform.gameObject.SetActive(true);
         canvasElement.SetActive(true);
         videoPlayer.Play();
         isPlaying = true;
@@ -158,7 +159,7 @@ public class VideoDoor : MonoBehaviour
         yield return new WaitUntil(() => videoPlayer.isPlaying); // Wait until the video actually starts
         yield return new WaitUntil(() => !videoPlayer.isPlaying); // Wait until the video finishes
 
-        videoPlayer.gameObject.SetActive(false);
+        videoTransform.gameObject.SetActive(false);
         canvasElement.SetActive(false);
         isPlaying = false;
 
