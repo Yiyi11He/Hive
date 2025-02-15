@@ -22,14 +22,11 @@ public class PlayerInteractor : MonoBehaviour
 
     private bool isInteracting = false;
 
-
     private void Awake()
     {
         interactAction.performed += OnInteractAction;
         interactAction.Enable();
     }
-
-
 
     private void Update()
     {
@@ -50,12 +47,20 @@ public class PlayerInteractor : MonoBehaviour
             hitObject = hitInfo.collider.gameObject;
             interactable = hitInfo.collider.GetComponentInParent<PlayerInteractable>();
 
-            // Ensure we get the correct chart controller
-            PatientRoomFolder folder = hitObject.GetComponent<PatientRoomFolder>();
-            if (folder != null)
+            // Check for PatientRoomFolder
+            PatientRoomFolder patientFolder = hitObject.GetComponent<PatientRoomFolder>();
+            if (patientFolder != null)
             {
-                Debug.Log($"Raycast hit: {hitObject.name}");
-                folder.OnHover();
+                Debug.Log($"Raycast hit PatientRoomFolder: {hitObject.name}");
+                patientFolder.OnHover();
+            }
+
+            // Check for AdminFolder
+            AdminFolder adminFolder = hitObject.GetComponent<AdminFolder>();
+            if (adminFolder != null)
+            {
+                Debug.Log($"Raycast hit AdminFolder: {hitObject.name}");
+                adminFolder.OnHover(1); // Modify folder index as needed
             }
 
             if (hitObject != previousHover)
@@ -63,10 +68,19 @@ public class PlayerInteractor : MonoBehaviour
                 if (previousHover != null)
                 {
                     Debug.Log($"DISABLE: {previousHover.name}");
-                    PatientRoomFolder previousFolder = previousHover.GetComponent<PatientRoomFolder>();
-                    if (previousFolder != null)
+
+                    // Disable previous PatientRoomFolder
+                    PatientRoomFolder previousPatientFolder = previousHover.GetComponent<PatientRoomFolder>();
+                    if (previousPatientFolder != null)
                     {
-                        previousFolder.OnLookAway();
+                        previousPatientFolder.OnLookAway();
+                    }
+
+                    // Disable previous AdminFolder
+                    AdminFolder previousAdminFolder = previousHover.GetComponent<AdminFolder>();
+                    if (previousAdminFolder != null)
+                    {
+                        previousAdminFolder.OnLookAway();
                     }
 
                     DisableUI(previousHover);
@@ -81,10 +95,18 @@ public class PlayerInteractor : MonoBehaviour
         {
             Debug.Log("Raycast missed.");
 
-            PatientRoomFolder previousFolder = previousHover.GetComponent<PatientRoomFolder>();
-            if (previousFolder != null)
+            // Handle previous PatientRoomFolder
+            PatientRoomFolder previousPatientFolder = previousHover.GetComponent<PatientRoomFolder>();
+            if (previousPatientFolder != null)
             {
-                previousFolder.OnLookAway();
+                previousPatientFolder.OnLookAway();
+            }
+
+            // Handle previous AdminFolder
+            AdminFolder previousAdminFolder = previousHover.GetComponent<AdminFolder>();
+            if (previousAdminFolder != null)
+            {
+                previousAdminFolder.OnLookAway();
             }
 
             DisableUI(previousHover);
@@ -92,12 +114,8 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
-
-
-    //added code:
     private IEnumerator EndInteraction()
     {
-        // Wait for a short delay to ensure the interaction is complete
         yield return new WaitForSeconds(0.1f);
         isInteracting = false;
     }
@@ -106,40 +124,36 @@ public class PlayerInteractor : MonoBehaviour
     {
         if (interactable != null)
         {
-            // Disable the UI and raycasting during interaction
             if (interactable.UIObject != null)
             {
                 interactable.UIObject.SetActive(false);
             }
 
-            isInteracting = true; // Disable raycasting
+            isInteracting = true;
 
             if (interactable.GetComponent<Door>() != null)
             {
                 Door door = interactable.GetComponent<Door>();
-                door.Interact(transform); // Pass the player's transform
+                door.Interact(transform);
             }
             else
             {
                 interactable?.OnInteraction?.Invoke();
             }
 
-            StartCoroutine(EndInteraction()); // Re-enable raycasting after the interaction ends
+            StartCoroutine(EndInteraction());
         }
     }
-
 
     private void EnableUI(GameObject obj)
     {
         var interactableComponent = obj.GetComponent<PlayerInteractable>();
         interactableComponent?.UIObject?.SetActive(true);
-
     }
 
     private void DisableUI(GameObject obj)
     {
         var interactableComponent = obj.GetComponent<PlayerInteractable>();
         interactableComponent?.UIObject?.SetActive(false);
-
     }
 }
