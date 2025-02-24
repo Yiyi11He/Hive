@@ -75,12 +75,10 @@ public class PatientRoomFolder : MonoBehaviour
     {
         if (chart != null && !isMoving)
         {
-            Debug.Log($"Hovering: Moving {chart.name}");
 
             // Ensure the previous active chart is turned off before activating the new one
             if (activeFolder != null && activeFolder != this)
             {
-                Debug.Log($"Hiding previous chart: {activeFolder.chart.name}");
                 activeFolder.HideChart();
             }
 
@@ -100,7 +98,6 @@ public class PatientRoomFolder : MonoBehaviour
 
         if (chart != null && !isMoving)
         {
-            Debug.Log($"Hiding {chart.name} with movement");
             StartCoroutine(MoveChart(chart, startPosition.position, startPosition.rotation, false));
         }
 
@@ -128,8 +125,6 @@ public class PatientRoomFolder : MonoBehaviour
     {
         if (!isUIActive)
         {
-            Debug.Log($"Activating UI for {chart.name}");
-
             // Activate UI components
             if (uiMainFolder != null)
             {
@@ -153,7 +148,6 @@ public class PatientRoomFolder : MonoBehaviour
 
     public void ExitUIMode()
     {
-        Debug.Log("Exiting UI Mode - Hiding all UI panels");
 
         // Hide UI panels
         if (uiSubFolder != null)
@@ -212,7 +206,6 @@ public class PatientRoomFolder : MonoBehaviour
 
         if (!show)
         {
-            Debug.Log($"Hiding {chart.name} after movement complete.");
             chart.SetActive(false); // Hide after movement finishes
         }
 

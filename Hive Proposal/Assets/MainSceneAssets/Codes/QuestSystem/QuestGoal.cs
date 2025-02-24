@@ -14,6 +14,8 @@ public enum GoalType
 {
     ChairInteract,
     MonitorInteract,
+    IconClick,
+    FileInteract,
     DoctorInteract,
     SwabInteract,
     SwabSubmit,

@@ -21,7 +21,7 @@ public class DoctorInteractable : MonoBehaviour
         { 0, "Video1" },
         { 2, "afterVideo1" },
         { 4, "Vid2" },
-        { 11, "Vid3" },
+        { 15, "Vid3" },
         { 17, "Day1Afternoon" }, // This quest is actually continued from the last one, find a way to avoid opening another quest.
         { 21, "Day3" }
     };

@@ -3,7 +3,8 @@ using UnityEngine;
 public class ButtonOn : MonoBehaviour
 {
     public GameObject targetObject; 
-    public Camera customCamera; 
+    public Camera customCamera;
+    public QuestGiver questGiver;
 
     void Update()
     {
@@ -23,6 +24,7 @@ public class ButtonOn : MonoBehaviour
                 if (hit.transform == transform) 
                 {
                     ToggleTargetObject();
+                    questGiver.UpdateQuestProgress(GoalType.IconClick);
                 }
             }
         }

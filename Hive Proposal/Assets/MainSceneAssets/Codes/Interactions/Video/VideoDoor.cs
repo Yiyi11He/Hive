@@ -77,6 +77,7 @@ public class VideoDoor : MonoBehaviour
         if (other.CompareTag("MainCamera"))
         {
             isPlayerNearby = true;
+
         }
     }
 
@@ -156,8 +157,8 @@ public class VideoDoor : MonoBehaviour
 
     private IEnumerator WaitForVideoToEnd(VideoPlayer videoPlayer)
     {
-        yield return new WaitUntil(() => videoPlayer.isPlaying); // Wait until the video actually starts
-        yield return new WaitUntil(() => !videoPlayer.isPlaying); // Wait until the video finishes
+        yield return new WaitUntil(() => videoPlayer.isPlaying);
+        yield return new WaitUntil(() => !videoPlayer.isPlaying);
 
         videoTransform.gameObject.SetActive(false);
         canvasElement.SetActive(false);
@@ -165,7 +166,7 @@ public class VideoDoor : MonoBehaviour
 
         if (questGiver != null)
         {
-            questGiver.QuestComplete(); // QuestGiver should manage the index update.
+            questGiver.UpdateQuestProgress(GoalType.DoorInteract);
         }
     }
 

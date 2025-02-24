@@ -1,24 +1,8 @@
-﻿title: Vid3
-tags:
-position: -33,-92
+﻿
+title: Vid3
+position: -35,-175
 ---
-
-<<open_quest QuestGiver #>>
-Dr.Barton: Have you check the results?
--> Yes
-    Dr.Barton: Go look at the tutorial video now.
-    <<stop>>
-
-    //this should be done via doctor interactable code
-    <<jump LabResult_day1>>
--> No
-    Dr.Barton: Hmm, you do not seem to follow instructions.
-    Dr.Barton: That is a -1 for professionalism. Check the results on the computer and look at the patient notes just outside the room.​
-    <<stop>>
-===
-title: LabResult_day1
-position: -36,98
----
+<<open_quest QuestGiver 15>>
 //number slider? or enter value between a number
 //students need to answer all of these, use jump for each option (create node - link number).
 Dr.Barton: What are the results showing? //add text entries
@@ -27,29 +11,115 @@ Dr.Barton: What are the results showing? //add text entries
 -> CRP- what number?
 -> Blood glucose levels- Latest number?​
 
-<<jump SeeIn2Days>>
+Dr.Barton: I am thinking of starting insulin. What dose should we start?
+-> Insulin glulisine (Apidra)
+
+
+<<declare $currentDose = false>>
+<<declare $ReduceDose = false>>
+<<declare $GliclazideStop = false>>
+<<declare $StopBoth = false>>
+<<jump DiabeticMed>>
 ===
+title: DiabeticMed
+position: -36,68
+---
+<<declare $current_quiz_score = 0>>
+Dr.Barton: What should we do about her diabetic medications?
+-> Continue with current dose - {$currentDose}
+<<jump current1>>
+-> Reduce the doses for both gliclazide and metformin - {$ReduceDose}
+<<jump reduce1>>
+-> Stop Gliclazide and continue with metformin - {$GliclazideStop}
+<<jump gliclaz1>>
+-> Stop both medications - {$StopBoth}
+<<jump Stop1>>
+-> Submit
+<<jump submitDiabetic>>
+
+
+
+===
+title: current1
+position: 262,4
+---
+<<set $currentDose to !$currentDose>>
+<<jump DiabeticMed>>
+
+===
+title: reduce1
+position: 264,-132
+---
+<<set $ReduceDose to !$ReduceDose>>
+<<jump DiabeticMed>>
+
+===
+title: gliclaz1
+position: 263,-254
+---
+<<set $GliclazideStop to !$GliclazideStop>>
+<<jump DiabeticMed>>
+
+===
+title: Stop1
+position: 261,133
+---
+<<set $StopBoth to !$StopBoth>>
+<<jump DiabeticMed>>
+
+===
+title: submitDiabetic
+position: 263,269
+---
+<<if $currentDose == true>>
+    Dr Barton: It is very likely that the insulin will be temporary since the glucose levels are likely to go down with diabetic diet and control of the infection.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+<<if $ReduceDose == true>>
+    Dr Barton: This is not advisable since it is likely the glucose levels will go up requiring more insulin.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+<<if $GliclazideStop == true>>
+    Dr Barton: This is not advisable since the it is likely the glucose levels will go up requiring more insulin.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+<<if $StopBoth == true>>
+    Dr Barton: This is not advisable since the it is likely the glucose levels will go up requiring more insulin.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+
+<<jump SeeIn2Days>>
+
+===
+
 title: SeeIn2Days
-position: -35,251
+position: -25,415
 ---
 Dr.Barton: We will see the patient together again in 2 days​.
 Dr.Barton: Could you repeat the blood tests again and send them off.​
 Dr.Barton: Review the results before we see the patient okay?
 -> I will review the results.
     Dr.Barton: Thanks. See you tomorrow.
+    <<complete_quest QuestGiver 15>>
     <<stop>>
 -> That depends on when i come to the hospital.
     Dr.Barton: Well, come early then. See you tomorrow.
+    <<complete_quest QuestGiver 15>>
     <<stop>>
 -> I think that is the intern’s job.
     Dr.Barton: I see. What is your name again?
         -> [Name] //also minus points in game (how much?)
-            <<add_score ScoreCanvas -1>>
+            <<add_score ScoreTimerInteractVideo -1>>
             Dr.Barton: Thanks , I will note it down as a red flag for professionalism.
+            <<complete_quest QuestGiver 15>>
             <<stop>>
 ===
 title: Day1Afternoon
-position: -29,404
+position: 657,576
 ---
 //Quote this from Dictionary again. Students need to check results before reaching this node, or they can keep engaging this conversation.
 Dr.Barton: I am thinking of starting insulin. What dose should we start?
