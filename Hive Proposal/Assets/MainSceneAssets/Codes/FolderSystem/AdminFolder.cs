@@ -3,13 +3,10 @@ using UnityEngine;
 
 public class AdminFolder : MonoBehaviour
 {
-    [Header("Folders to Control")]
-    public GameObject folder1;
-    public GameObject folder2;
-    public GameObject folder3;
-    public GameObject folder4;
+    [Header("Folder to Control")]
+    public GameObject folder;
 
-    [Header("UI Panels")]
+    [Header("UI Elements")]
     public GameObject uiMainFolder;
     public GameObject uiSubFolder;
 
@@ -30,23 +27,19 @@ public class AdminFolder : MonoBehaviour
     private bool isHovered = false;
     private bool isUIActive = false;
 
-    private static AdminFolder activeFolder = null; // Change to AdminFolder
-    private GameObject currentFolder; // Tracks which folder is active
+    private static AdminFolder activeFolder = null;
 
     private void Start()
     {
-        // Hide all folders initially
-        HideAllFolders();
-
-        if (uiMainFolder != null)
+        if (folder != null)
         {
-            uiMainFolder.SetActive(false);
+            folder.SetActive(true); // Ensure it's always active
+            folder.transform.position = startPosition.position;
+            folder.transform.rotation = startPosition.rotation;
         }
 
-        if (uiSubFolder != null)
-        {
-            uiSubFolder.SetActive(false);
-        }
+        if (uiMainFolder != null) uiMainFolder.SetActive(false);
+        if (uiSubFolder != null) uiSubFolder.SetActive(false);
 
         ShowUIElements();
         EnablePlayerControl();
@@ -54,57 +47,47 @@ public class AdminFolder : MonoBehaviour
 
     private void Update()
     {
-        // Listen for "E" key press to activate UI mode
         if (isHovered && Input.GetKeyDown(KeyCode.E))
         {
             ActivateUI();
         }
 
-        // Listen for "Q" key press to exit UI mode
         if (isUIActive && Input.GetKeyDown(KeyCode.Q))
         {
             ExitUIMode();
         }
     }
 
-    public void OnHover(int folderIndex)
+    public void OnHover()
     {
-        if (!isMoving)
+        if (isMoving) return; // Prevent multiple animations from starting
+
+        Debug.Log($"Hovering: Moving {folder.name}");
+
+        // Ensure the previous active folder hides before activating a new one
+        if (activeFolder != null && activeFolder != this)
         {
-            // Ensure previous active folder is hidden before switching
-            if (activeFolder != null && activeFolder != this)
-            {
-                activeFolder.HideAllFolders();
-            }
-
-            // Set this as the active folder
-            activeFolder = this;
-
-            // Determine which folder to show
-            switch (folderIndex)
-            {
-                case 1: currentFolder = folder1; break;
-                case 2: currentFolder = folder2; break;
-                case 3: currentFolder = folder3; break;
-                case 4: currentFolder = folder4; break;
-            }
-
-            if (currentFolder != null)
-            {
-                StartCoroutine(MoveFolder(currentFolder, endPosition.position, endPosition.rotation, true));
-            }
+            Debug.Log($"Hiding previous folder: {activeFolder.folder.name}");
+            activeFolder.HideFolder();
         }
+
+        activeFolder = this; // Set this as the new active folder
+
+        StartCoroutine(MoveFolder(folder, endPosition.position, endPosition.rotation, true));
 
         isHovered = true;
     }
 
     public void OnLookAway()
     {
+        if (!isHovered) return; // Prevent redundant calls
+
         isHovered = false;
 
-        if (!isMoving && currentFolder != null)
+        if (!isMoving)
         {
-            StartCoroutine(MoveFolder(currentFolder, startPosition.position, startPosition.rotation, false));
+            Debug.Log($"Hiding {folder.name} with movement");
+            StartCoroutine(MoveFolder(folder, startPosition.position, startPosition.rotation, false));
         }
 
         if (isUIActive)
@@ -113,36 +96,44 @@ public class AdminFolder : MonoBehaviour
         }
     }
 
-    private void HideAllFolders()
+    private void HideFolder()
     {
-        if (folder1 != null) folder1.SetActive(false);
-        if (folder2 != null) folder2.SetActive(false);
-        if (folder3 != null) folder3.SetActive(false);
-        if (folder4 != null) folder4.SetActive(false);
+        if (folder != null && folder.activeSelf)
+        {
+            StartCoroutine(MoveFolder(folder, startPosition.position, startPosition.rotation, false));
+        }
+
+        if (isUIActive)
+        {
+            ExitUIMode();
+        }
     }
 
     private void ActivateUI()
     {
         if (!isUIActive)
         {
+            Debug.Log($"Activating UI for {folder.name}");
+
             if (uiMainFolder != null) uiMainFolder.SetActive(true);
             if (uiSubFolder != null) uiSubFolder.SetActive(true);
 
             HideUIElements();
             DisablePlayerControl();
-
             isUIActive = true;
         }
     }
 
     public void ExitUIMode()
     {
+        Debug.Log("Exiting UI Mode - Hiding all UI panels");
+
         if (uiSubFolder != null) uiSubFolder.SetActive(false);
         if (uiMainFolder != null) uiMainFolder.SetActive(false);
 
-        if (currentFolder != null)
+        if (folder != null && folder.activeSelf)
         {
-            StartCoroutine(MoveFolder(currentFolder, startPosition.position, startPosition.rotation, false));
+            StartCoroutine(MoveFolder(folder, startPosition.position, startPosition.rotation, false));
         }
 
         ShowUIElements();
@@ -177,7 +168,7 @@ public class AdminFolder : MonoBehaviour
 
         if (!show)
         {
-            folder.SetActive(false);
+            Debug.Log($"Hiding {folder.name} after movement complete.");
         }
 
         isMoving = false;

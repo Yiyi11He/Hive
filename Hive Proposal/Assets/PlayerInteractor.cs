@@ -60,8 +60,15 @@ public class PlayerInteractor : MonoBehaviour
             if (adminFolder != null)
             {
                 Debug.Log($"Raycast hit AdminFolder: {hitObject.name}");
-                adminFolder.OnHover(1); // Modify folder index as needed
+                adminFolder.OnHover(); 
             }
+
+            UIHoverControl uiControl = hitObject.GetComponent<UIHoverControl>();
+            if (uiControl != null)
+            {
+                uiControl.OnHover();
+            }
+
 
             if (hitObject != previousHover)
             {
@@ -81,6 +88,12 @@ public class PlayerInteractor : MonoBehaviour
                     if (previousAdminFolder != null)
                     {
                         previousAdminFolder.OnLookAway();
+                    }
+
+                    UIHoverControl previousUI = previousHover.GetComponent<UIHoverControl>();
+                    if (previousUI != null)
+                    {
+                        previousUI.OnLookAway();
                     }
 
                     DisableUI(previousHover);
@@ -107,6 +120,12 @@ public class PlayerInteractor : MonoBehaviour
             if (previousAdminFolder != null)
             {
                 previousAdminFolder.OnLookAway();
+            }
+
+            UIHoverControl previousUI = previousHover.GetComponent<UIHoverControl>();
+            if (previousUI != null)
+            {
+                previousUI.OnLookAway();
             }
 
             DisableUI(previousHover);
