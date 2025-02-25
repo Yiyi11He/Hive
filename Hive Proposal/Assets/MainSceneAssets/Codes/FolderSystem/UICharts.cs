@@ -41,22 +41,24 @@ public class UICharts : MonoBehaviour
     private void UpdateUnlockedPages()
     {
         int currentQuestIndex = questGiver.GetCurrentQuestIndex();
-        availablePages.Clear();
+
+        QuestPageUnlock lastValidUnlock = null;
 
         foreach (var unlockEntry in questPageUnlocks)
         {
             if (unlockEntry.questIndex <= currentQuestIndex)
             {
-                foreach (GameObject page in unlockEntry.pagesToUnlock)
-                {
-                    if (!availablePages.Contains(page))
-                    {
-                        availablePages.Add(page);
-                    }
-                }
+                lastValidUnlock = unlockEntry; 
             }
         }
+
+        if (lastValidUnlock != null)
+        {
+            availablePages = new List<GameObject>(lastValidUnlock.pagesToUnlock);
+        }
     }
+
+
 
     private void SetFirstAvailablePage()
     {
@@ -109,4 +111,14 @@ public class UICharts : MonoBehaviour
         UpdatePage();
         UpdateButtonState();
     }
+    public int GetCurrentPageIndex()
+    {
+        return currentPageIndex;
+    }
+
+    public int GetLastPageIndex()
+    {
+        return availablePages.Count - 1;
+    }
 }
+

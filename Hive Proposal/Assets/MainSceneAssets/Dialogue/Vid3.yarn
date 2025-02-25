@@ -1,20 +1,147 @@
-﻿
-title: Vid3
-position: -35,-175
+﻿title: Vid3
+position: -41,-1265
 ---
 <<open_quest QuestGiver 15>>
-//number slider? or enter value between a number
-//students need to answer all of these, use jump for each option (create node - link number).
-Dr.Barton: What are the results showing? //add text entries
--> HbA1C levels- what number?
--> White cell count levels- What number?
--> CRP- what number?
--> Blood glucose levels- Latest number?​
+<<declare $playerResponse = 0>>
+<<set $current_quiz_score = 0>>
+Dr.Barton: What are the results showing?
+-> HbA1C levels - what number?
+    <<InputFieldActive "InputNumber">>
+    <<stop>>
 
+===
+title: HbNumberResponse
+position: 184,-1271
+---
+<<if $playerResponse >= 8.0 and $playerResponse <= 9.0>>
+    Dr.Barton: You are right, please continue.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>  
+<<else>>
+    Dr.Barton: That's not correct, minus 1 point for you.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>    
+<<endif>>
+<<jump WhiteNumberQuestion>>
+
+===
+title: WhiteNumberQuestion
+position: -40,-1100
+---
+<<set $playerResponse = 0>>
+Dr.Barton: What are the results showing?
+-> White cell count levels - What number?
+    <<InputFieldActive "InputNumber">>
+    <<stop>>
+
+
+===
+title: WhiteNumberResponse
+position: 194,-1100
+---
+<<if $playerResponse >= 15.0 and $playerResponse <= 16.0>>
+    Dr.Barton: You are right, please continue.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>  
+<<else>>
+    Dr.Barton: Incorrect, minus 1 point for you.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>    
+<<endif>>
+<<jump CRPNumberQuestion>>
+
+===
+title: CRPNumberQuestion
+position: -38,-934
+---
+<<set $playerResponse = 0>>
+Dr.Barton: What are the results showing?
+-> CRP - what number?
+    <<InputFieldActive "InputNumber">>
+    <<stop>>
+
+===
+title: CRPNumberResponse
+position: 199,-934
+---
+<<if $playerResponse >= 170.0 and $playerResponse <= 190.0>>
+    Dr.Barton: You are right, please continue.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>  
+<<else>>
+    Dr.Barton: Incorrect, minus 1 point for you.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>    
+<<endif>>
+<<jump BloodGlucoseNumberQuestion>>
+
+
+
+===
+title: BloodGlucoseNumberQuestion
+position: -36,-775
+---
+<<set $playerResponse = 0>>
+Dr.Barton: What are the results showing?
+-> Blood glucose levels - Latest number?​
+    <<InputFieldActive "InputNumber">>
+    <<stop>>
+
+===
+title: BloodGlucoseNumberResponse
+position: 200,-776
+---
+<<if $playerResponse >= 15.0 and $playerResponse <= 16.0>>
+    Dr.Barton: You are right, please continue.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>  
+<<else>>
+    Dr.Barton: Incorrect, minus 1 point for you.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>    
+<<endif>>
+
+<<jump ConcludeNumber>>
+
+===
+title: ConcludeNumber
+position: -34,-587
+---
+<<if $current_quiz_score == 4>>
+    Dr.Barton: You have an excellent memory!
+<<else>>
+    Dr.Barton: I expected more from you.
+<<endif>>
+
+<<jump InsulinDoseNumber>>
+
+===
+title: InsulinDoseNumber
+position: -37,-411
+---
+<<set $playerResponse = 0>>
 Dr.Barton: I am thinking of starting insulin. What dose should we start?
--> Insulin glulisine (Apidra)
+-> Insulin glulisine (Apidra) - units
+    <<InputFieldActive "InputNumber">>
+    <<stop>>
 
 
+===
+title: InsulinDoseNumberResponse
+position: -34,-248
+---
+<<if $playerResponse >= 5.0 and $playerResponse <= 7.0>>
+    Dr.Barton: Great!
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>  
+<<else>>
+    Dr.Barton: Incorrect, minus 1 point for you.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>    
+<<endif>>
+
+
+Dr.Barton: What should we do about her diabetic medications?
 <<declare $currentDose = false>>
 <<declare $ReduceDose = false>>
 <<declare $GliclazideStop = false>>
@@ -24,18 +151,18 @@ Dr.Barton: I am thinking of starting insulin. What dose should we start?
 title: DiabeticMed
 position: -36,68
 ---
-<<declare $current_quiz_score = 0>>
-Dr.Barton: What should we do about her diabetic medications?
+<<set $current_quiz_score = 0>>
+
 -> Continue with current dose - {$currentDose}
-<<jump current1>>
+    <<jump current1>>
 -> Reduce the doses for both gliclazide and metformin - {$ReduceDose}
-<<jump reduce1>>
+    <<jump reduce1>>
 -> Stop Gliclazide and continue with metformin - {$GliclazideStop}
-<<jump gliclaz1>>
+    <<jump gliclaz1>>
 -> Stop both medications - {$StopBoth}
-<<jump Stop1>>
+    <<jump Stop1>>
 -> Submit
-<<jump submitDiabetic>>
+    <<jump submitDiabetic>>
 
 
 
@@ -112,23 +239,18 @@ Dr.Barton: Review the results before we see the patient okay?
     <<stop>>
 -> I think that is the intern’s job.
     Dr.Barton: I see. What is your name again?
-        -> [Name] //also minus points in game (how much?)
-            <<add_score ScoreTimerInteractVideo -1>>
-            Dr.Barton: Thanks , I will note it down as a red flag for professionalism.
-            <<complete_quest QuestGiver 15>>
-            <<stop>>
-===
-title: Day1Afternoon
-position: 657,576
----
-//Quote this from Dictionary again. Students need to check results before reaching this node, or they can keep engaging this conversation.
-Dr.Barton: I am thinking of starting insulin. What dose should we start?
--> Insulin gluisine- what number?​ //use jumps and submits
--> Insulin glargine- what number?​
+    <<declare $playerName = "">>
+    <<StringInput "InputNumber">>
+    <<stop>>
 
-Dr.Barton: What should we do about her diabetic medications?
--> Continue with current dose​
--> Reduce the doses for both gliclazide and metformin​
--> Stop Gliclazide and continue with metformin​
--> Stop both medications​
+
+===
+
+title: NaughtyAnswer
+position: -28,578
+---
+<<add_score ScoreTimerInteractVideo -1>>
+Dr.Barton: Thanks , I will note it down as a red flag for professionalism.
+<<complete_quest QuestGiver 15>>
+<<stop>>
 ===

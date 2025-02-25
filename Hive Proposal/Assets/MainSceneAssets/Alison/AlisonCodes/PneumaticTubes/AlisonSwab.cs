@@ -14,6 +14,10 @@ public class AlisonSwab : MonoBehaviour
     [Header("Swab Cameras and Targets")]
     [SerializeField] private List<SwabAction> swabActions;
 
+    [Header("Disable Objects on Camera Swap")]
+    [SerializeField] private GameObject disableOnCameraSwap1; // First object to disable
+    [SerializeField] private GameObject disableOnCameraSwap2; // Second object to disable
+
     private bool interacting = false;
     private int currentSwabIndex = 0;
     [SerializeField] private int penaltyScore = -5;
@@ -99,6 +103,14 @@ public class AlisonSwab : MonoBehaviour
     {
         playerMainCamera.SetActive(false);
 
+        // Disable both objects when switching to swab camera
+
+        disableOnCameraSwap1.SetActive(false);
+
+
+        disableOnCameraSwap2.SetActive(false);
+
+
         foreach (var swabAction in swabActions)
         {
             swabAction.swabCamera.SetActive(false);
@@ -132,6 +144,10 @@ public class AlisonSwab : MonoBehaviour
     {
         interacting = false;
         playerMainCamera.SetActive(true);
+
+
+        disableOnCameraSwap1.SetActive(true);
+        disableOnCameraSwap2.SetActive(true);
 
         foreach (var swabAction in swabActions)
         {

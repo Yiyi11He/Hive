@@ -27,20 +27,15 @@ public class QuestGiver : MonoBehaviour
     private int currentQuestIndex = 0;
 
 
-
     private void Awake()
-    {
-        OnQuestIndexChanged = new UnityEvent<int>();
-        OpenQuestByIndex(0);
-    }
+{
+    OnQuestIndexChanged = new UnityEvent<int>();
 
-    private void Update()
-    {
-        if (debugMode)
-        {
-            DebugSetQuestToZero();
-        }
-    }
+    // Set the initial quest index only ONCE
+    currentQuestIndex = debugMode ? debugQuestIndex : 0;
+    OpenQuestByIndex(currentQuestIndex);
+}
+
 
     public int GetCurrentQuestIndex()
     {

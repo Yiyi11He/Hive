@@ -27,7 +27,6 @@ public class ImageChoice : MonoBehaviour
     }
     void Update()
     {
-        // Ensure cursor visibility when image choice is active
         if (isImageChoiceActive)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -56,10 +55,6 @@ public class ImageChoice : MonoBehaviour
                 variableStorage.SetValue(variableName, false); // Set all variables to false initially
                 Debug.Log($"{variableName} initialised to false.");
             }
-        }
-        else
-        {
-            Debug.LogError("VariableStorage is not assigned!");
         }
     }
 
@@ -98,12 +93,6 @@ public class ImageChoice : MonoBehaviour
 
     public void SubmitChoicesToDialogue()
     {
-        if (dialogueRunner == null)
-        {
-            Debug.LogError("DialogueRunner is not assigned!");
-            return;
-        }
-
         // Stop any running dialogue
         if (dialogueRunner.IsDialogueRunning)
         {

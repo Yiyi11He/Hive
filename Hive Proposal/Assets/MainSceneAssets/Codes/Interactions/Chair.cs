@@ -7,7 +7,6 @@ public class Chair : MonoBehaviour
     public GameObject playerStanding;
     public GameObject playerSitting;
     public GameObject intText;
-    public GameObject standText;
     public GameObject switchView;
 
     [Header("Camera Settings")]
@@ -65,7 +64,6 @@ public class Chair : MonoBehaviour
     private void SitDown()
     {
         intText.SetActive(false);
-        standText.SetActive(true);
         playerSitting.SetActive(true);
         playerStanding.SetActive(false);
         switchView.SetActive(true);
@@ -91,7 +89,6 @@ public class Chair : MonoBehaviour
     private void StandUp()
     {
         playerSitting.SetActive(false);
-        standText.SetActive(false);
         playerStanding.SetActive(true);
         switchView.SetActive(false);
         sitting = false;

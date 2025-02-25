@@ -1,43 +1,45 @@
 using UnityEngine;
+using System;
 
 public class PneumaticTube : MonoBehaviour
 {
     [Header("Spawn Settings")]
-    [SerializeField] private Transform spawnPoint;    // The spawn point relative to the player's camera
-    [SerializeField] private GameObject tubePrefab;   // The Pneumatic Tube prefab to instantiate
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject tubePrefab;
+    [SerializeField] private PneumaticListener listener; // Reference to the listener
 
     private GameObject currentTube;
-    public bool HasTube { get; private set; } = false;  // Tracks if the player has the tube
+    public bool HasTube { get; private set; } = false;
 
-    // Call this method to give the player the Pneumatic Tube
+    public event Action OnTubeGiven;
+    public event Action OnTubeUsed;
+
     public void GiveTube(Transform playerCameraTransform)
     {
-        if (tubePrefab != null && spawnPoint != null)
+        if (currentTube)
+            Destroy(currentTube);
+
+        currentTube = Instantiate(tubePrefab, spawnPoint.position, spawnPoint.rotation, playerCameraTransform);
+        currentTube.SetActive(true);
+        HasTube = true;
+
+        PneumaticTube newTubeScript = currentTube.GetComponent<PneumaticTube>();
+
+        PneumaticListener listener = FindObjectOfType<PneumaticListener>(); // Find the listener in the scene
+        if (listener != null)
         {
-            if (currentTube != null)
-            {
-                Destroy(currentTube);
-            }
-
-            // Instantiate the Pneumatic Tube at the specified spawn point relative to the player's camera
-            currentTube = Instantiate(tubePrefab, spawnPoint.position, spawnPoint.rotation, playerCameraTransform);
-            currentTube.SetActive(true);
-
-            HasTube = true;
-            Debug.Log("Pneumatic Tube given to the player.");
+            listener.SetPneumaticTube(newTubeScript); // Dynamically update the reference
         }
+
+        OnTubeGiven?.Invoke();
     }
 
-    // Call this method to consume the tube (e.g., when the player uses it at the station)
+
     public void UseTube()
     {
-        if (currentTube != null)
-        {
-            Destroy(currentTube);
-            currentTube = null;
-        }
-
+        Destroy(currentTube);
         HasTube = false;
-        Debug.Log("Pneumatic Tube used.");
+
+        OnTubeUsed?.Invoke();
     }
 }
