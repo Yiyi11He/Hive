@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,22 +8,25 @@ public class VideoDoor : MonoBehaviour
     [System.Serializable]
     public class VideoQuestMapping
     {
-        public GameObject videoPlayer;      // The Video Player GameObject
-        public int requiredQuestIndex;      // Quest index needed to trigger this video
+        public GameObject videoPlayer;
+        public int requiredQuestIndex;
     }
 
     [Header("Video Configs")]
-    [SerializeField] public List<VideoQuestMapping> videoQuestMappings; // Multiple mappings for quest indices
-    public GameObject canvasElement;       // Canvas for the video
-    public RectTransform videoTransform;   // Zoom Effect
+    [SerializeField] public List<VideoQuestMapping> videoQuestMappings;
+    public GameObject canvasElement;
+    public RectTransform videoTransform;
     public float zoomDuration = 0.5f;
 
-    public QuestGiver questGiver;          // Reference to the quest system
+    public QuestGiver questGiver;
 
     private bool isPlayerNearby = false;
     private bool isPlaying = false;
     private VideoPlayer activeVideoPlayer = null;
     private bool isPaused = false;
+
+    public PlayerMovement playerController; // Reference to Player Controller
+    public MouseLook mouseLookScript;
 
     private void Start()
     {
@@ -33,12 +35,14 @@ public class VideoDoor : MonoBehaviour
             questGiver.OnQuestIndexChanged.AddListener(UpdateVideoForQuestIndex);
         }
 
-        // Ensure all videos are initially inactive
         foreach (var mapping in videoQuestMappings)
         {
             mapping.videoPlayer.SetActive(false);
         }
         canvasElement.SetActive(false);
+
+        playerController = FindObjectOfType<PlayerMovement>();
+        mouseLookScript = FindObjectOfType<MouseLook>();
     }
 
     private void Update()
@@ -46,16 +50,12 @@ public class VideoDoor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
-            {
                 ResumeGame();
-            }
             else
-            {
                 PauseGame();
-            }
         }
 
-        if (!isPaused && isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // Player presses E to interact
+        if (!isPaused && isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
             int currentQuestIndex = questGiver.GetCurrentQuestIndex();
             VideoQuestMapping mapping = FindMappingForQuest(currentQuestIndex);
@@ -77,7 +77,6 @@ public class VideoDoor : MonoBehaviour
         if (other.CompareTag("MainCamera"))
         {
             isPlayerNearby = true;
-
         }
     }
 
@@ -98,7 +97,7 @@ public class VideoDoor : MonoBehaviour
                 activeVideoPlayer = mapping.videoPlayer.GetComponent<VideoPlayer>();
                 mapping.videoPlayer.SetActive(true);
             }
-            else
+            else if (mapping.videoPlayer != activeVideoPlayer)
             {
                 mapping.videoPlayer.SetActive(false);
             }
@@ -121,17 +120,17 @@ public class VideoDoor : MonoBehaviour
     {
         if (isPlaying || mapping.videoPlayer == null) return;
 
+        mapping.videoPlayer.SetActive(true);
         VideoPlayer videoPlayer = mapping.videoPlayer.GetComponent<VideoPlayer>();
-        if (videoPlayer == null)
-        {
-            return;
-        }
+        if (videoPlayer == null) return;
 
         videoTransform.gameObject.SetActive(true);
         canvasElement.SetActive(true);
         videoPlayer.Play();
         isPlaying = true;
         activeVideoPlayer = videoPlayer;
+
+        DisablePlayerControls();
 
         StartCoroutine(ZoomVideo());
         StartCoroutine(WaitForVideoToEnd(videoPlayer));
@@ -163,6 +162,8 @@ public class VideoDoor : MonoBehaviour
         videoTransform.gameObject.SetActive(false);
         canvasElement.SetActive(false);
         isPlaying = false;
+
+        EnablePlayerControls();
 
         if (questGiver != null)
         {
@@ -198,7 +199,6 @@ public class VideoDoor : MonoBehaviour
             activeVideoPlayer.Pause();
         }
 
-        // Ensure VideoDoor remains active during pause
         this.enabled = true;
     }
 
@@ -210,5 +210,23 @@ public class VideoDoor : MonoBehaviour
         {
             activeVideoPlayer.Play();
         }
+    }
+
+    private void DisablePlayerControls()
+    {
+        if (playerController != null)
+            playerController.enabled = false; 
+
+        if (mouseLookScript != null)
+            mouseLookScript.enabled = false; 
+    }
+
+    private void EnablePlayerControls()
+    {
+        if (playerController != null)
+            playerController.enabled = true; 
+
+        if (mouseLookScript != null)
+            mouseLookScript.enabled = true; 
     }
 }

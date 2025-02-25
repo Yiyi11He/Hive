@@ -16,7 +16,7 @@ title: afterVideo1
 tags:
 position: -5,-1533
 ---
-<<open_quest QuestGiver 3>>
+<<open_quest QuestGiver 2>>
 Dr.Barton: What do you think about the wound?​ 
 
 <<declare $Infected = false>>
@@ -707,7 +707,7 @@ position: -259,993
     Dr.Barton: Good effort, but there are key considerations for antibiotic selection that you may have missed.
 <<endif>>
 
-<<complete_quest QuestGiver 3>>
+<<complete_quest QuestGiver 2>>
 <<stop>>
 ===
 title: Fluclo4

@@ -21,9 +21,9 @@ public class DoctorInteractable : MonoBehaviour
         { 0, "Video1" },
         { 2, "afterVideo1" },
         { 4, "Vid2" },
-        { 15, "Vid3" },
-        { 17, "Day1Afternoon" }, // This quest is actually continued from the last one, find a way to avoid opening another quest.
-        { 21, "Day3" }
+        { 14, "Vid3" },
+        { 25, "Day1Afternoon" }, // This quest is actually continued from the last one, find a way to avoid opening another quest.
+        { 29, "Day3" }
     };
 
     private void Awake()

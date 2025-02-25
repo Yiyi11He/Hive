@@ -1,7 +1,7 @@
 ﻿title: Vid3
 position: -41,-1265
 ---
-<<open_quest QuestGiver 15>>
+<<open_quest QuestGiver 14>>
 <<declare $playerResponse = 0>>
 <<set $current_quiz_score = 0>>
 Dr.Barton: What are the results showing?
@@ -226,21 +226,21 @@ position: 263,269
 title: SeeIn2Days
 position: -25,415
 ---
-Dr.Barton: We will see the patient together again in 2 days​.
+Dr.Barton: We will see the patient together again tomorrow​.
 Dr.Barton: Could you repeat the blood tests again and send them off.​
 Dr.Barton: Review the results before we see the patient okay?
 -> I will review the results.
     Dr.Barton: Thanks. See you tomorrow.
-    <<complete_quest QuestGiver 15>>
+    <<complete_quest QuestGiver 14>>
     <<stop>>
 -> That depends on when i come to the hospital.
     Dr.Barton: Well, come early then. See you tomorrow.
-    <<complete_quest QuestGiver 15>>
+    <<complete_quest QuestGiver 14>>
     <<stop>>
 -> I think that is the intern’s job.
     Dr.Barton: I see. What is your name again?
     <<declare $playerName = "">>
-    <<StringInput "InputNumber">>
+    <<StringInput "InputString">>
     <<stop>>
 
 
@@ -251,6 +251,6 @@ position: -28,578
 ---
 <<add_score ScoreTimerInteractVideo -1>>
 Dr.Barton: Thanks , I will note it down as a red flag for professionalism.
-<<complete_quest QuestGiver 15>>
+<<complete_quest QuestGiver 14>>
 <<stop>>
 ===

@@ -25,7 +25,6 @@ public class PlayerInputHandler : MonoBehaviour
     private void Start()
     {
         inputCanvas.SetActive(false);
-        submitButton.gameObject.SetActive(false);
         submitButton.onClick.AddListener(SubmitInput);
     }
 
@@ -44,7 +43,6 @@ public class PlayerInputHandler : MonoBehaviour
     public void ShowInputField()
     {
         inputCanvas.SetActive(true);
-        submitButton.gameObject.SetActive(true);
         inputField.text = "";
         inputField.ActivateInputField();
         InputHandlerActive = true;
@@ -56,7 +54,7 @@ public class PlayerInputHandler : MonoBehaviour
         {
             variableStorage.SetValue("$playerResponse", playerResponse);
             inputCanvas.SetActive(false);
-            submitButton.gameObject.SetActive(false);
+            submitButton.interactable = false;
             StartCoroutine(StartNextDialogue());
         }
     }
@@ -82,6 +80,6 @@ public class PlayerInputHandler : MonoBehaviour
             Debug.Log("No more responses left. Dialogue has concluded.");
 
         currentNodeIndex++;
-        submitButton.gameObject.SetActive(true);
+        submitButton.interactable = true;
     }
 }
