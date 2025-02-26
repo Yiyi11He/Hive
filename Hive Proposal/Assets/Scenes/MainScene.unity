@@ -29094,7 +29094,7 @@ MonoBehaviour:
   - videoPlayer: {fileID: 1991048156}
     requiredQuestIndex: 3
   - videoPlayer: {fileID: 6613954}
-    requiredQuestIndex: 15
+    requiredQuestIndex: 14
   - videoPlayer: {fileID: 998213135}
     requiredQuestIndex: 27
   - videoPlayer: {fileID: 1770291511}
@@ -30844,7 +30844,7 @@ MonoBehaviour:
     targetArea: {fileID: 1925075148}
     swabCamera: {fileID: 1642068336}
     incorrectSwabIndicator: {fileID: 1448408144}
-    requiredQuestIndex: 16
+    requiredQuestIndex: 15
   disableOnCameraSwap1: {fileID: 729157926}
   disableOnCameraSwap2: {fileID: 984340531}
   penaltyScore: -5
@@ -48505,7 +48505,7 @@ MonoBehaviour:
   sceneOutroAnimator: {fileID: 28399255}
   outroTriggerName: SceneOutro_Day1
   questGiver: {fileID: 1888210411}
-  requiredQuestIndex: 18
+  requiredQuestIndex: 17
 --- !u!95 &1384148674
 Animator:
   serializedVersion: 5
@@ -50447,8 +50447,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445580033}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9930494, z: -0, w: -0.11769903}
-  m_LocalPosition: {x: 8.37, y: 0.79, z: 6}
+  m_LocalRotation: {x: -0, y: -0.9989949, z: -0, w: 0.044824813}
+  m_LocalPosition: {x: -1.47, y: 0.79, z: 12.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50457,7 +50457,7 @@ Transform:
   - {fileID: 1627737407}
   - {fileID: 2030779886}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -193.519, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -174.862, z: 0}
 --- !u!114 &1445580036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63530,14 +63530,6 @@ MonoBehaviour:
       RequiredAction: {fileID: 1707947676}
       CurrentAction: 0
   - isActive: 1
-    title: Check on the patient
-    description: Go to the patient room
-    Score: 1
-    goals:
-    - goalType: 7
-      RequiredAction: {fileID: 6458574066385386863}
-      CurrentAction: 0
-  - isActive: 1
     title: Find Dr Barton
     description: Dr Barton has some questions for you
     Score: 1
@@ -63546,7 +63538,7 @@ MonoBehaviour:
       RequiredAction: {fileID: 1410955817}
       CurrentAction: 0
   - isActive: 1
-    title: Check on the Patient
+    title: Check on the Patient - Vid 3
     description: Accompany Dr Barton to the patient room
     Score: 2
     goals:
