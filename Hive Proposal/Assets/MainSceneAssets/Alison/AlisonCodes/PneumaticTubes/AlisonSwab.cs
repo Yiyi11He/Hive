@@ -49,6 +49,9 @@ public class AlisonSwab : MonoBehaviour
             swabActions[currentSwabIndex].targetArea.SetActive(true);
             SwitchToSwabCamera();
             interacting = true;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
@@ -144,6 +147,9 @@ public class AlisonSwab : MonoBehaviour
     {
         interacting = false;
         playerMainCamera.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
 
         disableOnCameraSwap1.SetActive(true);

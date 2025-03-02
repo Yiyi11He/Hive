@@ -69,6 +69,8 @@ public class Chair : MonoBehaviour
         switchView.SetActive(true);
         sitting = true;
         interactable = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         if (targetCamera != null)
         {
@@ -92,6 +94,8 @@ public class Chair : MonoBehaviour
         playerStanding.SetActive(true);
         switchView.SetActive(false);
         sitting = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         if (targetCamera != null)
         {

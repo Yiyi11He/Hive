@@ -21,16 +21,24 @@ public class PlayerInputHandler : MonoBehaviour
     private float playerResponse;
     private bool InputHandlerActive = false;
     private int currentNodeIndex = 0;
+    private bool isStartingDialogue = false;
+    private bool isInputActive = false;
 
     private void Start()
     {
         inputCanvas.SetActive(false);
         submitButton.onClick.AddListener(SubmitInput);
+        dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
+    }
+
+    private void OnDestroy()
+    {
+        dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueComplete);
     }
 
     private void Update()
     {
-        if (InputHandlerActive)
+        if (InputHandlerActive || isInputActive)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -46,23 +54,38 @@ public class PlayerInputHandler : MonoBehaviour
         inputField.text = "";
         inputField.ActivateInputField();
         InputHandlerActive = true;
+        isInputActive = true;
     }
 
     public void SubmitInput()
     {
         if (float.TryParse(inputField.text, out playerResponse))
         {
+            if (isStartingDialogue) return;
+
+            submitButton.interactable = false;
+            isStartingDialogue = true;
+
             variableStorage.SetValue("$playerResponse", playerResponse);
             inputCanvas.SetActive(false);
-            submitButton.interactable = false;
+
+            isInputActive = false;
+
+            if (dialogueRunner.IsDialogueRunning)
+            {
+                dialogueRunner.Stop();
+            }
+
             StartCoroutine(StartNextDialogue());
         }
     }
 
     private IEnumerator StartNextDialogue()
     {
-        while (dialogueRunner.IsDialogueRunning || dialogueRunner.Dialogue.IsActive)
+        while (dialogueRunner.IsDialogueRunning)
+        {
             yield return null;
+        }
 
         yield return new WaitForSeconds(0.2f);
 
@@ -76,10 +99,22 @@ public class PlayerInputHandler : MonoBehaviour
             dialogueRunner.StartDialogue("BloodGlucoseNumberResponse");
         else if (currentNodeIndex == 4)
             dialogueRunner.StartDialogue("InsulinDoseNumberResponse");
-        else
-            Debug.Log("No more responses left. Dialogue has concluded.");
 
         currentNodeIndex++;
+
         submitButton.interactable = true;
+        isStartingDialogue = false;
+    }
+
+    private void OnDialogueComplete()
+    {
+        if (!isInputActive)
+        {
+            doctorCamera.SetActive(false);
+            playerMainCamera.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            InputHandlerActive = false;
+        }
     }
 }

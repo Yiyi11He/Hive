@@ -52,8 +52,7 @@ public class ImageChoice : MonoBehaviour
         {
             foreach (string variableName in yarnVariableNames)
             {
-                variableStorage.SetValue(variableName, false); // Set all variables to false initially
-                Debug.Log($"{variableName} initialised to false.");
+                variableStorage.SetValue(variableName, false); 
             }
         }
     }

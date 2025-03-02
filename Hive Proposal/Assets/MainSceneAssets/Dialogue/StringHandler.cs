@@ -20,17 +20,26 @@ public class StringHandler : MonoBehaviour
 
     private string playerInput;
     private bool InputHandlerActive = false;
+    private bool isStartingDialogue = false;
+    private bool isInputActive = false; // ? Tracks if input is currently being processed
 
     private void Start()
     {
         inputCanvas.SetActive(false);
         submitButton.gameObject.SetActive(false);
         submitButton.onClick.AddListener(SubmitInput);
+
+        dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
+    }
+
+    private void OnDestroy()
+    {
+        dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueComplete);
     }
 
     private void Update()
     {
-        if (InputHandlerActive)
+        if (InputHandlerActive || isInputActive) // ? Keep doctor camera active during input
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -43,18 +52,24 @@ public class StringHandler : MonoBehaviour
     public void ShowInputField()
     {
         inputCanvas.SetActive(true);
-        submitButton.gameObject.SetActive(true); 
+        submitButton.gameObject.SetActive(true);
         inputField.text = "";
         inputField.ActivateInputField();
         InputHandlerActive = true;
+        isInputActive = true; // ? Track that input is currently active
     }
 
     public void SubmitInput()
     {
+        if (isStartingDialogue) return;
+
         playerInput = inputField.text;
         variableStorage.SetValue("$playerName", playerInput);
         inputCanvas.SetActive(false);
-        submitButton.gameObject.SetActive(false); 
+        submitButton.gameObject.SetActive(false);
+
+        isStartingDialogue = true;
+        isInputActive = false; // ? Mark input as completed
         StartCoroutine(StartNextDialogue());
     }
 
@@ -65,8 +80,22 @@ public class StringHandler : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
 
-        dialogueRunner.StartDialogue("NaughtyAnswer");
+        if (!dialogueRunner.IsDialogueRunning)
+            dialogueRunner.StartDialogue("NaughtyAnswer");
 
-        submitButton.gameObject.SetActive(true); 
+        submitButton.gameObject.SetActive(true);
+        isStartingDialogue = false;
+    }
+
+    private void OnDialogueComplete()
+    {
+        if (!isInputActive) // ? Only unlock after input is completely finished
+        {
+            doctorCamera.SetActive(false);
+            playerMainCamera.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            InputHandlerActive = false;
+        }
     }
 }

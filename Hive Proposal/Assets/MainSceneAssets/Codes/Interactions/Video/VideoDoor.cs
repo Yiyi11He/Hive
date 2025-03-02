@@ -227,6 +227,8 @@ public class VideoDoor : MonoBehaviour
             playerController.enabled = true; 
 
         if (mouseLookScript != null)
-            mouseLookScript.enabled = true; 
+            mouseLookScript.enabled = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

@@ -22,6 +22,7 @@ public class DoctorInteractable : MonoBehaviour
         { 2, "afterVideo1" },
         { 4, "Vid2" },
         { 13, "Vid3" },
+        //{13, "SeeIn2Days" },
         { 25, "Day1Afternoon" }, // This quest is actually continued from the last one, find a way to avoid opening another quest.
         { 29, "Day3" }
     };
@@ -40,20 +41,28 @@ public class DoctorInteractable : MonoBehaviour
         if (questDialogueMapping.ContainsKey(currentQuestNumber))
         {
             string dialogueNode = questDialogueMapping[currentQuestNumber];
-            dialogueRunner.StartDialogue(dialogueNode);
 
-            Debug.Log($"Starting dialogue node: {dialogueNode}");
+            if (!dialogueRunner.IsDialogueRunning)
+            {
+                dialogueRunner.StartDialogue(dialogueNode);
 
-            // Switch to the doctor's camera
-            playerMainCamera.SetActive(false);
-            doctorCamera.SetActive(true);
+                playerMainCamera.SetActive(false);
+                doctorCamera.SetActive(true);
 
-            questUI.SetActive(false);
+                questUI.SetActive(false);
 
-            interacting = true;
-            dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
+                interacting = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
+            }
+            else
+            {
+                Debug.LogWarning("Dialogue already running, ignoring duplicate start.");
+            }
         }
     }
+
 
     private void OnDestroy()
     {
@@ -74,6 +83,9 @@ public class DoctorInteractable : MonoBehaviour
 
         // Disable further interactions for this quest
         this.enabled = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void EndInteraction()
@@ -82,6 +94,9 @@ public class DoctorInteractable : MonoBehaviour
         doctorCamera.SetActive(false);
         interacting = false;
         questUI.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private int GetCurrentQuestIndex()
