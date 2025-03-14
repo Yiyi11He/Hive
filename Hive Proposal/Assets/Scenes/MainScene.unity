@@ -11379,7 +11379,7 @@ MonoBehaviour:
   - questIndex: 0
     pagesToUnlock:
     - {fileID: 2146839282}
-  - questIndex: 14
+  - questIndex: 9
     pagesToUnlock:
     - {fileID: 851321511}
   - questIndex: 20
@@ -23456,6 +23456,7 @@ GameObject:
   - component: {fileID: 614527192}
   - component: {fileID: 614527193}
   - component: {fileID: 614527194}
+  - component: {fileID: 614527195}
   m_Layer: 7
   m_Name: CameraSitting
   m_TagString: Untagged
@@ -23599,6 +23600,18 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &614527195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614527186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7a494654abbbb449f0cdb6aa2ec80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &626049977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: daa24b13538ec8a40a0d32b5418a4584,
@@ -54098,6 +54111,7 @@ GameObject:
   - component: {fileID: 1572891985}
   - component: {fileID: 1572891984}
   - component: {fileID: 1572891983}
+  - component: {fileID: 1572891986}
   m_Layer: 0
   m_Name: AdminFolder
   m_TagString: Untagged
@@ -54188,6 +54202,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1572891986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572891981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7a494654abbbb449f0cdb6aa2ec80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1578561815
 GameObject:
   m_ObjectHideFlags: 0
@@ -60700,6 +60726,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1792815769}
+  - component: {fileID: 1792815770}
   m_Layer: 0
   m_Name: PatientFolder
   m_TagString: Untagged
@@ -60723,6 +60750,18 @@ Transform:
   - {fileID: 1581104450}
   m_Father: {fileID: 664713728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1792815770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792815768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7a494654abbbb449f0cdb6aa2ec80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1793025895
 GameObject:
   m_ObjectHideFlags: 0
@@ -63652,8 +63691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c7996e11c45df4e83f63f826ac8abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 0
-  debugQuestIndex: 18
+  debugMode: 1
+  debugQuestIndex: 5
   quests:
   - isActive: 1
     title: Find the Doctor
@@ -64825,7 +64864,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925075148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
