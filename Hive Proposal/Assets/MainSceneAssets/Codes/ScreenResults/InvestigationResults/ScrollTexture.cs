@@ -4,7 +4,7 @@ public class ScrollTexture : MonoBehaviour
 {
     public float scrollSpeed = 0.2f; // Adjust for desired scrolling speed
     private Renderer rend;
-    public float offset = 0.93f; // Start at the top of the UV
+    public float offset; // Start at the top of the UV
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class ScrollTexture : MonoBehaviour
 
         if (scroll != 0)
         {
-            // Reversed scroll direction
+
             offset += scroll * scrollSpeed;
             offset = Mathf.Clamp(offset, 0f, 0.93f);
             rend.material.mainTextureOffset = new Vector2(0, offset);
