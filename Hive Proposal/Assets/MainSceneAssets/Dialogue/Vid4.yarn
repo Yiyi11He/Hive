@@ -1,8 +1,8 @@
 title: Day3
-position: 112,198
+position: 65,-66
 ---
 //afterVid4
-<<open_quest QuestGiver #>>
+<<open_quest QuestGiver 19>>
 Dr.Barton: Have you check the results?​
 -> No
     Dr.Barton: I am starting to think if you want to be here.​
@@ -11,77 +11,201 @@ Dr.Barton: Have you check the results?​
     <<jump ResultsDay3>>
 ===
 title: ResultsDay3
-position: 108,328
+position: 61,101
 ---
-//set selections here to appear - dissapear.
-//if all responses are submitted, then jump AntibioticsDay3
+<<set $playerName = "">>
 
-Dr.Barton: What are the results showing?​
 
-<<ask_responses_xray Day3Test>>
-Dr.Barton: What are the results showing for the x-ray data?​
-<<evaluate_responses_xray Day3Test>>
+Dr.Barton: Describe the key findings from the x-ray results.​
+<<InputFieldActive "InputString">>
+<<stop>>
 
-//or just dr barton talking, grabing inputs under each.
--> Xray //select and words (gas under ulcer but no signs osteomyelitis)
-    <<jump XrayDay3>>
--> Culture //(mixed bacteria, E coli, bacteroides fragilis, clostridium perfringens, pseudomonas aeruginosa​)
-    <<jump CultureDay3>>
--> White cell count and CRP //(what number)
-    <<jump WCCDay3>>
 ===
 title: XrayDay3
-position: 439,547
+position: 288,99
 ---
-//Insert words here
+<<if $playerName is "gas" or $playerName is "ulcer" or $playerName is "osteomyelitis">>
+    Dr.Barton: Great
 
--> Submit responses
-    //kill option in ResultsDay3
-    <<jump ResultsDay3>>
+    <<if $playerName is "gas">>
+
+        <<add_score ScoreTimerInteractVideo 1>>
+    <<endif>>
+
+    <<if $playerName is "ulcer">>
+
+        <<add_score ScoreTimerInteractVideo 1>>
+    <<endif>>
+
+    <<if $playerName is "osteomyelitis">>
+
+        <<add_score ScoreTimerInteractVideo 1>>
+    <<endif>>
+    
+<<else>>
+    Dr.Barton: You need to work on your memory. 
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+    
+<<jump CultureDay3>>
 
 ===
 title: CultureDay3
-position: 433,407
+position: 63,247
 ---
-//Insert words here
+<<set $playerName = "">>
+Dr.Barton: Name the bacteria identified in the cultures. You may list multiple.
+<<InputFieldActive "InputString">>
+<<stop>>
 
--> Submit responses
-    //kill option in ResultsDay3
-    <<jump ResultsDay3>>
+===
+title: CultureResponse3
+position: 289,247
+---
+<<if $playerName is "mixed bacteria" or $playerName is "E coli" or $playerName is "bacteroides fragilis" or $playerName is "clostridium perfringens" or $playerName is "pseudomonas aeruginosa">>
+    Dr.Barton: Great
+    <<if $playerName is "mixed bacteria">>
+        <<add_score ScoreTimerInteractVideo 1>>
+    <<endif>>
+    
+    <<if $playerName is "E coli">>
+        <<add_score ScoreTimerInteractVideo 1>>
+    <<endif>>
+
+    <<if $playerName is "bacteroides fragilis">>
+        <<add_score ScoreTimerInteractVideo 1>>
+    <<endif>>
+
+    <<if $playerName is "clostridium perfringens">>
+        <<add_score ScoreTimerInteractVideo 1>>
+    <<endif>>
+
+    <<if $playerName is "pseudomonas aeruginosa">>
+        <<add_score ScoreTimerInteractVideo 1>>
+    <<endif>>
+<<else>>
+    Dr.Barton: I remember there were more cultures done. 
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+<<jump WCCDay3>>
+
 ===
 title: WCCDay3
-position: 429,265
+position: 63,395
 ---
-//Insert number here
+<<set $playerResponse = 0>>
+Dr.Barton: What are the results showing for the White cell count?​
+<<InputFieldActive "InputNumber">>
+<<stop>>
 
--> Submit responses
-    //kill option in ResultsDay3
-    <<jump ResultsDay3>>
+===
+title: WCCResponseDay3
+position: 287,392
+---
+<<if $playerResponse >= 15.0 and $playerResponse <= 16.0>>
+    Dr.Barton: You are quite right, please continue.
+    <<add_score ScoreTimerInteractVideo 1>>  
+<<else>>
+    Dr.Barton: That's not correct, minus 1 point for you.
+    <<add_score ScoreTimerInteractVideo -1>>    
+<<endif>>
+<<jump CRPDay3>>
+
+
+===
+title: CRPDay3
+position: 65,539
+---
+<<set $playerResponse = 0>>
+Dr.Barton: What are the results showing for the CRP?​
+<<InputFieldActive "InputNumber">>
+<<stop>>
+
+===
+
+title: CRPResponseDay3
+position: 289,544
+---
+<<if $playerResponse >= 160.0 and $playerResponse <= 170.0>>
+    Dr.Barton: Yes, that's right.
+    <<add_score ScoreTimerInteractVideo 1>>  
+<<else>>
+    Dr.Barton: That's not correct, minus 1 point for you.
+    <<add_score ScoreTimerInteractVideo -1>>    
+<<endif>>
+
+<<declare $ClindaDay3 = false>>
+<<declare $VancoDay3 = false>>
+<<declare $PDay3 = false>>
+<<declare $CarDay3 = false>>
+<<declare $CeftDay3 = false>>
+<<declare $Nochange3 = false>>
+<<jump AntibioticsDay3>>
+
+
 ===
 title: AntibioticsDay3
-position: 102,711
+position: 66,869
 ---
+
+<<set $current_quiz_score = 0>>
 Dr.Barton: What antibiotics should we change to?​
 
--> Clindamycin​
-
--> Vancomycin​
-
--> Piperacillin with tazobactam​
-
--> Carbapenem​
-
--> Ceftriaxone with metronidazole​
-
--> I do not think we need to change the antibiotics​
-    <<stop>>
+-> Clindamycin​ - {$ClindaDay3}
+    <<jump ClindamycinDay3>>
+-> Vancomycin​ - {$VancoDay3}
+    <<jump VancomycinDay3>>
+-> Piperacillin with tazobactam​ - {$PDay3}
+    <<jump PiperDay3>>
+-> Carbapenem​ - {$CarDay3}
+    <<jump CarbapDay3>>
+-> Ceftriaxone with metronidazole​ - {$CeftDay3}
+    <<jump CeftriaxoneDay3>>
+-> I do not think we need to change the antibiotics​ - {$Nochange3}
+    <<jump NoChangeDay3>>
 -> Submit responses
     <<jump PreTeaching>>
+===
 
-//queue video 5 after this
+title: ClindamycinDay3
+position: -355,631
+---
+<<set $ClindaDay3 to !$ClindaDay3>>
+<<jump AntibioticsDay3>>
+===
+
+title: VancomycinDay3
+position: -358,781
+---
+<<set $VancoDay3 to !$VancoDay3>>
+<<jump AntibioticsDay3>>
+===
+title: PiperDay3
+position: -358,927
+---
+<<set $PDay3 to !$PDay3>>
+<<jump AntibioticsDay3>>
+===
+title: CarbapDay3
+position: -355,1068
+---
+<<set $CarDay3 to !$CarDay3>>
+<<jump AntibioticsDay3>>
+===
+title: CeftriaxoneDay3
+position: -356,1357
+---
+<<set $CeftDay3 to !$CeftDay3>>
+<<jump AntibioticsDay3>>
+===
+title: NoChangeDay3
+position: -358,1212
+---
+<<set $Nochange3 to !$Nochange3>>
+<<jump AntibioticsDay3>>
 ===
 title: PreTeaching
-position: 102,869
+position: 65,1152
 ---
 <<open_quest QuestGiver>>
 //assign inside DoctorInteractable
@@ -99,7 +223,7 @@ Dr.Barton: I know you have to go back to campus for teaching, come back and see 
 // Temp borderline, pulse borderline. CRP slightly up, wound not healing. Patient not doing well​
 ===
 title: Day14Questions
-position: 100,1018
+position: 59,1384
 ---
 
 ===

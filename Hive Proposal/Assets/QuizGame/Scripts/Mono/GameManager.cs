@@ -23,18 +23,18 @@ public class GameManager : MonoBehaviour {
     [SerializeField]    Color               timerAlmostOutColor     = Color.red;
     private             Color               timerDefaultColor       = Color.white;
 
-    private             List<AnswerData>    PickedAnswers           = new List<AnswerData>();
-    private             List<int>           FinishedQuestions       = new List<int>();
-    private             int                 currentQuestion         = 0;
+    private List<AnswerData> PickedAnswers = new List<AnswerData>();
+    private  List<int>           FinishedQuestions       = new List<int>();
+    private int currentQuestion = 0;
 
-    private             int                 timerStateParaHash      = 0;
+    private int timerStateParaHash      = 0;
 
-    private             IEnumerator         IE_WaitTillNextRound    = null;
-    private             IEnumerator         IE_StartTimer           = null;
+    private IEnumerator IE_WaitTillNextRound    = null;
+    private IEnumerator IE_StartTimer           = null;
 
-    private             int                 timeRemainingForQuestion;
+    private int timeRemainingForQuestion;
 
-    private             bool                IsFinished
+    private bool IsFinished
     {
         get
         {
@@ -73,6 +73,10 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     void Start()
     {
+        //added game score tracking
+        GameDataManager.Instance.StartTracking();
+
+
         events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
 
         timerDefaultColor = timerText.color;
@@ -164,8 +168,10 @@ public class GameManager : MonoBehaviour {
         if (IsFinished)
         {
             SetHighscore();
-
             var finalScore = events.CurrentFinalScore;
+            //gamedata insert
+            GameDataManager.Instance.StopTracking();
+            GameDataManager.Instance.SetFinalScore(finalScore);
 
             if (IsFirstQuiz)
             {
@@ -224,6 +230,10 @@ public class GameManager : MonoBehaviour {
                 timerAnimtor.SetInteger(timerStateParaHash, 1);
                 break;
         }
+    }
+    void OnSceneChanged()
+    {
+        Debug.Log($"Scene Complete: Score = {GameDataManager.Instance.FinalScore}, Time Spent = {GameDataManager.Instance.TimeSpentInScene:F2} seconds");
     }
     IEnumerator StartTimer()
     {
