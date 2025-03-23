@@ -16,6 +16,11 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private PlayerInteractable interactable;
     [SerializeField] private GameObject hitObject;
 
+    [SerializeField] private StringHandler stringHandler;
+    [SerializeField] private PlayerInputHandler inputHander;
+
+
+
     private Vector3 lastPosition;
     private Quaternion lastRotation;
     private GameObject previousHover;
@@ -141,6 +146,18 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnInteractAction(InputAction.CallbackContext context)
     {
+        if (stringHandler.IsInputActive())
+        {
+            Debug.Log("PlayerInteractor: Interaction blocked during input field.");
+            return;
+        }
+
+        if (inputHander.IsInputActive())
+        {
+            Debug.Log("PlayerInteractor: Interaction blocked during input field.");
+               return;
+
+        }
         if (interactable != null)
         {
             if (interactable.UIObject != null)

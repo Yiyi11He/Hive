@@ -2,125 +2,86 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class SceneOutroMapping
+{
+    public int requiredQuestIndex;
+    public GameObject uiAnimationFolder;
+}
+
 public class PlayerDespawn : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private GameObject[] uiElementsToDisable; // UI elements to turn off
-    [SerializeField] private GameObject textAnimationUI;       // UI for text animation
-    [SerializeField] private GameObject finalUIElement;        // UI element to enable after animation
+    [SerializeField] private GameObject[] uiElementsToDisable;
 
-    [Header("Animator Settings")]
-    [SerializeField] private Animator doorAnimator;           // Animator for the door
-    [SerializeField] private string doorTriggerName = "DoorAnim"; // Trigger name for the door animation
+    [Header("Door Settings")]
+    [SerializeField] private Animator doorAnimator;
+    [SerializeField] private string doorTriggerName = "DoorAnim";
 
-    [SerializeField] private Animator sceneOutroAnimator;     // Animator for the scene outro
-    [SerializeField] private string outroTriggerName = "SceneOutro"; // Trigger name for the outro animation
+    [Header("Scene Outro Mappings")]
+    [SerializeField] private List<SceneOutroMapping> sceneOutroMappings;
+
+    [Header("Player Reset Settings")]
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private Transform resetPosition;
+    [SerializeField] private float resetDelaySeconds = 5.2f;
 
     [Header("Quest Integration")]
-    [SerializeField] private QuestGiver questGiver;       // Reference to the QuestGiver
-    [SerializeField] private int requiredQuestIndex;      // The required quest index to allow interaction
+    [SerializeField] private QuestGiver questGiver;
 
-    private bool isPlayerNearby = false;                 // Tracks if the player is near
-
-    private void Update()
+    public void HandleInteraction()
     {
-        // Check for player interaction (E key) only if the player is nearby
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
-        {
-            int currentQuestIndex = questGiver.GetCurrentQuestIndex();
+        int currentQuestIndex = questGiver.GetCurrentQuestIndex();
 
-            if (currentQuestIndex == requiredQuestIndex)
+        foreach (var mapping in sceneOutroMappings)
+        {
+            if (mapping.requiredQuestIndex == currentQuestIndex)
             {
-                Debug.Log("Player interaction allowed. Triggering despawn logic.");
-                OnInteract();
-            }
-            else
-            {
-                Debug.Log($"Interaction denied. Current quest index: {currentQuestIndex}, required: {requiredQuestIndex}");
+                Debug.Log($"[PlayerDespawnHandler] Matched quest {currentQuestIndex}. Handling interaction...");
+                StartCoroutine(ProcessDespawnSequence(mapping));
+                StartCoroutine(CompleteQuestAfterAnimation(resetDelaySeconds));
+                return;
             }
         }
 
-        // Check if the final UI element is active and enable the mouse
-        if (finalUIElement != null && finalUIElement.activeSelf)
-        {
-            EnableMouse();
-        }
+        Debug.LogWarning($"[PlayerDespawnHandler] No matching scene outro for quest {currentQuestIndex}.");
     }
-
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator CompleteQuestAfterAnimation(float delay)
     {
-        // Check if the player is within range
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNearby = true;
-            Debug.Log("Player entered interaction range.");
-        }
+        yield return new WaitForSeconds(delay);
+        questGiver.QuestComplete();
     }
-
-    private void OnTriggerExit(Collider other)
+    private IEnumerator ProcessDespawnSequence(SceneOutroMapping mapping)
     {
-        // Check if the player leaves the range
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNearby = false;
-            Debug.Log("Player exited interaction range.");
-        }
-    }
-
-    public void OnInteract()
-    {
-        // Disable all UI elements in the array
+        questGiver.HideQuestUI();
         foreach (GameObject uiElement in uiElementsToDisable)
         {
             if (uiElement != null)
-            {
                 uiElement.SetActive(false);
-            }
         }
 
-        // Enable the text animation UI element
-        if (textAnimationUI != null)
+        if (mapping.uiAnimationFolder != null)
         {
-            textAnimationUI.SetActive(true);
+            mapping.uiAnimationFolder.SetActive(true);
         }
 
-        // Trigger the door animation
         if (doorAnimator != null)
         {
             doorAnimator.SetTrigger(doorTriggerName);
             Debug.Log("Door animation triggered.");
         }
 
-        // Trigger the scene outro animation and wait for it to complete
-        if (sceneOutroAnimator != null)
+        yield return new WaitForSeconds(resetDelaySeconds);
+
+        if (playerTransform != null && resetPosition != null)
         {
-            sceneOutroAnimator.SetTrigger(outroTriggerName);
-            StartCoroutine(WaitForSceneOutroToFinish());
-            Debug.Log("Scene outro animation triggered.");
+            playerTransform.position = resetPosition.position;
+            playerTransform.rotation = resetPosition.rotation;
+            Debug.Log($"Player reset to position: {resetPosition.position}");
         }
-
-        Debug.Log("Despawn interaction completed.");
-    }
-
-    private IEnumerator WaitForSceneOutroToFinish()
-    {
-        // Wait for the duration of the animation
-        float animationLength = sceneOutroAnimator.GetCurrentAnimatorStateInfo(0).length;
-        Debug.Log($"Waiting for scene outro animation to finish. Duration: {animationLength}s");
-        yield return new WaitForSeconds(animationLength);
-
-        // Enable the final UI element
-        if (finalUIElement != null)
+        foreach (GameObject uiElement in uiElementsToDisable)
         {
-            finalUIElement.SetActive(true);
-            Debug.Log("Final UI element enabled.");
+            uiElement.SetActive(true);
         }
-    }
-
-    private void EnableMouse()
-    {
-        Cursor.lockState = CursorLockMode.None; // Unlock the cursor
-        Cursor.visible = true;                 // Make the cursor visible
-        Debug.Log("Mouse cursor unlocked and visible.");
     }
 }

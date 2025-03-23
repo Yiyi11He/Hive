@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
     private             Question[]          _questions              = null;
     public              Question[]          Questions               { get { return _questions; } }
 
-    [SerializeField]    GameEvents          events                  = null;
+    [SerializeField] GameEvents events = null;
     [SerializeField] string QuestionResourceFolder = null;
     [SerializeField] bool IsFirstQuiz = false;
     [SerializeField] ResultsData ResultsData = null;
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         //added game score tracking
-        GameDataManager.Instance.StartTracking();
+        FinalResultsUI.Instance.StartTracking("Pre");
 
 
         events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
@@ -145,8 +145,7 @@ public class GameManager : MonoBehaviour {
         if (events.UpdateQuestionUI != null)
         {
             events.UpdateQuestionUI(question);
-        } else { Debug.LogWarning("Ups! Something went wrong while trying to display new Question UI Data. GameEvents.UpdateQuestionUI is null. Issue occured in GameManager.Display() method."); }
-
+        }
         if (question.UseTimer)
         {
             UpdateTimer(question.UseTimer);
@@ -169,9 +168,8 @@ public class GameManager : MonoBehaviour {
         {
             SetHighscore();
             var finalScore = events.CurrentFinalScore;
-            //gamedata insert
-            GameDataManager.Instance.StopTracking();
-            GameDataManager.Instance.SetFinalScore(finalScore);
+
+            FinalResultsUI.Instance.StopTrackingAndSave(finalScore);
 
             if (IsFirstQuiz)
             {
@@ -184,6 +182,8 @@ public class GameManager : MonoBehaviour {
                 ResultsData.Clear();
             }
         }
+
+
 
         var type 
             = (IsFinished) 
@@ -230,10 +230,6 @@ public class GameManager : MonoBehaviour {
                 timerAnimtor.SetInteger(timerStateParaHash, 1);
                 break;
         }
-    }
-    void OnSceneChanged()
-    {
-        Debug.Log($"Scene Complete: Score = {GameDataManager.Instance.FinalScore}, Time Spent = {GameDataManager.Instance.TimeSpentInScene:F2} seconds");
     }
     IEnumerator StartTimer()
     {

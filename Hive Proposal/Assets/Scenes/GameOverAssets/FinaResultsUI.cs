@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class FinalResultsUI : MonoBehaviour
 {
+    public static FinalResultsUI Instance { get; private set; }
+
     public float preGameTime { get; private set; }
     public float mainGameTime { get; private set; }
     public float postGameTime { get; private set; }
@@ -15,6 +17,9 @@ public class FinalResultsUI : MonoBehaviour
 
     private enum SceneType { None, Pre, Main, Post }
     private SceneType currentScene = SceneType.None;
+
+    [Header("Global Results Storage")]
+    [SerializeField] private ResultsManager resultsManager;
 
     void Awake()
     {
@@ -57,27 +62,28 @@ public class FinalResultsUI : MonoBehaviour
             case SceneType.Pre:
                 preGameTime = sceneTimer;
                 preGameScore = finalScore;
+                resultsManager.SetPreQuizTime(preGameTime);
+                resultsManager.SetPreQuizScore(preGameScore);
                 break;
+
             case SceneType.Main:
                 mainGameTime = sceneTimer;
                 mainGameScore = finalScore;
+                resultsManager.SetMainQuizTime(mainGameTime);
+                resultsManager.SetMainQuizScore(mainGameScore);
                 break;
+
             case SceneType.Post:
                 postGameTime = sceneTimer;
                 postGameScore = finalScore;
+                resultsManager.SetPostQuizTime(postGameTime);
+                resultsManager.SetPostQuizScore(postGameScore);
                 break;
         }
     }
 
-    public float GetTotalTime()
-    {
-        return preGameTime + mainGameTime + postGameTime;
-    }
-
-    public int GetTotalScore()
-    {
-        return preGameScore + mainGameScore + postGameScore;
-    }
+    public float GetTotalTime() => preGameTime + mainGameTime + postGameTime;
+    public int GetTotalScore() => preGameScore + mainGameScore + postGameScore;
 
     public void ResetAll()
     {
@@ -86,5 +92,7 @@ public class FinalResultsUI : MonoBehaviour
         isTracking = false;
         sceneTimer = 0f;
         currentScene = SceneType.None;
+
+        resultsManager.Clear(); // Optional: clear stored data at runtime
     }
 }

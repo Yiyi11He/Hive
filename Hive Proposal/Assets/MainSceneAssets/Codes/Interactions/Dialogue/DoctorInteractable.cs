@@ -21,10 +21,10 @@ public class DoctorInteractable : MonoBehaviour
         { 0, "Video1" },
         { 2, "afterVideo1" },
         { 4, "Vid2" },
-        { 13, "Vid3" },
-        //{13, "SeeIn2Days" },
-        { 25, "Day1Afternoon" }, // This quest is actually continued from the last one, find a way to avoid opening another quest.
-        { 29, "Day3" }
+        { 14, "Vid3" },
+        { 16, "SeeIn2Days" },
+        { 22, "Vid4" },
+        { 24, "Day14Questions"}
     };
 
     private void Awake()
@@ -69,6 +69,7 @@ public class DoctorInteractable : MonoBehaviour
         dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueComplete);
     }
 
+
     private void OnDialogueComplete()
     {
         Debug.Log("Dialogue complete.");
@@ -81,7 +82,6 @@ public class DoctorInteractable : MonoBehaviour
             imageChoice.HideImageChoices();
         }
 
-        // Disable further interactions for this quest
         this.enabled = false;
 
         Cursor.lockState = CursorLockMode.Locked;

@@ -147,27 +147,9 @@ public class QuestGiver : MonoBehaviour
         Debug.Log($"Quest \"{selectedQuest.title}\" has been moved to index 0.");
         OpenQuestByIndex(0); // Update the quest to reflect the change
     }
-
-    private void DebugSetQuestToZero()
+    public void HideQuestUI()
     {
-        Debug.Log("Debug mode active: Setting quest to index 0.");
-
-        // Hide the quest window to prevent conflicts
         if (questWindow != null)
-        {
             questWindow.SetActive(false);
-        }
-
-        // Set the specified quest to index 0
-        SetQuestToIndexZero(debugQuestIndex);
-
-        // Disable debug mode after execution
-        debugMode = false;
-
-        // Reactivate the quest window
-        if (questWindow != null)
-        {
-            questWindow.SetActive(true);
-        }
     }
 }

@@ -20,7 +20,6 @@ public class PlayerInputHandler : MonoBehaviour
 
     private float playerResponse;
     private bool InputHandlerActive = false;
-    private int currentNodeIndex = 0;
     private bool isStartingDialogue = false;
     private bool isInputActive = false;
 
@@ -35,16 +34,21 @@ public class PlayerInputHandler : MonoBehaviour
     {
         dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueComplete);
     }
+    public bool IsInputActive()
+    {
+        return isInputActive || InputHandlerActive;
+    }
 
     private void Update()
     {
         if (InputHandlerActive || isInputActive)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            doctorCamera.SetActive(true);
-            playerMainCamera.SetActive(false);
-        }
+            if (InputHandlerActive || isInputActive)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                doctorCamera.SetActive(true);
+                playerMainCamera.SetActive(false);               
+            }
     }
 
     [YarnCommand("InputFieldActive")]
@@ -88,19 +92,37 @@ public class PlayerInputHandler : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.2f);
-
-        if (currentNodeIndex == 0)
-            dialogueRunner.StartDialogue("HbNumberResponse");
-        else if (currentNodeIndex == 1)
-            dialogueRunner.StartDialogue("WhiteNumberResponse");
-        else if (currentNodeIndex == 2)
-            dialogueRunner.StartDialogue("CRPNumberResponse");
-        else if (currentNodeIndex == 3)
-            dialogueRunner.StartDialogue("BloodGlucoseNumberResponse");
-        else if (currentNodeIndex == 4)
-            dialogueRunner.StartDialogue("InsulinDoseNumberResponse");
-
-        currentNodeIndex++;
+        if (variableStorage.TryGetValue<string>("$numericInput", out var inputContext))
+        {
+            if (inputContext == "Hb")
+            {
+                dialogueRunner.StartDialogue("HbNumberResponse");
+            }
+            else if (inputContext == "White")
+            {
+                dialogueRunner.StartDialogue("WhiteNumberResponse");
+            }
+            else if (inputContext == "CRP")
+            {
+                dialogueRunner.StartDialogue("CRPNumberResponse");
+            }
+            else if (inputContext == "Blood")
+            {
+                dialogueRunner.StartDialogue("BloodGlucoseNumberResponse");
+            }
+            else if (inputContext == "Insulin")
+            {
+                dialogueRunner.StartDialogue("InsulinDoseNumberResponse");
+            }
+            else if (inputContext == "WCC")
+            {
+                dialogueRunner.StartDialogue("WCCResponseDay3");
+            }
+            else if (inputContext == "CRP1")
+            {
+                dialogueRunner.StartDialogue("CRPResponseDay3");
+            }
+        }
 
         submitButton.interactable = true;
         isStartingDialogue = false;
