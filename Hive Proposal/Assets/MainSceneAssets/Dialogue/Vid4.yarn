@@ -220,19 +220,39 @@ position: 60,1133
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
-<<jump PreTeaching>>
+<<complete_quest QuestGiver 21>>
+<<stop>>
+
 ===
 title: PreTeaching
 position: 61,1351
 ---
-
+<<open_quest QuestGiver 23>>
 Dr.Barton: Could you do the blood tests again please and send them off.
 Dr.Barton: I know you have to go back to campus for teaching, come back and see me after the teaching.
-<<complete_quest QuestGiver 21>>
-<<stop>>
+<<complete_quest QuestGiver 23>>
 ===
 title: Day14Questions
-position: 51,1636
+position: 50,1596
+---
+<<open_quest QuestGiver 28>>
+<<declare $VasSurg = false>>
+
+Dr Barton: What other specialists should be involved?
+<<jump SelectionDay14>>
+===
+title: SelectionDay14
+position: 50,1787
 ---
 
+<<set $current_quiz_score = 0>>
+
+-> Vascular surgeon - {$VasSurg}
+    <<jump VasSurg14>>
+===
+title: VasSurg14
+position: 325,1746
+---
+<<set $VasSurg to !$VasSurg>>
+<<jump SelectionDay14>>
 ===

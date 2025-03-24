@@ -34,37 +34,34 @@ public class PatientRoomFolder : MonoBehaviour
     {
         if (chart != null)
         {
-            chart.SetActive(false); // Ensure chart starts hidden
+            chart.SetActive(false); 
             chart.transform.position = startPosition.position;
             chart.transform.rotation = startPosition.rotation;
         }
 
         if (uiMainFolder != null)
         {
-            uiMainFolder.SetActive(false); // Ensure main UI folder is hidden
+            uiMainFolder.SetActive(false); 
         }
 
         if (uiSubFolder != null)
         {
-            uiSubFolder.SetActive(false); // Ensure sub UI folder is hidden
+            uiSubFolder.SetActive(false); 
         }
 
-        // Ensure UI elements to hide start visible
         ShowUIElements();
 
-        // Ensure player movement and camera look start enabled
+
         EnablePlayerControl();
     }
 
     private void Update()
     {
-        // Listen for "E" key press to activate UI mode, but only if hovering over the collider
         if (isHovered && Input.GetKeyDown(KeyCode.E))
         {
             ActivateUI();
         }
 
-        // Listen for "Q" key press to exit UI mode and re-enable player control
         if (isUIActive && Input.GetKeyDown(KeyCode.Q))
         {
             ExitUIMode();
@@ -76,32 +73,30 @@ public class PatientRoomFolder : MonoBehaviour
         if (chart != null && !isMoving)
         {
 
-            // Ensure the previous active chart is turned off before activating the new one
+
             if (activeFolder != null && activeFolder != this)
             {
                 activeFolder.HideChart();
             }
 
-            // Set this as the new active folder
+
             activeFolder = this;
 
-            // Start moving the selected chart
             StartCoroutine(MoveChart(chart, endPosition.position, endPosition.rotation, true));
         }
 
-        isHovered = true; // Set hover state
+        isHovered = true; 
     }
 
     public void OnLookAway()
     {
-        isHovered = false; // Reset hover state
-
+        isHovered = false; 
         if (chart != null && !isMoving)
         {
             StartCoroutine(MoveChart(chart, startPosition.position, startPosition.rotation, false));
         }
 
-        // Disable UI components when looking away
+
         if (isUIActive)
         {
             ExitUIMode();

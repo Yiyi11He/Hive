@@ -1900,7 +1900,7 @@ MonoBehaviour:
   pneumaticTubeManager: {fileID: 3969211}
   questGiver: {fileID: 1888210411}
   confettiParticleSystem: {fileID: 1156933955}
-  requiredQuestIndices: 060000000800000011000000
+  requiredQuestIndices: 06000000080000001200000019000000
 --- !u!114 &61114884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29358,9 +29358,9 @@ MonoBehaviour:
   - videoPlayer: {fileID: 1991048156}
     requiredQuestIndex: 3
   - videoPlayer: {fileID: 6613954}
-    requiredQuestIndex: 14
+    requiredQuestIndex: 15
   - videoPlayer: {fileID: 998213135}
-    requiredQuestIndex: 27
+    requiredQuestIndex: 22
   - videoPlayer: {fileID: 1770291511}
     requiredQuestIndex: 29
   - videoPlayer: {fileID: 214916652}
@@ -31372,11 +31372,16 @@ MonoBehaviour:
     swabCamera: {fileID: 161637543}
     incorrectSwabIndicator: {fileID: 2134007460}
     requiredQuestIndex: 7
-  - swabDescription: BloodsDay2
+  - swabDescription: BloodsAfternoon
     targetArea: {fileID: 1925075148}
     swabCamera: {fileID: 1642068336}
     incorrectSwabIndicator: {fileID: 1448408144}
     requiredQuestIndex: 17
+  - swabDescription: BloodsDay3
+    targetArea: {fileID: 1925075148}
+    swabCamera: {fileID: 1642068336}
+    incorrectSwabIndicator: {fileID: 1448408144}
+    requiredQuestIndex: 24
   disableOnCameraSwap1: {fileID: 729157926}
   disableOnCameraSwap2: {fileID: 984340531}
   penaltyScore: -5
@@ -64134,7 +64139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 1
-  debugQuestIndex: 9
+  debugQuestIndex: 20
   quests:
   - isActive: 1
     title: Find the Doctor
@@ -64286,6 +64291,70 @@ MonoBehaviour:
       RequiredAction: {fileID: 1384148669}
       CurrentAction: 0
   - isActive: 1
+    title: Day 3 Start! Check Results
+    description: 'Review all the notes: Patient Room Folder; Clinical Workroom Folder;
+      Lab Results'
+    Score: 2
+    goals:
+    - goalType: 2
+      RequiredAction: {fileID: 798287453}
+      CurrentAction: 0
+    - goalType: 3
+      RequiredAction: {fileID: 232608877}
+      CurrentAction: 0
+    - goalType: 3
+      RequiredAction: {fileID: 1383775661}
+      CurrentAction: 0
+  - isActive: 1
+    title: Dr Barton Questions
+    description: Dr Barton would like to ask a few questions
+    Score: 1
+    goals:
+    - goalType: 4
+      RequiredAction: {fileID: 1410955817}
+      CurrentAction: 0
+  - isActive: 1
+    title: Check on the Patient
+    description: Please check on the patient with Dr Barton
+    Score: 2
+    goals:
+    - goalType: 7
+      RequiredAction: {fileID: 6458574066385386863}
+      CurrentAction: 0
+  - isActive: 1
+    title: Dr Barton Tasks
+    description: Dr Barton would like to deliver you some tasks before you head home
+      today
+    Score: 1
+    goals:
+    - goalType: 4
+      RequiredAction: {fileID: 1410955817}
+      CurrentAction: 0
+  - isActive: 1
+    title: Blood tests (1/2)
+    description: repeat the blood tests again and send them off
+    Score: 2
+    goals:
+    - goalType: 5
+      RequiredAction: {fileID: 897563364}
+      CurrentAction: 0
+  - isActive: 1
+    title: Blood tests (2/2)
+    description: Interact with Pneumatic System
+    Score: 2
+    goals:
+    - goalType: 6
+      RequiredAction: {fileID: 61114880}
+      CurrentAction: 0
+  - isActive: 1
+    title: Sign Off
+    description: You are free to leave the hospital
+    Score: 1
+    goals:
+    - goalType: 8
+      RequiredAction: {fileID: 1384148669}
+      CurrentAction: 0
+  - isActive: 1
     title: Check Results
     description: 'Review all the notes: Patient Room Folder; Clinical Workroom Folder;
       Lab Results'
@@ -64294,17 +64363,16 @@ MonoBehaviour:
     - goalType: 2
       RequiredAction: {fileID: 798287453}
       CurrentAction: 0
-  - isActive: 1
-    title: Dr Barton
-    description: Review the lab results for today
-    Score: 2
-    goals:
-    - goalType: 2
-      RequiredAction: {fileID: 798287453}
+    - goalType: 3
+      RequiredAction: {fileID: 232608877}
+      CurrentAction: 0
+    - goalType: 3
+      RequiredAction: {fileID: 1383775661}
       CurrentAction: 0
   - isActive: 1
-    title: DRBARTON
-    description: CHECK SPELLING WORKS
+    title: Dr Barton Tasks
+    description: Dr Barton would like to deliver you some tasks before you head home
+      today
     Score: 1
     goals:
     - goalType: 4

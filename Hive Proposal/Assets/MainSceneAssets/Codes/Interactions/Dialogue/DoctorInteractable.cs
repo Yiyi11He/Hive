@@ -23,8 +23,9 @@ public class DoctorInteractable : MonoBehaviour
         { 4, "Vid2" },
         { 14, "Vid3" },
         { 16, "SeeIn2Days" },
-        { 22, "Vid4" },
-        { 24, "Day14Questions"}
+        { 21, "Vid4" },
+        { 23, "PreTeaching" },
+        { 28, "Day14Questions"}
     };
 
     private void Awake()
