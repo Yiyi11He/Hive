@@ -1,15 +1,26 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ResultsManager", menuName = "Quiz/Results Data")]
-public class ResultsManager : ScriptableObject
+public class ResultsManager : MonoBehaviour
 {
-    private float preQuizTime;
-    private float mainQuizTime;
-    private float postQuizTime;
+    public static ResultsManager Instance { get; private set; }
 
-    private int preQuizScore;
-    private int mainQuizScore;
-    private int postQuizScore;
+    [SerializeField] private float preQuizTime = 0f;
+    [SerializeField] private float mainTime = 0f;
+    [SerializeField] private float postQuizTime = 0f;
+
+    [SerializeField] private int preQuizScore = 0;
+    [SerializeField] private int mainQuizScore = 0;
+    [SerializeField] private int postQuizScore = 0;
+
+    private void Awake()
+    {
+        if (Instance != null)
+            return;
+
+        DontDestroyOnLoad(gameObject);
+
+        Instance = this;
+    }
 
     public void SetPreQuizTime(float time) => preQuizTime = time;
     public float GetPreQuizTime() => preQuizTime;
@@ -17,8 +28,8 @@ public class ResultsManager : ScriptableObject
     public void SetPreQuizScore(int score) => preQuizScore = score;
     public int GetPreQuizScore() => preQuizScore;
 
-    public void SetMainQuizTime(float time) => mainQuizTime = time;
-    public float GetMainQuizTime() => mainQuizTime;
+    public void SetMainQuizTime(float time) => mainTime = time;
+    public float GetMainQuizTime() => mainTime;
 
     public void SetMainQuizScore(int score) => mainQuizScore = score;
     public int GetMainQuizScore() => mainQuizScore;
@@ -29,12 +40,12 @@ public class ResultsManager : ScriptableObject
     public void SetPostQuizScore(int score) => postQuizScore = score;
     public int GetPostQuizScore() => postQuizScore;
 
-    public float GetTotalTime() => preQuizTime + mainQuizTime + postQuizTime;
+    public float GetTotalTime() => preQuizTime + mainTime + postQuizTime;
     public int GetTotalScore() => preQuizScore + mainQuizScore + postQuizScore;
 
     public void Clear()
     {
-        preQuizTime = mainQuizTime = postQuizTime = 0f;
+        preQuizTime = mainTime = postQuizTime = 0f;
         preQuizScore = mainQuizScore = postQuizScore = 0;
     }
 }

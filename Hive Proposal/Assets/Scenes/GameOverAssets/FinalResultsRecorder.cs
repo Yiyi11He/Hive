@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class FinalResultsUI : MonoBehaviour
+public class FinalResultsRecorder : MonoBehaviour
 {
-    public static FinalResultsUI Instance { get; private set; }
+    public static FinalResultsRecorder Instance { get; private set; }
 
     public float preGameTime { get; private set; }
     public float mainGameTime { get; private set; }
@@ -15,23 +15,17 @@ public class FinalResultsUI : MonoBehaviour
     private float sceneTimer = 0f;
     private bool isTracking = false;
 
-    private enum SceneType { None, Pre, Main, Post }
-    private SceneType currentScene = SceneType.None;
-
-    [Header("Global Results Storage")]
-    [SerializeField] private ResultsManager resultsManager;
+    public enum SceneType { None, Pre, Main, Post }
+    [SerializeField] private SceneType currentScene = SceneType.None;
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        Instance = null;
     }
 
     void Update()
@@ -62,22 +56,22 @@ public class FinalResultsUI : MonoBehaviour
             case SceneType.Pre:
                 preGameTime = sceneTimer;
                 preGameScore = finalScore;
-                resultsManager.SetPreQuizTime(preGameTime);
-                resultsManager.SetPreQuizScore(preGameScore);
+                ResultsManager.Instance.SetPreQuizTime(preGameTime);
+                ResultsManager.Instance.SetPreQuizScore(preGameScore);
                 break;
 
             case SceneType.Main:
                 mainGameTime = sceneTimer;
                 mainGameScore = finalScore;
-                resultsManager.SetMainQuizTime(mainGameTime);
-                resultsManager.SetMainQuizScore(mainGameScore);
+                ResultsManager.Instance.SetMainQuizTime(mainGameTime);
+                ResultsManager.Instance.SetMainQuizScore(mainGameScore);
                 break;
 
             case SceneType.Post:
                 postGameTime = sceneTimer;
                 postGameScore = finalScore;
-                resultsManager.SetPostQuizTime(postGameTime);
-                resultsManager.SetPostQuizScore(postGameScore);
+                ResultsManager.Instance.SetPostQuizTime(postGameTime);
+                ResultsManager.Instance.SetPostQuizScore(postGameScore);
                 break;
         }
     }
@@ -93,6 +87,6 @@ public class FinalResultsUI : MonoBehaviour
         sceneTimer = 0f;
         currentScene = SceneType.None;
 
-        resultsManager.Clear(); // Optional: clear stored data at runtime
+        ResultsManager.Instance.Clear(); // Optional: clear stored data at runtime
     }
 }
