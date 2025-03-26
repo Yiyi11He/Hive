@@ -1,0 +1,216 @@
+﻿title: Vid6
+tags:
+position: -13,-30
+---
+<<open_quest QuestGiver 33>>
+
+<<set $current_quiz_score = 0>>
+
+<<declare $Merop = false>>
+<<declare $Vanco15 = false>>
+<<declare $Linez15 = false>>
+<<declare $Dapt15 = false>>
+<<declare $Ceft15 = false>>
+<<declare $Dalba = false>>
+<<declare $Tige15 = false>>
+<<declare $Cefaz = false>>
+<<declare $Flux15 = false>>
+<<declare $Amox15 = false>>
+
+Dr Barton: What antibiotic should we use for MRSA?
+
+<<jump MRSASelection>>
+===
+
+title: MRSASelection
+position: -18,184
+---
+-> Meropenam - {$Merop}
+    <<jump MeroDay15>>
+-> Vancomycin - {$Vanco15}
+    <<jump VancoDay15>>
+-> Linezoid - {$Linez15}
+    <<jump LinezDay15>>
+-> Daptomycin - {$Dapt15}
+    <<jump DaptDay15>>
+-> Ceftaroline - {$Ceft15}
+    <<jump CeftDay15>>
+-> Dalbavancin - {$Dalba}
+    <<jump DalbDay15>>
+-> Tigecycline - {$Tige15}
+    <<jump TigeDay15>>
+-> Cefazolin- {$Cefaz}
+    <<jump CefaDay15>>
+-> Flucloxacillin - {$Flux15}
+    <<jump FluxDay15>>
+-> Amoxicillin - {$Amox15}
+    <<jump AmoxDay15>>
+-> Submit responses
+<<jump SubmitMRSADay15>>
+
+===
+
+
+title: MeroDay15
+position: 401,-147
+---
+<<set $Merop to !$Merop>>
+<<jump MRSASelection>>
+===
+title: VancoDay15
+position: 401,-415
+---
+<<set $Vanco15 to !$Vanco15>>
+<<jump MRSASelection>>
+===
+title: LinezDay15
+position: 401,-13
+---
+<<set $Linez15 to !$Linez15>>
+<<jump MRSASelection>>
+===
+title: DaptDay15
+position: 401,115
+---
+<<set $Dapt15 to !$Dapt15>>
+<<jump MRSASelection>>
+===
+
+title: CeftDay15
+position: 410,246
+---
+<<set $Ceft15 to !$Ceft15>>
+<<jump MRSASelection>>
+===
+
+title: DalbDay15
+position: 410,379
+---
+<<set $Dalba to !$Dalba>>
+<<jump MRSASelection>>
+
+===
+
+title: TigeDay15
+position: 401,-284
+---
+<<set $Tige15 to !$Tige15>>
+<<jump MRSASelection>>
+
+===
+
+title: CefaDay15
+position: 413,510
+---
+<<set $Cefaz to !$Cefaz>>
+<<jump MRSASelection>>
+
+===
+
+title: FluxDay15
+position: 416,641
+---
+<<set $Flux15 to !$Flux15>>
+<<jump MRSASelection>>
+
+===
+
+title: AmoxDay15
+position: 419,775
+---
+<<set $Amox15 to !$Amox15>>
+<<jump MRSASelection>>
+
+===
+title: SubmitMRSADay15
+position: -23,388
+---
+<<if $Merop == true>>
+    Dr Barton: Meropenam to be added...
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Vanco15 == true>>
+    Dr Barton: Yes, Vancomycin is the gold standard!
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Linez15 == true>>
+    Dr Barton: Linezoid to be added...
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Dapt15 == true>>
+    Dr Barton: Daptomycin to be added...
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Ceft15 == true>>
+    Dr Barton: Ceftaroline to be added...
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Dalba == true>>
+    Dr Barton: Yes, but Dalbavacin are reserved for complicated infections requiring special approvals.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Tige15 == true>>
+    Dr Barton: Yes, but Tigecycline are reserved for complicated infections requiring special approvals
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Cefaz == true>>
+    Dr Barton: Cefazolin to be added...
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+
+<<if $Flux15 == true>>
+    Dr Barton: Flucloxacillin to be added...
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+
+<<if $Amox15 == true>>
+    Dr Barton: Amoxicillin to be added...
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+
+<<jump FinalDialogue>>
+===
+
+title: FinalDialogue
+position: -20,603
+---
+<<set $playerResponse = 0>>
+<<set $numericInput = "Vanco">>
+Dr Barton: Vancomycin is commonly used for serious infections like this. Do you remember what the recommended trough level should be?
+
+<<InputFieldActive "InputNumber">>
+<<stop>>
+
+===
+title: CompleteDay15
+position: -19,851
+---
+Dr Barton: This is unfinished dialogue! Change values here.
+<<if $playerResponse >= 15.0 and $playerResponse <= 16.0>>
+    Dr.Barton: You are quite right, please continue.
+    <<add_score ScoreTimerInteractVideo 1>>  
+<<else>>
+    Dr.Barton: That's not correct, minus 1 point for you.
+    <<add_score ScoreTimerInteractVideo -1>>    
+<<endif>>
+
+<<complete_quest QuestGiver 33>>
+<<stop>>
+===

@@ -16,6 +16,7 @@ public enum GoalType
     MonitorInteract,
     IconClick,
     FileInteract,
+    ProgressFileInteract,
     DoctorInteract,
     SwabInteract,
     SwabSubmit,

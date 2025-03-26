@@ -36,7 +36,6 @@ public class QuestGiver : MonoBehaviour
     OpenQuestByIndex(currentQuestIndex);
 }
 
-
     public int GetCurrentQuestIndex()
     {
         return currentQuestIndex;

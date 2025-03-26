@@ -73,8 +73,9 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     void Start()
     {
-        //added game score tracking
-        FinalResultsRecorder.Instance.StartTracking("Pre");
+        //gamescore trackinig
+        FinalResultsRecorder.Instance.StartTracking(IsFirstQuiz ? "Pre" : "Post");
+
 
 
         events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);

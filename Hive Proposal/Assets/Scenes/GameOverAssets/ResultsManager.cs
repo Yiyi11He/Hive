@@ -9,7 +9,7 @@ public class ResultsManager : MonoBehaviour
     [SerializeField] private float postQuizTime = 0f;
 
     [SerializeField] private int preQuizScore = 0;
-    [SerializeField] private int mainQuizScore = 0;
+    [SerializeField] private int mainScore = 0;
     [SerializeField] private int postQuizScore = 0;
 
     private void Awake()
@@ -31,8 +31,8 @@ public class ResultsManager : MonoBehaviour
     public void SetMainQuizTime(float time) => mainTime = time;
     public float GetMainQuizTime() => mainTime;
 
-    public void SetMainQuizScore(int score) => mainQuizScore = score;
-    public int GetMainQuizScore() => mainQuizScore;
+    public void SetMainQuizScore(int score) => mainScore = score;
+    public int GetMainQuizScore() => mainScore;
 
     public void SetPostQuizTime(float time) => postQuizTime = time;
     public float GetPostQuizTime() => postQuizTime;
@@ -41,11 +41,11 @@ public class ResultsManager : MonoBehaviour
     public int GetPostQuizScore() => postQuizScore;
 
     public float GetTotalTime() => preQuizTime + mainTime + postQuizTime;
-    public int GetTotalScore() => preQuizScore + mainQuizScore + postQuizScore;
+    public int GetTotalScore() => preQuizScore + mainScore + postQuizScore;
 
     public void Clear()
     {
         preQuizTime = mainTime = postQuizTime = 0f;
-        preQuizScore = mainQuizScore = postQuizScore = 0;
+        preQuizScore = mainScore = postQuizScore = 0;
     }
 }

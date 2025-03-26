@@ -122,6 +122,10 @@ public class PlayerInputHandler : MonoBehaviour
             {
                 dialogueRunner.StartDialogue("CRPResponseDay3");
             }
+            else if (inputContext == "Vanco")
+            {
+                dialogueRunner.StartDialogue("CompleteDay15");
+            }
         }
 
         submitButton.interactable = true;

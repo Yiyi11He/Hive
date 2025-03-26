@@ -225,7 +225,7 @@ position: 60,1133
 
 ===
 title: PreTeaching
-position: 61,1351
+position: 39,1381
 ---
 <<open_quest QuestGiver 23>>
 Dr.Barton: Could you do the blood tests again please and send them off.
@@ -233,26 +233,217 @@ Dr.Barton: I know you have to go back to campus for teaching, come back and see 
 <<complete_quest QuestGiver 23>>
 ===
 title: Day14Questions
-position: 50,1596
+position: 10,1781
 ---
 <<open_quest QuestGiver 28>>
 <<declare $VasSurg = false>>
-
-Dr Barton: What other specialists should be involved?
+<<declare $Ortho = false>>
+<<declare $Plastics14 = false>>
+<<declare $GeneralMed14 = false>>
+<<declare $Pall14 = false>>
+<<declare $Anae14 = false>>
+<<declare $endo14 = false>>
+Dr Barton: Hello there, welcome back.
+Dr Barton:  I trust you’ve had a chance to go through the notes.
+Dr Barton: Based on what you've seen so far, what other specialists should be involved?
 <<jump SelectionDay14>>
 ===
 title: SelectionDay14
-position: 50,1787
+position: 10,1969
 ---
 
 <<set $current_quiz_score = 0>>
 
 -> Vascular surgeon - {$VasSurg}
     <<jump VasSurg14>>
+-> Orthopaedics - {$Ortho}
+    <<jump Ortho14>>
+-> Plastics surgeon - {$Plastics14}
+    <<jump Plas14>>
+-> General medicine physician - {$GeneralMed14}
+    <<jump GenMed>>
+-> Palliative care physician- {$Pall14}
+    <<jump Palliative14>>
+-> Anaesthetics - {$Anae14}
+    <<jump Anaesthe14>>
+-> Endocrinologist - {$endo14}
+    <<jump Endocri14>>
+-> Submit responses
+    <<jump SubmitSpecialistDay14>>
+
 ===
 title: VasSurg14
-position: 325,1746
+position: 373,1601
 ---
 <<set $VasSurg to !$VasSurg>>
 <<jump SelectionDay14>>
+===
+title: Ortho14
+position: 367,1461
+---
+<<set $Ortho to !$Ortho>>
+<<jump SelectionDay14>>
+===
+title: Plas14
+position: 375,1755
+---
+<<set $Plastics14 to !$Plastics14>>
+<<jump SelectionDay14>>
+===
+title: GenMed
+position: 364,1906
+---
+<<set $GeneralMed14 to !$GeneralMed14>>
+<<jump SelectionDay14>>
+===
+title: Palliative14
+position: 364,2050
+---
+<<set $Pall14 to !$Pall14>>
+<<jump SelectionDay14>>
+===
+title: Anaesthe14
+position: 370,2359
+---
+<<set $Anae14 to !$Anae14>>
+<<jump SelectionDay14>>
+===
+title: Endocri14
+position: 376,2206
+---
+<<set $endo14 to !$endo14>>
+<<jump SelectionDay14>>
+===
+title: SubmitSpecialistDay14
+position: 15,2157
+---
+<<if $VasSurg == true>>
+    Dr Barton:That is a good idea but we need to ensure we have done a scan to look at the patency of the vessels in her lower limbs.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Ortho == true>>
+    Dr Barton:If we are thinking of amputation, orthopaedics can be involved.
+
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Plastics14 == true>>
+    Dr Barton:If we are thinking of amputation of the leg or feet, plastic surgeons do not usually perform the procedure.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+
+<<if $GeneralMed14 == true>>
+    Dr Barton:The patient is very likely under general medicine team at this stage where the team can look at all her comorbidities holistically.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Pall14 == true>>
+    Dr Barton:Hopefully she is not going to die from this condition. The aim is to save her life and not involved Palliative care physicians.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+
+<<if $Anae14 == true>>
+    Dr Barton:If we are thinking of surgery, she will have to be reviewed by the anaesthetic team to plan for surgery.
+
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $endo14 == true>>
+    Dr Barton:This can be a good idea if the diabetes is not well controlled but we are managing her glucose levels well at this stage.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+
+
+Dr Barton: What Allied health professionals should be involved?
+<<declare $Physio14 = false>>
+<<declare $Occu14 = false>>
+<<declare $Social14 = false>>
+<<declare $Pharma14 = false>>
+
+<<jump AlliedHealthQuestion>>
+===
+title: AlliedHealthQuestion
+position: 14,2390
+---
+-> Physiotherapist - {$Physio14}
+    <<jump PhysioDay14>>
+-> Occupational therapist - {$Occu14}
+    <<jump OccuDay14>>
+-> Social worker- {$Social14}
+    <<jump SocialDay14>>
+-> Pharmacist - {$Pharma14}
+    <<jump PharmaDay14>>
+-> Submit responses
+    <<jump AlliedHealthSubmit>>
+===
+title: PhysioDay14
+position: -322,2619
+---
+<<set $Physio14 to !$Physio14>>
+<<jump AlliedHealthQuestion>>
+===
+title: OccuDay14
+position: -327,2189
+---
+<<set $Occu14 to !$Occu14>>
+<<jump AlliedHealthQuestion>>
+===
+title: SocialDay14
+position: -326,2337
+---
+<<set $Social14 to !$Social14>>
+<<jump AlliedHealthQuestion>>
+===
+title: PharmaDay14
+position: -325,2479
+---
+<<set $Pharma14 to !$Pharma14>>
+<<jump AlliedHealthQuestion>>
+===
+
+title: AlliedHealthSubmit
+position: 13,2575
+---
+<<set $current_quiz_score = 0>>
+<<if $Physio14 == true>>
+    Dr Barton:She will need help with exercise to prevent deconditioning from long hospital stay
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Occu14 == true>>
+    Dr Barton:If amputation is planned, she might need walking aids or even look at how she can function at home and at work.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<if $Social14 == true>>
+    Dr Barton:There is no indications for social worker thus far.
+    <<add_score ScoreTimerInteractVideo -1>>
+<<endif>>
+
+<<if $Pharma14 == true>>
+    Dr Barton:As you can tell, the pharmacists were already involved. They can help optimise the medication regime and reduce interactions and complications.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+<<jump ShortInteractionVid5>>
+===
+title: ShortInteractionVid5
+position: 13,2772
+---
+Dr Barton: We know through the history and notes that the patient is currently not doing well.
+Dr Barton: Let’s see the patient togesther.
+
+<<complete_quest QuestGiver 28>>
+<<stop>>
 ===

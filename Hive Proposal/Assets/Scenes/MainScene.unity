@@ -1237,7 +1237,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3114,7 +3114,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 683746513}
   m_Father: {fileID: 332839074}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!114 &100213536
@@ -3992,6 +3993,95 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &119547505
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 851321512}
+    m_Modifications:
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.27204004
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8670101
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.860003
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.10000074
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.77000093
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0000000061722596
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000000061722596
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966734370346859651, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_Name
+      value: ScrollBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758644511555122203, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: scrollTexture
+      value: 
+      objectReference: {fileID: 2051519659}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c73cbf29d4145694b8275b8e6e67114f, type: 3}
+--- !u!4 &119547506 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+    type: 3}
+  m_PrefabInstance: {fileID: 119547505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &122310724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9332,6 +9422,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 299101353}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &300886373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300886375}
+  - component: {fileID: 300886374}
+  m_Layer: 0
+  m_Name: DebugResultsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &300886374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300886373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0eebe5c1d7a9644a93b13f6ea04fafc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preQuizTime: 342646
+  mainTime: 1234
+  postQuizTime: 234
+  preQuizScore: 35234
+  mainScore: 145
+  postQuizScore: 124
+--- !u!4 &300886375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300886373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2882.5999, y: -434.08456, z: 1205.0286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &301199009
 GameObject:
   m_ObjectHideFlags: 0
@@ -24860,6 +25000,95 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673074137}
   m_Mesh: {fileID: -5967019597052008966, guid: daa24b13538ec8a40a0d32b5418a4584, type: 3}
+--- !u!1001 &674265235
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1900261885}
+    m_Modifications:
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.27204004
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8670101
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.860003
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.10000074
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.47000092
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0000000061722596
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000000061722596
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966734370346859651, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_Name
+      value: ScrollBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758644511555122203, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: scrollTexture
+      value: 
+      objectReference: {fileID: 2051519659}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c73cbf29d4145694b8275b8e6e67114f, type: 3}
+--- !u!4 &674265236 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+    type: 3}
+  m_PrefabInstance: {fileID: 674265235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &681353957
 Animator:
   serializedVersion: 5
@@ -25114,6 +25343,80 @@ PrefabInstance:
       addedObject: {fileID: 457790148}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daa24b13538ec8a40a0d32b5418a4584, type: 3}
+--- !u!1001 &683746512
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 100213535}
+    m_Modifications:
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966734370346859651, guid: c73cbf29d4145694b8275b8e6e67114f,
+        type: 3}
+      propertyPath: m_Name
+      value: ScrollBar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c73cbf29d4145694b8275b8e6e67114f, type: 3}
+--- !u!4 &683746513 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 394207778408669719, guid: c73cbf29d4145694b8275b8e6e67114f,
+    type: 3}
+  m_PrefabInstance: {fileID: 683746512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &692251343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29439,7 +29742,7 @@ MonoBehaviour:
   - videoPlayer: {fileID: 1770291511}
     requiredQuestIndex: 29
   - videoPlayer: {fileID: 214916652}
-    requiredQuestIndex: 40
+    requiredQuestIndex: 31
   canvasElement: {fileID: 1234152264}
   videoTransform: {fileID: 1253888385}
   zoomDuration: 0.5
@@ -30260,7 +30563,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -0, z: -0.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 119547506}
   m_Father: {fileID: 332839074}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!114 &851321513
@@ -47579,7 +47883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1335638886
 Transform:
   m_ObjectHideFlags: 0
@@ -49364,15 +49668,15 @@ MonoBehaviour:
     uiAnimationFolder: {fileID: 427311568}
   - requiredQuestIndex: 19
     uiAnimationFolder: {fileID: 28399250}
-  - requiredQuestIndex: 25
+  - requiredQuestIndex: 26
     uiAnimationFolder: {fileID: 460798792}
-  - requiredQuestIndex: 28
+  - requiredQuestIndex: 30
     uiAnimationFolder: {fileID: 1093929617}
-  - requiredQuestIndex: 40
+  - requiredQuestIndex: 34
     uiAnimationFolder: {fileID: 1376586823}
   playerTransform: {fileID: 1445580035}
   resetPosition: {fileID: 1272144246}
-  resetDelaySeconds: 3
+  resetDelaySeconds: 5
   questGiver: {fileID: 1888210411}
 --- !u!95 &1384148674
 Animator:
@@ -60809,6 +61113,37 @@ MonoBehaviour:
     - {fileID: 2108719794}
     - {fileID: 292878775}
     - {fileID: 1224149302}
+  - questIndex: 11
+    pagesToUnlock:
+    - {fileID: 2108719794}
+    - {fileID: 292878775}
+    - {fileID: 1224149302}
+    - {fileID: 538411279}
+  - questIndex: 20
+    pagesToUnlock:
+    - {fileID: 2108719794}
+    - {fileID: 292878775}
+    - {fileID: 1224149302}
+    - {fileID: 538411279}
+  - questIndex: 27
+    pagesToUnlock:
+    - {fileID: 2108719794}
+    - {fileID: 292878775}
+    - {fileID: 1224149302}
+    - {fileID: 538411279}
+    - {fileID: 1309235534}
+    - {fileID: 601882287}
+    - {fileID: 65895615}
+  - questIndex: 32
+    pagesToUnlock:
+    - {fileID: 2108719794}
+    - {fileID: 292878775}
+    - {fileID: 1224149302}
+    - {fileID: 538411279}
+    - {fileID: 1309235534}
+    - {fileID: 601882287}
+    - {fileID: 65895615}
+    - {fileID: 54376881}
 --- !u!114 &1763420626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60829,7 +61164,13 @@ MonoBehaviour:
     fillAmount: 0.352
   - questIndex: 4
     fillAmount: 0.521
-  - questIndex: 9
+  - questIndex: 11
+    fillAmount: 0.64
+  - questIndex: 20
+    fillAmount: 0
+  - questIndex: 27
+    fillAmount: 0.659
+  - questIndex: 32
     fillAmount: 0
 --- !u!1 &1770291511
 GameObject:
@@ -64221,15 +64562,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c7996e11c45df4e83f63f826ac8abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
-  debugQuestIndex: 20
+  debugMode: 0
+  debugQuestIndex: 34
   quests:
   - isActive: 1
     title: Find the Doctor
     description: Dr Barton would like to deliver you some tasks
     Score: 1
     goals:
-    - goalType: 4
+    - goalType: 5
       RequiredAction: {fileID: 1410955817}
       CurrentAction: 0
   - isActive: 1
@@ -64237,7 +64578,7 @@ MonoBehaviour:
     description: Find the patient room and interact
     Score: 2
     goals:
-    - goalType: 7
+    - goalType: 8
       RequiredAction: {fileID: 6458574066385386863}
       CurrentAction: 0
   - isActive: 1
@@ -64250,7 +64591,7 @@ MonoBehaviour:
     description: Watch the next part of the video
     Score: 5
     goals:
-    - goalType: 7
+    - goalType: 8
       RequiredAction: {fileID: 6458574066385386863}
       CurrentAction: 0
   - isActive: 1
@@ -64258,7 +64599,7 @@ MonoBehaviour:
     description: Dr Barton would like to deliver you some tasks
     Score: 5
     goals:
-    - goalType: 4
+    - goalType: 5
       RequiredAction: {fileID: 1410955817}
       CurrentAction: 0
   - isActive: 1
@@ -64271,7 +64612,7 @@ MonoBehaviour:
     description: Give the Pneumatic tube for the lab to analyse
     Score: 5
     goals:
-    - goalType: 5
+    - goalType: 7
       RequiredAction: {fileID: 61114880}
       CurrentAction: 0
   - isActive: 1
@@ -64283,14 +64624,17 @@ MonoBehaviour:
     title: Submit Swab to Pneumatic Tube
     description: Give the Pneumatic tube for the lab to analyse
     Score: 5
-    goals: []
+    goals:
+    - goalType: 7
+      RequiredAction: {fileID: 61114880}
+      CurrentAction: 0
   - isActive: 1
     title: Sign off
     description: You've completed all tasks for this morning, you are free to leave
       the hospital for lunch
     Score: 1
     goals:
-    - goalType: 8
+    - goalType: 9
       RequiredAction: {fileID: 1384148669}
       CurrentAction: 0
   - isActive: 1
@@ -64314,7 +64658,7 @@ MonoBehaviour:
     description: Check file near the wall of the patient room
     Score: 2
     goals:
-    - goalType: 3
+    - goalType: 4
       RequiredAction: {fileID: 0}
       CurrentAction: 0
   - isActive: 1
@@ -64330,7 +64674,7 @@ MonoBehaviour:
     description: Dr Barton has some questions for you
     Score: 1
     goals:
-    - goalType: 4
+    - goalType: 5
       RequiredAction: {fileID: 1410955817}
       CurrentAction: 0
   - isActive: 1
@@ -64338,7 +64682,7 @@ MonoBehaviour:
     description: Accompany Dr Barton to the patient room
     Score: 2
     goals:
-    - goalType: 7
+    - goalType: 8
       RequiredAction: {fileID: 6458574066385386863}
       CurrentAction: 0
   - isActive: 1
@@ -64346,23 +64690,20 @@ MonoBehaviour:
     description: Dr Barton wants to deliver you the last tasks of today
     Score: 1
     goals:
-    - goalType: 4
+    - goalType: 5
       RequiredAction: {fileID: 1410955817}
       CurrentAction: 0
   - isActive: 1
     title: Blood tests (1/2)
     description: repeat the blood tests again and send them off
-    Score: 2
-    goals:
-    - goalType: 5
-      RequiredAction: {fileID: 897563364}
-      CurrentAction: 0
+    Score: 5
+    goals: []
   - isActive: 1
     title: Blood tests (2/2)
     description: Interact with Pneumatic System
-    Score: 2
+    Score: 5
     goals:
-    - goalType: 6
+    - goalType: 7
       RequiredAction: {fileID: 61114880}
       CurrentAction: 0
   - isActive: 1
@@ -64370,14 +64711,14 @@ MonoBehaviour:
     description: You are finally done for the day
     Score: 2
     goals:
-    - goalType: 8
+    - goalType: 9
       RequiredAction: {fileID: 1384148669}
       CurrentAction: 0
   - isActive: 1
     title: Day 3 Start! Check Results
     description: 'Review all the notes: Patient Room Folder; Clinical Workroom Folder;
       Lab Results'
-    Score: 2
+    Score: 3
     goals:
     - goalType: 2
       RequiredAction: {fileID: 798287453}
@@ -64385,7 +64726,7 @@ MonoBehaviour:
     - goalType: 3
       RequiredAction: {fileID: 232608877}
       CurrentAction: 0
-    - goalType: 3
+    - goalType: 4
       RequiredAction: {fileID: 1383775661}
       CurrentAction: 0
   - isActive: 1
@@ -64393,7 +64734,7 @@ MonoBehaviour:
     description: Dr Barton would like to ask a few questions
     Score: 1
     goals:
-    - goalType: 4
+    - goalType: 5
       RequiredAction: {fileID: 1410955817}
       CurrentAction: 0
   - isActive: 1
@@ -64401,7 +64742,7 @@ MonoBehaviour:
     description: Please check on the patient with Dr Barton
     Score: 2
     goals:
-    - goalType: 7
+    - goalType: 8
       RequiredAction: {fileID: 6458574066385386863}
       CurrentAction: 0
   - isActive: 1
@@ -64410,23 +64751,20 @@ MonoBehaviour:
       today
     Score: 1
     goals:
-    - goalType: 4
+    - goalType: 5
       RequiredAction: {fileID: 1410955817}
       CurrentAction: 0
   - isActive: 1
     title: Blood tests (1/2)
     description: repeat the blood tests again and send them off
-    Score: 2
-    goals:
-    - goalType: 5
-      RequiredAction: {fileID: 897563364}
-      CurrentAction: 0
+    Score: 5
+    goals: []
   - isActive: 1
     title: Blood tests (2/2)
     description: Interact with Pneumatic System
-    Score: 2
+    Score: 5
     goals:
-    - goalType: 6
+    - goalType: 7
       RequiredAction: {fileID: 61114880}
       CurrentAction: 0
   - isActive: 1
@@ -64434,14 +64772,14 @@ MonoBehaviour:
     description: You are free to leave the hospital
     Score: 1
     goals:
-    - goalType: 8
+    - goalType: 9
       RequiredAction: {fileID: 1384148669}
       CurrentAction: 0
   - isActive: 1
-    title: Check Results
+    title: Check Notes
     description: 'Review all the notes: Patient Room Folder; Clinical Workroom Folder;
       Lab Results'
-    Score: 2
+    Score: 3
     goals:
     - goalType: 2
       RequiredAction: {fileID: 798287453}
@@ -64449,7 +64787,7 @@ MonoBehaviour:
     - goalType: 3
       RequiredAction: {fileID: 232608877}
       CurrentAction: 0
-    - goalType: 3
+    - goalType: 4
       RequiredAction: {fileID: 1383775661}
       CurrentAction: 0
   - isActive: 1
@@ -64458,8 +64796,63 @@ MonoBehaviour:
       today
     Score: 1
     goals:
-    - goalType: 4
+    - goalType: 5
       RequiredAction: {fileID: 1410955817}
+      CurrentAction: 0
+  - isActive: 1
+    title: Check on the Patient
+    description: Please check on the patient with Dr Barton
+    Score: 2
+    goals:
+    - goalType: 8
+      RequiredAction: {fileID: 6458574066385386863}
+      CurrentAction: 0
+  - isActive: 1
+    title: Sign Off
+    description: You are free to leave the hospital
+    Score: 1
+    goals:
+    - goalType: 9
+      RequiredAction: {fileID: 1384148669}
+      CurrentAction: 0
+  - isActive: 1
+    title: Check on the Patient
+    description: Please check on the patient with Dr Barton
+    Score: 2
+    goals:
+    - goalType: 8
+      RequiredAction: {fileID: 6458574066385386863}
+      CurrentAction: 0
+  - isActive: 1
+    title: Check Through Notes
+    description: 'Review all the notes: Patient Room Folder; Clinical Workroom Folder;
+      Lab Results'
+    Score: 3
+    goals:
+    - goalType: 2
+      RequiredAction: {fileID: 798287453}
+      CurrentAction: 0
+    - goalType: 3
+      RequiredAction: {fileID: 232608877}
+      CurrentAction: 0
+    - goalType: 4
+      RequiredAction: {fileID: 1383775661}
+      CurrentAction: 0
+  - isActive: 1
+    title: Dr Barton Discussions
+    description: Dr Barton would like to ask a few questions
+    Score: 1
+    goals:
+    - goalType: 5
+      RequiredAction: {fileID: 1410955817}
+      CurrentAction: 0
+  - isActive: 1
+    title: Sign Off
+    description: Thank you for playing through this scenario, please exit the hospital
+    Score: 1
+    goals:
+    - goalType: 9
+      RequiredAction: {fileID: 1384148669}
       CurrentAction: 0
   player: {fileID: 1445580036}
   scoreManager: {fileID: 1145837442}
@@ -64947,7 +65340,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -0, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 674265236}
   m_Father: {fileID: 332839074}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!114 &1900261886
@@ -69775,6 +70169,7 @@ GameObject:
   - component: {fileID: 2064919329}
   - component: {fileID: 2064919328}
   - component: {fileID: 2064919327}
+  - component: {fileID: 2064919330}
   m_Layer: 5
   m_Name: Day1 (2)
   m_TagString: Untagged
@@ -69910,6 +70305,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064919325}
   m_CullTransparentMesh: 1
+--- !u!114 &2064919330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064919325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35102ea4b1c6934ea6abb69826e0cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 1145837438}
+  score: {fileID: 1145837442}
 --- !u!1 &2066228098
 GameObject:
   m_ObjectHideFlags: 0
@@ -70762,6 +71171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2098423527}
+  - component: {fileID: 2098423528}
   m_Layer: 0
   m_Name: ComputerScreen
   m_TagString: Untagged
@@ -70791,6 +71201,22 @@ Transform:
   - {fileID: 1225850311}
   m_Father: {fileID: 581222751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098423528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098423526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9424527004c5c1439058aa351117214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivePages:
+  - {fileID: 1335638885}
+  - {fileID: 465623592}
+  icmLoginPage: {fileID: 798287453}
 --- !u!1 &2101961914
 GameObject:
   m_ObjectHideFlags: 0
@@ -74872,3 +75298,4 @@ SceneRoots:
   - {fileID: 581222751}
   - {fileID: 301199010}
   - {fileID: 741042965}
+  - {fileID: 300886375}

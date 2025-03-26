@@ -4,7 +4,8 @@
     "Vid1.yarn",
     "Vid2.yarn",
     "Vid3.yarn",
-    "Vid4.yarn"
+    "Vid4.yarn",
+    "vid6.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"
@@ -12,7 +13,8 @@
   "localisation": {
     "en": {
       "assets": "."
-    }
+    },
+    "bs-Cyrl": {}
   },
   "baseLanguage": "en",
   "compilerOptions": {}
