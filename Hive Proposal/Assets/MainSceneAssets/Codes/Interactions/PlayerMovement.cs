@@ -17,6 +17,13 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    [Header("Footstep Settings")]
+    public AudioSource footstepSource;
+    public List<AudioClip> footstepClips; 
+    public float footstepInterval = 0.5f;
+
+    private float footstepTimer = 0f;
+
     Vector3 velocity;
     bool isGrounded;
 
@@ -59,5 +66,32 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void HandleFootsteps()
+    {
+        bool isMoving = (Mathf.Abs(x) > 0.1f || Mathf.Abs(z) > 0.1f);
+        if (isGrounded && isMoving)
+        {
+            footstepTimer += Time.deltaTime;
+            if (footstepTimer >= footstepInterval)
+            {
+                PlayFootstep();
+                footstepTimer = 0f;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
+    }
+    private void PlayFootstep()
+    {
+        if (footstepSource == null || footstepClips == null || footstepClips.Count == 0)
+            return;
+
+        // Pick a random footstep sound from the list
+        AudioClip clip = footstepClips[Random.Range(0, footstepClips.Count)];
+        footstepSource.PlayOneShot(clip);
     }
 }

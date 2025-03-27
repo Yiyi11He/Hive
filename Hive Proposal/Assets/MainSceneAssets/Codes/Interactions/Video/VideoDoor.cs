@@ -126,15 +126,34 @@ public class VideoDoor : MonoBehaviour
 
         videoTransform.gameObject.SetActive(true);
         canvasElement.SetActive(true);
+
+        videoPlayer.loopPointReached += OnVideoFinished;
+
         videoPlayer.Play();
         isPlaying = true;
         activeVideoPlayer = videoPlayer;
 
         DisablePlayerControls();
-
         StartCoroutine(ZoomVideo());
-        StartCoroutine(WaitForVideoToEnd(videoPlayer));
     }
+
+
+    private void OnVideoFinished(VideoPlayer source)
+    {
+        source.loopPointReached -= OnVideoFinished;
+
+        videoTransform.gameObject.SetActive(false);
+        canvasElement.SetActive(false);
+        isPlaying = false;
+
+        EnablePlayerControls();
+
+        if (questGiver != null)
+        {
+            questGiver.UpdateQuestProgress(GoalType.DoorInteract);
+        }
+    }
+
 
     private IEnumerator ZoomVideo()
     {
