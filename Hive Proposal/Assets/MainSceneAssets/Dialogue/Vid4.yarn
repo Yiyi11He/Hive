@@ -5,7 +5,7 @@ position: 60,-66
 <<set $playerName = "">>
 <<declare $xrayScore = 0>>
 <<set $currentInputContext = "xray">>
-Dr.Barton: Have you checked the results?​
+Dr.Barton: Have you [job]checked the results[/job]?​
 -> No
     Dr.Barton: I am starting to think if you want to be here.​
     <<stop>>
@@ -113,7 +113,7 @@ position: 289,544
     Dr.Barton: That's not correct, minus 1 point for you.
     <<add_score ScoreTimerInteractVideo -1>>    
 <<endif>>
-
+<<clear_highlights "Options List View">>
 <<declare $ClindaDay3 = false>>
 <<declare $VancoDay3 = false>>
 <<declare $PDay3 = false>>
@@ -151,6 +151,7 @@ title: ClindamycinDay3
 position: -355,631
 ---
 <<set $ClindaDay3 to !$ClindaDay3>>
+<<highlight "Options List View" "Clindamycin​">>
 <<jump AntibioticsDay3>>
 ===
 
@@ -158,30 +159,35 @@ title: VancomycinDay3
 position: -358,781
 ---
 <<set $VancoDay3 to !$VancoDay3>>
+<<highlight "Options List View" "Vancomycin​">>
 <<jump AntibioticsDay3>>
 ===
 title: PiperDay3
 position: -358,927
 ---
 <<set $PDay3 to !$PDay3>>
+<<highlight "Options List View" "Piperacillin with tazobactam">>
 <<jump AntibioticsDay3>>
 ===
 title: CarbapDay3
 position: -355,1068
 ---
 <<set $CarDay3 to !$CarDay3>>
+<<highlight "Options List View" "Carbapenem​">>
 <<jump AntibioticsDay3>>
 ===
 title: CeftriaxoneDay3
 position: -359,1370
 ---
 <<set $CeftDay3 to !$CeftDay3>>
+<<highlight "Options List View" "Ceftriaxone with metronidazole">>
 <<jump AntibioticsDay3>>
 ===
 title: NoChangeDay3
 position: -358,1212
 ---
 <<set $Nochange3 to !$Nochange3>>
+<<highlight "Options List View" "I do not think we need to change the antibiotics">>
 <<jump AntibioticsDay3>>
 ===
 
@@ -195,21 +201,25 @@ position: 60,1133
 <<endif>>
 
 <<if $VancoDay3 == true>>
+    Dr Barton:This antibiotic is not effective against gram negative bacteria.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $PDay3 == true>>
+    Dr Barton:This is a good choice since this is much broader spectrum covering gram-positive, gram-negative and anaerobic organisms compared to other options.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 
 <<if $CarDay3 == true>>
+    Dr Barton:This is also a good choice, but it is expensive, and this is reserved for severe or resistant infections.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $CeftDay3 == true>>
+    Dr Barton:This combination can be a good option but in this case, we need an antibiotic with a broader coverage.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
@@ -228,7 +238,7 @@ title: PreTeaching
 position: 39,1381
 ---
 <<open_quest QuestGiver 23>>
-Dr.Barton: Could you do the blood tests again please and send them off.
+Dr.Barton: Could you do the [job]blood tests[/job] again please and send them off.
 Dr.Barton: I know you have to go back to campus for teaching, come back and see me after the teaching.
 <<complete_quest QuestGiver 23>>
 ===
@@ -243,6 +253,8 @@ position: 10,1781
 <<declare $Pall14 = false>>
 <<declare $Anae14 = false>>
 <<declare $endo14 = false>>
+
+<<clear_highlights "Options List View">>
 Dr Barton: Hello there, welcome back.
 Dr Barton:  I trust you’ve had a chance to go through the notes.
 Dr Barton: Based on what you've seen so far, what other specialists should be involved?
@@ -276,42 +288,49 @@ title: VasSurg14
 position: 373,1601
 ---
 <<set $VasSurg to !$VasSurg>>
+<<highlight "Options List View" "Vascular surgeon">>
 <<jump SelectionDay14>>
 ===
 title: Ortho14
 position: 367,1461
 ---
 <<set $Ortho to !$Ortho>>
+<<highlight "Options List View" "Orthopaedics">>
 <<jump SelectionDay14>>
 ===
 title: Plas14
 position: 375,1755
 ---
 <<set $Plastics14 to !$Plastics14>>
+<<highlight "Options List View" "Plastics surgeon">>
 <<jump SelectionDay14>>
 ===
 title: GenMed
 position: 364,1906
 ---
 <<set $GeneralMed14 to !$GeneralMed14>>
+<<highlight "Options List View" "General medicine physician">>
 <<jump SelectionDay14>>
 ===
 title: Palliative14
 position: 364,2050
 ---
 <<set $Pall14 to !$Pall14>>
+<<highlight "Options List View" "Palliative care physician">>
 <<jump SelectionDay14>>
 ===
 title: Anaesthe14
 position: 370,2359
 ---
 <<set $Anae14 to !$Anae14>>
+<<highlight "Options List View" "Anaesthetics">>
 <<jump SelectionDay14>>
 ===
 title: Endocri14
 position: 376,2206
 ---
 <<set $endo14 to !$endo14>>
+<<highlight "Options List View" "Endocrinologist">>
 <<jump SelectionDay14>>
 ===
 title: SubmitSpecialistDay14
@@ -361,7 +380,7 @@ position: 15,2157
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
-
+<<clear_highlights "Options List View">>
 Dr Barton: What Allied health professionals should be involved?
 <<declare $Physio14 = false>>
 <<declare $Occu14 = false>>
@@ -388,24 +407,28 @@ title: PhysioDay14
 position: -322,2619
 ---
 <<set $Physio14 to !$Physio14>>
+<<highlight "Options List View" "Physiotherapist">>
 <<jump AlliedHealthQuestion>>
 ===
 title: OccuDay14
 position: -327,2189
 ---
 <<set $Occu14 to !$Occu14>>
+<<highlight "Options List View" "Occupational therapist">>
 <<jump AlliedHealthQuestion>>
 ===
 title: SocialDay14
 position: -326,2337
 ---
 <<set $Social14 to !$Social14>>
+<<highlight "Options List View" "Social worker">>
 <<jump AlliedHealthQuestion>>
 ===
 title: PharmaDay14
 position: -325,2479
 ---
 <<set $Pharma14 to !$Pharma14>>
+<<highlight "Options List View" "Pharmacist">>
 <<jump AlliedHealthQuestion>>
 ===
 
@@ -442,7 +465,7 @@ title: ShortInteractionVid5
 position: 13,2772
 ---
 Dr Barton: We know through the history and notes that the patient is currently not doing well.
-Dr Barton: Let’s see the patient togesther.
+Dr Barton: Let’s [job]see the patient togesther[/job].
 
 <<complete_quest QuestGiver 28>>
 <<stop>>

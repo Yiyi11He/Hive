@@ -5,7 +5,7 @@ position: -175,-1673
 <<declare $current_quiz_score = 0>>
 <<open_quest QuestGiver 0>>
 Dr.Barton: Follow me and let’s see this patient together. 
-Dr.Barton: Please find the Patient room.
+Dr.Barton: Please [job]find the patient room[/job].
 //video plays
 //swabs and video stop at 4:20
 
@@ -66,6 +66,7 @@ Position:0,0
 position: 524,-835
 ---
 <<set $Infected to !$Infected>>
+<<highlight "Options List View" "Infected">>
 <<jump Multichoice>>
 
 
@@ -74,6 +75,8 @@ title: SelectErythema
 position: 521,-967
 ---
 <<set $Erythema to !$Erythema>>
+<<highlight "Options List View" "Erythema">>
+
 <<jump Multichoice>>
 
 
@@ -82,6 +85,7 @@ title: SelectSwelling
 position: 525,-1234
 ---
 <<set $Swelling to !$Swelling>>
+<<highlight "Options List View" "Swelling">>
 <<jump Multichoice>>
 
 
@@ -90,6 +94,7 @@ title: SelectUlcer
 position: 519,-1100
 ---
 <<set $Ulcer to !$Ulcer>>
+<<highlight "Options List View" "Ulcer">>
 <<jump Multichoice>>
 
 ===
@@ -97,6 +102,7 @@ title: SelectDiabetic
 position: 529,-1371
 ---
 <<set $Diabetic to !$Diabetic>>
+<<highlight "Options List View" "Diabetic">>
 <<jump Multichoice>>
 
 
@@ -105,6 +111,7 @@ title: SelectPlantar
 position: 524,-1636
 ---
 <<set $Plantar to !$Plantar>>
+<<highlight "Options List View" "Plantar">>
 <<jump Multichoice>>
 
 
@@ -113,6 +120,7 @@ title: SelectVenous
 position: 525,-697
 ---
 <<set $Venous to !$Venous>>
+<<highlight "Options List View" "Venous">>
 <<jump Multichoice>>
 
 ===
@@ -120,6 +128,7 @@ title: SelectArterial
 position: 534,-1509
 ---
 <<set $Arterial to !$Arterial>>
+<<highlight "Options List View" "Arterial">>
 <<jump Multichoice>>
 
 ===
@@ -127,6 +136,7 @@ title: SelectPurple
 position: 525,-1894
 ---
 <<set $Purple to !$Purple>>
+<<highlight "Options List View" "Purple">>
 <<jump Multichoice>>
 
 ===
@@ -134,6 +144,7 @@ title: SelectPus
 position: 525,-1766
 ---
 <<set $Pus to !$Pus>>
+<<highlight "Options List View" "Pus">>
 <<jump Multichoice>>
 
 ===
@@ -211,6 +222,7 @@ Dr.Barton: You will get points for each question you answer correctly. The total
 Dr.Barton: I hope you are well prepared. First question! 
 Dr.Barton: What kind of swabs are needed?
 Dr.Barton: Pick one from the pictures. 
+<<clear_highlights "Options List View">>
 
 
 <<declare $Swab1 = false>>
@@ -233,22 +245,25 @@ position: 252,-707
 <<endif>>
 
 <<if $Swab2 == true>>
-    Dr Barton:Yes! This contains charcoal in the medium which prevents oxidation of the sample which can destroy some bacteria.
-    <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreTimerInteractVideo 1>>
-<<endif>>
-
-<<if $Swab3 == true>>
     Dr Barton:Yes! This is good for culture as well since there is a medium in the tube
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 
-<<if $Swab4 == true>>
+<<if $Swab3 == true>>
     Dr Barton:This does not contain any medium and is not suitable for isolating bacteria. This is used for PCR usually.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
+
+<<if $Swab4 == true>>
+    Dr Barton:Yes! This contains charcoal in the medium which prevents oxidation of the sample which can destroy some bacteria.
+    <<set $current_quiz_score = $current_quiz_score + 1>>
+    <<add_score ScoreTimerInteractVideo 1>>
+<<endif>>
+
+
+
 
 <<if $current_quiz_score == 2>>
     Dr.Barton: Good! 
@@ -265,7 +280,7 @@ tags:
 position: -121,-304
 ---
 Dr.Barton: What tests should we do on the swabs? 
-
+<<clear_highlights "Options List View">>
 
 <<declare $Culture​ = false>>
 <<declare $Sensitivity = false>>
@@ -304,14 +319,16 @@ position: -477,179
 ---
 
 <<set $Culture​ = !$Culture​>>
+<<highlight "Options List View" "Culture​">>
 <<jump SwabsAnswer>>
 
 ===
 title: SensitivityResponse
-position: -488,-504
+position: -468,-407
 ---
 
 <<set $Sensitivity = !$Sensitivity>>
+<<highlight "Options List View" "Sensitivity">>
 <<jump SwabsAnswer>>
 
 ===
@@ -359,18 +376,18 @@ position: -116,21
 <<else>>
     Dr.Barton: You're on the right track, but there are a few things you missed.
 <<endif>>
-
+<<clear_highlights "Options List View">>
 
 <<declare $fullBlood = false>>
-<<declare $Electrolytes​ = false>>
+<<declare $Elect1​ = false>>
 <<declare $Cal2​ = false>>
 <<declare $liver​ = false>>
 <<declare $bloodcul​ = false>>
 <<declare $Hb​ = false>>
 <<declare $Iron​ = false>>
 <<declare $Folate​ = false>>
-<<declare $CRP​ = false>>
-<<declare $ESR​ = false>>
+<<declare $CRP1​ = false>>
+<<declare $ESR1​ = false>>
 <<declare $Thy1 = false>>
 <<declare $XrayChoice​​​ = false>>
 <<declare $UltrasoundF = false>>
@@ -378,6 +395,7 @@ position: -116,21
 <<declare $MRIFoot = false>>
 
 Dr Barton: I am thinking of more tests. What other tests should we do?
+
 <<jump tests>>
 
 ===
@@ -385,6 +403,7 @@ title: PolymeraseResponse
 position: -475,-95
 ---
 <<set $Polymerase = !$Polymerase>>
+<<highlight "Options List View" "Polymerase">>
 <<jump SwabsAnswer>>
 ===
 
@@ -392,6 +411,7 @@ title: GramResponse
 position: -481,313
 ---
 <<set $Gram = !$Gram>>
+<<highlight "Options List View" "Gram">>
 <<jump SwabsAnswer>>
 ===
 
@@ -399,13 +419,15 @@ title: RapidResponse
 position: -474,44
 ---
 <<set $Rapid = !$Rapid>>
+<<highlight "Options List View" "Rapid">>
 <<jump SwabsAnswer>>
 ===
 
 title: MicroscopyResponse
-position: -492,-342
+position: -470,-260
 ---
 <<set $Microscopy = !$Microscopy>>
+<<highlight "Options List View" "Microscopy">>
 <<jump SwabsAnswer>>
 ===
 
@@ -413,35 +435,35 @@ title: tests
 position: -229,344
 ---
 
--> Full blood count​ - {$fullBlood} 
+-> Full blood count​ - {$fullBlood}
     <<jump fullBloodResponse>>
--> Electrolytes, urea and creatinine​ - {$Electrolytes​} 
+-> Electrolytes, urea and creatinine​ - {$Elect1​}
     <<jump Electrolytes1>>
--> Calcium, magnesium, phosphate​ - {$Cal2​} 
+-> Calcium, magnesium, phosphate​ - {$Cal2​}
     <<jump Calc1>>
--> Liver function test​ - {$liver​}  
+-> Liver function test​ - {$liver​}
     <<jump liver1>>
--> Blood cultures​ - {$bloodcul​}  
+-> Blood cultures​ - {$bloodcul​}
     <<jump bloodCul>>
--> HbA1C​ - {$Hb​} 
+-> HbA1C​ - {$Hb​}
     <<jump HbA>>
--> Iron levels​ -{$Iron​} 
+-> Iron levels​ - {$Iron​}
     <<jump IronL>>
--> Folate and B12 levels​ - {$Folate​}  
+-> Folate and B12 levels​ - {$Folate​}
     <<jump FolateB>>
--> CRP​ - {$CRP​} 
+-> CRP​ - {$CRP1​}
     <<jump CRP1>>
--> ESR​ - {$ESR​} 
+-> ESR​ - {$ESR1​}
     <<jump ESR1>>
--> Thyroid function tests​ - {$Thy1} 
+-> Thyroid function tests​ - {$Thy1}
     <<jump ThyFunction>>
--> Xray of the foot​ -{$XrayChoice​​​}
+-> Xray of the foot​ - {$XrayChoice​​​}
     <<jump XrayF>>
--> Ultrasound of the foot​ - {$UltrasoundF} 
+-> Ultrasound of the foot​ - {$UltrasoundF}
     <<jump UltrasoundFoot>>
--> CT of the foot​ - {$CTFoot}  
+-> CT of the foot​ - {$CTFoot}
     <<jump CTF>>
--> MRI of the foot - {$MRIFoot} 
+-> MRI of the foot - {$MRIFoot}
     <<jump MRIF>>
 -> Submit responses 
     <<jump SubmitTestResponses>>
@@ -450,90 +472,105 @@ title: fullBloodResponse
 position: 180,-179
 ---
 <<set $fullBlood = !$fullBlood>>
+<<highlight "Options List View" "Full blood">>
 <<jump tests>>
 ===
 title: Electrolytes1
 position: 180,-306
 ---
-<<set $Electrolytes​ = !$Electrolytes​>>
+<<set $Elect1​ = !$Elect1​>>
+<<highlight "Options List View" "Electrolytes, urea and creatinine​">>
 <<jump tests>>
 ===
 title: Calc1
 position: 181,242
 ---
 <<set $Cal2​ = !$Cal2​>>
+<<highlight "Options List View" "Calcium, magnesium, phosphate​">>
 <<jump tests>>
 ===
 title: liver1
 position: 180,107
 ---
 <<set $liver​= !$liver​>>
+<<highlight "Options List View" "Liver function test​">>
 <<jump tests>>
 ===
 title: bloodCul
 position: 177,-37
 ---
 <<set $bloodcul​= !$bloodcul​>>
+<<highlight "Options List View" "Blood cultures​">>
 <<jump tests>>
 ===
 title: HbA
 position: 181,379
 ---
 <<set $Hb​= !$Hb​>>
+<<highlight "Options List View" "HbA1C​">>
 <<jump tests>>
 ===
 title: IronL
 position: 422,247
 ---
 <<set $Iron​= !$Iron​>>
+<<highlight "Options List View" "Iron levels​">>
 <<jump tests>>
 ===
 title: FolateB
 position: 408,-54
 ---
 <<set $Folate​ = !$Folate​>>
+<<highlight "Options List View" "Folate and B12 levels​">>
 <<jump tests>>
 ===
 title: CRP1
 position: 413,-219
 ---
-<<set $CRP​ = !$CRP​>>
+<<set $CRP1​ = !$CRP1​>>
+<<highlight "Options List View" "CRP​">>
 <<jump tests>>
 ===
 title: ESR1
 position: 416,89
 ---
-<<set $ESR​ = !$ESR​>>
+<<set $ESR1​ = !$ESR1​>>
+<<highlight "Options List View" "ESR​">>
 <<jump tests>>
 ===
 title: ThyFunction
 position: 180,525
 ---
 <<set $Thy1 = !$Thy1>>
+<<highlight "Options List View" "Thyroid">>
 <<jump tests>>
 ===
 title: XrayF
 position: 177,668
 ---
 <<set $XrayChoice​​​ = !$XrayChoice​​​>>
+<<highlight "Options List View" "Xray of the foot​">>
 <<jump tests>>
 ===
 title: UltrasoundFoot
 position: 174,814
 ---
 <<set $UltrasoundF = !$UltrasoundF>>
+<<highlight "Options List View" "Ultrasound">>
 <<jump tests>>
 ===
 title: CTF
 position: 172,951
 ---
 <<set $CTFoot = !$CTFoot>>
+<<highlight "Options List View" "CT of">>
 <<jump tests>>
 ===
 title: MRIF
 position: 178,1094
 ---
 <<set $MRIFoot = !$MRIFoot>>
+<<highlight "Options List View" "MRI of">>
 <<jump tests>>
 ===
 title: SubmitTestResponses
@@ -547,7 +584,7 @@ Dr Barton: You are correct! This can tell us about the white cell count and the 
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
-<<if $Electrolytes​ == true>>
+<<if $Elect1​ == true>>
 Dr Barton: Good! We would like to know the kidney function since some antibiotics are cleared by the kidneys and diabetes can affect the kidneys as well.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
@@ -582,12 +619,12 @@ Dr Barton: It is unlikely the patient will have issues with her folate and B12 l
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
-<<if $CRP​ == true>>
+<<if $CRP1​ == true>>
 Dr Barton: This is good! CRP gives us information on severity of the infection and helps us track the treatment response.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
-<<if $ESR​ == true>>
+<<if $ESR1​ == true>>
 Dr Barton: We only require the CRP to track the treatment since CRP respond faster compared to ESR to inflammation.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
@@ -623,7 +660,7 @@ Dr Barton: This is a good test for excluding osteomyelitis if Xray is normal. Ho
 <<else>>
     Dr.Barton: Good effort! However, there are a few key tests that you may have missed.
 <<endif>>
-
+<<clear_highlights "Options List View">>
 <<declare $FluChoice5​ = false>>
 <<declare $Cephalexin5 = false>>
 <<declare $ClindChoice4​  = false>>
@@ -633,6 +670,7 @@ Dr Barton: This is a good test for excluding osteomyelitis if Xray is normal. Ho
 <<declare $Vancomycin1 = false>>
 
 Dr Barton: What treatment should we start for the patient? 
+
 <<jump Treatment>>
 ===
 title: Treatment
@@ -714,36 +752,42 @@ title: Fluclo4
 position: -911,478
 ---
 <<set $FluChoice5​ = !$FluChoice5​>>
+<<highlight "Options List View" "Oral Flucloxacillin 500mg QDS​">>
 <<jump Treatment>>
 ===
 title: Cephalexin1
 position: -914,633
 ---
 <<set $Cephalexin5 = !$Cephalexin5>>
+<<highlight "Options List View" "Oral Cephalexin 500mg QDS">>
 <<jump Treatment>>
 ===
 title: Clindam1
 position: -908,778
 ---
 <<set $ClindChoice4​ = !$ClindChoice4​>>
+<<highlight "Options List View" "Oral Clindamycin 450mg TDS">>
 <<jump Treatment>>
 ===
 title: Trimethoprim0
 position: -906,919
 ---
 <<set $Trimethoprim1 = !$Trimethoprim1>>
+<<highlight "Options List View" "Oral Trimethoprim/Sulfamethoxazole 160/800mg BD">>
 <<jump Treatment>>
 ===
 title: Flucloxacillin1
 position: -896,1070
 ---
 <<set $Flucloxacillin2 = !$Flucloxacillin2>>
+<<highlight "Options List View" "IV Flucloxacillin 2000mg QDS">>
 <<jump Treatment>>
 ===
 title: Cefazolin2
 position: -893,1208
 ---
 <<set $Cefazolin1 = !$Cefazolin1>>
+<<highlight "Options List View" "IV Cefazolin 2g TDS">>
 <<jump Treatment>>
 
 ===
@@ -751,5 +795,6 @@ title: Vancomycin2
 position: -896,1354
 ---
 <<set $Vancomycin1 = !$Vancomycin1>>
+<<highlight "Options List View" "IV Vancomycin 1500mg BD">>
 <<jump Treatment>>
 ===

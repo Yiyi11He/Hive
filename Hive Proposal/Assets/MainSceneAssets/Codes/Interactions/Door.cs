@@ -18,6 +18,13 @@ public class Door : MonoBehaviour
     [SerializeField] private float autoCloseRange = 2f;
     [SerializeField] private float autoCloseDelay = 0.5f;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource doorAudioSource;
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip closeSound;
+    [SerializeField][Range(0.9f, 1.1f)] private float pitchRandomness = 0.05f;
+
+
     private Vector3 startRotation;
     private Vector3 forward;
     private Coroutine animationCoroutine;
@@ -91,6 +98,9 @@ public class Door : MonoBehaviour
 
         IsOpen = true;
 
+        PlayDoorSound(openSound);
+
+
         float time = 0;
         while (time < 1)
         {
@@ -131,6 +141,8 @@ public class Door : MonoBehaviour
         Quaternion startRot = transform.rotation;
         Quaternion endRot = Quaternion.Euler(startRotation);
         IsOpen = false;
+        PlayDoorSound(closeSound);
+
 
         float time = 0;
         while (time < 1)
@@ -158,4 +170,13 @@ public class Door : MonoBehaviour
 
         autoCloseCoroutine = null;
     }
+
+    private void PlayDoorSound(AudioClip clip)
+    {
+        if (doorAudioSource == null || clip == null) return;
+
+        doorAudioSource.pitch = Random.Range(1f - pitchRandomness, 1f + pitchRandomness);
+        doorAudioSource.PlayOneShot(clip);
+    }
+
 }

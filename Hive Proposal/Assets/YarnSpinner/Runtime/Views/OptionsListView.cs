@@ -42,6 +42,10 @@ namespace Yarn.Unity
         // The line we saw most recently.
         LocalizedLine lastSeenLine;
 
+        //for Highlighting Selection
+        public IReadOnlyList<OptionView> OptionViews => optionViews;
+
+
         public void Start()
         {
             canvasGroup.alpha = 0;

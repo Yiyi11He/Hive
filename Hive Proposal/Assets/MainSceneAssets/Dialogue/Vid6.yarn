@@ -6,6 +6,14 @@ position: -13,-30
 
 <<set $current_quiz_score = 0>>
 
+<<clear_highlights "Options List View">>
+
+<<jump DeclareDay15>>
+===
+title: DeclareDay15
+tags:
+position: -13,-30
+---
 <<declare $Merop = false>>
 <<declare $Vanco15 = false>>
 <<declare $Linez15 = false>>
@@ -55,24 +63,28 @@ title: MeroDay15
 position: 401,-147
 ---
 <<set $Merop to !$Merop>>
+<<highlight "Options List View" "Merop">>
 <<jump MRSASelection>>
 ===
 title: VancoDay15
 position: 401,-415
 ---
 <<set $Vanco15 to !$Vanco15>>
+<<highlight "Options List View" "Vanco">>
 <<jump MRSASelection>>
 ===
 title: LinezDay15
 position: 401,-13
 ---
 <<set $Linez15 to !$Linez15>>
+<<highlight "Options List View" "Linez">>
 <<jump MRSASelection>>
 ===
 title: DaptDay15
 position: 401,115
 ---
 <<set $Dapt15 to !$Dapt15>>
+<<highlight "Options List View" "Dapt">>
 <<jump MRSASelection>>
 ===
 
@@ -80,6 +92,7 @@ title: CeftDay15
 position: 410,246
 ---
 <<set $Ceft15 to !$Ceft15>>
+<<highlight "Options List View" "Ceft">>
 <<jump MRSASelection>>
 ===
 
@@ -87,6 +100,7 @@ title: DalbDay15
 position: 410,379
 ---
 <<set $Dalba to !$Dalba>>
+<<highlight "Options List View" "Dalba">>
 <<jump MRSASelection>>
 
 ===
@@ -95,6 +109,7 @@ title: TigeDay15
 position: 401,-284
 ---
 <<set $Tige15 to !$Tige15>>
+<<highlight "Options List View" "Tige">>
 <<jump MRSASelection>>
 
 ===
@@ -103,6 +118,7 @@ title: CefaDay15
 position: 413,510
 ---
 <<set $Cefaz to !$Cefaz>>
+<<highlight "Options List View" "Cefaz">>
 <<jump MRSASelection>>
 
 ===
@@ -111,6 +127,7 @@ title: FluxDay15
 position: 416,641
 ---
 <<set $Flux15 to !$Flux15>>
+<<highlight "Options List View" "Fluclo">>
 <<jump MRSASelection>>
 
 ===
@@ -119,6 +136,7 @@ title: AmoxDay15
 position: 419,775
 ---
 <<set $Amox15 to !$Amox15>>
+<<highlight "Options List View" "Amox">>
 <<jump MRSASelection>>
 
 ===
@@ -126,9 +144,9 @@ title: SubmitMRSADay15
 position: -23,388
 ---
 <<if $Merop == true>>
-    Dr Barton: Meropenam to be added...
-    <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreTimerInteractVideo 1>>
+    Dr Barton: Meropenam is a powerful broad spectrum antibiotic but it is not effective against MRSA due to the resistance mechanisms of this bacteria.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $Vanco15 == true>>
@@ -138,49 +156,49 @@ position: -23,388
 <<endif>>
 
 <<if $Linez15 == true>>
-    Dr Barton: Linezoid to be added...
-    <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreTimerInteractVideo 1>>
+    Dr Barton: Linezoid is effective against MRSA but it is reserved for cases where more suitable antibiotics are contraindicated.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $Dapt15 == true>>
-    Dr Barton: Daptomycin to be added...
-    <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreTimerInteractVideo 1>>
+    Dr Barton: Daptomycin is effective against MRSA but it is not the first line treatment.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $Ceft15 == true>>
-    Dr Barton: Ceftaroline to be added...
-    <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreTimerInteractVideo 1>>
+    Dr Barton: Ceftaroline is effective against MRSA but it is a second line treatment due to its higher cost and need for more clinical data to support its use as a first line therapy.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $Dalba == true>>
-    Dr Barton: Yes, but Dalbavacin are reserved for complicated infections requiring special approvals.
-    <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreTimerInteractVideo 1>>
+    Dr Barton: Dalbavancin is a long acting antibiotic and is useful for outpatient therapy but it is not typically used as a first line treatment due to its high cost and limited availability
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $Tige15 == true>>
-    Dr Barton: Yes, but Tigecycline are reserved for complicated infections requiring special approvals
-    <<set $current_quiz_score = $current_quiz_score + 1>>
-    <<add_score ScoreTimerInteractVideo 1>>
+    Dr Barton: Tigecycline is effective for MRSA but often reserved for complicated skin and soft tissue infections. There is another drug with more extensive data on MRSA that is used as a first line treatment.
+    <<set $current_quiz_score = $current_quiz_score - 1>>
+    <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $Cefaz == true>>
-    Dr Barton: Cefazolin to be added...
+    Dr Barton: Cefazolin is a broad spectrum antibiotic but it is not effective against MRSA due to the resistance mechanisms of this bacteria
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $Flux15 == true>>
-    Dr Barton: Flucloxacillin to be added...
+    Dr Barton: Flucloxacillin is not effective against MRSA due to the resistance profile.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
 <<if $Amox15 == true>>
-    Dr Barton: Amoxicillin to be added...
+    Dr Barton: Amoxicillin is not effective against MRSA due to the resistance profile.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>

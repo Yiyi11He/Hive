@@ -4,9 +4,9 @@ position: 12,-26
 ---
 <<open_quest QuestGiver 4>>
 Dr Barton: I will see you again this afternoon. These are the things you can do for me.
-Dr Barton: Send the swabs off to the labs 
-Dr Barton: Get the blood tests done and send them off to the labs 
-Dr Barton: Review the results before you see me and we will see the patient together in the wards.
+Dr Barton: Send the [job]swabs[/job] off to the labs 
+Dr Barton: Get the [job]blood tests[/job] done and send them off to the labs 
+Dr Barton: [job]Review the results[/job] before you see me and we will see the patient together in the wards.
 Dr Barton: I will ask you questions about the patient. 
 Dr Barton: Remember, you are being assessed! 
 <<complete_quest QuestGiver 4>>

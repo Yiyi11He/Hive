@@ -146,7 +146,7 @@ position: -34,-248
     <<add_score ScoreTimerInteractVideo -1>>    
 <<endif>>
 
-
+<<clear_highlights "Options List View">>
 Dr.Barton: What should we do about her diabetic medications?
 <<declare $currentDose = false>>
 <<declare $ReduceDose = false>>
@@ -177,6 +177,7 @@ title: current1
 position: 262,4
 ---
 <<set $currentDose to !$currentDose>>
+<<highlight "Options List View" "Continue with current dose">>
 <<jump DiabeticMed>>
 
 ===
@@ -184,6 +185,7 @@ title: reduce1
 position: 264,-132
 ---
 <<set $ReduceDose to !$ReduceDose>>
+<<highlight "Options List View" "Reduce the doses for both gliclazide and metformin">>
 <<jump DiabeticMed>>
 
 ===
@@ -191,6 +193,7 @@ title: gliclaz1
 position: 263,-254
 ---
 <<set $GliclazideStop to !$GliclazideStop>>
+<<highlight "Options List View" "Stop Gliclazide and continue with metformin">>
 <<jump DiabeticMed>>
 
 ===
@@ -198,6 +201,7 @@ title: Stop1
 position: 261,133
 ---
 <<set $StopBoth to !$StopBoth>>
+<<highlight "Options List View" "Stop both medications">>
 <<jump DiabeticMed>>
 
 ===
@@ -235,8 +239,8 @@ position: -25,415
 ---
 <<open_quest QuestGiver 16>>
 Dr.Barton: We will see the patient together again in two days.
-Dr.Barton: Could you repeat the blood tests again and send them off.​
-Dr.Barton: Review the results before we see the patient okay?
+Dr.Barton: Could you repeat the [job]blood tests[/job] again and send them off.​
+Dr.Barton: [job]Review the results[/job] before we see the patient okay?
 -> I will review the results.
     Dr.Barton: Thanks. See you in two days.
     <<complete_quest QuestGiver 16>>
