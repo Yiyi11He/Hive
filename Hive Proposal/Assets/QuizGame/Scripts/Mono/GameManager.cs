@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]    Color               timerHalfWayOutColor    = Color.yellow;
     [SerializeField]    Color               timerAlmostOutColor     = Color.red;
     private             Color               timerDefaultColor       = Color.white;
+    public QuizResponses quizResponsesRef;
 
     private List<AnswerData> PickedAnswers = new List<AnswerData>();
     private  List<int>           FinishedQuestions       = new List<int>();
@@ -160,7 +161,33 @@ public class GameManager : MonoBehaviour {
     {
         UpdateTimer(false);
         bool isCorrect = CheckAnswers();
-        FinishedQuestions.Add(currentQuestion);
+        // If the user is wrong, record it in QuizResponses
+        if (!isCorrect)
+        {
+            // Assuming single-answer questions:
+            if (PickedAnswers.Count > 0)
+            {
+                // Let's say your first picked is the user’s choice:
+                int selectedIndex = PickedAnswers[0].AnswerIndex;
+
+                // Build a Response object
+                QuizResponses.Response r = new QuizResponses.Response();
+                r.Question = Questions[currentQuestion];
+                r.SelectedResponseIndex = selectedIndex;
+
+                // Add it to the "QuizResponses" list
+                // (First, you need a reference to your QuizResponses instance.)
+                if (quizResponsesRef != null)
+                {
+                    quizResponsesRef.responses.Add(r);
+                }
+                else
+                {
+                    Debug.LogWarning("QuizResponses reference is not assigned in GameManager!");
+                }
+            }
+        }
+            FinishedQuestions.Add(currentQuestion);
 
         UpdateScore(timeRemainingForQuestion);
         //UpdateScore((isCorrect) ? Questions[currentQuestion].AddScore : -Questions[currentQuestion].AddScore);
