@@ -18,12 +18,17 @@ public class VideoDoor : MonoBehaviour
     public RectTransform videoTransform;
     public float zoomDuration = 0.5f;
 
+    [Space]
+
     public QuestGiver questGiver;
+    [SerializeField] private GameObject questUI;
 
     private bool isPlayerNearby = false;
     private bool isPlaying = false;
     private VideoPlayer activeVideoPlayer = null;
     private bool isPaused = false;
+
+    [Space]
 
     public PlayerMovement playerController; // Reference to Player Controller
     public MouseLook mouseLookScript;
@@ -127,6 +132,9 @@ public class VideoDoor : MonoBehaviour
         videoTransform.gameObject.SetActive(true);
         canvasElement.SetActive(true);
 
+        questUI.SetActive(false);
+
+
         videoPlayer.loopPointReached += OnVideoFinished;
 
         videoPlayer.Play();
@@ -147,6 +155,7 @@ public class VideoDoor : MonoBehaviour
         isPlaying = false;
 
         EnablePlayerControls();
+        questUI.SetActive(true);
 
         if (questGiver != null)
         {
@@ -237,7 +246,9 @@ public class VideoDoor : MonoBehaviour
             playerController.enabled = false; 
 
         if (mouseLookScript != null)
-            mouseLookScript.enabled = false; 
+            mouseLookScript.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+
     }
 
     private void EnablePlayerControls()
@@ -247,7 +258,7 @@ public class VideoDoor : MonoBehaviour
 
         if (mouseLookScript != null)
             mouseLookScript.enabled = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

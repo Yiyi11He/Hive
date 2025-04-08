@@ -190,11 +190,15 @@ public class AdminFolder : MonoBehaviour
     {
         if (playerMovementScript != null) playerMovementScript.enabled = false;
         if (playerLookScript != null) playerLookScript.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void EnablePlayerControl()
     {
         if (playerMovementScript != null) playerMovementScript.enabled = true;
         if (playerLookScript != null) playerLookScript.enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

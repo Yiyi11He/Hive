@@ -5,23 +5,34 @@ public class FolderListener : MonoBehaviour
     public QuestGiver questGiver;
     public GameObject trackedObject; // The object to monitor
 
+    public InteractionType interactionType = InteractionType.File; // Inspector toggle
+
     private bool hasBeenActivated = false;
+
+    public enum InteractionType
+    {
+        File,
+        ProgressFile
+    }
 
     private void Update()
     {
         if (trackedObject == null || questGiver == null) return;
 
-        // Detect when the object is turned ON for the first time
         if (trackedObject.activeSelf && !hasBeenActivated)
         {
-            hasBeenActivated = true; // Mark as activated
+            hasBeenActivated = true;
         }
 
-        // Detect when the object is turned OFF after being activated
         if (!trackedObject.activeSelf && hasBeenActivated)
         {
-            questGiver.UpdateQuestProgress(GoalType.FileInteract);
-            enabled = false; // Disable the script after progress update
+            // Choose goal type based on enum selection
+            GoalType goal = interactionType == InteractionType.File
+                ? GoalType.FileInteract
+                : GoalType.ProgressFileInteract;
+
+            questGiver.UpdateQuestProgress(goal);
+            enabled = false;
         }
     }
 }

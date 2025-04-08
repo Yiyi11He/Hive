@@ -24,6 +24,15 @@ public class InvestigationPageManager : MonoBehaviour
 
     private void UpdateUnlockedPages()
     {
+        foreach (var page in availablePages)
+        {
+            if (page != null)
+            {
+                page.SetActive(false);
+            }
+        }
+
+
         int currentQuestIndex = questGiver.GetCurrentQuestIndex();
         QuestPageUnlock lastValidUnlock = null;
 
@@ -40,6 +49,7 @@ public class InvestigationPageManager : MonoBehaviour
             availablePages = new List<GameObject>(lastValidUnlock.pagesToUnlock);
         }
     }
+
 
     private void ShowLatestPage()
     {

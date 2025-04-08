@@ -5,7 +5,7 @@
     "Vid2.yarn",
     "Vid3.yarn",
     "Vid4.yarn",
-    "vid6.yarn"
+    "Vid6.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"

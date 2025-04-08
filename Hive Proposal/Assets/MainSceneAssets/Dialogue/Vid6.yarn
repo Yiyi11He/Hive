@@ -203,12 +203,18 @@ position: -23,388
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 
-<<jump FinalDialogue>>
+<<complete_quest QuestGiver 33>>
+<<stop>>
+//<<jump FinalDialogue>>
 ===
 
 title: FinalDialogue
 position: -20,603
 ---
+Dr Barton: Thank you very much, please 
+
+
+
 <<set $playerResponse = 0>>
 <<set $numericInput = "Vanco">>
 Dr Barton: Vancomycin is commonly used for serious infections like this. Do you remember what the recommended trough level should be?
