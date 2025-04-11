@@ -11,6 +11,7 @@ public class StringHandler : MonoBehaviour
     [SerializeField] private GameObject inputCanvas;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private Button submitButton;
+    [SerializeField] public GameObject questUI;
 
     public InMemoryVariableStorage variableStorage;
     public AnswerEvaluator answerEvaluator;
@@ -49,6 +50,7 @@ public class StringHandler : MonoBehaviour
             Cursor.visible = true;
             doctorCamera.SetActive(true);
             playerMainCamera.SetActive(false);
+            questUI.SetActive(false);
         }
     }
 

@@ -131,17 +131,17 @@ position: 66,869
 
 <<set $current_quiz_score = 0>>
 
--> Clindamycin​ - {$ClindaDay3}
+-> Clindamycin
     <<jump ClindamycinDay3>>
--> Vancomycin​ - {$VancoDay3}
+-> Vancomycin
     <<jump VancomycinDay3>>
--> Piperacillin with tazobactam​ - {$PDay3}
+-> Piperacillin with tazobactam
     <<jump PiperDay3>>
--> Carbapenem​ - {$CarDay3}
+-> Carbapenem
     <<jump CarbapDay3>>
--> Ceftriaxone with metronidazole​ - {$CeftDay3}
+-> Ceftriaxone with metronidazole
     <<jump CeftriaxoneDay3>>
--> I do not think we need to change the antibiotics​ - {$Nochange3}
+-> I do not think we need to change the antibiotics
     <<jump NoChangeDay3>>
 -> Submit responses
     <<jump SubmitAntiDay3>>
@@ -151,7 +151,7 @@ title: ClindamycinDay3
 position: -355,631
 ---
 <<set $ClindaDay3 to !$ClindaDay3>>
-<<highlight "Options List View" "Clindamycin​">>
+<<highlight "Options List View" "Clindamycin">>
 <<jump AntibioticsDay3>>
 ===
 
@@ -159,7 +159,7 @@ title: VancomycinDay3
 position: -358,781
 ---
 <<set $VancoDay3 to !$VancoDay3>>
-<<highlight "Options List View" "Vancomycin​">>
+<<highlight "Options List View" "Vancomycin">>
 <<jump AntibioticsDay3>>
 ===
 title: PiperDay3
@@ -173,7 +173,7 @@ title: CarbapDay3
 position: -355,1068
 ---
 <<set $CarDay3 to !$CarDay3>>
-<<highlight "Options List View" "Carbapenem​">>
+<<highlight "Options List View" "Carbapenem">>
 <<jump AntibioticsDay3>>
 ===
 title: CeftriaxoneDay3
@@ -266,19 +266,19 @@ position: 10,1969
 
 <<set $current_quiz_score = 0>>
 
--> Vascular surgeon - {$VasSurg}
+-> Vascular surgeon
     <<jump VasSurg14>>
--> Orthopaedics - {$Ortho}
+-> Orthopaedics
     <<jump Ortho14>>
--> Plastics surgeon - {$Plastics14}
+-> Plastics surgeon
     <<jump Plas14>>
--> General medicine physician - {$GeneralMed14}
+-> General medicine physician
     <<jump GenMed>>
--> Palliative care physician- {$Pall14}
+-> Palliative care physician
     <<jump Palliative14>>
--> Anaesthetics - {$Anae14}
+-> Anaesthetics
     <<jump Anaesthe14>>
--> Endocrinologist - {$endo14}
+-> Endocrinologist
     <<jump Endocri14>>
 -> Submit responses
     <<jump SubmitSpecialistDay14>>
@@ -392,13 +392,13 @@ Dr Barton: What Allied health professionals should be involved?
 title: AlliedHealthQuestion
 position: 14,2390
 ---
--> Physiotherapist - {$Physio14}
+-> Physiotherapist
     <<jump PhysioDay14>>
--> Occupational therapist - {$Occu14}
+-> Occupational therapist
     <<jump OccuDay14>>
--> Social worker- {$Social14}
+-> Social worker
     <<jump SocialDay14>>
--> Pharmacist - {$Pharma14}
+-> Pharmacist
     <<jump PharmaDay14>>
 -> Submit responses
     <<jump AlliedHealthSubmit>>

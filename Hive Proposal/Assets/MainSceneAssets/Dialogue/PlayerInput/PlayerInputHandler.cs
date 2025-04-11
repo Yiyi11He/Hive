@@ -11,12 +11,15 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private GameObject inputCanvas;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private Button submitButton;
+    [SerializeField]public GameObject questUI;
 
     public InMemoryVariableStorage variableStorage;
 
     [Header("Cameras")]
     [SerializeField] public GameObject doctorCamera;
     [SerializeField] public GameObject playerMainCamera;
+
+
 
     private float playerResponse;
     private bool InputHandlerActive = false;
@@ -28,6 +31,7 @@ public class PlayerInputHandler : MonoBehaviour
         inputCanvas.SetActive(false);
         submitButton.onClick.AddListener(SubmitInput);
         dialogueRunner.onDialogueComplete.AddListener(OnDialogueComplete);
+        inputField.onValidateInput = ValidateNumericInput;
     }
 
     private void OnDestroy()
@@ -47,7 +51,8 @@ public class PlayerInputHandler : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 doctorCamera.SetActive(true);
-                playerMainCamera.SetActive(false);               
+                playerMainCamera.SetActive(false);
+                questUI.SetActive(false);
             }
     }
 
@@ -59,6 +64,7 @@ public class PlayerInputHandler : MonoBehaviour
         inputField.ActivateInputField();
         InputHandlerActive = true;
         isInputActive = true;
+        questUI.SetActive(false);
     }
 
     public void SubmitInput()
@@ -131,7 +137,13 @@ public class PlayerInputHandler : MonoBehaviour
         submitButton.interactable = true;
         isStartingDialogue = false;
     }
+    private char ValidateNumericInput(string text, int charIndex, char addedChar)
+    {
+        if ((addedChar >= '0' && addedChar <= '9') || addedChar == '.')
+            return addedChar;
 
+        return '\0';
+    }
     private void OnDialogueComplete()
     {
         if (!isInputActive)

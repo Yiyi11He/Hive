@@ -11,6 +11,7 @@ public class DoctorInteractable : MonoBehaviour
     public DialogueRunner dialogueRunner;
     public QuestGiver questGiver;
 
+
     public GameObject questUI;
     public ImageChoice imageChoice;
 

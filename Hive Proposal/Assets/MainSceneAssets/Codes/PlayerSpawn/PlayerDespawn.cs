@@ -16,7 +16,8 @@ public class PlayerDespawn : MonoBehaviour
 
     [Header("Door Settings")]
     [SerializeField] private Animator doorAnimator;
-    [SerializeField] private string doorTriggerName = "DoorAnim";
+    [SerializeField] private string doorOpenName = "DoorOpen";
+    [SerializeField] private string doorCloseName = "DoorClose";
 
     [Header("Scene Outro Mappings")]
     [SerializeField] private List<SceneOutroMapping> sceneOutroMappings;
@@ -67,11 +68,16 @@ public class PlayerDespawn : MonoBehaviour
 
         if (doorAnimator != null)
         {
-            doorAnimator.SetTrigger(doorTriggerName);
+            doorAnimator.SetTrigger(doorOpenName);
             Debug.Log("Door animation triggered.");
         }
 
         yield return new WaitForSeconds(resetDelaySeconds);
+
+        if (doorAnimator != null)
+        {
+            doorAnimator.SetTrigger(doorCloseName);
+        }
 
         if (playerTransform != null && resetPosition != null)
         {

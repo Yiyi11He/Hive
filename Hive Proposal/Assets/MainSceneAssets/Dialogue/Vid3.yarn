@@ -159,13 +159,13 @@ position: -36,68
 ---
 <<set $current_quiz_score = 0>>
 
--> Continue with current dose - {$currentDose}
+-> Continue with current dose
     <<jump current1>>
--> Reduce the doses for both gliclazide and metformin - {$ReduceDose}
+-> Reduce the doses for both gliclazide and metformin
     <<jump reduce1>>
--> Stop Gliclazide and continue with metformin - {$GliclazideStop}
+-> Stop Gliclazide and continue with metformin
     <<jump gliclaz1>>
--> Stop both medications - {$StopBoth}
+-> Stop both medications
     <<jump Stop1>>
 -> Submit
     <<jump submitDiabetic>>
@@ -228,7 +228,7 @@ position: 263,269
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
-
+<<clear_highlights "Options List View">>
 <<complete_quest QuestGiver 14>>
 <<stop>>
 

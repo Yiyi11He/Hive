@@ -33,25 +33,25 @@ Dr Barton: What antibiotic should we use for MRSA?
 title: MRSASelection
 position: -18,184
 ---
--> Meropenam - {$Merop}
+-> Meropenam
     <<jump MeroDay15>>
--> Vancomycin - {$Vanco15}
+-> Vancomycin
     <<jump VancoDay15>>
--> Linezoid - {$Linez15}
+-> Linezoid
     <<jump LinezDay15>>
--> Daptomycin - {$Dapt15}
+-> Daptomycin
     <<jump DaptDay15>>
--> Ceftaroline - {$Ceft15}
+-> Ceftaroline
     <<jump CeftDay15>>
--> Dalbavancin - {$Dalba}
+-> Dalbavancin
     <<jump DalbDay15>>
--> Tigecycline - {$Tige15}
+-> Tigecycline
     <<jump TigeDay15>>
--> Cefazolin- {$Cefaz}
+-> Cefazolin
     <<jump CefaDay15>>
--> Flucloxacillin - {$Flux15}
+-> Flucloxacillin
     <<jump FluxDay15>>
--> Amoxicillin - {$Amox15}
+-> Amoxicillin
     <<jump AmoxDay15>>
 -> Submit responses
 <<jump SubmitMRSADay15>>
@@ -63,28 +63,28 @@ title: MeroDay15
 position: 401,-147
 ---
 <<set $Merop to !$Merop>>
-<<highlight "Options List View" "Merop">>
+<<highlight "Options List View" "Meropenam">>
 <<jump MRSASelection>>
 ===
 title: VancoDay15
 position: 401,-415
 ---
 <<set $Vanco15 to !$Vanco15>>
-<<highlight "Options List View" "Vanco">>
+<<highlight "Options List View" "Vancomycin">>
 <<jump MRSASelection>>
 ===
 title: LinezDay15
 position: 401,-13
 ---
 <<set $Linez15 to !$Linez15>>
-<<highlight "Options List View" "Linez">>
+<<highlight "Options List View" "Linezoid">>
 <<jump MRSASelection>>
 ===
 title: DaptDay15
 position: 401,115
 ---
 <<set $Dapt15 to !$Dapt15>>
-<<highlight "Options List View" "Dapt">>
+<<highlight "Options List View" "Daptomycin">>
 <<jump MRSASelection>>
 ===
 
@@ -92,7 +92,7 @@ title: CeftDay15
 position: 410,246
 ---
 <<set $Ceft15 to !$Ceft15>>
-<<highlight "Options List View" "Ceft">>
+<<highlight "Options List View" "Ceftaroline">>
 <<jump MRSASelection>>
 ===
 
@@ -100,7 +100,7 @@ title: DalbDay15
 position: 410,379
 ---
 <<set $Dalba to !$Dalba>>
-<<highlight "Options List View" "Dalba">>
+<<highlight "Options List View" "Dalbavancin">>
 <<jump MRSASelection>>
 
 ===
@@ -109,7 +109,7 @@ title: TigeDay15
 position: 401,-284
 ---
 <<set $Tige15 to !$Tige15>>
-<<highlight "Options List View" "Tige">>
+<<highlight "Options List View" "Tigecycline">>
 <<jump MRSASelection>>
 
 ===
@@ -118,7 +118,7 @@ title: CefaDay15
 position: 413,510
 ---
 <<set $Cefaz to !$Cefaz>>
-<<highlight "Options List View" "Cefaz">>
+<<highlight "Options List View" "Cefazolin">>
 <<jump MRSASelection>>
 
 ===
@@ -127,7 +127,7 @@ title: FluxDay15
 position: 416,641
 ---
 <<set $Flux15 to !$Flux15>>
-<<highlight "Options List View" "Fluclo">>
+<<highlight "Options List View" "Flucloxacillin">>
 <<jump MRSASelection>>
 
 ===
@@ -136,7 +136,7 @@ title: AmoxDay15
 position: 419,775
 ---
 <<set $Amox15 to !$Amox15>>
-<<highlight "Options List View" "Amox">>
+<<highlight "Options List View" "Amoxicillin">>
 <<jump MRSASelection>>
 
 ===

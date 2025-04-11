@@ -13,6 +13,7 @@ public class ImageChoice : MonoBehaviour
     public DialogueRunner dialogueRunner;
     public GameObject doctorCamera;
     public GameObject playerMainCamera;
+    [SerializeField]public GameObject QuestUI;
 
     public InMemoryVariableStorage variableStorage; // Reference to Yarn's variable storage
 
@@ -100,7 +101,7 @@ public class ImageChoice : MonoBehaviour
 
         // Hide the choice panel
         HideImageChoices();
-
+        QuestUI.SetActive(false);
         // Start the results node
         dialogueRunner.StartDialogue("PictureResults");
 
@@ -118,7 +119,7 @@ public class ImageChoice : MonoBehaviour
     public void ShowImageChoice()
     {
         Initialise();
-
+        QuestUI.SetActive(false);
         choicePanel.SetActive(true);
 
         isImageChoiceActive = true;

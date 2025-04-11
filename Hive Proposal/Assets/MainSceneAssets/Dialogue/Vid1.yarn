@@ -37,25 +37,25 @@ title: Multichoice
 position: 250,-1468
 ---
 
--> Infected - {$Infected}  
+-> Infected
     <<jump SelectInfected>>
--> Erythema - {$Erythema} 
+-> Erythema
     <<jump SelectErythema>>
--> Swelling - {$Swelling} 
+-> Swelling
     <<jump SelectSwelling>>
--> Ulcer - {$Ulcer} 
+-> Ulcer
     <<jump SelectUlcer>>
--> Diabetic - {$Diabetic} 
+-> Diabetic
     <<jump SelectDiabetic>>
--> Plantar - {$Plantar} 
+-> Plantar
     <<jump SelectPlantar>>
--> Venous - {$Venous} 
+-> Venous
     <<jump SelectVenous>>
--> Arterial - {$Arterial}
+-> Arterial
     <<jump SelectArterial>>
--> Purple - {$Purple}  
+-> Purple 
     <<jump SelectPurple>>
--> Pus - {$Pus}
+-> Pus
     <<jump SelectPus>>
 -> Submit Responses 
     <<jump MultichoiceEnd>>
@@ -157,7 +157,7 @@ position: 254,-1318
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Erythema == true>>
-    Dr Barton: Yes! There is redness around the wound.
+    Dr Barton: Yes! There is redness around the wound, hence erythema.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
@@ -187,7 +187,7 @@ position: 254,-1318
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $Arterial == true>>
-    Dr Barton:Yes! This is possible but chances are, it is a small vessel condition due to diabetes.
+    Dr Barton:Yes! Arterial is possible but chances are, it is a small vessel condition due to diabetes.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
@@ -296,17 +296,17 @@ title: SwabsAnswer
 position: -116,-142
 ---
 
--> Culture​ - {$Culture​} 
+-> Culture
     <<jump CultureResponse>>
--> Sensitivity testing - {$Sensitivity}
+-> Sensitivity testing
     <<jump SensitivityResponse>>
--> Polymerase chain reaction​ - {$Polymerase}
+-> Polymerase chain reaction
     <<jump PolymeraseResponse>>
--> Gram staining​ - {$Gram}
+-> Gram staining
     <<jump GramResponse>>
--> Rapid antigen test​ - {$Rapid}
+-> Rapid antigen test
     <<jump RapidResponse>>
--> Microscopy - {$Microscopy}
+-> Microscopy
     <<jump MicroscopyResponse>>
 -> Submit responses 
     <<jump SubmitResponses>>
@@ -319,7 +319,7 @@ position: -477,179
 ---
 
 <<set $Culture​ = !$Culture​>>
-<<highlight "Options List View" "Culture​">>
+<<highlight "Options List View" "Culture">>
 <<jump SwabsAnswer>>
 
 ===
@@ -339,7 +339,7 @@ position: -116,21
 <<set $current_quiz_score = 0>>
 
 <<if $Culture​ == true>>
-    Dr Barton: Of course! We would want to know what bacteria is causing the infection.
+    Dr Barton: Of course! Culture is important, we would want to know what bacteria is causing the infection.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
@@ -354,19 +354,19 @@ position: -116,21
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $Gram == true>>
-    Dr Barton: Yes! But now it is done via a Microbial identification system which is automated and identifies the bacteria very quickly.
+    Dr Barton: Yes! But now gram staining is done via a Microbial identification system which is automated and identifies the bacteria very quickly.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Rapid == true>>
-    Dr Barton:This is mainly for viruses and is not applicable to this case where bacteria is the main suspect.
+    Dr Barton: Rapid antigen test is mainly for viruses and is not applicable to this case where bacteria is the main suspect.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 //here wrong, test again
 
 <<if $Microscopy == true>>
-    Dr Barton:Yes! But now it is done via Microbial identification system which is automated and identifies the bacteria very quickly.
+    Dr Barton:Yes! But now microscopy is done via Microbial identification system which is automated and identifies the bacteria very quickly.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
@@ -435,35 +435,35 @@ title: tests
 position: -229,344
 ---
 
--> Full blood count​ - {$fullBlood}
+-> Full blood count
     <<jump fullBloodResponse>>
--> Electrolytes, urea and creatinine​ - {$Elect1​}
+-> Electrolytes, urea and creatinine
     <<jump Electrolytes1>>
--> Calcium, magnesium, phosphate​ - {$Cal2​}
+-> Calcium, magnesium, phosphate​
     <<jump Calc1>>
--> Liver function test​ - {$liver​}
+-> Liver function test
     <<jump liver1>>
--> Blood cultures​ - {$bloodcul​}
+-> Blood cultures
     <<jump bloodCul>>
--> HbA1C​ - {$Hb​}
+-> HbA1C
     <<jump HbA>>
--> Iron levels​ - {$Iron​}
+-> Iron levels
     <<jump IronL>>
--> Folate and B12 levels​ - {$Folate​}
+-> Folate and B12 levels
     <<jump FolateB>>
--> CRP​ - {$CRP1​}
+-> CRP
     <<jump CRP1>>
--> ESR​ - {$ESR1​}
+-> ESR
     <<jump ESR1>>
--> Thyroid function tests​ - {$Thy1}
+-> Thyroid function tests
     <<jump ThyFunction>>
--> Xray of the foot​ - {$XrayChoice​​​}
+-> Xray of the foot
     <<jump XrayF>>
--> Ultrasound of the foot​ - {$UltrasoundF}
+-> Ultrasound of the foot
     <<jump UltrasoundFoot>>
--> CT of the foot​ - {$CTFoot}
+-> CT of the foot
     <<jump CTF>>
--> MRI of the foot - {$MRIFoot}
+-> MRI of the foot
     <<jump MRIF>>
 -> Submit responses 
     <<jump SubmitTestResponses>>
@@ -479,7 +479,7 @@ title: Electrolytes1
 position: 180,-306
 ---
 <<set $Elect1​ = !$Elect1​>>
-<<highlight "Options List View" "Electrolytes, urea and creatinine​">>
+<<highlight "Options List View" "Electrolytes, urea and creatinine">>
 <<jump tests>>
 ===
 title: Calc1
@@ -493,49 +493,49 @@ title: liver1
 position: 180,107
 ---
 <<set $liver​= !$liver​>>
-<<highlight "Options List View" "Liver function test​">>
+<<highlight "Options List View" "Liver function test">>
 <<jump tests>>
 ===
 title: bloodCul
 position: 177,-37
 ---
 <<set $bloodcul​= !$bloodcul​>>
-<<highlight "Options List View" "Blood cultures​">>
+<<highlight "Options List View" "Blood cultures">>
 <<jump tests>>
 ===
 title: HbA
 position: 181,379
 ---
 <<set $Hb​= !$Hb​>>
-<<highlight "Options List View" "HbA1C​">>
+<<highlight "Options List View" "HbA1C">>
 <<jump tests>>
 ===
 title: IronL
 position: 422,247
 ---
 <<set $Iron​= !$Iron​>>
-<<highlight "Options List View" "Iron levels​">>
+<<highlight "Options List View" "Iron levels">>
 <<jump tests>>
 ===
 title: FolateB
 position: 408,-54
 ---
 <<set $Folate​ = !$Folate​>>
-<<highlight "Options List View" "Folate and B12 levels​">>
+<<highlight "Options List View" "Folate and B12 levels">>
 <<jump tests>>
 ===
 title: CRP1
 position: 413,-219
 ---
 <<set $CRP1​ = !$CRP1​>>
-<<highlight "Options List View" "CRP​">>
+<<highlight "Options List View" "CRP">>
 <<jump tests>>
 ===
 title: ESR1
 position: 416,89
 ---
 <<set $ESR1​ = !$ESR1​>>
-<<highlight "Options List View" "ESR​">>
+<<highlight "Options List View" "ESR">>
 <<jump tests>>
 ===
 title: ThyFunction
@@ -549,7 +549,7 @@ title: XrayF
 position: 177,668
 ---
 <<set $XrayChoice​​​ = !$XrayChoice​​​>>
-<<highlight "Options List View" "Xray of the foot​">>
+<<highlight "Options List View" "Xray of the foot">>
 <<jump tests>>
 ===
 title: UltrasoundFoot
@@ -580,32 +580,32 @@ position: -229,497
 <<set $current_quiz_score = 0>>
 
 <<if $fullBlood == true>>
-Dr Barton: You are correct! This can tell us about the white cell count and the neutrophil count which informs us about the severity of the infection.
+Dr Barton: You are correct! The full blood count can tell us about the white cell count and the neutrophil count which informs us about the severity of the infection.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Elect1​ == true>>
-Dr Barton: Good! We would like to know the kidney function since some antibiotics are cleared by the kidneys and diabetes can affect the kidneys as well.
+Dr Barton: Good! We would like to know the kidney function, that’s what electrolytes, urea, and creatinine help us assess, since some antibiotics are cleared by the kidneys and diabetes can affect the kidneys as well.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Cal2​ == true>>
-Dr Barton: This is not essential since it is unlikely the patient will have any issues with these.
+Dr Barton: Calcium, magnesium, phosphate​ is not essential since it is unlikely the patient will have any issues with these.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $liver​ == true>>
-Dr Barton: Good! Some antibiotics can affect liver function, and it is good to have a baseline reading.
+Dr Barton: Good choice, a liver function test gives us a baseline because some antibiotics can impact the liver. It’s important to know how the liver is doing before starting treatment.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $bloodcul​ == true>>
-Dr Barton: Excellent! However, the chance of a positive result is low, but it shows a positive result, it is significant in terms of guidance of treatment options.
+Dr Barton: Excellent! However, the chance of a positive result for blood cultures is low, but if it shows a positive result, it is significant in terms of guidance of treatment options.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $Hb​ == true>>
-Dr Barton: Of course! The patient is diabetic. It will be good to know what the patient’s control was like for the past 3 months.
+Dr Barton: Of course! The patient is diabetic, and an HbA1c test tells us how well their blood sugar has been controlled over the past 2–3 months. It helps guide our management plan.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
@@ -635,22 +635,22 @@ Dr Barton: It is unlikely the patient has issues with her thyroid levels.
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $XrayChoice​​​ == true>>
-Dr Barton: Good! This is a cheap test to look for potential signs of osteomyelitis. However, sensitivity and specificity is low for osteomyelitis.
+Dr Barton: Good! An X-ray is a cheap and accessible way to look for signs of osteomyelitis. However, its sensitivity and specificity for early infection are quite low, so we may need further imaging if suspicion remains.
     <<set $current_quiz_score = $current_quiz_score + 1>>
     <<add_score ScoreTimerInteractVideo 1>>
 <<endif>>
 <<if $UltrasoundF == true>>
-Dr Barton: This is not a good test for osteomyelitis since it does not show bones very well.
+Dr Barton: Ultrasound of the foot is not a good test for osteomyelitis since it does not show bones very well.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $CTFoot == true>>
-Dr Barton: This is not an ideal first test since it is more expensive and has more radiation than Xray. However, it can show good resolution of the bone compared to MRI but poorer at  soft tissue resolution and bone marrow oedema.
+Dr Barton: CT of the foot is not an ideal first test since it is more expensive and has more radiation than Xray. However, it can show good resolution of the bone compared to MRI but poorer at  soft tissue resolution and bone marrow oedema.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
 <<if $MRIFoot == true>>
-Dr Barton: This is a good test for excluding osteomyelitis if Xray is normal. However, it is too expensive to be an initial test.
+Dr Barton: MRI of the foot is a good test for excluding osteomyelitis if Xray is normal. However, it is too expensive to be an initial test.
     <<set $current_quiz_score = $current_quiz_score - 1>>
     <<add_score ScoreTimerInteractVideo -1>>
 <<endif>>
@@ -677,19 +677,19 @@ title: Treatment
 position: -257,846
 ---
 
--> Oral Flucloxacillin 500mg QDS​ - {$FluChoice5​} 
+-> Oral Flucloxacillin 500mg QDS
     <<jump Fluclo4>>
--> Oral Cephalexin 500mg QDS​ - {$Cephalexin5} 
+-> Oral Cephalexin 500mg QDS
     <<jump Cephalexin1>>
--> Oral Clindamycin 450mg TDS​ - {$ClindChoice4​}
+-> Oral Clindamycin 450mg TDS​
     <<jump Clindam1>>
--> Oral Trimethoprim/Sulfamethoxazole 160/800mg BD​​ - {$Trimethoprim1} 
+-> Oral Trimethoprim/Sulfamethoxazole 160/800mg BD​
     <<jump Trimethoprim0>>
--> IV Flucloxacillin 2000mg QDS​ - {$Flucloxacillin2}  
+-> IV Flucloxacillin 2000mg QDS​
     <<jump Flucloxacillin1>>
--> IV Cefazolin 2g TDS​ - {$Cefazolin1}  
+-> IV Cefazolin 2g TDS​
     <<jump Cefazolin2>>
--> IV Vancomycin 1500mg BD - {$Vancomycin1}  
+-> IV Vancomycin 1500mg BD
     <<jump Vancomycin2>>
 -> Submit responses 
     <<jump SubmitTreatmentResponses>>
@@ -752,7 +752,7 @@ title: Fluclo4
 position: -911,478
 ---
 <<set $FluChoice5​ = !$FluChoice5​>>
-<<highlight "Options List View" "Oral Flucloxacillin 500mg QDS​">>
+<<highlight "Options List View" "Oral Flucloxacillin 500mg QDS">>
 <<jump Treatment>>
 ===
 title: Cephalexin1
