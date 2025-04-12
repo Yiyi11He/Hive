@@ -71486,7 +71486,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f75b848db6079e84db966d8f45c51c01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e544464f34b40b34886e55231ad29a11, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75403,7 +75403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c7996e11c45df4e83f63f826ac8abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
+  debugMode: 0
   debugQuestIndex: 20
   quests:
   - isActive: 1
