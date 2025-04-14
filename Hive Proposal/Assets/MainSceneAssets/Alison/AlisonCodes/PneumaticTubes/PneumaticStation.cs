@@ -8,6 +8,10 @@ public class PneumaticStation : MonoBehaviour
     public QuestGiver questGiver;
     public ParticleSystem confettiParticleSystem;
 
+    [Space]
+    public AudioSource VFXConfetti;
+    public AudioClip Confetti;
+
     [Header("Quest Requirements")]
     public List<int> requiredQuestIndices;
 
@@ -27,6 +31,7 @@ public class PneumaticStation : MonoBehaviour
         if (confettiParticleSystem != null)
         {
             confettiParticleSystem.Play();
+            VFXConfetti.PlayOneShot(Confetti);
         }
 
         // Use the pneumatic tube

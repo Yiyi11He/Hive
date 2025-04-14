@@ -9,6 +9,11 @@ public class Chair : MonoBehaviour
     public GameObject intText;
     public GameObject switchView;
 
+    [Space]
+
+    public AudioSource ChairAudioSource;
+    public AudioClip ChairNoise;
+
     [Header("Camera Settings")]
     public Camera targetCamera; // The camera to activate when sitting down
     public float targetFOV = 40f; // Desired field of view when sitting
@@ -71,6 +76,8 @@ public class Chair : MonoBehaviour
         interactable = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        ChairAudioSource.pitch = 2.5f;
+        ChairAudioSource.PlayOneShot(ChairNoise);
 
         if (targetCamera != null)
         {

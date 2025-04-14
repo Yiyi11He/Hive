@@ -261,4 +261,9 @@ public class VideoDoor : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    public bool IsVideoPlaying()
+    {
+        return isPlaying;
+    }
 }
