@@ -106,4 +106,9 @@ public class DoctorInteractable : MonoBehaviour
     {
         return questGiver.GetCurrentQuestIndex();
     }
+
+    public bool IsInteracting()
+    {
+        return interacting;
+    }
 }

@@ -7,16 +7,17 @@ public class BackgroundAudio : MonoBehaviour
     [SerializeField] private AudioClip hospitalAmbience;
 
     [SerializeField] public VideoDoor videoDoor;
+    [SerializeField] public DoctorInteractable DoctorInteract;
 
     private bool hasFadedOut = false;
     private bool hasFadedIn = false;
     private float targetVolume = 1f;
 
-    //reference doctor too! And turn the audio for it down when talking to doctor
+    private bool isInDoctorDialogue = false;
+    private float dialogueFadeMultiplier = 0.8f; 
 
     void Start()
     {
-        // Assign the clip and start playing
         if (backgroundMusic != null && hospitalAmbience != null)
         {
             backgroundMusic.clip = hospitalAmbience;
@@ -28,25 +29,52 @@ public class BackgroundAudio : MonoBehaviour
 
     void Update()
     {
-        if (videoDoor != null)
+        HandleVideoFade();
+        HandleDoctorDialogueFade();
+    }
+
+    private void HandleVideoFade()
+    {
+        if (videoDoor == null) return;
+
+        if (videoDoor.IsVideoPlaying())
         {
-            if (videoDoor.IsVideoPlaying())
+            if (!hasFadedOut)
             {
-                if (!hasFadedOut)
-                {
-                    hasFadedOut = true;
-                    hasFadedIn = false;
-                    StartCoroutine(FadeOutBackgroundMusic(1.5f));
-                }
+                hasFadedOut = true;
+                hasFadedIn = false;
+                StartCoroutine(FadeOutBackgroundMusic(1.5f));
             }
-            else
+        }
+        else
+        {
+            if (!hasFadedIn && hasFadedOut)
             {
-                if (!hasFadedIn && hasFadedOut)
-                {
-                    hasFadedIn = true;
-                    hasFadedOut = false;
-                    StartCoroutine(FadeInBackgroundMusic(1.5f));
-                }
+                hasFadedIn = true;
+                hasFadedOut = false;
+                StartCoroutine(FadeInBackgroundMusic(1.5f));
+            }
+        }
+    }
+
+    private void HandleDoctorDialogueFade()
+    {
+        if (DoctorInteract == null || backgroundMusic == null) return;
+
+        if (DoctorInteract.IsInteracting())
+        {
+            if (!isInDoctorDialogue)
+            {
+                isInDoctorDialogue = true;
+                StartCoroutine(FadeToVolume(targetVolume * dialogueFadeMultiplier, 1.5f));
+            }
+        }
+        else
+        {
+            if (isInDoctorDialogue)
+            {
+                isInDoctorDialogue = false;
+                StartCoroutine(FadeToVolume(targetVolume, 1.5f));
             }
         }
     }
@@ -69,7 +97,7 @@ public class BackgroundAudio : MonoBehaviour
 
     private IEnumerator FadeInBackgroundMusic(float duration)
     {
-        backgroundMusic.clip = hospitalAmbience;  // Re-assign the clip just in case
+        backgroundMusic.clip = hospitalAmbience;
         backgroundMusic.loop = true;
         backgroundMusic.Play();
 
@@ -84,5 +112,20 @@ public class BackgroundAudio : MonoBehaviour
         }
 
         backgroundMusic.volume = targetVolume;
+    }
+
+    private IEnumerator FadeToVolume(float target, float duration)
+    {
+        float startVolume = backgroundMusic.volume;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            backgroundMusic.volume = Mathf.Lerp(startVolume, target, elapsed / duration);
+            yield return null;
+        }
+
+        backgroundMusic.volume = target;
     }
 }

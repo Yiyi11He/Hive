@@ -45243,7 +45243,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -62843,6 +62843,7 @@ MonoBehaviour:
   backgroundMusic: {fileID: 849924352}
   hospitalAmbience: {fileID: 8300000, guid: c2048f6d5f284de409d9a57285d479ab, type: 3}
   videoDoor: {fileID: 834045998}
+  DoctorInteract: {fileID: 1410955822}
 --- !u!1 &1446385566
 GameObject:
   m_ObjectHideFlags: 0

@@ -67,16 +67,14 @@ public class Pause : MonoBehaviour
     void PauseGame()
     {
         PauseMenu.SetActive(true);
-        Time.timeScale = 0; // Freeze time
+        Time.timeScale = 0; 
         isPaused = true;
 
-        // Disable player controls
         if (playerController != null)
         {
             playerController.enabled = false;
         }
 
-        // Ensure VideoDoor remains active and functional
         if (VideoDoor != null)
         {
             VideoDoor.enabled = true;  // Make sure the VideoDoor script still runs
