@@ -15748,10 +15748,10 @@ MonoBehaviour:
   - questIndex: 20
     pagesToUnlock:
     - {fileID: 2051519657}
-  - questIndex: 30
+  - questIndex: 27
     pagesToUnlock:
     - {fileID: 1900261884}
-  - questIndex: 40
+  - questIndex: 31
     pagesToUnlock:
     - {fileID: 100213534}
 --- !u!1001 &334265954
@@ -75816,7 +75816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 1
-  debugQuestIndex: 1
+  debugQuestIndex: 16
   quests:
   - isActive: 1
     title: Find the Doctor

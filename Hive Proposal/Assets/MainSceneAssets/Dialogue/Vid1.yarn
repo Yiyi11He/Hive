@@ -268,7 +268,7 @@ position: 252,-707
 <<if $current_quiz_score == 2>>
     Dr.Barton: Good! 
 <<else>>
-    Dr.Barton: Update your knowlegde in swabs please.
+    Dr.Barton: Update your knowledge in swabs please.
 <<endif>>
 
 <<jump SwabsMultiQuestion>>

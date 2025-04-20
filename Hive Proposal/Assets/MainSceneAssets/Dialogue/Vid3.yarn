@@ -262,7 +262,7 @@ Dr.Barton: [job]Review the results[/job] before we see the patient okay?
 title: NaughtyAnswer
 position: -28,578
 ---
-<<add_score ScoreTimerInteractVideo -1>>
+<<add_score ScoreTimerInteractVideo -5>>
 Dr.Barton: Thanks , I will note it down as a red flag for professionalism.
 <<complete_quest QuestGiver 16>>
 <<stop>>
