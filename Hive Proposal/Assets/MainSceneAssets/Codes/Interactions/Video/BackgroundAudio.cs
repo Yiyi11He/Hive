@@ -92,7 +92,6 @@ public class BackgroundAudio : MonoBehaviour
         }
 
         backgroundMusic.volume = 0f;
-        backgroundMusic.Stop();
     }
 
     private IEnumerator FadeInBackgroundMusic(float duration)
@@ -127,5 +126,16 @@ public class BackgroundAudio : MonoBehaviour
         }
 
         backgroundMusic.volume = target;
+    }
+    public void ResumeBackgroundMusic()
+    {
+        if (!backgroundMusic.isPlaying)
+        {
+            backgroundMusic.clip = hospitalAmbience;
+            backgroundMusic.loop = true;
+            backgroundMusic.volume = 0f;
+            backgroundMusic.Play();
+            StartCoroutine(FadeToVolume(targetVolume, 1.5f)); 
+        }
     }
 }

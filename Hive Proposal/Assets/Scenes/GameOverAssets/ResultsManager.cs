@@ -14,13 +14,16 @@ public class ResultsManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
             return;
-
-        DontDestroyOnLoad(gameObject);
+        }
 
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
+
 
     public void SetPreQuizTime(float time) => preQuizTime = time;
     public float GetPreQuizTime() => preQuizTime;

@@ -3,6 +3,7 @@ position: -41,-1265
 ---
 <<open_quest QuestGiver 14>>
 <<declare $playerResponse = 0>>
+<<clear_highlights "Options List View">>
 <<set $current_quiz_score = 0>>
 <<declare $numericInput = "Hb">>
 Dr.Barton: What are the results showing?

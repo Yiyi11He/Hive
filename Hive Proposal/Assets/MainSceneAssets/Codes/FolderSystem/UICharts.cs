@@ -106,6 +106,7 @@ public class UICharts : MonoBehaviour
 
     private void UpdatePagesOnQuestProgress(int questIndex)
     {
+        ClearPages();
         UpdateUnlockedPages();
         SetFirstAvailablePage();
         UpdatePage();
@@ -119,6 +120,13 @@ public class UICharts : MonoBehaviour
     public int GetLastPageIndex()
     {
         return availablePages.Count - 1;
+    }
+    public void ClearPages()
+    {
+        foreach (GameObject page in availablePages)
+        {
+            page.SetActive(false);
+        }
     }
 }
 

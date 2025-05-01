@@ -3,11 +3,11 @@ using UnityEngine;
 public class FolderListener : MonoBehaviour
 {
     public QuestGiver questGiver;
-    public GameObject trackedObject; // The object to monitor
+    public GameObject trackedObject;
 
-    public InteractionType interactionType = InteractionType.File; // Inspector toggle
+    public InteractionType interactionType = InteractionType.File;
 
-    private bool hasBeenActivated = false;
+    private bool previousActiveState = false;
 
     public enum InteractionType
     {
@@ -19,20 +19,17 @@ public class FolderListener : MonoBehaviour
     {
         if (trackedObject == null || questGiver == null) return;
 
-        if (trackedObject.activeSelf && !hasBeenActivated)
-        {
-            hasBeenActivated = true;
-        }
+        bool currentState = trackedObject.activeSelf;
 
-        if (!trackedObject.activeSelf && hasBeenActivated)
+        if (previousActiveState && !currentState)
         {
-            // Choose goal type based on enum selection
             GoalType goal = interactionType == InteractionType.File
                 ? GoalType.FileInteract
                 : GoalType.ProgressFileInteract;
 
             questGiver.UpdateQuestProgress(goal);
-            enabled = false;
         }
+
+        previousActiveState = currentState;
     }
 }

@@ -77,7 +77,7 @@ public class StringHandler : MonoBehaviour
         {
             Debug.Log("SubmitInput() inputContext = " + inputContext);
 
-            if(inputContext == "SeeIn2Days") { return; }
+            if(inputContext == "SeeIn2Days") {}
             else if (inputContext == "xray")
             {
                 answerEvaluator.EvaluateXrayAnswer(playerInput);

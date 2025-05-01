@@ -110,6 +110,11 @@ public class Chair : MonoBehaviour
             if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
             zoomCoroutine = StartCoroutine(SmoothZoom(defaultFOV));
         }
+        var bgAudio = FindObjectOfType<BackgroundAudio>();
+        if (bgAudio != null)
+        {
+            bgAudio.ResumeBackgroundMusic();
+        }
     }
 
     private IEnumerator SmoothZoom(float targetFOV)
