@@ -60,20 +60,20 @@ public class QuestGiver : MonoBehaviour
 
         quest.isActive = true;
 
-        // Don't reanimate if we're restoring the same quest
+
         if (currentQuestIndex == lastShownQuestIndex)
         {
-            ShowQuestImmediately(quest); // show without animation
+            ShowQuestImmediately(quest);
             return;
         }
 
         lastShownQuestIndex = currentQuestIndex;
 
+
         if (questAudioSource != null && newQuestSound != null)
         {
             questAudioSource.PlayOneShot(newQuestSound);
         }
-
 
         if (questWindow != null && questAnimator != null && questWindow.activeSelf)
         {
@@ -83,8 +83,8 @@ public class QuestGiver : MonoBehaviour
         {
             ShowQuestImmediately(quest);
         }
-
     }
+
 
 
     private IEnumerator AnimateQuestTransition(Quest quest)

@@ -17399,6 +17399,7 @@ MonoBehaviour:
   questPageUnlocks:
   - questIndex: 0
     pagesToUnlock:
+    - {fileID: 1634961699}
     - {fileID: 2010997840}
   - questIndex: 10
     pagesToUnlock:
@@ -49516,8 +49517,8 @@ MonoBehaviour:
   scorePopupText: {fileID: 160902660}
   scoreAnimator: {fileID: 160902659}
   audioSource: {fileID: 2102898692}
-  positiveSound: {fileID: 0}
-  negativeSound: {fileID: 0}
+  positiveSound: {fileID: 8300000, guid: 46226021022fd3c44b3c60f7fbae0383, type: 3}
+  negativeSound: {fileID: 8300000, guid: d6cbfe7913ce26746a5d7c121f3ee3b2, type: 3}
 --- !u!1001 &1150468499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77131,8 +77132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c7996e11c45df4e83f63f826ac8abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
-  debugQuestIndex: 33
+  debugMode: 0
+  debugQuestIndex: 20
   quests:
   - isActive: 1
     title: Find the Doctor
@@ -77431,7 +77432,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   questAudioSource: {fileID: 399373971}
-  newQuestSound: {fileID: 0}
+  newQuestSound: {fileID: 8300000, guid: 99621b6d4d37928449161a8c459940e7, type: 3}
 --- !u!4 &1888210412
 Transform:
   m_ObjectHideFlags: 0
