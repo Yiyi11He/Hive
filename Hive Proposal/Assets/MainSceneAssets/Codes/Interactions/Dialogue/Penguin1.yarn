@@ -1,0 +1,11 @@
+﻿title: PenguinWelcome
+tags:
+---
+<<open_quest Questgiver 3>>
+Mr.Penguin: Well done, you now know how to interact with objects. 
+Mr.Penguin: Are you comfortable to complete this tutorial stage?
+-> Yes.
+Mr.Penguin: Good luck to you in the game!
+<<complete_quest QuestGiver 3>>
+
+===
