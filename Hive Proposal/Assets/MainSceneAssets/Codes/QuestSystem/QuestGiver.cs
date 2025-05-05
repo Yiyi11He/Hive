@@ -189,4 +189,16 @@ public class QuestGiver : MonoBehaviour
         if (questWindow != null)
             questWindow.SetActive(false);
     }
+
+    public void SetQuestUIVisible(bool isVisible)
+    {
+        if (questWindow == null) return;
+
+        for (int i = 0; i < questWindow.transform.childCount; i++)
+        {
+            questWindow.transform.GetChild(i).gameObject.SetActive(isVisible);
+        }
+    }
+
+
 }

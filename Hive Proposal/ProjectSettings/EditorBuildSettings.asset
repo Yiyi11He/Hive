@@ -5,22 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 86c48ec281dff854b990d1b5d607c2cd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StudentNumber.unity
     guid: 4dd9bc5f58406e04f97c04b9155d5986
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PreTutorialQuiz.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: fd835b98697e829469a9af581abd79eb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PostTutorialQuiz.unity
     guid: 05fb080a645be23498e901dbbedab52d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameOverScores.unity
     guid: 93d530957a4733c4388881b6b2fb5d54
   m_configObjects: {}

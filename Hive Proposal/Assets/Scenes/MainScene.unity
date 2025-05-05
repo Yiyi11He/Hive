@@ -62361,7 +62361,6 @@ MonoBehaviour:
   doctorCamera: {fileID: 715425366}
   dialogueRunner: {fileID: 1771453204}
   questGiver: {fileID: 1888210411}
-  questUI: {fileID: 14377923}
   imageChoice: {fileID: 0}
 --- !u!1 &1417234813
 GameObject:
@@ -77132,8 +77131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c7996e11c45df4e83f63f826ac8abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 0
-  debugQuestIndex: 20
+  debugMode: 1
+  debugQuestIndex: 21
   quests:
   - isActive: 1
     title: Find the Doctor

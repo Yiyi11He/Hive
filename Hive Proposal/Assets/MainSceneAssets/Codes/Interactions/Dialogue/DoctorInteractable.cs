@@ -11,8 +11,6 @@ public class DoctorInteractable : MonoBehaviour
     public DialogueRunner dialogueRunner;
     public QuestGiver questGiver;
 
-
-    public GameObject questUI;
     public ImageChoice imageChoice;
 
     private bool interacting = false;
@@ -52,7 +50,8 @@ public class DoctorInteractable : MonoBehaviour
                 playerMainCamera.SetActive(false);
                 doctorCamera.SetActive(true);
 
-                questUI.SetActive(false);
+                questGiver.SetQuestUIVisible(false);
+
 
                 interacting = true;
                 Cursor.lockState = CursorLockMode.None;
@@ -77,7 +76,8 @@ public class DoctorInteractable : MonoBehaviour
     {
         Debug.Log("Dialogue complete.");
         EndInteraction();
-        questUI.SetActive(true);
+        questGiver.SetQuestUIVisible(true);
+
 
         // Call HideImageChoices to hide the image choices panel
         if (imageChoice != null)
@@ -96,7 +96,8 @@ public class DoctorInteractable : MonoBehaviour
         playerMainCamera.SetActive(true);
         doctorCamera.SetActive(false);
         interacting = false;
-        questUI.SetActive(true);
+        questGiver.SetQuestUIVisible(true);
+
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
