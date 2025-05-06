@@ -5,7 +5,23 @@ tags:
 Mr.Penguin: Well done, you now know how to interact with objects. 
 Mr.Penguin: Are you comfortable to complete this tutorial stage?
 -> Yes.
-Mr.Penguin: Good luck to you in the game!
-<<complete_quest QuestGiver 3>>
+    Mr.Penguin: Good luck to you in the game!
+    //progress to next stage
+    <<complete_quest QuestGiver 3>>
+-> No.
+    Mr. Penguin: Would you like to restart the tutorial again?
+    -> Yes, please.
+    //insert restart stage command
+    -> No, thank you.
+        Mr.Penguin: Are you comfortable to complete this tutorial stage?
+
+        <<stop>>
+        -> Yes.
+            <<complete_quest QuestGiver 3>>
+            Mr.Penguin: Good luck to you in the game!
+            //progress to next stage
+    
+
+
 
 ===

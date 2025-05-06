@@ -10,12 +10,7 @@
   "excludeFiles": [
     "**/*~/*"
   ],
-  "localisation": {
-    "en": {
-      "assets": "."
-    },
-    "bs-Cyrl": {}
-  },
+  "localisation": {},
   "baseLanguage": "en",
   "compilerOptions": {}
 }

@@ -21,5 +21,8 @@ public enum GoalType
     SwabInteract,
     SwabSubmit,
     DoorInteract,
-    Leave
+    Leave,
+
+    //tutorial stage
+    MoveLocation
 }

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
+
 
 public class PenguinInteraction : MonoBehaviour
 {
@@ -15,13 +17,12 @@ public class PenguinInteraction : MonoBehaviour
 
 
     public GameObject questUI;
-    public ImageChoice imageChoice;
 
     private bool interacting = false;
 
     private Dictionary<int, string> questDialogueMapping = new Dictionary<int, string>()
     {
-        { 0, "PenguinWelcome" },
+        { 3, "PenguinWelcome" },
 
     };
 
@@ -33,7 +34,6 @@ public class PenguinInteraction : MonoBehaviour
 
     public void OnInteraction()
     {
-        // Sync currentQuestNumber with the QuestGiver's current index
         int currentQuestNumber = GetCurrentQuestIndex();
 
         if (questDialogueMapping.ContainsKey(currentQuestNumber))
@@ -74,12 +74,6 @@ public class PenguinInteraction : MonoBehaviour
         EndInteraction();
         questUI.SetActive(true);
 
-        // Call HideImageChoices to hide the image choices panel
-        if (imageChoice != null)
-        {
-            imageChoice.HideImageChoices();
-        }
-
         this.enabled = false;
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -105,6 +99,12 @@ public class PenguinInteraction : MonoBehaviour
     public bool IsInteracting()
     {
         return interacting;
+    }
+
+    [YarnCommand("NextStage")]
+    public void CompleteTutorial()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
 
