@@ -842,6 +842,7 @@ GameObject:
   - component: {fileID: 14377926}
   - component: {fileID: 14377925}
   - component: {fileID: 14377928}
+  - component: {fileID: 14377929}
   m_Layer: 5
   m_Name: QuestWindow
   m_TagString: Untagged
@@ -955,6 +956,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &14377929
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14377923}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &15414997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1385,8 +1398,8 @@ MonoBehaviour:
   folder: {fileID: 1851866890}
   uiMainFolder: {fileID: 1572891981}
   uiSubFolder: {fileID: 2010166049}
-  uiToHide1: {fileID: 374284107}
-  uiToHide2: {fileID: 14377923}
+  TimeScores: {fileID: 1145837436}
+  QuestWindow: {fileID: 14377923}
   playerMovementScript: {fileID: 1445580036}
   playerLookScript: {fileID: 3969205}
   startPosition: {fileID: 2104725926}
@@ -34105,8 +34118,8 @@ MonoBehaviour:
   otherChart: {fileID: 2035193299}
   uiMainFolder: {fileID: 1792815768}
   uiSubFolder: {fileID: 2035193299}
-  uiToHide1: {fileID: 374284107}
-  uiToHide2: {fileID: 14377923}
+  TimerScores: {fileID: 1145837436}
+  QuestWindow: {fileID: 14377923}
   playerMovementScript: {fileID: 1445580036}
   playerLookScript: {fileID: 3969205}
   startPosition: {fileID: 1189242816}
@@ -49175,56 +49188,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127193255}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1130819125
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1130819127}
-  - component: {fileID: 1130819126}
-  m_Layer: 16
-  m_Name: ResultsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1130819126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130819125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0eebe5c1d7a9644a93b13f6ea04fafc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preQuizTime: 0
-  mainTime: 0
-  postQuizTime: 0
-  preQuizScore: 0
-  mainScore: 0
-  postQuizScore: 0
---- !u!4 &1130819127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130819125}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.53499985, y: 0.10400009, z: 11.852}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1133619541
 GameObject:
   m_ObjectHideFlags: 0
@@ -49330,6 +49293,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133619541}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1140664672
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1549520554021898227, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalResultsRecording
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1854.7009
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1524.4991
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.2748682
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303321996410268233, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637708282452058044, guid: 167f4c1cc85c5a74eba57b39d23e7ef4,
+        type: 3}
+      propertyPath: currentScene
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 167f4c1cc85c5a74eba57b39d23e7ef4, type: 3}
 --- !u!1001 &1143046069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49442,6 +49478,7 @@ GameObject:
   - component: {fileID: 1145837439}
   - component: {fileID: 1145837438}
   - component: {fileID: 1145837442}
+  - component: {fileID: 1145837443}
   m_Layer: 0
   m_Name: ScoreTimerInteractVideo
   m_TagString: Untagged
@@ -49567,6 +49604,18 @@ MonoBehaviour:
   audioSource: {fileID: 2102898692}
   positiveSound: {fileID: 8300000, guid: 46226021022fd3c44b3c60f7fbae0383, type: 3}
   negativeSound: {fileID: 8300000, guid: d6cbfe7913ce26746a5d7c121f3ee3b2, type: 3}
+--- !u!225 &1145837443
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145837436}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1150468499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61607,8 +61656,8 @@ MonoBehaviour:
   otherChart: {fileID: 1056135602}
   uiMainFolder: {fileID: 1792815768}
   uiSubFolder: {fileID: 1763420623}
-  uiToHide1: {fileID: 374284107}
-  uiToHide2: {fileID: 14377923}
+  TimerScores: {fileID: 1145837436}
+  QuestWindow: {fileID: 14377923}
   playerMovementScript: {fileID: 1445580036}
   playerLookScript: {fileID: 3969205}
   startPosition: {fileID: 1164309044}
@@ -63003,7 +63052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1426924428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -63030,7 +63079,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426924427}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -67612,8 +67661,8 @@ MonoBehaviour:
   folder: {fileID: 1392422373}
   uiMainFolder: {fileID: 1572891981}
   uiSubFolder: {fileID: 1814347860}
-  uiToHide1: {fileID: 374284107}
-  uiToHide2: {fileID: 14377923}
+  TimeScores: {fileID: 1145837436}
+  QuestWindow: {fileID: 14377923}
   playerMovementScript: {fileID: 1445580036}
   playerLookScript: {fileID: 3969205}
   startPosition: {fileID: 1202283350}
@@ -68699,8 +68748,8 @@ MonoBehaviour:
   folder: {fileID: 1519340572}
   uiMainFolder: {fileID: 1572891981}
   uiSubFolder: {fileID: 232608877}
-  uiToHide1: {fileID: 374284107}
-  uiToHide2: {fileID: 14377923}
+  TimeScores: {fileID: 1145837436}
+  QuestWindow: {fileID: 14377923}
   playerMovementScript: {fileID: 1445580036}
   playerLookScript: {fileID: 3969205}
   startPosition: {fileID: 1803057811}
@@ -72197,8 +72246,8 @@ MonoBehaviour:
   folder: {fileID: 1051320812}
   uiMainFolder: {fileID: 1572891981}
   uiSubFolder: {fileID: 899947729}
-  uiToHide1: {fileID: 374284107}
-  uiToHide2: {fileID: 14377923}
+  TimeScores: {fileID: 1145837436}
+  QuestWindow: {fileID: 14377923}
   playerMovementScript: {fileID: 1445580036}
   playerLookScript: {fileID: 3969205}
   startPosition: {fileID: 512443567}
@@ -77180,7 +77229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 0
-  debugQuestIndex: 21
+  debugQuestIndex: 34
   quests:
   - isActive: 1
     title: Find the Doctor
@@ -77256,7 +77305,8 @@ MonoBehaviour:
       CurrentAction: 0
   - isActive: 1
     title: Check the Results
-    description: Sit down at the computer
+    description: Sit down at the computer in the Clinical Workroom, interact with
+      the chair
     Score: 1
     goals:
     - goalType: 0
@@ -77264,7 +77314,7 @@ MonoBehaviour:
       CurrentAction: 0
   - isActive: 1
     title: Check Results (1/3)
-    description: Check results at the computer
+    description: Login to your account and check the lab results
     Score: 1
     goals:
     - goalType: 2
@@ -77272,7 +77322,7 @@ MonoBehaviour:
       CurrentAction: 0
   - isActive: 1
     title: Check Results (2/3)
-    description: Check file near the wall of the patient room
+    description: Check file near the patient room in the main hallway
     Score: 2
     goals:
     - goalType: 4
@@ -77280,7 +77330,8 @@ MonoBehaviour:
       CurrentAction: 0
   - isActive: 1
     title: Check Results (3/3)
-    description: Check the files in the admin room, under the name Alison Janning
+    description: Check the files in the Clinical Workroom, under the name Alison
+      Janning
     Score: 5
     goals:
     - goalType: 3
@@ -80854,8 +80905,8 @@ MonoBehaviour:
   folder: {fileID: 716798240}
   uiMainFolder: {fileID: 1572891981}
   uiSubFolder: {fileID: 85702624}
-  uiToHide1: {fileID: 374284107}
-  uiToHide2: {fileID: 14377923}
+  TimeScores: {fileID: 1145837436}
+  QuestWindow: {fileID: 14377923}
   playerMovementScript: {fileID: 1445580036}
   playerLookScript: {fileID: 3969205}
   startPosition: {fileID: 370421025}
@@ -88721,7 +88772,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143691344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -89868,4 +89919,4 @@ SceneRoots:
   - {fileID: 581222751}
   - {fileID: 301199010}
   - {fileID: 741042965}
-  - {fileID: 1130819127}
+  - {fileID: 1140664672}

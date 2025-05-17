@@ -73,6 +73,13 @@ public class AlisonSwab : MonoBehaviour
             {
                 Debug.Log($"Swab successful: {swabActions[currentSwabIndex].swabDescription}");
 
+                if (currentSwabIndex >= swabActions.Count)
+                {
+                    Debug.LogWarning("No more swabs available. Skipping GiveTube.");
+                    return;
+                }
+
+
                 // Give the tube to the player upon a successful swab
                 pneumaticTubeManager.GiveTube(playerMainCamera.transform);
 
@@ -118,6 +125,11 @@ public class AlisonSwab : MonoBehaviour
         {
             swabAction.swabCamera.SetActive(false);
         }
+        if (swabActions[currentSwabIndex].swabCamera == null)
+        {
+            Debug.LogError($"Swab camera missing for swab index {currentSwabIndex}!");
+            return;
+        }
 
         swabActions[currentSwabIndex].swabCamera.SetActive(true);
     }
@@ -141,7 +153,16 @@ public class AlisonSwab : MonoBehaviour
     {
         questGiver.QuestComplete();
         currentSwabIndex++;
+
+        if (currentSwabIndex >= swabActions.Count)
+        {
+            Debug.Log("All swabs completed, ending interaction.");
+            interacting = false;
+            EndInteraction();
+        }
     }
+
+
 
     public void EndInteraction()
     {

@@ -29,10 +29,17 @@ public class PneumaticListener : MonoBehaviour
 
     public void SetPneumaticTube(PneumaticTube newTube)
     {
+        if (newTube == null)
+        {
+            Debug.LogWarning("SetPneumaticTube was passed a null reference.");
+            return;
+        }
+
         UnsubscribeFromPneumaticTube();
         pneumaticTube = newTube;
         SubscribeToPneumaticTube();
     }
+
 
     private void SubscribeToPneumaticTube()
     {
@@ -49,12 +56,23 @@ public class PneumaticListener : MonoBehaviour
 
     private void HandleTubeGiven()
     {
-        lastActivatedObject?.SetActive(false);
+        if (activationCount >= activationObjects.Count)
+        {
+            Debug.LogWarning($"PneumaticListener: No more activation objects to assign (index {activationCount}).");
+            return;
+        }
+
+        if (lastActivatedObject != null)
+        {
+            lastActivatedObject.SetActive(false);
+        }
 
         lastActivatedObject = activationObjects[activationCount];
         lastActivatedObject.SetActive(true);
+
         activationCount++;
     }
+
 
     private void HandleTubeUsed()
     {

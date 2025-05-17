@@ -71,10 +71,12 @@ public class VideoDoor : MonoBehaviour
             }
         }
 
+        /*
         if (!isPaused && Input.GetKeyDown(KeyCode.BackQuote) && activeVideoPlayer != null && activeVideoPlayer.isPlaying)
         {
             SkipToEnd();
         }
+        */
     }
 
     private void OnTriggerEnter(Collider other)

@@ -11,8 +11,8 @@ public class AdminFolder : MonoBehaviour
     public GameObject uiSubFolder;
 
     [Header("Additional UI Elements to Hide")]
-    public GameObject uiToHide1;
-    public GameObject uiToHide2;
+    public GameObject TimeScores;
+    public GameObject QuestWindow;
 
     [Header("Player Components")]
     public MonoBehaviour playerMovementScript;
@@ -176,15 +176,71 @@ public class AdminFolder : MonoBehaviour
 
     private void HideUIElements()
     {
-        if (uiToHide1 != null) uiToHide1.SetActive(false);
-        if (uiToHide2 != null) uiToHide2.SetActive(false);
+        if (TimeScores != null)
+        {
+            CanvasGroup cg = TimeScores.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                Debug.Log("Hiding TimeScores via CanvasGroup");
+                cg.alpha = 0f;
+                cg.interactable = false;
+                cg.blocksRaycasts = false;
+            }
+            else
+            {
+                Debug.LogWarning("CanvasGroup missing on TimeScores.");
+            }
+        }
+
+
+        if (QuestWindow != null)
+        {
+            CanvasGroup cg = QuestWindow.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                Debug.Log("Hiding QuestWindow via CanvasGroup");
+                cg.alpha = 0f;
+                cg.interactable = false;
+                cg.blocksRaycasts = false;
+            }
+            else
+            {
+                Debug.LogWarning("CanvasGroup missing on QuestWindow.");
+            }
+        }
     }
+
+
 
     private void ShowUIElements()
     {
-        if (uiToHide1 != null) uiToHide1.SetActive(true);
-        if (uiToHide2 != null) uiToHide2.SetActive(true);
+        if (TimeScores != null)
+        {
+            CanvasGroup cg = TimeScores.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                Debug.Log("Showing TimeScores via CanvasGroup");
+                cg.alpha = 1f;
+                cg.interactable = true;
+                cg.blocksRaycasts = true;
+            }
+        }
+
+        if (QuestWindow != null)
+        {
+            CanvasGroup cg = QuestWindow.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                Debug.Log("Showing QuestWindow via CanvasGroup");
+                cg.alpha = 1f;
+                cg.interactable = true;
+                cg.blocksRaycasts = true;
+            }
+        }
     }
+
+
+
 
     private void DisablePlayerControl()
     {

@@ -18,14 +18,23 @@ public class FinalResultsRecorder : MonoBehaviour
     public enum SceneType { None, Pre, Main, Post }
     [SerializeField] private SceneType currentScene = SceneType.None;
 
-    void Awake()
+    private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject); // Prevent duplicates
+        }
     }
 
     private void OnDestroy()
     {
-        Instance = null;
+        if (Instance == this)
+            Instance = null;
     }
 
     void Update()
@@ -36,8 +45,36 @@ public class FinalResultsRecorder : MonoBehaviour
         }
     }
 
+    public static void EnsureInstance()
+    {
+        if (Instance == null)
+        {
+            var existing = FindObjectOfType<FinalResultsRecorder>();
+            if (existing != null)
+            {
+                Instance = existing;
+                DontDestroyOnLoad(existing.gameObject);
+            }
+            else
+            {
+                var prefab = Resources.Load<FinalResultsRecorder>("FinalResultsRecorder");
+                if (prefab != null)
+                {
+                    var obj = Instantiate(prefab);
+                    obj.name = "FinalResultsRecorder (Runtime)";
+                }
+                else
+                {
+                    Debug.LogWarning("FinalResultsRecorder prefab not found in Resources.");
+                }
+            }
+        }
+    }
+
     public void StartTracking(string sceneIdentifier)
     {
+        EnsureInstance();
+
         isTracking = true;
         sceneTimer = 0f;
 
@@ -49,6 +86,8 @@ public class FinalResultsRecorder : MonoBehaviour
 
     public void StopTrackingAndSave(int finalScore)
     {
+        EnsureInstance();
+
         isTracking = false;
 
         switch (currentScene)

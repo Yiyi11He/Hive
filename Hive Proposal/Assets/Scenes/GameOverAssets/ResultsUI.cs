@@ -26,10 +26,18 @@ public class ResultsUI : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
 
-    
 
     private void Start()
     {
+        StartCoroutine(WaitForResultsManagerThenStart());
+    }
+
+    private IEnumerator WaitForResultsManagerThenStart()
+    {
+        // Wait until ResultsManager.Instance is not null
+        while (ResultsManager.Instance == null)
+            yield return null;
+
         StartCoroutine(AnimateAllResults());
     }
 

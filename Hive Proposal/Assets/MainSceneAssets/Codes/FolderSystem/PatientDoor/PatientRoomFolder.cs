@@ -12,8 +12,8 @@ public class PatientRoomFolder : MonoBehaviour
     public GameObject uiSubFolder;  // The UI subfolder (GPReferral UI or ProgressNotes UI)
 
     [Header("Additional UI Elements to Hide")]
-    public GameObject uiToHide1; // UI element that should hide when UI mode is active
-    public GameObject uiToHide2; // Another UI element to hide when UI mode is active
+    public GameObject TimerScores; // UI element that should hide when UI mode is active
+    public GameObject QuestWindow; // Another UI element to hide when UI mode is active
 
     [Header("Player Components")]
     public MonoBehaviour playerMovementScript; // Reference to the player's movement script
@@ -49,7 +49,7 @@ public class PatientRoomFolder : MonoBehaviour
             uiSubFolder.SetActive(false); 
         }
 
-        ShowUIElements();
+        HideUIElements();
 
 
         EnablePlayerControl();
@@ -209,29 +209,66 @@ public class PatientRoomFolder : MonoBehaviour
 
     private void HideUIElements()
     {
-        if (uiToHide1 != null)
+        if (TimerScores != null)
         {
-            uiToHide1.SetActive(false);
+            CanvasGroup cg = TimerScores.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                Debug.Log("Hiding TimerScores via CanvasGroup");
+                cg.alpha = 0f;
+                cg.interactable = false;
+                cg.blocksRaycasts = false;
+            }
+            else
+            {
+                Debug.LogWarning("CanvasGroup missing on TimerScores.");
+            }
         }
 
-        if (uiToHide2 != null)
+        if (QuestWindow != null)
         {
-            uiToHide2.SetActive(false);
+            CanvasGroup cg = QuestWindow.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                Debug.Log("Hiding QuestWindow via CanvasGroup");
+                cg.alpha = 0f;
+                cg.interactable = false;
+                cg.blocksRaycasts = false;
+            }
+            else
+            {
+                Debug.LogWarning("CanvasGroup missing on QuestWindow.");
+            }
         }
     }
-
     private void ShowUIElements()
     {
-        if (uiToHide1 != null)
+        if (TimerScores != null)
         {
-            uiToHide1.SetActive(true);
+            CanvasGroup cg = TimerScores.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                Debug.Log("Showing TimerScores via CanvasGroup");
+                cg.alpha = 1f;
+                cg.interactable = true;
+                cg.blocksRaycasts = true;
+            }
         }
 
-        if (uiToHide2 != null)
+        if (QuestWindow != null)
         {
-            uiToHide2.SetActive(true);
+            CanvasGroup cg = QuestWindow.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                Debug.Log("Showing QuestWindow via CanvasGroup");
+                cg.alpha = 1f;
+                cg.interactable = true;
+                cg.blocksRaycasts = true;
+            }
         }
     }
+
+
 
     private void DisablePlayerControl()
     {

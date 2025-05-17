@@ -60,9 +60,11 @@ public class QuestGiver : MonoBehaviour
 
         quest.isActive = true;
 
-
         if (currentQuestIndex == lastShownQuestIndex)
         {
+            if (questWindow != null && !questWindow.activeSelf)
+                questWindow.SetActive(true); 
+
             ShowQuestImmediately(quest);
             return;
         }
@@ -70,13 +72,22 @@ public class QuestGiver : MonoBehaviour
         lastShownQuestIndex = currentQuestIndex;
 
 
-        if (questAudioSource != null && newQuestSound != null)
+        if (questAudioSource != null && questAudioSource.enabled &&
+            questAudioSource.gameObject.activeInHierarchy && newQuestSound != null)
         {
             questAudioSource.PlayOneShot(newQuestSound);
         }
 
-        if (questWindow != null && questAnimator != null && questWindow.activeSelf)
+
+        if (questWindow != null && questAnimator != null)
         {
+            if (!questWindow.activeSelf)
+                questWindow.SetActive(true);
+
+
+            questAnimator.ResetTrigger("Fade");
+            questAnimator.SetTrigger("Fade");
+
             StartCoroutine(AnimateQuestTransition(quest));
         }
         else
@@ -84,6 +95,7 @@ public class QuestGiver : MonoBehaviour
             ShowQuestImmediately(quest);
         }
     }
+
 
 
 

@@ -24,5 +24,8 @@ public enum GoalType
     Leave,
 
     //tutorial stage
-    MoveLocation
+    MoveLocation,
+    CubeInteract,
+    PenguinInteract,
+    DoorProgress
 }
